@@ -1,11 +1,212 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import { glyphs } from "../data/glyphs";
+import GlyphCard from "../components/GlyphCard.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const total = glyphs.length;
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Codex of Hieroglyphs</title>
+  </head>
+
+  <body>
+    <main class="wrap">
+      <header class="hero">
+        <div class="title">
+          <h1>Codex of Hieroglyphs</h1>
+          <p class="sub">Explorer grid + fast filter. (We’ll add detail pages + favorites next.)</p>
+        </div>
+
+        <div class="controls">
+          <label class="search">
+            <span>Search</span>
+            <input id="q" type="search" placeholder="ID, name, category, meaning…" autocomplete="off" />
+          </label>
+
+          <div class="stats">
+            <span id="count">{total}</span> / {total}
+          </div>
+        </div>
+      </header>
+
+      <section class="grid" id="grid">
+        {glyphs.map((g) => <GlyphCard glyph={g} />)}
+      </section>
+
+      <dialog id="modal" class="modal">
+        <form method="dialog" class="modal-inner">
+          <div class="modal-head">
+            <div>
+              <div id="mId" class="mId"></div>
+              <div id="mName" class="mName"></div>
+              <div id="mCat" class="mCat"></div>
+            </div>
+            <button class="close" value="close" aria-label="Close">✕</button>
+          </div>
+
+          <div class="mCode" id="mCode" aria-hidden="true"></div>
+          <div class="mMeaning" id="mMeaning"></div>
+
+          <div class="modal-actions">
+            <button value="close" class="secondary">Close</button>
+          </div>
+        </form>
+      </dialog>
+    </main>
+
+    <script>
+      const q = document.getElementById("q");
+      const grid = document.getElementById("grid");
+      const count = document.getElementById("count");
+
+      const modal = document.getElementById("modal");
+      const mId = document.getElementById("mId");
+      const mName = document.getElementById("mName");
+      const mCat = document.getElementById("mCat");
+      const mCode = document.getElementById("mCode");
+      const mMeaning = document.getElementById("mMeaning");
+
+      const cards = Array.from(grid.querySelectorAll(".card"));
+
+      function norm(s){ return (s || "").toString().toLowerCase(); }
+
+      function applyFilter(){
+        const term = norm(q.value).trim();
+        let visible = 0;
+
+        for(const el of cards){
+          const hay =
+            norm(el.dataset.id) + " " +
+            norm(el.dataset.name) + " " +
+            norm(el.dataset.category) + " " +
+            norm(el.dataset.meaning);
+
+          const ok = term === "" || hay.includes(term);
+          el.style.display = ok ? "" : "none";
+          if(ok) visible++;
+        }
+        count.textContent = String(visible);
+      }
+
+      q.addEventListener("input", applyFilter);
+
+      grid.addEventListener("click", (e) => {
+        const btn = e.target.closest('[data-action="open"]');
+        if(!btn) return;
+        const card = btn.closest(".card");
+        if(!card) return;
+
+        mId.textContent = card.dataset.id || "";
+        mName.textContent = card.dataset.name || "";
+        mCat.textContent = card.dataset.category || "";
+        mMeaning.textContent = card.dataset.meaning ? ("Meaning: " + card.dataset.meaning) : "";
+
+        // pull the visible glyph character from the card
+        const codeEl = card.querySelector(".code");
+        mCode.textContent = codeEl ? codeEl.textContent : "";
+
+        modal.showModal();
+      });
+
+      applyFilter();
+    </script>
+
+    <style>
+      :root{ color-scheme: dark; }
+      body{
+        margin:0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+        background: #0b0e14;
+        color: rgba(255,255,255,.92);
+      }
+      .wrap{ max-width:1100px; margin:0 auto; padding:24px 14px 60px; }
+      .hero{
+        display:flex;
+        align-items:flex-end;
+        justify-content:space-between;
+        gap:18px;
+        padding:18px 16px;
+        border:1px solid rgba(255,255,255,.10);
+        border-radius:18px;
+        background: rgba(255,255,255,.03);
+      }
+      .title h1{ margin:0; font-size:26px; letter-spacing:.2px; }
+      .sub{ margin:6px 0 0; opacity:.78; font-size:13px; }
+      .controls{ display:flex; align-items:flex-end; gap:14px; }
+      .search{ display:flex; flex-direction:column; gap:6px; font-size:12px; opacity:.9; }
+      .search input{
+        width:320px;
+        max-width:55vw;
+        padding:10px 12px;
+        border-radius:12px;
+        border:1px solid rgba(255,255,255,.14);
+        background: rgba(255,255,255,.06);
+        color: inherit;
+        outline: none;
+      }
+      .search input:focus{ border-color: rgba(255,255,255,.24); }
+      .stats{ font-size:12px; opacity:.85; padding-bottom:4px; }
+
+      .grid{
+        margin-top:16px;
+        display:grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap:12px;
+      }
+
+      .modal{
+        border:none;
+        padding:0;
+        background: transparent;
+      }
+      .modal::backdrop{ background: rgba(0,0,0,.55); }
+      .modal-inner{
+        width:min(680px, 92vw);
+        border:1px solid rgba(255,255,255,.16);
+        border-radius:18px;
+        background: #0b0e14;
+        padding:16px;
+        color: rgba(255,255,255,.92);
+      }
+      .modal-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+      .close{
+        border:1px solid rgba(255,255,255,.14);
+        background: rgba(255,255,255,.06);
+        color: inherit;
+        border-radius:12px;
+        padding:8px 10px;
+        cursor:pointer;
+      }
+      .mId{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:12px; opacity:.85; }
+      .mName{ font-size:18px; font-weight:800; margin-top:2px; }
+      .mCat{ font-size:12px; opacity:.75; margin-top:2px; }
+      .mCode{
+        margin:14px 0 10px;
+        font-size:72px;
+        line-height:1;
+        width:100%;
+        text-align:center;
+      }
+      .mMeaning{ font-size:14px; opacity:.9; }
+      .modal-actions{ display:flex; justify-content:flex-end; margin-top:16px; }
+      .secondary{
+        border:1px solid rgba(255,255,255,.14);
+        background: rgba(255,255,255,.06);
+        color: inherit;
+        border-radius:12px;
+        padding:10px 12px;
+        cursor:pointer;
+        font-weight:600;
+      }
+
+      @media (max-width: 720px){
+        .hero{ flex-direction:column; align-items:stretch; }
+        .controls{ justify-content:space-between; }
+        .search input{ width:100%; max-width:100%; }
+      }
+    </style>
+  </body>
+</html>

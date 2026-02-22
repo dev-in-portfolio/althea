@@ -1,0 +1,69 @@
+---
+const { glyph } = Astro.props;
+
+const id = glyph?.id ?? "";
+const code = glyph?.code ?? "";
+const name = glyph?.name ?? "";
+const category = glyph?.category ?? "";
+const meaning = glyph?.meaning ?? "";
+---
+
+<article class="card" data-id={id} data-name={name} data-category={category} data-meaning={meaning}>
+  <div class="top">
+    <div class="code" aria-hidden="true">{code}</div>
+    <div class="meta">
+      <div class="id">{id}</div>
+      <div class="name">{name}</div>
+      <div class="category">{category}</div>
+    </div>
+  </div>
+
+  {meaning && <div class="meaning">{meaning}</div>}
+
+  <button class="btn" type="button" data-action="open" aria-label={`Open ${id} ${name}`}>
+    Open
+  </button>
+</article>
+
+<style>
+  .card{
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:14px;
+    padding:14px;
+    background: rgba(255,255,255,.03);
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    transition: transform .12s ease, background .12s ease, border-color .12s ease;
+  }
+  .card:hover{ transform: translateY(-1px); background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.18); }
+  .top{ display:flex; gap:12px; align-items:flex-start; }
+  .code{
+    font-size:42px;
+    line-height:1;
+    width:56px;
+    height:56px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:12px;
+    background: rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.10);
+  }
+  .meta{ display:flex; flex-direction:column; gap:2px; }
+  .id{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:12px; opacity:.85; }
+  .name{ font-size:16px; font-weight:700; }
+  .category{ font-size:12px; opacity:.75; }
+  .meaning{ font-size:13px; opacity:.9; }
+  .btn{
+    margin-top:auto;
+    border:1px solid rgba(255,255,255,.14);
+    background: rgba(255,255,255,.06);
+    color: inherit;
+    border-radius:12px;
+    padding:10px 12px;
+    cursor:pointer;
+    font-weight:600;
+  }
+  .btn:hover{ background: rgba(255,255,255,.09); }
+</style>
