@@ -151,24 +151,25 @@
         </form>
       </dialog>
 
-      <div id="reviewBar" class="review-bar navBottom" aria-hidden="true">
-        <div class="review-info">
-          <div class="review-glyph glyph" id="rCode"></div>
-          <div>
-            <div class="review-name" id="rName"></div>
-            <div class="review-meta" id="rMeta"></div>
-          </div>
-        </div>
-        <div class="review-actions">
-          <button class="btn ghost" id="rPrev">Prev</button>
-          <button class="btn" id="rNext">Next</button>
-          <button class="btn ghost" id="rRand">Random</button>
-          <button class="btn" id="rExit">Exit</button>
+    </main>
+
+    <div id="reviewBar" class="review-bar navBottom" aria-hidden="true">
+      <div class="review-info">
+        <div class="review-glyph glyph" id="rCode"></div>
+        <div>
+          <div class="review-name" id="rName"></div>
+          <div class="review-meta" id="rMeta"></div>
         </div>
       </div>
+      <div class="review-actions">
+        <button class="btn ghost" id="rPrev">Prev</button>
+        <button class="btn" id="rNext">Next</button>
+        <button class="btn ghost" id="rRand">Random</button>
+        <button class="btn" id="rExit">Exit</button>
+      </div>
+    </div>
 
-      <div class="toast" id="toast" aria-live="polite"></div>
-    </main>
+    <div class="toast" id="toast" aria-live="polite"></div>
 
     <script type="module">
       const q = document.getElementById("q");
@@ -406,11 +407,43 @@
           card.appendChild(meta);
           card.appendChild(lines);
           card.appendChild(actions);
+          stripUnexpectedGlyphs(card);
           fragment.appendChild(card);
         });
         grid.appendChild(fragment);
         updateFavUI();
         applyFilter();
+      }
+
+      function stripUnexpectedGlyphs(card){
+        const ranges = [
+          [0x13000, 0x1342f],
+          [0x13460, 0x1347f],
+        ];
+        const hasGlyph = (text) => {
+          for(const ch of text){
+            const cp = ch.codePointAt(0);
+            if(ranges.some(([a,b]) => cp >= a && cp <= b)) return true;
+          }
+          return false;
+        };
+        const stripGlyphs = (text) => {
+          let out = "";
+          for(const ch of text){
+            const cp = ch.codePointAt(0);
+            if(ranges.some(([a,b]) => cp >= a && cp <= b)) continue;
+            out += ch;
+          }
+          return out;
+        };
+        const nodes = Array.from(card.querySelectorAll("*"));
+        nodes.forEach((el) => {
+          if(el.classList.contains("glyph")) return;
+          if(!el.textContent) return;
+          if(hasGlyph(el.textContent)){
+            el.textContent = stripGlyphs(el.textContent);
+          }
+        });
       }
 
       function buildCategoryList(){
@@ -939,10 +972,10 @@
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.2s ease;
-        z-index: 9999;
-        width:auto !important;
-        box-sizing:border-box !important;
         z-index:9999 !important;
+        width:auto !important;
+        max-width: none !important;
+        box-sizing:border-box !important;
       }
       .review-bar.open{
         opacity: 1;
