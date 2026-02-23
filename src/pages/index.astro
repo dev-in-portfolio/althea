@@ -171,7 +171,6 @@
           <div class="detail-actions">
             <button type="button" class="btn" id="debugCopyInline">Copy Debug</button>
             <button type="button" class="btn ghost" id="debugHighlightFixed">Highlight Fixed</button>
-            <button type="button" class="btn ghost" id="debugViewport">Viewport Overlay</button>
           </div>
         </div>
       </form>
@@ -198,7 +197,6 @@
       const debugContent = document.getElementById("debugContent");
       const debugCopyInline = document.getElementById("debugCopyInline");
       const debugHighlightFixed = document.getElementById("debugHighlightFixed");
-      const debugViewport = document.getElementById("debugViewport");
 
       const detailModal = document.getElementById("detailModal");
       const mId = document.getElementById("mId");
@@ -692,10 +690,6 @@
             showToast("Fixed cleared");
           }
         });
-        debugViewport.addEventListener("click", () => {
-          const toggled = document.documentElement.classList.toggle("debug-viewport");
-          showToast(toggled ? "Viewport overlay on" : "Viewport overlay off");
-        });
 
 
         detailModal.addEventListener("click", (e) => {
@@ -1053,14 +1047,6 @@
         max-height:50vh;
         overflow:auto;
         max-width:100%;
-      }
-      .debug-viewport::before{
-        content:"";
-        position: fixed;
-        inset:0;
-        background: rgba(0,255,0,0.08);
-        pointer-events:none;
-        z-index:9999;
       }
       .debug-fixed [data-fixed="true"]{
         outline: 3px solid #e53935 !important;
