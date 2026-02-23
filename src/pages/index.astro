@@ -171,6 +171,7 @@
           <div class="detail-actions">
             <button type="button" class="btn" id="debugCopyInline">Copy Debug</button>
             <button type="button" class="btn ghost" id="debugHighlightFixed">Highlight Fixed</button>
+            <button type="button" class="btn ghost" id="debugHighlightLayers">Highlight Layers</button>
           </div>
         </div>
       </form>
@@ -197,6 +198,7 @@
       const debugContent = document.getElementById("debugContent");
       const debugCopyInline = document.getElementById("debugCopyInline");
       const debugHighlightFixed = document.getElementById("debugHighlightFixed");
+      const debugHighlightLayers = document.getElementById("debugHighlightLayers");
 
       const detailModal = document.getElementById("detailModal");
       const mId = document.getElementById("mId");
@@ -690,6 +692,10 @@
             showToast("Fixed cleared");
           }
         });
+        debugHighlightLayers.addEventListener("click", () => {
+          const toggled = document.documentElement.classList.toggle("debug-layers");
+          showToast(toggled ? "Layers highlighted" : "Layers cleared");
+        });
 
 
         detailModal.addEventListener("click", (e) => {
@@ -1051,6 +1057,23 @@
         outline: 3px solid #e53935 !important;
         outline-offset: 2px;
         background: rgba(229,57,53,0.08) !important;
+      }
+      .debug-layers body{
+        background: #f4ecd8 !important;
+        background-image: none !important;
+      }
+      .debug-layers body::after{ display:none !important; }
+      .debug-layers .wrap{ outline: 3px solid #00c853 !important; }
+      .debug-layers .hero{ outline: 3px solid #ff6d00 !important; }
+      .debug-layers .grid{ outline: 3px solid #2962ff !important; }
+      .debug-layers::after{
+        content:"";
+        position: fixed;
+        left:0; right:0; bottom:0;
+        height:24px;
+        background: rgba(255,0,0,0.35);
+        pointer-events:none;
+        z-index:9999;
       }
 
 
