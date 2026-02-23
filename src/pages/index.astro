@@ -157,6 +157,7 @@
     </main>
 
     <div class="toast" id="toast" aria-live="polite"></div>
+    <div class="bottom-cover" aria-hidden="true"></div>
 
     <dialog id="debugPanel" class="modal">
       <form method="dialog" class="modal-inner">
@@ -1057,6 +1058,17 @@
 
 
       .toast{ display:none !important; }
+
+      .bottom-cover{
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: calc(64px + env(safe-area-inset-bottom, 0px));
+        background: var(--paper);
+        pointer-events: none;
+        z-index: 9998;
+      }
 
       /* HARD STOP: kill any decorative margin glyphs */
       .card::before,
