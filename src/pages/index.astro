@@ -425,56 +425,6 @@
         grid.appendChild(fragment);
         updateFavUI();
         applyFilter();
-
-        const firstCard = grid.querySelector(".card");
-        if(firstCard && !firstCard.dataset.debugScanned){
-          firstCard.dataset.debugScanned = "true";
-          logGlyphSources(firstCard);
-        }
-      }
-
-      function logGlyphSources(card){
-        const ranges = [
-          [0x13000, 0x1342f],
-          [0x13460, 0x1347f],
-        ];
-        const hasGlyph = (text) => {
-          for(const ch of text){
-            const cp = ch.codePointAt(0);
-            if(ranges.some(([a,b]) => cp >= a && cp <= b)) return true;
-          }
-          return false;
-        };
-        const mark = (el, label) => {
-          const tag = el.tagName.toLowerCase();
-          console.log(`[glyph-debug] ${label}: <${tag}>.${el.className || ""}`, el);
-          el.style.outline = "2px solid #ff00aa";
-          el.style.outlineOffset = "2px";
-          el.style.background = "rgba(255,0,170,0.08)";
-        };
-        const walker = document.createTreeWalker(
-          card,
-          NodeFilter.SHOW_TEXT,
-          {
-            acceptNode(node){
-              if(!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
-              const parent = node.parentElement;
-              if(parent && parent.closest(".glyph")) return NodeFilter.FILTER_REJECT;
-              return NodeFilter.FILTER_ACCEPT;
-            }
-          }
-        );
-        while(walker.nextNode()){
-          const node = walker.currentNode;
-          if(hasGlyph(node.nodeValue)){
-            const el = node.parentElement;
-            if(el) mark(el, "text-node");
-          }
-        }
-        const svg = card.querySelectorAll("svg");
-        svg.forEach((el) => mark(el, "svg"));
-        const img = card.querySelectorAll("img");
-        img.forEach((el) => mark(el, "img"));
       }
 
       function stripUnexpectedGlyphs(card){
