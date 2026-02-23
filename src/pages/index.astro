@@ -793,13 +793,13 @@
           repeating-linear-gradient(0deg, rgba(0,0,0,0.02), rgba(0,0,0,0.02) 1px, transparent 1px, transparent 3px),
           repeating-linear-gradient(90deg, rgba(0,0,0,0.015), rgba(0,0,0,0.015) 1px, transparent 1px, transparent 4px);
         overflow-x: hidden;
-        padding-bottom: 24px;
+        padding-bottom: 0;
       }
       body::after{ display:none; }
       .wrap{
         max-width:1200px;
         margin:0 auto;
-        padding:20px 18px calc(24px + 96px + env(safe-area-inset-bottom, 0px));
+        padding:20px 18px 24px;
         height:100vh;
         display:flex;
         flex-direction:column;
