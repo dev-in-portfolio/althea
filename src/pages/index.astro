@@ -841,19 +841,26 @@
       }
       .pill[aria-pressed="true"]{ background: var(--accent); color:#fef6e9; border-color: var(--accent); }
       .card .card-pill{
-        padding:7px 14px;
+        padding:8px 16px;
         font-size:11px;
-        letter-spacing:0.03em;
+        letter-spacing:0.04em;
+        background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(231,220,194,0.92));
+        border:1px solid rgba(46,36,24,0.35);
+        box-shadow: 0 6px 14px rgba(46,36,24,0.12), inset 0 0 0 1px rgba(255,255,255,0.6);
       }
       .card .fav{
-        padding:6px 10px;
+        padding:8px 12px;
         font-size:12px;
         text-transform:none;
+        border-radius:999px;
       }
       .card .fav.active{
         background: var(--accent);
         color:#fef6e9;
         border-color: var(--accent);
+      }
+      .card .card-pill:hover{
+        transform: translateY(-1px);
       }
 
       .grid{
