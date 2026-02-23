@@ -46,6 +46,14 @@ const CANDIDATE_FILES = {
   ramses: [
     path.join(ROOT, "data", "RamsesTrainingSetModel.json")
   ],
+  aedSpellings: [
+    path.join(ROOT, "data", "aed_spellings.html"),
+    path.join(ROOT, "sources_user", "aed_spellings.html")
+  ],
+  aedTranslations: [
+    path.join(ROOT, "data", "aed_word_translations.html"),
+    path.join(ROOT, "sources_user", "aed_word_translations.html")
+  ],
   juheapi: [
     path.join(ROOT, "data", "juheapi-egyptian-hieroglyphs.json")
   ],
@@ -156,6 +164,15 @@ const SOURCES = {
     license: "CC BY 4.0",
     howUsed: "transliteration vocabulary reference",
     defaultPointer: "RamsesTrainingSetModel.json"
+  },
+  aed: {
+    sourceRefId: "aed_dictionary",
+    title: "Ancient Egyptian Dictionary (AED) lists",
+    author: "Simon D. Schweitzer",
+    year: "2021",
+    license: "CC BY-SA 4.0",
+    howUsed: "word-level translations and spellings",
+    defaultPointer: "aed_spellings.html / aed_word_translations.html"
   },
   juheapi: {
     sourceRefId: "juheapi_images",
@@ -385,6 +402,69 @@ function stripWiki(text){
     .trim();
 }
 
+function stripHtml(text){
+  if(!text) return "";
+  return text
+    .replace(/<canvas[^>]*>[\s\S]*?<\/canvas>/gi, " ")
+    .replace(/<span[^>]*>/gi, " ")
+    .replace(/<\/span>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&#x[0-9a-fA-F]+;?/g, " ")
+    .replace(/&thinsp;|&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function parseElrcLongDesc(html){
+  if(!html) return { usages: [], translits: [], glosses: [] };
+  const translits = Array.from(html.matchAll(/<span\s+class="trans">([^<]+)<\/span>/gi)).map((m) => m[1].trim());
+  const glosses = Array.from(html.matchAll(/"([^"]{1,80})"/g)).map((m) => m[1].trim());
+  const items = html.match(/<li>[\s\S]*?<\/li>/gi) || [];
+  const usages = items.map((item) => {
+    let text = stripHtml(item);
+    text = text.replace(/\bExx?\.?[\s\S]*$/i, "").trim();
+    if(text.length > 140) text = text.slice(0, 137) + "…";
+    return text;
+  }).filter(Boolean);
+  return { usages, translits, glosses };
+}
+
+function mergeElrcRows(rows){
+  const merged = {
+    definitions: [],
+    letters: [],
+    biliterals: [],
+    soundCodes: [],
+    notes: [],
+    words: [],
+    longDescs: [],
+    name: null,
+    sectionName: null,
+    category: null,
+    gardiner: null
+  };
+  rows.forEach((row) => {
+    if(!merged.name && row.Name) merged.name = row.Name;
+    if(!merged.sectionName && row.SectionName) merged.sectionName = row.SectionName;
+    if(!merged.category && row.Category) merged.category = row.Category;
+    if(!merged.gardiner && row.gname) merged.gardiner = row.gname;
+
+    if(row.Definition) merged.definitions.push(row.Definition);
+    if(row.Letter) merged.letters.push(row.Letter);
+    if(row.Biliteral) merged.biliterals.push(row.Biliteral);
+    if(row.SoundCode) merged.soundCodes.push(row.SoundCode);
+    if(row.Note) merged.notes.push(row.Note);
+    if(row.Note2) merged.notes.push(row.Note2);
+    if(row.Word) merged.words.push(row.Word);
+    if(row.LongDesc) merged.longDescs.push(row.LongDesc);
+  });
+  return merged;
+}
+
 function parseGardinerWiki(text){
   if(!text) return { byGardiner: new Map(), byCodepoint: new Map() };
   const byGardiner = new Map();
@@ -580,6 +660,67 @@ function item(text){
   return { text };
 }
 
+function dedupeItems(items){
+  const seen = new Set();
+  return items.filter((it) => {
+    const key = (it?.text || "").trim().toLowerCase();
+    if(!key) return false;
+    if(seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function limitItems(items, max = 6){
+  if(!items || !items.length) return [];
+  return items.slice(0, max);
+}
+
+function parseAedSpellings(html){
+  if(!html) return new Map();
+  const map = new Map();
+  const blocks = html.split("<div class=\"entry_list\">").slice(1);
+  blocks.forEach((block) => {
+    const end = block.indexOf("</div>");
+    if(end === -1) return;
+    const body = block.slice(0, end);
+    const translits = Array.from(body.matchAll(/<a[^>]+>([^<]+)<\/a>/gi)).map((m) => m[1].trim()).filter(Boolean);
+    const cps = Array.from(body.matchAll(/&#x([0-9a-fA-F]+);/g)).map((m) => `U+${m[1].toUpperCase()}`);
+    if(!translits.length || !cps.length) return;
+    translits.forEach((t) => {
+      const existing = map.get(t) || new Set();
+      cps.forEach((cp) => existing.add(cp));
+      map.set(t, existing);
+    });
+  });
+  return map;
+}
+
+function parseAedTranslations(html){
+  if(!html) return new Map();
+  const map = new Map();
+  const blocks = html.split("<div class=\"entry_list\">").slice(1);
+  blocks.forEach((block) => {
+    const end = block.indexOf("</div>");
+    if(end === -1) return;
+    const body = block.slice(0, end);
+    const translits = Array.from(body.matchAll(/<a[^>]+>([^<]+)<\/a>/gi)).map((m) => m[1].trim()).filter(Boolean);
+    if(!translits.length) return;
+    const raw = body.replace(/<a[^>]+>[^<]+<\/a>/gi, "").replace(/<[^>]+>/g, "").trim();
+    const colonIdx = raw.indexOf(":");
+    if(colonIdx === -1) return;
+    let translation = raw.slice(0, colonIdx).trim();
+    translation = translation.replace(/^"+|"+$/g, "");
+    if(!translation) return;
+    translits.forEach((t) => {
+      const list = map.get(t) || [];
+      list.push(translation);
+      map.set(t, list);
+    });
+  });
+  return map;
+}
+
 function computeCompleteness(entry){
   const levels = {
     L1: Boolean(entry.codepoint?.hex),
@@ -625,6 +766,8 @@ async function main(){
   const ocrPath = firstExisting(CANDIDATE_FILES.gardinerOcr);
   const tlaPath = firstExisting(CANDIDATE_FILES.tla);
   const ramsesPath = firstExisting(CANDIDATE_FILES.ramses);
+  const aedSpellingsPath = firstExisting(CANDIDATE_FILES.aedSpellings);
+  const aedTranslationsPath = firstExisting(CANDIDATE_FILES.aedTranslations);
   const overridesPath = firstExisting(CANDIDATE_FILES.overrides);
 
   const unikemetMap = unikemetPath ? parseUnikemet(readText(unikemetPath)) : new Map();
@@ -640,8 +783,44 @@ async function main(){
   const ocrMap = ocrPath ? parseGardinerOcr(readText(ocrPath)) : new Map();
   const tlaExamples = parseTlaExamples(tlaPath, 2);
   const ramsesVocab = parseRamses(ramsesPath);
+  const aedSpellings = aedSpellingsPath ? parseAedSpellings(readText(aedSpellingsPath)) : new Map();
+  const aedTranslations = aedTranslationsPath ? parseAedTranslations(readText(aedTranslationsPath)) : new Map();
+  const aedMeaningByCodepoint = new Map();
+  const aedUsageByCodepoint = new Map();
 
-  const codepoints = new Set([...unikemetMap.keys(), ...unicodeMap.keys(), ...wiki.byCodepoint.keys(), ...tlaExamples.keys()]);
+  if(aedTranslations.size && aedSpellings.size){
+    for(const [translit, translations] of aedTranslations.entries()){
+      const cps = aedSpellings.get(translit);
+      if(!cps || !cps.size) continue;
+      cps.forEach((code) => {
+        const list = aedMeaningByCodepoint.get(code) || [];
+        translations.forEach((t) => list.push(t));
+        aedMeaningByCodepoint.set(code, list);
+      });
+    }
+  }
+
+  if(aedSpellings.size){
+    for(const [translit, cps] of aedSpellings.entries()){
+      const usageText = `AED spelling: ${translit}`;
+      cps.forEach((code) => {
+        const list = aedUsageByCodepoint.get(code) || [];
+        list.push(usageText);
+        aedUsageByCodepoint.set(code, list);
+      });
+    }
+  }
+
+  const codepoints = new Set([
+    ...unikemetMap.keys(),
+    ...unicodeMap.keys(),
+    ...wiki.byCodepoint.keys(),
+    ...tlaExamples.keys(),
+    ...elrc.mapByCodepoint.keys(),
+    ...elrcDict.mapByCodepoint.keys(),
+    ...elrcAeg.mapByCodepoint.keys(),
+    ...omnika.byCodepoint.keys()
+  ]);
 
   const signs = [];
   const needsResolution = [];
@@ -656,12 +835,21 @@ async function main(){
       wiki.byCodepoint.has(code);
     if(!isEgyptian) continue;
 
-    const elrcRow = elrc.mapByCodepoint.get(code) || elrcDict.mapByCodepoint.get(code) || elrcAeg.mapByCodepoint.get(code);
+    const elrcRows = [
+      elrc.mapByCodepoint.get(code),
+      elrcDict.mapByCodepoint.get(code),
+      elrcAeg.mapByCodepoint.get(code)
+    ].filter(Boolean);
+    const elrcMerged = mergeElrcRows(elrcRows);
+    const elrcLongDesc = elrcMerged.longDescs.map((ld) => parseElrcLongDesc(ld));
+    const elrcLongDescUsages = elrcLongDesc.flatMap((ld) => ld.usages || []);
+    const elrcLongDescTranslits = elrcLongDesc.flatMap((ld) => ld.translits || []);
+    const elrcLongDescGlosses = elrcLongDesc.flatMap((ld) => ld.glosses || []);
     const omnikaRow = omnika.byCodepoint.get(code);
     const wikiRow = wiki.byCodepoint.get(code);
 
     let gardiner = normalizeGardiner(unikemet?.gardiner || "");
-    if(!gardiner && elrcRow?.gardiner) gardiner = elrcRow.gardiner;
+    if(!gardiner && elrcMerged?.gardiner) gardiner = elrcMerged.gardiner;
     if(!gardiner && omnikaRow?.gardiner) gardiner = omnikaRow.gardiner;
     if(!gardiner && wikiRow?.gardiner) gardiner = wikiRow.gardiner;
     const ocrRow = gardiner ? ocrMap.get(gardiner) : null;
@@ -675,20 +863,27 @@ async function main(){
 
     const unikemetPointer = unikemet?.sourceLines?.length ? `Unikemet.txt lines ${unikemet.sourceLines.slice(0,3).join(",")}` : SOURCES.unikemet.defaultPointer;
     const unicodePointer = unicode ? `UnicodeData.txt line ${unicode.line}` : SOURCES.unicodeData.defaultPointer;
-    const elrcPointer = elrcRow ? `ELRC row ${elrcRow.idx}` : SOURCES.elrc.defaultPointer;
+    const elrcPointer = elrcRows.length ? `ELRC rows ${elrcRows.map((r) => r.idx).filter(Boolean).slice(0,3).join(", ")}` : SOURCES.elrc.defaultPointer;
     const omnikaPointer = omnikaRow ? `omnika-gardiner.xlsx row ${omnikaRow.idx}` : SOURCES.omnika.defaultPointer;
     const wikiPointer = wikiRow ? `gardiner2unicode.wiki ${wikiRow.gardiner || code}` : SOURCES.wikipedia.defaultPointer;
 
     const descriptionText =
       unikemet?.desc ||
       omnikaRow?.description ||
-      elrcRow?.name ||
+      elrcMerged?.name ||
+      elrcMerged?.sectionName ||
       wikiRow?.desc ||
       ocrRow?.desc ||
       (unicode?.name ? unicode.name.replace(/EGYPTIAN HIEROGLYPH /g, "") : null);
 
     const meanings = [];
-    if(elrcRow?.definition) splitMeaning(elrcRow.definition).forEach((m) => {
+    elrcMerged.definitions.forEach((def) => {
+      splitMeaning(def).forEach((m) => {
+        const cleaned = cleanToken(m);
+        if(cleaned) meanings.push(item(cleaned));
+      });
+    });
+    if(elrcLongDescGlosses.length) elrcLongDescGlosses.forEach((m) => {
       const cleaned = cleanToken(m);
       if(cleaned) meanings.push(item(cleaned));
     });
@@ -706,20 +901,36 @@ async function main(){
         if(cleaned) meanings.push(item(cleaned));
       });
     }
+    if(unikemet?.funcs?.length){
+      unikemet.funcs.forEach((m) => {
+        const cleaned = cleanToken(m);
+        if(cleaned) meanings.push(item(cleaned));
+      });
+    }
+    if(aedMeaningByCodepoint.has(code)){
+      aedMeaningByCodepoint.get(code).forEach((m) => {
+        const cleaned = cleanToken(m);
+        if(cleaned) meanings.push(item(cleaned));
+      });
+    }
 
     const transliterations = [];
-    if(elrcRow?.letter){
-      const cleaned = cleanToken(elrcRow.letter);
+    elrcMerged.letters.forEach((value) => {
+      const cleaned = cleanToken(value);
       if(cleaned) transliterations.push(item(cleaned));
-    }
-    if(elrcRow?.biliteral){
-      const cleaned = cleanToken(elrcRow.biliteral);
+    });
+    elrcMerged.biliterals.forEach((value) => {
+      const cleaned = cleanToken(value);
       if(cleaned) transliterations.push(item(cleaned));
-    }
-    if(elrcRow?.soundCode){
-      const cleaned = cleanToken(elrcRow.soundCode);
+    });
+    elrcMerged.soundCodes.forEach((value) => {
+      const cleaned = cleanToken(value);
       if(cleaned) transliterations.push(item(cleaned));
-    }
+    });
+    if(elrcLongDescTranslits.length) elrcLongDescTranslits.forEach((t) => {
+      const cleaned = cleanToken(t);
+      if(cleaned) transliterations.push(item(cleaned));
+    });
     if(wikiRow?.translits?.length) wikiRow.translits.forEach((t) => {
       const cleaned = cleanToken(t);
       if(cleaned) transliterations.push(item(cleaned));
@@ -734,6 +945,12 @@ async function main(){
         if(cleaned) transliterations.push(item(cleaned));
       });
     }
+    if(unikemet?.fvals?.length){
+      unikemet.fvals.forEach((t) => {
+        const cleaned = cleanToken(t);
+        if(cleaned) transliterations.push(item(cleaned));
+      });
+    }
 
     if(ramsesVocab.size){
       // no-op: sources stripped
@@ -744,13 +961,22 @@ async function main(){
     (unikemet?.fvals || []).forEach((f) => classifiers.push(item(f)));
 
     const notes = [];
-    if(elrcRow?.note) notes.push(item(elrcRow.note));
-    if(elrcRow?.note2) notes.push(item(elrcRow.note2));
-    if(elrcRow?.word) notes.push(item(elrcRow.word));
+    elrcMerged.notes.forEach((note) => {
+      const cleaned = cleanToken(note);
+      if(cleaned) notes.push(item(cleaned));
+    });
+    elrcMerged.words.forEach((word) => {
+      const cleaned = cleanToken(word);
+      if(cleaned) notes.push(item(cleaned));
+    });
     if(omnikaRow?.details) notes.push(item(omnikaRow.details));
     if(wikiRow?.notes) notes.push(item(wikiRow.notes));
 
-    const usage = (tlaExamples.get(code) || []).map((u) => ({ text: u.text }));
+    const usage = [
+      ...(tlaExamples.get(code) || []).map((u) => ({ text: u.text })),
+      ...elrcLongDescUsages.map((text) => ({ text })),
+      ...(aedUsageByCodepoint.get(code) || []).map((text) => ({ text }))
+    ];
 
     const sign = {
       id,
@@ -772,11 +998,11 @@ async function main(){
       description: {
         text: descriptionText
       },
-      meanings,
-      transliterations,
+      meanings: limitItems(dedupeItems(meanings), 10),
+      transliterations: dedupeItems(transliterations),
       classifiers,
-      usage,
-      notes,
+      usage: limitItems(dedupeItems(usage), 6),
+      notes: limitItems(dedupeItems(notes), 6),
       sources: [],
       missing: {
         unicodeName: unicode?.name ? null : missing("Not in UnicodeData.txt; update UnicodeData source", ["unicode_data"]),
