@@ -47,7 +47,6 @@
               <button class="pill" id="openReview">Review Mode</button>
               <button class="pill" id="randomGlyph">Random Glyph</button>
               <button class="pill" id="debugToggle" aria-pressed="false">Debug</button>
-              <button class="pill" id="debugCopy">Copy Debug</button>
             </div>
           </div>
         </section>
@@ -192,7 +191,6 @@
       const openReview = document.getElementById("openReview");
       const randomGlyph = document.getElementById("randomGlyph");
       const debugToggle = document.getElementById("debugToggle");
-      const debugCopy = document.getElementById("debugCopy");
       const toast = document.getElementById("toast");
       const debugPanel = document.getElementById("debugPanel");
       const debugContent = document.getElementById("debugContent");
@@ -629,17 +627,6 @@
           const info = collectDebugInfo();
           debugContent.textContent = JSON.stringify(info, null, 2);
           debugPanel.showModal();
-        });
-        debugCopy.addEventListener("click", async () => {
-          const info = collectDebugInfo();
-          const text = JSON.stringify(info, null, 2);
-          try{
-            await navigator.clipboard.writeText(text);
-            showToast("Debug copied");
-          }catch{
-            showToast("Copy failed");
-          }
-          console.log("[debug-copy]", info);
         });
         debugCopyInline.addEventListener("click", async () => {
           const text = debugContent.textContent || "";
