@@ -1,4 +1,4 @@
-# Codex of Hieroglyphs
+# (done) Codex of Hieroglyphs
 
 Local‑first Egyptian hieroglyph reference built with Astro. This repo includes a data ingestion pipeline that merges multiple public datasets into a single searchable index.
 
