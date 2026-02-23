@@ -28,18 +28,6 @@
             </div>
           </div>
 
-          <div class="panel-row scope">
-            <div class="scope-label">Scope</div>
-            <div class="scope-options" role="radiogroup" aria-label="Search scope">
-              <button type="button" class="seg active" data-scope="all" role="radio" aria-checked="true">All</button>
-              <button type="button" class="seg" data-scope="gardiner" role="radio" aria-checked="false">Gardiner</button>
-              <button type="button" class="seg" data-scope="unicode" role="radio" aria-checked="false">Unicode</button>
-              <button type="button" class="seg" data-scope="meaning" role="radio" aria-checked="false">Meaning</button>
-              <button type="button" class="seg" data-scope="transliteration" role="radio" aria-checked="false">Translit</button>
-              <button type="button" class="seg" data-scope="description" role="radio" aria-checked="false">Description</button>
-              <button type="button" class="seg" data-scope="category" role="radio" aria-checked="false">Category</button>
-            </div>
-          </div>
 
           <div class="panel-row actions">
             <div class="action-pills" role="group" aria-label="Quick actions">
@@ -182,9 +170,7 @@
       const grid = document.getElementById("grid");
       const count = document.getElementById("count");
       const total = document.getElementById("total");
-      const scopeButtons = Array.from(document.querySelectorAll(".seg"));
-      const scopeOptions = document.querySelector(".scope-options");
-      const scopeLabel = document.querySelector(".scope-label");
+      const scopeButtons = [];
       const openCategories = document.getElementById("openCategories");
       const categoryModal = document.getElementById("categoryModal");
       const categoryList = document.getElementById("categoryList");
@@ -376,25 +362,6 @@
 
       function setScope(scope){
         state.scope = scope;
-        scopeButtons.forEach((btn) => {
-          const active = btn.dataset.scope === scope;
-          btn.classList.toggle("active", active);
-          btn.setAttribute("aria-checked", String(active));
-        });
-        if(scopeLabel){
-          const label = scope === "all" ? "Scope" : `Scope: ${scope}`;
-          scopeLabel.textContent = label;
-        }
-        if(q){
-          const hint = scope === "gardiner" ? "Search Gardiner codes…"
-            : scope === "unicode" ? "Search Unicode names…"
-            : scope === "meaning" ? "Search meanings…"
-            : scope === "transliteration" ? "Search transliterations…"
-            : scope === "description" ? "Search descriptions…"
-            : scope === "category" ? "Search categories…"
-            : "Gardiner, Unicode name, meaning, transliteration…";
-          q.placeholder = hint;
-        }
         applyFilter();
       }
 
@@ -626,11 +593,6 @@
           applyFilter();
         });
 
-        scopeOptions?.addEventListener("click", (e) => {
-          const btn = e.target.closest(".seg");
-          if(!btn) return;
-          setScope(btn.dataset.scope);
-        });
 
         openCategories.addEventListener("click", () => categoryModal.showModal());
         catSearch.addEventListener("input", updateCategoryList);
@@ -858,20 +820,6 @@
       .search.small input{ width:min(320px, 70vw); }
       .search input:focus{ border-color: var(--accent-2); box-shadow: 0 0 0 3px rgba(183,121,74,0.2); }
       .stats{ font-size:12px; color: var(--muted); }
-
-      .scope{ align-items:center; }
-      .scope-label{ font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color: var(--muted); }
-      .scope-options{ display:flex; gap:8px; flex-wrap:wrap; }
-      .seg{
-        border:1px solid rgba(46,36,24,0.22);
-        background: rgba(255,255,255,0.72);
-        color: var(--ink);
-        border-radius:999px;
-        padding:8px 14px;
-        font-size:12px;
-        cursor:pointer;
-      }
-      .seg.active{ border-color: var(--accent); color: #fef6e9; background: var(--accent); }
 
       .actions{ justify-content:flex-start; margin-top:12px; }
       .btn{
