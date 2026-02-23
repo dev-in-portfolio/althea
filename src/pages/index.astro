@@ -370,9 +370,16 @@
           head.className = "card-head";
           const glyphWrap = document.createElement("div");
           glyphWrap.className = "glyphWrap";
+          glyphWrap.style.height = "260px";
+          glyphWrap.style.display = "flex";
+          glyphWrap.style.justifyContent = "center";
+          glyphWrap.style.alignItems = "center";
           const glyph = document.createElement("div");
           glyph.className = "glyph";
           glyph.textContent = sign.codepoint?.char || "";
+          glyph.style.fontSize = "220px";
+          glyph.style.lineHeight = "1";
+          glyph.style.transform = "scale(1.15)";
           glyphWrap.appendChild(glyph);
           head.appendChild(glyphWrap);
 
