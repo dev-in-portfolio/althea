@@ -1,0 +1,123 @@
+[
+  {
+    "sourceRefId": "unikemet",
+    "title": "Unikemet (Unicode UCD contributory data)",
+    "author": "Unicode Consortium",
+    "year": "2024",
+    "license": "Unicode Terms of Use",
+    "howUsed": "metadata",
+    "pointers": [
+      "Unikemet.txt"
+    ]
+  },
+  {
+    "sourceRefId": "unicode_data",
+    "title": "UnicodeData.txt",
+    "author": "Unicode Consortium",
+    "year": "current",
+    "license": "Unicode Terms of Use",
+    "howUsed": "metadata",
+    "pointers": [
+      "UnicodeData.txt"
+    ]
+  },
+  {
+    "sourceRefId": "elrc",
+    "title": "ELRC Hieroglyphs table",
+    "author": "Egyptian Language Resource Center",
+    "year": "unknown",
+    "license": "user-permission (license not published)",
+    "howUsed": "metadata/paraphrase",
+    "pointers": [
+      "https://www.elrc.dev/api/Hieroglyphs_Read"
+    ]
+  },
+  {
+    "sourceRefId": "omnika_gardiner",
+    "title": "OMNIKA Gardiner sign list",
+    "author": "OMNIKA",
+    "year": "unknown",
+    "license": "see OMNIKA license link (user-permission)",
+    "howUsed": "metadata/paraphrase",
+    "pointers": [
+      "omnika-gardiner.xlsx"
+    ]
+  },
+  {
+    "sourceRefId": "gardiner_ocr",
+    "title": "Gardiner sign list OCR",
+    "author": "User-provided OCR",
+    "year": "unknown",
+    "license": "user-provided",
+    "howUsed": "metadata/paraphrase",
+    "pointers": [
+      "data/ocr/Gardiner_signlist.ocr.txt"
+    ]
+  },
+  {
+    "sourceRefId": "wikipedia_gardiner",
+    "title": "Wikipedia Gardiner list",
+    "author": "Wikipedia contributors",
+    "year": "current",
+    "license": "CC BY-SA 4.0",
+    "howUsed": "metadata/paraphrase",
+    "pointers": [
+      "gardiner2unicode.wiki"
+    ]
+  },
+  {
+    "sourceRefId": "tla_late_egyptian",
+    "title": "TLA Late Egyptian corpus",
+    "author": "Thesaurus Linguae Aegyptiae",
+    "year": "2014-2023",
+    "license": "CC BY-SA 4.0",
+    "howUsed": "usage examples",
+    "pointers": [
+      "tla-late_egyptian-v19-premium.jsonl"
+    ]
+  },
+  {
+    "sourceRefId": "ramses_model",
+    "title": "Ramses Training Set Transliteration Model",
+    "author": "Ramses team",
+    "year": "2023",
+    "license": "CC BY 4.0",
+    "howUsed": "transliteration vocabulary reference",
+    "pointers": [
+      "RamsesTrainingSetModel.json"
+    ]
+  },
+  {
+    "sourceRefId": "juheapi_images",
+    "title": "Egyptian Hieroglyphs image dataset",
+    "author": "hamdijr",
+    "year": "unknown",
+    "license": "GPL (non-commercial)",
+    "howUsed": "optional image references",
+    "pointers": [
+      "juheapi-egyptian-hieroglyphs.json"
+    ]
+  },
+  {
+    "sourceRefId": "legacy_data",
+    "title": "Legacy project data",
+    "author": "User-provided",
+    "year": "unknown",
+    "license": "user-provided",
+    "howUsed": "metadata/paraphrase",
+    "pointers": [
+      "data/index.json"
+    ]
+  },
+  {
+    "sourceRefId": "overrides",
+    "title": "Manual Overrides",
+    "author": "User-provided",
+    "year": "unknown",
+    "license": "user-provided",
+    "howUsed": "metadata/paraphrase",
+    "pointers": [
+      "overrides.json"
+    ]
+  }
+]

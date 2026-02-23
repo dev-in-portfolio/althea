@@ -1,0 +1,40 @@
+---
+const { glyph, index } = Astro.props;
+const meanings = Array.isArray(glyph.meanings) ? glyph.meanings : [];
+const translits = Array.isArray(glyph.transliterations) ? glyph.transliterations : [];
+const meaningText = meanings.join(", ");
+const translitText = translits.join(", ");
+---
+
+<article
+  class="card"
+  data-idx={index}
+  data-id={glyph.id}
+  data-gardiner={glyph.gardiner}
+  data-name={glyph.name}
+  data-category={glyph.category?.label}
+  data-meaning={meaningText}
+  data-transliteration={translitText}
+  data-codepoint={glyph.codepoint}
+>
+  <div class="card-head">
+    <div class="code" aria-hidden="true">{glyph.sign}</div>
+    <button class="fav" data-action="fav" aria-label="Toggle favorite" aria-pressed="false">★</button>
+  </div>
+
+  <div class="meta">
+    <div class="id">{glyph.gardiner}</div>
+    <div class="name">{glyph.name}</div>
+    <div class="category">{glyph.category?.code} — {glyph.category?.label}</div>
+  </div>
+
+  <div class="tags">
+    <span class="tag">{glyph.codepoint}</span>
+    {translits.length ? <span class="tag">{translits.join(" • ")}</span> : null}
+  </div>
+
+  <div class="actions">
+    <button class="btn" data-action="open">Open</button>
+    <button class="btn ghost" data-action="copy">Copy</button>
+  </div>
+</article>

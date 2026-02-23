@@ -3,12 +3,20 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "build:data": "node scripts/build-data.mjs",
+    "fetch:unicode": "node scripts/fetch-unicode-data.mjs",
+    "fetch:elrc": "node scripts/fetch-elrc.mjs",
+    "ocr:gardiner": "node scripts/ocr-gardiner.mjs",
+    "qa": "node scripts/qa-report.mjs",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.17.1"
+    "astro": "^5.17.1",
+    "eruda": "^3.4.1",
+    "pdfjs-dist": "^4.10.38",
+    "xlsx": "^0.18.5"
   }
 }

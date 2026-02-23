@@ -1,10 +1,5 @@
 ---
-import { glyphs } from "../data/glyphs";
-import GlyphCard from "../components/GlyphCard.astro";
-
-const total = glyphs.length;
 ---
-
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -17,27 +12,74 @@ const total = glyphs.length;
       <header class="hero">
         <div class="title">
           <h1>Codex of Hieroglyphs</h1>
-          <p class="sub">Explorer grid + fast filter. (We’ll add detail pages + favorites next.)</p>
+          <p class="sub">Scribe notebook view with sourced sign references.</p>
         </div>
 
-        <div class="controls">
-          <label class="search">
-            <span>Search</span>
-            <input id="q" type="search" placeholder="ID, name, category, meaning…" autocomplete="off" />
-          </label>
+        <section class="panel" aria-label="Search panel">
+          <div class="panel-row">
+            <label class="search">
+              <span>Search</span>
+              <input id="q" type="search" placeholder="Gardiner, Unicode name, meaning, transliteration…" autocomplete="off" />
+            </label>
 
-          <div class="stats">
-            <span id="count">{total}</span> / {total}
+            <div class="stats" aria-live="polite">
+              <span id="count">0</span> / <span id="total">0</span>
+            </div>
           </div>
-        </div>
+
+          <div class="panel-row scope">
+            <div class="scope-label">Scope</div>
+            <div class="scope-options" role="radiogroup" aria-label="Search scope">
+              <button class="seg active" data-scope="all" role="radio" aria-checked="true">All</button>
+              <button class="seg" data-scope="gardiner" role="radio" aria-checked="false">Gardiner</button>
+              <button class="seg" data-scope="unicode" role="radio" aria-checked="false">Unicode</button>
+              <button class="seg" data-scope="meaning" role="radio" aria-checked="false">Meaning</button>
+              <button class="seg" data-scope="transliteration" role="radio" aria-checked="false">Translit</button>
+              <button class="seg" data-scope="description" role="radio" aria-checked="false">Description</button>
+              <button class="seg" data-scope="category" role="radio" aria-checked="false">Category</button>
+            </div>
+          </div>
+
+          <div class="panel-row actions">
+            <div class="action-pills" role="group" aria-label="Quick actions">
+              <button class="pill" id="openCategories">Categories</button>
+              <button class="pill" id="toggleFavorites" aria-pressed="false">Favorites</button>
+              <button class="pill" id="openReview">Review Mode</button>
+            </div>
+          </div>
+        </section>
       </header>
 
-      <section class="grid" id="grid">
-        {glyphs.map((g) => <GlyphCard glyph={g} />)}
-      </section>
+      <section class="grid" id="grid" aria-live="polite"></section>
 
-      <dialog id="modal" class="modal">
-        <form method="dialog" class="modal-inner">
+      <dialog id="categoryModal" class="modal">
+        <form method="dialog" class="modal-inner" id="categoryForm">
+          <div class="modal-head">
+            <div>
+              <div class="mTitle">Categories</div>
+              <div class="mSub">Filter by Gardiner category.</div>
+            </div>
+            <button class="close" value="close" aria-label="Close">✕</button>
+          </div>
+
+          <div class="modal-controls">
+            <label class="search small">
+              <span>Search categories</span>
+              <input id="catSearch" type="search" placeholder="A, Man, Birds…" autocomplete="off" />
+            </label>
+            <label class="check">
+              <input type="checkbox" id="catFavoritesOnly" />
+              <span>Favorites only</span>
+            </label>
+            <button type="button" class="btn ghost" id="catClear">Clear</button>
+          </div>
+
+          <ul class="category-list" id="categoryList"></ul>
+        </form>
+      </dialog>
+
+      <dialog id="detailModal" class="modal">
+        <form method="dialog" class="modal-inner modal-wide">
           <div class="modal-head">
             <div>
               <div id="mId" class="mId"></div>
@@ -47,165 +89,905 @@ const total = glyphs.length;
             <button class="close" value="close" aria-label="Close">✕</button>
           </div>
 
-          <div class="mCode" id="mCode" aria-hidden="true"></div>
-          <div class="mMeaning" id="mMeaning"></div>
+          <div class="mCode glyph" id="mCode" aria-hidden="true"></div>
+          <div class="detail-actions glyph-actions">
+            <button type="button" class="btn ghost" data-copy="glyph">Copy glyph</button>
+          </div>
+
+          <div class="detail-section">
+            <div class="detail-label">Core identifiers</div>
+            <div class="detail-grid">
+              <div>
+                <div class="detail-key">Codepoint</div>
+                <div class="detail-value" id="mCodepoint"></div>
+              <div class="detail-actions">
+                <button type="button" class="btn ghost" data-copy="codepoint">Copy</button>
+              </div>
+              </div>
+              <div>
+                <div class="detail-key">Gardiner</div>
+                <div class="detail-value" id="mGardiner"></div>
+              <div class="detail-actions">
+                <button type="button" class="btn ghost" data-copy="gardiner">Copy</button>
+              </div>
+              </div>
+              <div>
+                <div class="detail-key">Category</div>
+                <div class="detail-value" id="mCategory"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-section">
+            <div class="detail-label">Unicode name</div>
+            <div class="detail-row">
+              <div class="detail-value" id="mUnicodeName"></div>
+            </div>
+          </div>
+
+          <div class="detail-section">
+            <div class="detail-label">Meaning</div>
+            <div id="mMeanings" class="detail-list"></div>
+          </div>
+
+          <div class="detail-section">
+            <div class="detail-label">Transliteration</div>
+            <div id="mTransliterations" class="detail-list"></div>
+          </div>
+
+          <div class="detail-section">
+            <div class="detail-label">Description</div>
+            <div id="mDescription" class="detail-list"></div>
+          </div>
+
+          <div class="detail-section">
+            <div class="detail-label">Notes / Usage / Classifier</div>
+            <div id="mClassifiers" class="detail-list"></div>
+          </div>
 
           <div class="modal-actions">
-            <button value="close" class="secondary">Close</button>
+            <button value="close" class="btn ghost">Close</button>
           </div>
         </form>
       </dialog>
+
+      <div id="reviewBar" class="review-bar navBottom" aria-hidden="true">
+        <div class="review-info">
+          <div class="review-glyph glyph" id="rCode"></div>
+          <div>
+            <div class="review-name" id="rName"></div>
+            <div class="review-meta" id="rMeta"></div>
+          </div>
+        </div>
+        <div class="review-actions">
+          <button class="btn ghost" id="rPrev">Prev</button>
+          <button class="btn" id="rNext">Next</button>
+          <button class="btn ghost" id="rRand">Random</button>
+          <button class="btn" id="rExit">Exit</button>
+        </div>
+      </div>
+
+      <div class="toast" id="toast" aria-live="polite"></div>
     </main>
 
-    <script>
+    <script type="module">
       const q = document.getElementById("q");
       const grid = document.getElementById("grid");
       const count = document.getElementById("count");
+      const total = document.getElementById("total");
+      const scopeButtons = Array.from(document.querySelectorAll(".seg"));
+      const openCategories = document.getElementById("openCategories");
+      const categoryModal = document.getElementById("categoryModal");
+      const categoryList = document.getElementById("categoryList");
+      const catSearch = document.getElementById("catSearch");
+      const catFavoritesOnly = document.getElementById("catFavoritesOnly");
+      const catClear = document.getElementById("catClear");
+      const toggleFavorites = document.getElementById("toggleFavorites");
+      const openReview = document.getElementById("openReview");
+      const toast = document.getElementById("toast");
 
-      const modal = document.getElementById("modal");
+      const detailModal = document.getElementById("detailModal");
       const mId = document.getElementById("mId");
       const mName = document.getElementById("mName");
       const mCat = document.getElementById("mCat");
       const mCode = document.getElementById("mCode");
-      const mMeaning = document.getElementById("mMeaning");
+      const mCodepoint = document.getElementById("mCodepoint");
+      const mGardiner = document.getElementById("mGardiner");
+      const mCategory = document.getElementById("mCategory");
+      const mUnicodeName = document.getElementById("mUnicodeName");
+      const mMeanings = document.getElementById("mMeanings");
+      const mTransliterations = document.getElementById("mTransliterations");
+      const mDescription = document.getElementById("mDescription");
+      const mClassifiers = document.getElementById("mClassifiers");
 
-      const cards = Array.from(grid.querySelectorAll(".card"));
+      const reviewBar = document.getElementById("reviewBar");
+      const rCode = document.getElementById("rCode");
+      const rName = document.getElementById("rName");
+      const rMeta = document.getElementById("rMeta");
+      const rPrev = document.getElementById("rPrev");
+      const rNext = document.getElementById("rNext");
+      const rRand = document.getElementById("rRand");
+      const rExit = document.getElementById("rExit");
+
+      const storageKey = "codex:favorites";
+      const state = {
+        scope: "all",
+        category: "",
+        favoritesOnly: false,
+        query: ""
+      };
+
+      let signs = [];
+      let favorites = new Set(JSON.parse(localStorage.getItem(storageKey) || "[]"));
+      let currentSign = null;
 
       function norm(s){ return (s || "").toString().toLowerCase(); }
 
-      function applyFilter(){
-        const term = norm(q.value).trim();
-        let visible = 0;
+      function showToast(message){
+        toast.textContent = message;
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 1400);
+      }
 
-        for(const el of cards){
-          const hay =
-            norm(el.dataset.id) + " " +
-            norm(el.dataset.name) + " " +
-            norm(el.dataset.category) + " " +
-            norm(el.dataset.meaning);
+      function saveFavorites(){
+        localStorage.setItem(storageKey, JSON.stringify(Array.from(favorites)));
+      }
 
-          const ok = term === "" || hay.includes(term);
-          el.style.display = ok ? "" : "none";
-          if(ok) visible++;
+      function missingText(missing){
+        if(!missing) return "";
+        const needs = Array.isArray(missing.needsSources) && missing.needsSources.length
+          ? ` Needs: ${missing.needsSources.join(", ")}.`
+          : "";
+        return `${missing.reason}${needs}`;
+      }
+
+      function renderValue(text, missing){
+        if(text && text.length){
+          const span = document.createElement("span");
+          span.textContent = text;
+          return span;
         }
+        const wrap = document.createElement("div");
+        wrap.className = "missing";
+        wrap.textContent = missing ? `— ${missingText(missing)}` : "—";
+        return wrap;
+      }
+
+      function renderList(items, missing){
+        if(!items || !items.length){
+          const div = document.createElement("div");
+          div.className = "missing";
+          div.textContent = missing ? `— ${missingText(missing)}` : "—";
+          return div;
+        }
+        const ul = document.createElement("ul");
+        ul.className = "bullet";
+        items.forEach((item) => {
+          const li = document.createElement("li");
+          const span = document.createElement("span");
+          span.textContent = item.text;
+          li.appendChild(span);
+        // sources removed
+          ul.appendChild(li);
+        });
+        return ul;
+      }
+
+      function matchesScope(sign, term){
+        if(!term) return true;
+        const gardiner = norm(sign.gardiner?.code);
+        const unicode = norm(sign.unicode?.name);
+        const meaning = norm(sign.meanings?.map((m) => m.text).join(" "));
+        const translit = norm(sign.transliterations?.map((t) => t.text).join(" "));
+        const desc = norm(sign.description?.text);
+        const category = norm(sign.gardiner?.categoryLabel);
+        const all = [gardiner, unicode, meaning, translit, desc, category].join(" ");
+
+        switch(state.scope){
+          case "gardiner": return gardiner.includes(term);
+          case "unicode": return unicode.includes(term);
+          case "meaning": return meaning.includes(term);
+          case "transliteration": return translit.includes(term);
+          case "description": return desc.includes(term);
+          case "category": return category.includes(term);
+          default: return all.includes(term);
+        }
+      }
+
+      function applyFilter(){
+        const term = norm(state.query).trim();
+        let visible = 0;
+        const cards = Array.from(grid.querySelectorAll(".card"));
+        cards.forEach((card) => {
+          const idx = Number(card.dataset.idx);
+          const sign = signs[idx];
+          const inCategory = !state.category || sign.gardiner?.categoryLabel === state.category;
+          const isFav = favorites.has(sign.id);
+          const matchesFav = !state.favoritesOnly || isFav;
+          const matchesSearch = matchesScope(sign, term);
+          const ok = inCategory && matchesFav && matchesSearch;
+          card.style.display = ok ? "" : "none";
+          if(ok) visible++;
+        });
         count.textContent = String(visible);
       }
 
-      q.addEventListener("input", applyFilter);
+      function setScope(scope){
+        state.scope = scope;
+        scopeButtons.forEach((btn) => {
+          const active = btn.dataset.scope === scope;
+          btn.classList.toggle("active", active);
+          btn.setAttribute("aria-checked", String(active));
+        });
+        applyFilter();
+      }
 
-      grid.addEventListener("click", (e) => {
-        const btn = e.target.closest('[data-action="open"]');
-        if(!btn) return;
-        const card = btn.closest(".card");
-        if(!card) return;
+      function updateFavUI(){
+        const cards = Array.from(grid.querySelectorAll(".card"));
+        cards.forEach((card) => {
+          const sign = signs[Number(card.dataset.idx)];
+          const btn = card.querySelector('[data-action="fav"]');
+          const isFav = favorites.has(sign.id);
+          card.classList.toggle("is-fav", isFav);
+          if(btn){
+            btn.setAttribute("aria-pressed", String(isFav));
+            btn.classList.toggle("active", isFav);
+          }
+        });
+      }
 
-        mId.textContent = card.dataset.id || "";
-        mName.textContent = card.dataset.name || "";
-        mCat.textContent = card.dataset.category || "";
-        mMeaning.textContent = card.dataset.meaning ? ("Meaning: " + card.dataset.meaning) : "";
+      function renderGrid(){
+        grid.innerHTML = "";
+        const fragment = document.createDocumentFragment();
+        signs.forEach((sign, idx) => {
+          const card = document.createElement("article");
+          card.className = "card";
+          card.dataset.idx = String(idx);
 
-        // pull the visible glyph character from the card
-        const codeEl = card.querySelector(".code");
-        mCode.textContent = codeEl ? codeEl.textContent : "";
+          const head = document.createElement("div");
+          head.className = "card-head";
+          const glyphWrap = document.createElement("div");
+          glyphWrap.className = "glyphWrap";
+          const glyph = document.createElement("div");
+          glyph.className = "glyph";
+          glyph.textContent = sign.codepoint?.char || "";
+          glyphWrap.appendChild(glyph);
+          head.appendChild(glyphWrap);
 
-        modal.showModal();
-      });
+          const meta = document.createElement("div");
+          meta.className = "meta";
+          const id = document.createElement("div");
+          id.className = "id";
+          id.textContent = sign.gardiner?.code || sign.codepoint?.hex || sign.id;
+          const name = document.createElement("div");
+          name.className = "name card-title";
+          name.textContent = sign.unicode?.name || "—";
+          const category = document.createElement("div");
+          category.className = "category";
+          category.textContent = sign.gardiner ? `${sign.gardiner.categoryKey} — ${sign.gardiner.categoryLabel}` : "Unclassified";
+          meta.appendChild(id);
+          meta.appendChild(name);
+          meta.appendChild(category);
 
-      applyFilter();
+          const lines = document.createElement("div");
+          lines.className = "lines card-body";
+          const cp = document.createElement("div");
+          cp.className = "line";
+          cp.textContent = `Codepoint: ${sign.codepoint?.hex || "—"}`;
+          const meaning = document.createElement("div");
+          meaning.className = "line";
+          meaning.textContent = `Meaning: ${sign.meanings?.length ? sign.meanings.map((m) => m.text).join("; ") : "—"}`;
+          const translit = document.createElement("div");
+          translit.className = "line";
+          translit.textContent = `Translit: ${sign.transliterations?.length ? sign.transliterations.map((t) => t.text).join("; ") : "—"}`;
+          lines.appendChild(cp);
+          lines.appendChild(meaning);
+          lines.appendChild(translit);
+
+          const actions = document.createElement("div");
+          actions.className = "actions";
+          const open = document.createElement("button");
+          open.className = "pill card-pill";
+          open.dataset.action = "open";
+          open.textContent = "Open";
+          const copy = document.createElement("button");
+          copy.className = "pill card-pill";
+          copy.dataset.action = "copy";
+          copy.textContent = "Copy";
+          const fav = document.createElement("button");
+          fav.className = "pill card-pill fav";
+          fav.dataset.action = "fav";
+          fav.textContent = "★";
+          actions.appendChild(open);
+          actions.appendChild(copy);
+          actions.appendChild(fav);
+
+          card.appendChild(head);
+          card.appendChild(meta);
+          card.appendChild(lines);
+          card.appendChild(actions);
+          fragment.appendChild(card);
+        });
+        grid.appendChild(fragment);
+        updateFavUI();
+        applyFilter();
+      }
+
+      function buildCategoryList(){
+        categoryList.innerHTML = "";
+        const map = new Map();
+        signs.forEach((s) => {
+          const label = s.gardiner?.categoryLabel || "Unclassified";
+          const code = s.gardiner?.categoryKey || "?";
+          const key = `${code}::${label}`;
+          const prev = map.get(key) || { code, label, count: 0 };
+          prev.count += 1;
+          map.set(key, prev);
+        });
+        const list = Array.from(map.values()).sort((a, b) => a.label.localeCompare(b.label, "en", { numeric: true }));
+
+        list.forEach((c) => {
+          const li = document.createElement("li");
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "category-item";
+          btn.dataset.category = c.code;
+          btn.dataset.label = c.label;
+
+          const label = document.createElement("span");
+          label.className = "cat-label";
+          label.textContent = `${c.label}`;
+          btn.appendChild(label);
+          li.appendChild(btn);
+          categoryList.appendChild(li);
+        });
+      }
+
+      function openDetail(index){
+        const sign = signs[index];
+        if(!sign) return;
+        currentSign = sign;
+        mId.textContent = sign.id;
+        mName.textContent = sign.unicode?.name || "—";
+        mCat.textContent = sign.gardiner ? `${sign.gardiner.categoryKey} — ${sign.gardiner.categoryLabel}` : "Unclassified";
+        mCode.textContent = sign.codepoint?.char || "";
+
+        mCodepoint.innerHTML = "";
+        mCodepoint.appendChild(renderValue(sign.codepoint?.hex || "", null));
+
+        mGardiner.innerHTML = "";
+        mGardiner.appendChild(renderValue(sign.gardiner?.code || "", sign.missing?.gardiner));
+
+        mCategory.textContent = sign.gardiner ? `${sign.gardiner.categoryKey} — ${sign.gardiner.categoryLabel}` : "Unclassified";
+
+        mUnicodeName.innerHTML = "";
+        mUnicodeName.appendChild(renderValue(sign.unicode?.name || "", sign.missing?.unicodeName));
+
+        mMeanings.innerHTML = "";
+        mMeanings.appendChild(renderList(sign.meanings, sign.missing?.meanings));
+
+        mTransliterations.innerHTML = "";
+        mTransliterations.appendChild(renderList(sign.transliterations, sign.missing?.transliterations));
+
+        mDescription.innerHTML = "";
+        mDescription.appendChild(renderList(sign.description?.text ? [{ text: sign.description.text, sources: sign.description.sources }] : [], sign.missing?.description));
+
+        mClassifiers.innerHTML = "";
+        const noteItems = [
+          ...(sign.classifiers || []),
+          ...(sign.notes || []),
+          ...(sign.usage || [])
+        ];
+        mClassifiers.appendChild(renderList(noteItems, sign.missing?.notes || sign.missing?.classifiers));
+
+        detailModal.showModal();
+      }
+
+      function updateCategoryList(){
+        const term = norm(catSearch.value).trim();
+        const items = Array.from(categoryList.querySelectorAll(".category-item"));
+        items.forEach((item) => {
+          const text = norm(item.textContent);
+          const ok = !term || text.includes(term);
+          item.closest("li").style.display = ok ? "" : "none";
+        });
+      }
+
+      function toggleReview(active){
+        reviewBar.setAttribute("aria-hidden", String(!active));
+        reviewBar.classList.toggle("open", active);
+      }
+
+      let reviewIndex = 0;
+      function reviewList(){
+        const cards = Array.from(grid.querySelectorAll(".card"));
+        const visible = cards.filter((c) => c.style.display !== "none");
+        return visible.map((card) => Number(card.dataset.idx)).filter((n) => !Number.isNaN(n));
+      }
+
+      function setReview(index){
+        const list = reviewList();
+        if(!list.length) return;
+        reviewIndex = ((index % list.length) + list.length) % list.length;
+        const glyph = signs[list[reviewIndex]];
+        rCode.textContent = glyph.codepoint?.char || "";
+        rName.textContent = glyph.unicode?.name || "";
+        rMeta.textContent = `${glyph.gardiner?.code || ""} · ${glyph.gardiner?.categoryLabel || ""}`;
+      }
+
+      function setupEvents(){
+        q.addEventListener("input", () => {
+          state.query = q.value;
+          applyFilter();
+        });
+
+        scopeButtons.forEach((btn) => {
+          btn.addEventListener("click", () => setScope(btn.dataset.scope));
+        });
+
+        openCategories.addEventListener("click", () => categoryModal.showModal());
+        catSearch.addEventListener("input", updateCategoryList);
+
+        catFavoritesOnly.addEventListener("change", () => {
+          state.favoritesOnly = catFavoritesOnly.checked;
+          toggleFavorites.classList.toggle("active", state.favoritesOnly);
+          toggleFavorites.setAttribute("aria-pressed", String(state.favoritesOnly));
+          applyFilter();
+        });
+
+        catClear.addEventListener("click", () => {
+          state.category = "";
+          state.favoritesOnly = false;
+          catFavoritesOnly.checked = false;
+          toggleFavorites.classList.remove("active");
+          toggleFavorites.setAttribute("aria-pressed", "false");
+          applyFilter();
+        });
+
+        categoryList.addEventListener("click", (e) => {
+          const btn = e.target.closest(".category-item");
+          if(!btn) return;
+          state.category = btn.dataset.label || "";
+          applyFilter();
+          categoryModal.close();
+        });
+
+        toggleFavorites.addEventListener("click", () => {
+          state.favoritesOnly = !state.favoritesOnly;
+          toggleFavorites.classList.toggle("active", state.favoritesOnly);
+          toggleFavorites.setAttribute("aria-pressed", String(state.favoritesOnly));
+          catFavoritesOnly.checked = state.favoritesOnly;
+          applyFilter();
+        });
+
+
+        openReview.addEventListener("click", () => {
+          toggleReview(true);
+          setReview(0);
+        });
+
+        rPrev.addEventListener("click", () => setReview(reviewIndex - 1));
+        rNext.addEventListener("click", () => setReview(reviewIndex + 1));
+        rRand.addEventListener("click", () => {
+          const list = reviewList();
+          const idx = Math.floor(Math.random() * list.length);
+          setReview(idx);
+        });
+        rExit.addEventListener("click", () => toggleReview(false));
+
+
+        detailModal.addEventListener("click", (e) => {
+          const btn = e.target.closest("[data-copy]");
+          if(!btn || !currentSign) return;
+          const key = btn.dataset.copy;
+          const value = key === "codepoint"
+            ? currentSign.codepoint?.hex
+            : key === "gardiner"
+              ? currentSign.gardiner?.code
+              : currentSign.codepoint?.char;
+          if(!value) return;
+          navigator.clipboard.writeText(value).then(() => showToast("Copied"));
+        });
+
+        grid.addEventListener("click", async (e) => {
+          const btn = e.target.closest("[data-action]");
+          if(!btn) return;
+          const card = btn.closest(".card");
+          if(!card) return;
+
+          const idx = Number(card.dataset.idx);
+          const sign = signs[idx];
+
+          if(btn.dataset.action === "open"){
+            openDetail(idx);
+          }
+
+          if(btn.dataset.action === "copy"){
+            if(sign?.codepoint?.char){
+              try{
+                await navigator.clipboard.writeText(sign.codepoint.char);
+                showToast("Glyph copied");
+              }catch{
+                showToast("Copy failed");
+              }
+            }
+          }
+
+          if(btn.dataset.action === "fav"){
+            const id = sign.id;
+            if(favorites.has(id)) favorites.delete(id);
+            else favorites.add(id);
+            saveFavorites();
+            updateFavUI();
+            applyFilter();
+          }
+        });
+      }
+
+      async function loadData(){
+        const signRes = await fetch("/data/signs.json");
+        signs = await signRes.json();
+        total.textContent = String(signs.length);
+        renderGrid();
+        buildCategoryList();
+        updateCategoryList();
+        setupEvents();
+      }
+
+      loadData();
     </script>
 
     <style>
-      :root{ color-scheme: dark; }
+      @font-face{
+        font-family: "Noto Sans Egyptian Hieroglyphs";
+        src: url("/fonts/NotoSansEgyptianHieroglyphs-Regular.ttf") format("truetype");
+        font-display: swap;
+        unicode-range: U+13000-1342F, U+13460-1347F;
+      }
+      @font-face{
+        font-family: "CodexHieroglyphs";
+        src: url("/fonts/hieroglyphs.woff2?v=2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      :root{
+        color-scheme: light;
+        --paper: #f4ecd8;
+        --paper-dark: #e7dcc2;
+        --ink: #2e2418;
+        --muted: #5b4a36;
+        --accent: #8b5e3c;
+        --accent-2: #b7794a;
+        --line: rgba(46,36,24,0.18);
+      }
+      html, body{ height: 100%; }
+      html, body{
+        overflow-x: hidden;
+      }
       body{
         margin:0;
-        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-        background: #0b0e14;
-        color: rgba(255,255,255,.92);
+        font-family: "Cormorant Garamond", "Garamond", "Palatino Linotype", "Book Antiqua", serif;
+        color: var(--ink);
+        background: var(--paper);
+        background-image:
+          radial-gradient(1200px 800px at 10% -20%, rgba(255,255,255,0.8), transparent 60%),
+          radial-gradient(900px 700px at 90% 0%, rgba(255,255,255,0.6), transparent 60%),
+          repeating-linear-gradient(0deg, rgba(0,0,0,0.02), rgba(0,0,0,0.02) 1px, transparent 1px, transparent 3px),
+          repeating-linear-gradient(90deg, rgba(0,0,0,0.015), rgba(0,0,0,0.015) 1px, transparent 1px, transparent 4px);
+        overflow-x: hidden;
+        padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
       }
-      .wrap{ max-width:1100px; margin:0 auto; padding:24px 14px 60px; }
-      .hero{
+      body::after{
+        content:"";
+        position:fixed;
+        inset:0;
+        pointer-events:none;
+        background: radial-gradient(120% 100% at 50% 50%, transparent 60%, rgba(0,0,0,0.12) 100%);
+        mix-blend-mode:multiply;
+      }
+      .wrap{
+        max-width:1200px;
+        margin:0 auto;
+        padding:20px 18px calc(24px + 96px + env(safe-area-inset-bottom, 0px));
+        height:100vh;
         display:flex;
-        align-items:flex-end;
-        justify-content:space-between;
-        gap:18px;
-        padding:18px 16px;
-        border:1px solid rgba(255,255,255,.10);
+        flex-direction:column;
+        gap:16px;
+        overflow: visible !important;
+        padding-bottom: calc(24px + 96px + env(safe-area-inset-bottom, 0px)) !important;
+      }
+      .main, .content, .grid-wrap, .appShell{ overflow: visible !important; }
+
+      .hero{ display:flex; flex-direction:column; gap:16px; }
+      .title h1{ margin:0; font-size:30px; letter-spacing:0.6px; }
+      .sub{ margin:6px 0 0; color: var(--muted); font-size:14px; }
+
+      .panel{
+        border:1px solid var(--line);
         border-radius:18px;
-        background: rgba(255,255,255,.03);
+        padding:16px;
+        background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.35));
+        box-shadow: 0 14px 30px rgba(46,36,24,0.15);
       }
-      .title h1{ margin:0; font-size:26px; letter-spacing:.2px; }
-      .sub{ margin:6px 0 0; opacity:.78; font-size:13px; }
-      .controls{ display:flex; align-items:flex-end; gap:14px; }
-      .search{ display:flex; flex-direction:column; gap:6px; font-size:12px; opacity:.9; }
+      .panel-row{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+      .search{ display:flex; flex-direction:column; gap:6px; font-size:12px; color: var(--muted); }
       .search input{
-        width:320px;
-        max-width:55vw;
-        padding:10px 12px;
+        width:min(520px, 78vw);
+        padding:12px 14px;
         border-radius:12px;
-        border:1px solid rgba(255,255,255,.14);
-        background: rgba(255,255,255,.06);
-        color: inherit;
-        outline: none;
+        border:1px solid rgba(46,36,24,0.25);
+        background: rgba(255,255,255,0.75);
+        color: var(--ink);
+        outline:none;
       }
-      .search input:focus{ border-color: rgba(255,255,255,.24); }
-      .stats{ font-size:12px; opacity:.85; padding-bottom:4px; }
+      .search.small input{ width:min(320px, 70vw); }
+      .search input:focus{ border-color: var(--accent-2); box-shadow: 0 0 0 3px rgba(183,121,74,0.2); }
+      .stats{ font-size:12px; color: var(--muted); }
+
+      .scope{ align-items:center; }
+      .scope-label{ font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color: var(--muted); }
+      .scope-options{ display:flex; gap:8px; flex-wrap:wrap; }
+      .seg{
+        border:1px solid var(--line);
+        background: rgba(255,255,255,0.6);
+        color: var(--ink);
+        border-radius:999px;
+        padding:8px 14px;
+        font-size:12px;
+        cursor:pointer;
+      }
+      .seg.active{ border-color: var(--accent); color: #fef6e9; background: var(--accent); }
+
+      .actions{ justify-content:flex-start; margin-top:8px; }
+      .btn{
+        border:1px solid var(--line);
+        background: rgba(255,255,255,0.7);
+        color: var(--ink);
+        border-radius:12px;
+        padding:10px 14px;
+        cursor:pointer;
+        font-weight:600;
+        font-size:12px;
+      }
+      .btn.ghost{ background: transparent; }
+      .btn.active{ border-color: var(--accent); color: #fef6e9; background: var(--accent); }
+
+      .action-pills{ display:flex; gap:10px; flex-wrap:wrap; }
+      .pill{
+        border:1px solid rgba(46,36,24,0.35);
+        background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(231,220,194,0.9));
+        color: var(--ink);
+        border-radius:999px;
+        padding:9px 16px;
+        font-size:12px;
+        font-weight:700;
+        letter-spacing:0.04em;
+        text-transform:uppercase;
+        cursor:pointer;
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
+      }
+      .pill[aria-pressed="true"]{ background: var(--accent); color:#fef6e9; border-color: var(--accent); }
+      .card .card-pill{
+        padding:7px 14px;
+        font-size:11px;
+        letter-spacing:0.03em;
+      }
+      .card .fav{
+        padding:6px 10px;
+        font-size:12px;
+        text-transform:none;
+      }
+      .card .fav.active{
+        background: var(--accent);
+        color:#fef6e9;
+        border-color: var(--accent);
+      }
 
       .grid{
-        margin-top:16px;
+        flex:1;
+        min-height:0;
+        overflow:auto;
+        padding-right:4px;
+        padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
         display:grid;
         grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        gap:12px;
+        gap:16px;
       }
+      .card{
+        border:1px solid var(--line);
+        border-radius:16px;
+        padding:14px;
+        background: rgba(255,255,255,0.78);
+        box-shadow: 0 10px 24px rgba(46,36,24,0.08);
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+        position: relative;
+      }
+      .card-head{
+        display:flex !important;
+        flex-direction:column !important;
+        align-items:center !important;
+      }
+      .glyph{
+        font-family: "CodexHieroglyphs", "Noto Sans Egyptian Hieroglyphs", "Segoe UI Symbol", serif !important;
+        text-align:center;
+      }
+      .glyphWrap{
+        width:100% !important;
+        display:flex !important;
+        justify-content:center !important;
+        align-items:center !important;
+        margin:10px 0 8px 0 !important;
+      }
+      .glyphWrap img{width:96px;height:96px;object-fit:contain;image-rendering:auto;}
+      .glyphWrap svg{width:96px;height:96px;display:block;}
+      .glyphWrap .glyph{
+        font-size:96px !important;
+        line-height:1 !important;
+        transform:none !important;
+        text-align:center !important;
+        display:block !important;
+      }
+      .fav{
+        border:1px solid var(--line);
+        background: rgba(255,255,255,0.6);
+        color: var(--muted);
+        border-radius:10px;
+        padding:6px 8px;
+        cursor:pointer;
+      }
+      .fav.active{ color: #fef6e9; background: var(--accent); border-color: var(--accent); }
+      .meta .id{ font-family: "Courier New", monospace; font-size:12px; color: var(--muted); }
+      .card-title{ margin-top:4px; }
+      .meta .name{ font-size:16px; font-weight:700; }
+      .meta .category{ font-size:12px; color: var(--muted); }
 
-      .modal{
-        border:none;
-        padding:0;
-        background: transparent;
-      }
-      .modal::backdrop{ background: rgba(0,0,0,.55); }
+      .card-body{ font-size:14px; line-height:1.35; }
+      .lines{ display:grid; gap:4px; color: var(--muted); }
+
+      .actions{ display:flex; gap:8px; }
+
+      .modal{ border:none; padding:0; background: transparent; }
+      .modal::backdrop{ background: rgba(45,34,22,0.28); }
       .modal-inner{
-        width:min(680px, 92vw);
-        border:1px solid rgba(255,255,255,.16);
+        width:min(800px, 92vw);
+        border:1px solid var(--line);
         border-radius:18px;
-        background: #0b0e14;
-        padding:16px;
-        color: rgba(255,255,255,.92);
+        background: rgba(255,255,255,0.95);
+        padding:18px;
+        color: var(--ink);
+        max-height:84vh;
+        overflow:auto;
+        overflow-x:hidden;
+        box-sizing:border-box;
       }
+      .modal-wide{ width:min(940px, 94vw); }
       .modal-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+      .mTitle{ font-size:18px; font-weight:700; }
+      .mSub{ font-size:12px; color: var(--muted); }
       .close{
-        border:1px solid rgba(255,255,255,.14);
-        background: rgba(255,255,255,.06);
+        border:1px solid var(--line);
+        background: rgba(255,255,255,0.7);
         color: inherit;
         border-radius:12px;
         padding:8px 10px;
         cursor:pointer;
       }
-      .mId{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:12px; opacity:.85; }
-      .mName{ font-size:18px; font-weight:800; margin-top:2px; }
-      .mCat{ font-size:12px; opacity:.75; margin-top:2px; }
-      .mCode{
-        margin:14px 0 10px;
-        font-size:72px;
-        line-height:1;
-        width:100%;
-        text-align:center;
+
+      .modal-controls{ display:flex; flex-wrap:wrap; gap:14px; margin:12px 0 8px; align-items:flex-end; }
+      .check{ display:flex; gap:8px; align-items:center; font-size:12px; color: var(--muted); }
+
+      .category-list{
+        list-style:none;
+        padding:0;
+        margin:8px 0 0;
+        display:grid;
+        gap:8px;
+        max-height:50vh;
+        overflow:auto;
       }
-      .mMeaning{ font-size:14px; opacity:.9; }
-      .modal-actions{ display:flex; justify-content:flex-end; margin-top:16px; }
-      .secondary{
-        border:1px solid rgba(255,255,255,.14);
-        background: rgba(255,255,255,.06);
-        color: inherit;
+      .category-item{
+        width:100%;
+        border:1px solid var(--line);
+        background: rgba(255,255,255,0.7);
+        color: var(--ink);
         border-radius:12px;
         padding:10px 12px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
         cursor:pointer;
-        font-weight:600;
+      }
+
+      .mId{ font-family: "Courier New", monospace; font-size:12px; color: var(--muted); }
+      .mName{ font-size:22px; font-weight:800; margin-top:2px; }
+      .mCat{ font-size:12px; color: var(--muted); margin-top:2px; }
+      .mCode{ margin:16px 0 10px; font-size:78px; text-align:center; }
+
+      .detail-section{ margin-top:14px; }
+      .detail-label{ font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color: var(--muted); }
+      .detail-row{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+      .detail-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:12px; }
+      .detail-key{ font-size:11px; color: var(--muted); text-transform:uppercase; letter-spacing:0.08em; }
+      .detail-value{ font-size:14px; font-weight:600; }
+      .detail-value, .line, .source-pointers{ overflow-wrap:anywhere; word-break:break-word; }
+      .detail-actions{ margin-top:6px; }
+      .glyph-actions{ display:flex; justify-content:center; margin-top:4px; }
+
+      .detail-list{ margin-top:6px; }
+      .bullet{ padding-left:18px; margin:0; }
+      .missing{ color: var(--muted); font-size:12px; }
+
+
+      .review-bar{
+        position:fixed !important;
+        left: max(12px, env(safe-area-inset-left, 0px)) !important;
+        right: max(12px, env(safe-area-inset-right, 0px)) !important;
+        bottom: max(12px, env(safe-area-inset-bottom, 0px)) !important;
+        transform:none !important;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:16px;
+        padding:12px 16px;
+        border-top:1px solid var(--line);
+        background: rgba(244,236,216,0.96);
+        box-shadow: 0 -8px 18px rgba(46,36,24,0.12);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+        z-index: 9999;
+        width:auto !important;
+        box-sizing:border-box !important;
+        z-index:9999 !important;
+      }
+      .review-bar.open{
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .review-info{ display:flex; align-items:center; gap:12px; }
+      .review-glyph{ font-size:48px; }
+      .review-name{ font-size:16px; font-weight:700; }
+      .review-meta{ font-size:12px; color: var(--muted); }
+      .review-actions{ display:flex; gap:8px; flex-wrap:wrap; }
+
+      .toast{
+        position:fixed;
+        bottom:76px;
+        left:50%;
+        transform:translateX(-50%);
+        background: rgba(46,36,24,0.85);
+        color: #fef6e9;
+        padding:10px 14px;
+        border-radius:999px;
+        opacity:0;
+        pointer-events:none;
+        transition: opacity 0.2s ease;
+        font-size:12px;
+      }
+      .toast.show{ opacity:1; }
+
+      /* HARD STOP: kill any decorative margin glyphs */
+      .card::before,
+      .card::after,
+      .card-head::before,
+      .card-head::after,
+      .glyphWrap::before,
+      .glyphWrap::after{
+        content: none !important;
+        display: none !important;
+        background: none !important;
       }
 
       @media (max-width: 720px){
-        .hero{ flex-direction:column; align-items:stretch; }
-        .controls{ justify-content:space-between; }
-        .search input{ width:100%; max-width:100%; }
+        .panel-row{ flex-direction:column; align-items:stretch; }
+        .actions{ flex-direction:column; align-items:stretch; }
+        .btn{ width:100%; }
+        .grid{ padding-bottom:90px; }
+        .review-bar{ flex-direction:column; align-items:flex-start; }
       }
     </style>
   </body>
