@@ -55,10 +55,6 @@
 
       <section class="grid" id="grid" aria-live="polite"></section>
 
-      <div class="bottom-bar" aria-label="Bottom actions">
-        <button class="pill" id="randomGlyphBottom">Random Glyph</button>
-      </div>
-
       <dialog id="categoryModal" class="modal">
         <form method="dialog" class="modal-inner" id="categoryForm">
           <div class="modal-head">
@@ -196,7 +192,6 @@
       const toggleFavorites = document.getElementById("toggleFavorites");
       const openReview = document.getElementById("openReview");
       const randomGlyph = document.getElementById("randomGlyph");
-      const randomGlyphBottom = document.getElementById("randomGlyphBottom");
       const debugToggle = document.getElementById("debugToggle");
       const toast = document.getElementById("toast");
       const debugPanel = document.getElementById("debugPanel");
@@ -666,11 +661,6 @@
           const idx = Math.floor(Math.random() * signs.length);
           openDetail(idx);
         });
-        randomGlyphBottom.addEventListener("click", () => {
-          if(!signs.length) return;
-          const idx = Math.floor(Math.random() * signs.length);
-          openDetail(idx);
-        });
         debugToggle.addEventListener("click", async () => {
           const info = collectDebugInfo();
           debugContent.textContent = JSON.stringify(info, null, 2);
@@ -807,7 +797,6 @@
         padding-bottom: env(safe-area-inset-bottom, 0px);
         background-color: var(--paper);
       }
-      body::after{ display:none; }
       .wrap{
         max-width:1200px;
         margin:0 auto;
@@ -914,7 +903,7 @@
         min-height:0;
         overflow:auto;
         padding-right:4px;
-        padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 72px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
         padding-top:52px;
         display:grid;
         grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -1069,23 +1058,7 @@
 
       .toast{ display:none !important; }
 
-      .bottom-bar{
-        position: fixed;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: calc(env(safe-area-inset-bottom, 0px) + 8px);
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        gap:10px;
-        padding:10px 14px;
-        border:1px solid var(--line);
-        border-radius:999px;
-        background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(231,220,194,0.92));
-        box-shadow: 0 10px 22px rgba(46,36,24,0.16);
-        z-index: 9998;
-        pointer-events: auto;
-      }
+      body::after{ display:none; }
 
       /* HARD STOP: kill any decorative margin glyphs */
       .card::before,
@@ -1103,8 +1076,7 @@
         .panel-row{ flex-direction:column; align-items:stretch; }
         .actions{ flex-direction:column; align-items:stretch; }
         .btn{ width:100%; }
-        .grid{ padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 88px); }
-        .bottom-bar{ width: calc(100vw - 24px); }
+        .grid{ padding-bottom: env(safe-area-inset-bottom, 0px); }
       }
     </style>
   </body>
