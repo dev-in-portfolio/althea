@@ -37,6 +37,14 @@ const CANDIDATE_FILES = {
   gardinerWiki: [
     path.join(ROOT, "data", "gardiner2unicode.wiki")
   ],
+  wikiBiliteral: [
+    path.join(ROOT, "data", "wiki_biliteral.wiki"),
+    path.join(ROOT, "sources_user", "wiki_biliteral.wiki")
+  ],
+  wikiTriliteral: [
+    path.join(ROOT, "data", "wiki_triliteral.wiki"),
+    path.join(ROOT, "sources_user", "wiki_triliteral.wiki")
+  ],
   gardinerOcr: [
     path.join(ROOT, "data", "ocr", "Gardiner_signlist.ocr.txt")
   ],
@@ -150,6 +158,24 @@ const SOURCES = {
     license: "CC BY-SA 4.0",
     howUsed: "metadata/paraphrase",
     defaultPointer: "gardiner2unicode.wiki"
+  },
+  wikiBiliteral: {
+    sourceRefId: "wikipedia_biliteral",
+    title: "Wikipedia Egyptian biliteral signs",
+    author: "Wikipedia contributors",
+    year: "current",
+    license: "CC BY-SA 4.0",
+    howUsed: "phonetic values",
+    defaultPointer: "wiki_biliteral.wiki"
+  },
+  wikiTriliteral: {
+    sourceRefId: "wikipedia_triliteral",
+    title: "Wikipedia Egyptian triliteral signs",
+    author: "Wikipedia contributors",
+    year: "current",
+    license: "CC BY-SA 4.0",
+    howUsed: "phonetic values",
+    defaultPointer: "wiki_triliteral.wiki"
   },
   tla: {
     sourceRefId: "tla_late_egyptian",
@@ -521,6 +547,41 @@ function parseGardinerWiki(text){
   return { byGardiner, byCodepoint };
 }
 
+function extractWikiTextFromJson(jsonText){
+  if(!jsonText) return "";
+  try{
+    const data = JSON.parse(jsonText);
+    const page = Object.values(data.query?.pages || {})[0];
+    const rev = page?.revisions?.[0];
+    return rev?.["*"] || rev?.slots?.main?.["*"] || "";
+  }catch{
+    return "";
+  }
+}
+
+function parsePhonogramWiki(jsonText){
+  const text = extractWikiTextFromJson(jsonText);
+  if(!text) return new Map();
+  const map = new Map();
+  const lines = text.split(/\r?\n/);
+  lines.forEach((line) => {
+    if(!line.includes("U+")) return;
+    if(!line.includes("lang|egy")) return;
+    const codeMatch = line.match(/U\\+([0-9A-Fa-f]{4,6})/);
+    if(!codeMatch) return;
+    const code = `U+${codeMatch[1].toUpperCase()}`;
+    const gardinerMatch = line.match(/\\|\\|\\s*([A-Z]{1,2}\\d{1,3}[A-Za-z]?)\\s*\\|\\|/);
+    const gardiner = gardinerMatch ? normalizeGardiner(gardinerMatch[1]) : null;
+    const translits = Array.from(line.matchAll(/\\{\\{lang\\|egy\\|([^}]+)\\}\\}/g)).map((m) => m[1].trim());
+    if(!translits.length) return;
+    const entry = map.get(code) || { gardiner, translits: [] };
+    translits.forEach((t) => entry.translits.push(t));
+    if(!entry.gardiner && gardiner) entry.gardiner = gardiner;
+    map.set(code, entry);
+  });
+  return map;
+}
+
 function parseGardinerOcr(text){
   if(!text) return new Map();
   const map = new Map();
@@ -811,6 +872,8 @@ async function main(){
   const elrcAegPath = firstExisting(CANDIDATE_FILES.elrcAeg);
   const omnikaPath = firstExisting(CANDIDATE_FILES.omnika);
   const wikiPath = firstExisting(CANDIDATE_FILES.gardinerWiki);
+  const wikiBiliteralPath = firstExisting(CANDIDATE_FILES.wikiBiliteral);
+  const wikiTriliteralPath = firstExisting(CANDIDATE_FILES.wikiTriliteral);
   const ocrPath = firstExisting(CANDIDATE_FILES.gardinerOcr);
   const tlaPath = firstExisting(CANDIDATE_FILES.tla);
   const ramsesPath = firstExisting(CANDIDATE_FILES.ramses);
@@ -829,6 +892,8 @@ async function main(){
   const elrcAeg = elrcAegPath ? parseElrc(readText(elrcAegPath)) : { mapByCodepoint: new Map(), mapByGardiner: new Map() };
   const omnika = parseOmnika(omnikaPath);
   const wiki = wikiPath ? parseGardinerWiki(readText(wikiPath)) : { byGardiner: new Map(), byCodepoint: new Map() };
+  const wikiBiliteral = wikiBiliteralPath ? parsePhonogramWiki(readText(wikiBiliteralPath)) : new Map();
+  const wikiTriliteral = wikiTriliteralPath ? parsePhonogramWiki(readText(wikiTriliteralPath)) : new Map();
   const ocrMap = ocrPath ? parseGardinerOcr(readText(ocrPath)) : new Map();
   const tlaExamples = parseTlaExamples(tlaPath, 2);
   const ramsesVocab = parseRamses(ramsesPath);
@@ -870,7 +935,9 @@ async function main(){
     ...elrcDict.mapByCodepoint.keys(),
     ...elrcAeg.mapByCodepoint.keys(),
     ...omnika.byCodepoint.keys(),
-    ...unicodeMdcMap.keys()
+    ...unicodeMdcMap.keys(),
+    ...wikiBiliteral.keys(),
+    ...wikiTriliteral.keys()
   ]);
 
   const signs = [];
@@ -898,6 +965,8 @@ async function main(){
     const elrcLongDescGlosses = elrcLongDesc.flatMap((ld) => ld.glosses || []);
     const omnikaRow = omnika.byCodepoint.get(code);
     const wikiRow = wiki.byCodepoint.get(code);
+    const wikiBiRow = wikiBiliteral.get(code);
+    const wikiTriRow = wikiTriliteral.get(code);
     const mdcRow = unicodeMdcMap.get(code);
     const mdcInfo = splitMdc(mdcRow?.mdc || "");
 
@@ -905,6 +974,8 @@ async function main(){
     if(!gardiner && elrcMerged?.gardiner) gardiner = elrcMerged.gardiner;
     if(!gardiner && omnikaRow?.gardiner) gardiner = omnikaRow.gardiner;
     if(!gardiner && wikiRow?.gardiner) gardiner = wikiRow.gardiner;
+    if(!gardiner && wikiBiRow?.gardiner) gardiner = wikiBiRow.gardiner;
+    if(!gardiner && wikiTriRow?.gardiner) gardiner = wikiTriRow.gardiner;
     if(!gardiner && mdcInfo?.gardiner) gardiner = mdcInfo.gardiner;
     const ocrRow = gardiner ? ocrMap.get(gardiner) : null;
 
@@ -1011,6 +1082,18 @@ async function main(){
     }
     if(mdcInfo?.phonetics?.length){
       mdcInfo.phonetics.forEach((t) => {
+        const cleaned = cleanToken(t);
+        if(cleaned) transliterations.push(item(cleaned));
+      });
+    }
+    if(wikiBiRow?.translits?.length){
+      wikiBiRow.translits.forEach((t) => {
+        const cleaned = cleanToken(t);
+        if(cleaned) transliterations.push(item(cleaned));
+      });
+    }
+    if(wikiTriRow?.translits?.length){
+      wikiTriRow.translits.forEach((t) => {
         const cleaned = cleanToken(t);
         if(cleaned) transliterations.push(item(cleaned));
       });
