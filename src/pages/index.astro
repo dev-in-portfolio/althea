@@ -1035,12 +1035,13 @@
         color: #fef6e9;
         padding:10px 14px;
         border-radius:999px;
+        display:none;
         opacity:0;
         pointer-events:none;
         transition: opacity 0.2s ease;
         font-size:12px;
       }
-      .toast.show{ opacity:1; }
+      .toast.show{ display:block; opacity:1; }
 
       /* HARD STOP: kill any decorative margin glyphs */
       .card::before,
@@ -1059,7 +1060,6 @@
         .actions{ flex-direction:column; align-items:stretch; }
         .btn{ width:100%; }
         .grid{ padding-bottom:90px; }
-        .review-bar{ flex-direction:column; align-items:flex-start; }
       }
     </style>
   </body>
