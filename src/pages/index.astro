@@ -46,6 +46,7 @@
               <button class="pill" id="toggleFavorites" aria-pressed="false">Favorites</button>
               <button class="pill" id="openReview">Review Mode</button>
               <button class="pill" id="randomGlyph">Random Glyph</button>
+              <button class="pill" id="debugToggle" aria-pressed="false">Debug</button>
             </div>
           </div>
         </section>
@@ -171,6 +172,7 @@
       const toggleFavorites = document.getElementById("toggleFavorites");
       const openReview = document.getElementById("openReview");
       const randomGlyph = document.getElementById("randomGlyph");
+      const debugToggle = document.getElementById("debugToggle");
       const toast = document.getElementById("toast");
 
       const detailModal = document.getElementById("detailModal");
@@ -207,6 +209,7 @@
       let signs = [];
       let favorites = new Set(JSON.parse(localStorage.getItem(storageKey) || "[]"));
       let currentSign = null;
+      let erudaReady = false;
 
       function norm(s){ return (s || "").toString().toLowerCase(); }
 
@@ -399,6 +402,56 @@
         grid.appendChild(fragment);
         updateFavUI();
         applyFilter();
+
+        const firstCard = grid.querySelector(".card");
+        if(firstCard && !firstCard.dataset.debugScanned){
+          firstCard.dataset.debugScanned = "true";
+          logGlyphSources(firstCard);
+        }
+      }
+
+      function logGlyphSources(card){
+        const ranges = [
+          [0x13000, 0x1342f],
+          [0x13460, 0x1347f],
+        ];
+        const hasGlyph = (text) => {
+          for(const ch of text){
+            const cp = ch.codePointAt(0);
+            if(ranges.some(([a,b]) => cp >= a && cp <= b)) return true;
+          }
+          return false;
+        };
+        const mark = (el, label) => {
+          const tag = el.tagName.toLowerCase();
+          console.log(`[glyph-debug] ${label}: <${tag}>.${el.className || ""}`, el);
+          el.style.outline = "2px solid #ff00aa";
+          el.style.outlineOffset = "2px";
+          el.style.background = "rgba(255,0,170,0.08)";
+        };
+        const walker = document.createTreeWalker(
+          card,
+          NodeFilter.SHOW_TEXT,
+          {
+            acceptNode(node){
+              if(!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+              const parent = node.parentElement;
+              if(parent && parent.closest(".glyph")) return NodeFilter.FILTER_REJECT;
+              return NodeFilter.FILTER_ACCEPT;
+            }
+          }
+        );
+        while(walker.nextNode()){
+          const node = walker.currentNode;
+          if(hasGlyph(node.nodeValue)){
+            const el = node.parentElement;
+            if(el) mark(el, "text-node");
+          }
+        }
+        const svg = card.querySelectorAll("svg");
+        svg.forEach((el) => mark(el, "svg"));
+        const img = card.querySelectorAll("img");
+        img.forEach((el) => mark(el, "img"));
       }
 
       function stripUnexpectedGlyphs(card){
@@ -587,6 +640,21 @@
           if(!signs.length) return;
           const idx = Math.floor(Math.random() * signs.length);
           openDetail(idx);
+        });
+        debugToggle.addEventListener("click", async () => {
+          if(!erudaReady){
+            const mod = await import("eruda");
+            mod.default.init();
+            erudaReady = true;
+            debugToggle.setAttribute("aria-pressed", "true");
+            showToast("Debug on");
+            return;
+          }
+          const root = document.querySelector(".eruda-container");
+          const isHidden = root?.style.display === "none";
+          if(root) root.style.display = isHidden ? "block" : "none";
+          debugToggle.setAttribute("aria-pressed", String(isHidden));
+          showToast(isHidden ? "Debug on" : "Debug off");
         });
 
 
