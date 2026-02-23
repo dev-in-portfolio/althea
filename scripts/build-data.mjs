@@ -46,6 +46,10 @@ const CANDIDATE_FILES = {
   ramses: [
     path.join(ROOT, "data", "RamsesTrainingSetModel.json")
   ],
+  unicodeMdc: [
+    path.join(ROOT, "data", "Unicode-MdC-Mapping-v1.utf8"),
+    path.join(ROOT, "sources_user", "Unicode-MdC-Mapping-v1.utf8")
+  ],
   aedSpellings: [
     path.join(ROOT, "data", "aed_spellings.html"),
     path.join(ROOT, "sources_user", "aed_spellings.html")
@@ -173,6 +177,15 @@ const SOURCES = {
     license: "CC BY-SA 4.0",
     howUsed: "word-level translations and spellings",
     defaultPointer: "aed_spellings.html / aed_word_translations.html"
+  },
+  unicodeMdc: {
+    sourceRefId: "unicode_mdc",
+    title: "Unicode MdC Mapping (UTN #32)",
+    author: "Unicode Consortium",
+    year: "2015",
+    license: "Unicode Terms of Use",
+    howUsed: "mapping of signs to MdC codes",
+    defaultPointer: "Unicode-MdC-Mapping-v1.utf8"
   },
   juheapi: {
     sourceRefId: "juheapi_images",
@@ -721,6 +734,41 @@ function parseAedTranslations(html){
   return map;
 }
 
+function parseUnicodeMdc(text){
+  if(!text) return new Map();
+  const map = new Map();
+  const lines = text.split(/\r?\n/).filter(Boolean);
+  lines.forEach((line, idx) => {
+    const parts = line.split("\t").map((p) => p.trim()).filter(Boolean);
+    if(parts.length < 2) return;
+    const hex = parts[1];
+    const mdc = parts[2] || "";
+    if(!hex) return;
+    const code = `U+${hex.toUpperCase()}`;
+    map.set(code, { mdc, line: idx + 1 });
+  });
+  return map;
+}
+
+function splitMdc(mdc){
+  if(!mdc) return { gardiner: null, phonetics: [] };
+  const rawTokens = mdc.split(/\s+/).map((t) => t.trim()).filter(Boolean);
+  const phonetics = [];
+  let gardiner = null;
+  rawTokens.forEach((token) => {
+    const cleaned = token.replace(/[\\]/g, "");
+    if(!cleaned) return;
+    const g = normalizeGardiner(cleaned);
+    const isGardiner = /^[A-Z]{1,2}\d{1,3}[A-Za-z]?$/.test(g || "");
+    if(isGardiner){
+      if(!gardiner) gardiner = g;
+      return;
+    }
+    phonetics.push(cleaned);
+  });
+  return { gardiner, phonetics };
+}
+
 function computeCompleteness(entry){
   const levels = {
     L1: Boolean(entry.codepoint?.hex),
@@ -766,6 +814,7 @@ async function main(){
   const ocrPath = firstExisting(CANDIDATE_FILES.gardinerOcr);
   const tlaPath = firstExisting(CANDIDATE_FILES.tla);
   const ramsesPath = firstExisting(CANDIDATE_FILES.ramses);
+  const unicodeMdcPath = firstExisting(CANDIDATE_FILES.unicodeMdc);
   const aedSpellingsPath = firstExisting(CANDIDATE_FILES.aedSpellings);
   const aedTranslationsPath = firstExisting(CANDIDATE_FILES.aedTranslations);
   const overridesPath = firstExisting(CANDIDATE_FILES.overrides);
@@ -783,6 +832,7 @@ async function main(){
   const ocrMap = ocrPath ? parseGardinerOcr(readText(ocrPath)) : new Map();
   const tlaExamples = parseTlaExamples(tlaPath, 2);
   const ramsesVocab = parseRamses(ramsesPath);
+  const unicodeMdcMap = unicodeMdcPath ? parseUnicodeMdc(readText(unicodeMdcPath)) : new Map();
   const aedSpellings = aedSpellingsPath ? parseAedSpellings(readText(aedSpellingsPath)) : new Map();
   const aedTranslations = aedTranslationsPath ? parseAedTranslations(readText(aedTranslationsPath)) : new Map();
   const aedMeaningByCodepoint = new Map();
@@ -819,7 +869,8 @@ async function main(){
     ...elrc.mapByCodepoint.keys(),
     ...elrcDict.mapByCodepoint.keys(),
     ...elrcAeg.mapByCodepoint.keys(),
-    ...omnika.byCodepoint.keys()
+    ...omnika.byCodepoint.keys(),
+    ...unicodeMdcMap.keys()
   ]);
 
   const signs = [];
@@ -847,11 +898,14 @@ async function main(){
     const elrcLongDescGlosses = elrcLongDesc.flatMap((ld) => ld.glosses || []);
     const omnikaRow = omnika.byCodepoint.get(code);
     const wikiRow = wiki.byCodepoint.get(code);
+    const mdcRow = unicodeMdcMap.get(code);
+    const mdcInfo = splitMdc(mdcRow?.mdc || "");
 
     let gardiner = normalizeGardiner(unikemet?.gardiner || "");
     if(!gardiner && elrcMerged?.gardiner) gardiner = elrcMerged.gardiner;
     if(!gardiner && omnikaRow?.gardiner) gardiner = omnikaRow.gardiner;
     if(!gardiner && wikiRow?.gardiner) gardiner = wikiRow.gardiner;
+    if(!gardiner && mdcInfo?.gardiner) gardiner = mdcInfo.gardiner;
     const ocrRow = gardiner ? ocrMap.get(gardiner) : null;
 
     const catParts = gardinerCategoryFromCat(unikemet?.cat);
@@ -951,6 +1005,12 @@ async function main(){
     }
     if(unikemet?.fvals?.length){
       unikemet.fvals.forEach((t) => {
+        const cleaned = cleanToken(t);
+        if(cleaned) transliterations.push(item(cleaned));
+      });
+    }
+    if(mdcInfo?.phonetics?.length){
+      mdcInfo.phonetics.forEach((t) => {
         const cleaned = cleanToken(t);
         if(cleaned) transliterations.push(item(cleaned));
       });
