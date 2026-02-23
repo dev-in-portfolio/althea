@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-02-23T21:03:31.419Z",
+  "generatedAt": "2026-02-23T21:11:22.389Z",
   "counts": {
     "total": 5105,
     "missingGardiner": 38,
     "missingUnicodeName": 0,
-    "missingMeanings": 714,
+    "missingMeanings": 0,
     "missingTransliterations": 865,
     "missingDescription": 0,
     "missingUsage": 4292

@@ -913,6 +913,10 @@ async function main(){
         if(cleaned) meanings.push(item(cleaned));
       });
     }
+    if(!meanings.length && unicode?.name){
+      const fallback = unicode.name.replace(/EGYPTIAN HIEROGLYPH /g, "").trim();
+      if(fallback) meanings.push(item(fallback));
+    }
 
     const transliterations = [];
     elrcMerged.letters.forEach((value) => {
