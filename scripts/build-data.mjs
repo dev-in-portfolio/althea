@@ -647,10 +647,14 @@ async function main(){
   const needsResolution = [];
 
   for(const code of codepoints){
-    if(!code.startsWith("U+13")) continue;
     const unikemet = unikemetMap.get(code);
     const unicode = unicodeMap.get(code);
     const cp = parseCodepoint(code);
+    const isEgyptian =
+      (unicode?.name || "").startsWith("EGYPTIAN HIEROGLYPH") ||
+      Boolean(unikemet) ||
+      wiki.byCodepoint.has(code);
+    if(!isEgyptian) continue;
 
     const elrcRow = elrc.mapByCodepoint.get(code) || elrcDict.mapByCodepoint.get(code) || elrcAeg.mapByCodepoint.get(code);
     const omnikaRow = omnika.byCodepoint.get(code);

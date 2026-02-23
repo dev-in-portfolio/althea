@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-02-23T02:58:09.128Z",
+  "generatedAt": "2026-02-23T20:37:50.201Z",
   "counts": {
-    "total": 4324,
-    "missingGardiner": 267,
+    "total": 5105,
+    "missingGardiner": 29,
     "missingUnicodeName": 0,
-    "missingMeanings": 3988,
-    "missingTransliterations": 3996,
+    "missingMeanings": 4769,
+    "missingTransliterations": 4777,
     "missingDescription": 0,
-    "missingUsage": 3858
+    "missingUsage": 4639
   },
   "needsResolutionSample": [
     "U+13005:A005A",
