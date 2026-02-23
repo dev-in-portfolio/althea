@@ -763,16 +763,9 @@
           repeating-linear-gradient(0deg, rgba(0,0,0,0.02), rgba(0,0,0,0.02) 1px, transparent 1px, transparent 3px),
           repeating-linear-gradient(90deg, rgba(0,0,0,0.015), rgba(0,0,0,0.015) 1px, transparent 1px, transparent 4px);
         overflow-x: hidden;
-        padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+        padding-bottom: 24px;
       }
-      body::after{
-        content:"";
-        position:fixed;
-        inset:0;
-        pointer-events:none;
-        background: radial-gradient(120% 100% at 50% 50%, transparent 60%, rgba(0,0,0,0.12) 100%);
-        mix-blend-mode:multiply;
-      }
+      body::after{ display:none; }
       .wrap{
         max-width:1200px;
         margin:0 auto;
@@ -1026,22 +1019,7 @@
       }
 
 
-      .toast{
-        position:fixed;
-        bottom:76px;
-        left:50%;
-        transform:translateX(-50%);
-        background: rgba(46,36,24,0.85);
-        color: #fef6e9;
-        padding:10px 14px;
-        border-radius:999px;
-        display:none;
-        opacity:0;
-        pointer-events:none;
-        transition: opacity 0.2s ease;
-        font-size:12px;
-      }
-      .toast.show{ display:block; opacity:1; }
+      .toast{ display:none !important; }
 
       /* HARD STOP: kill any decorative margin glyphs */
       .card::before,
