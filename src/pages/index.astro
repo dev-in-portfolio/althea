@@ -436,12 +436,25 @@
           }
           return out;
         };
-        const nodes = Array.from(card.querySelectorAll("*"));
-        nodes.forEach((el) => {
-          if(el.classList.contains("glyph")) return;
-          if(!el.textContent) return;
-          if(hasGlyph(el.textContent)){
-            el.textContent = stripGlyphs(el.textContent);
+        const walker = document.createTreeWalker(
+          card,
+          NodeFilter.SHOW_TEXT,
+          {
+            acceptNode(node){
+              if(!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+              const parent = node.parentElement;
+              if(parent && parent.closest(".glyph")) return NodeFilter.FILTER_REJECT;
+              return NodeFilter.FILTER_ACCEPT;
+            }
+          }
+        );
+        const textNodes = [];
+        while(walker.nextNode()){
+          textNodes.push(walker.currentNode);
+        }
+        textNodes.forEach((node) => {
+          if(hasGlyph(node.nodeValue)){
+            node.nodeValue = stripGlyphs(node.nodeValue);
           }
         });
       }
