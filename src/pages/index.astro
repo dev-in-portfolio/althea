@@ -980,7 +980,12 @@
       :global(.actions){ display:flex; gap:10px; flex-wrap:wrap; }
 
       .modal{ border:none; padding:0; background: transparent; }
-      .modal::backdrop{ background: rgba(45,34,22,0.28); }
+      .modal::backdrop{
+        background:
+          radial-gradient(120% 120% at 50% 10%, rgba(244,236,216,0.35), rgba(45,34,22,0.35)),
+          rgba(45,34,22,0.28);
+        backdrop-filter: blur(2px);
+      }
       .modal-inner{
         width:min(820px, 92vw);
         border:1px solid rgba(46,36,24,0.2);
@@ -1006,22 +1011,24 @@
         cursor:pointer;
       }
 
-      .modal-controls{ display:flex; flex-wrap:wrap; gap:14px; margin:12px 0 8px; align-items:flex-end; }
+      .modal-controls{ display:flex; flex-wrap:wrap; gap:16px; margin:14px 0 10px; align-items:flex-end; }
       .check{ display:flex; gap:8px; align-items:center; font-size:12px; color: var(--muted); }
 
       .category-list{
         list-style:none;
         padding:0;
-        margin:8px 0 0;
+        margin:12px 0 0;
         display:grid;
-        gap:8px;
-        max-height:60vh;
+        gap:10px;
+        max-height:62vh;
         overflow:auto;
+        padding-right:6px;
       }
       .category-item{
         width:100%;
         border:1px solid rgba(46,36,24,0.2);
-        background: rgba(255,255,255,0.86);
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0.96), rgba(231,220,194,0.9));
         color: var(--ink);
         border-radius:14px;
         padding:12px 16px;
@@ -1029,6 +1036,17 @@
         align-items:center;
         justify-content:space-between;
         cursor:pointer;
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5);
+      }
+      .category-item:hover{
+        transform: translateY(-1px);
+        box-shadow: 0 10px 18px rgba(46,36,24,0.12), inset 0 0 0 1px rgba(255,255,255,0.55);
+      }
+      .category-item:active{ transform: translateY(0); }
+      .category-list::-webkit-scrollbar{ width:8px; }
+      .category-list::-webkit-scrollbar-thumb{
+        background: rgba(46,36,24,0.25);
+        border-radius:999px;
       }
 
       .mId{ font-family: "Courier New", monospace; font-size:12px; color: var(--muted); }
