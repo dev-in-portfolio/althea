@@ -170,6 +170,7 @@
           <pre id="debugContent" class="debug-content"></pre>
           <div class="detail-actions">
             <button type="button" class="btn" id="debugCopyInline">Copy Debug</button>
+            <button type="button" class="btn ghost" id="debugHighlightFixed">Highlight Fixed</button>
           </div>
         </div>
       </form>
@@ -195,6 +196,7 @@
       const debugPanel = document.getElementById("debugPanel");
       const debugContent = document.getElementById("debugContent");
       const debugCopyInline = document.getElementById("debugCopyInline");
+      const debugHighlightFixed = document.getElementById("debugHighlightFixed");
 
       const detailModal = document.getElementById("detailModal");
       const mId = document.getElementById("mId");
@@ -255,6 +257,18 @@
             appearance: cs.appearance || cs.webkitAppearance || ""
           };
         };
+        const fixedEls = Array.from(document.querySelectorAll("*")).filter((el) => {
+          const cs = getComputedStyle(el);
+          return cs.position === "fixed" && el.offsetParent !== null;
+        }).map((el) => {
+          const r = el.getBoundingClientRect();
+          return {
+            tag: el.tagName.toLowerCase(),
+            id: el.id || "",
+            className: el.className || "",
+            rect: { x: Math.round(r.x), y: Math.round(r.y), w: Math.round(r.width), h: Math.round(r.height) }
+          };
+        });
         return {
           url: location.href,
           userAgent: navigator.userAgent,
@@ -264,6 +278,7 @@
           visibleCards: visible.length,
           headerPill: pick(headerPill),
           cardPill: pick(cardPill),
+          fixedElements: fixedEls,
           firstCard: first ? {
             classes: first.className,
             id: first.dataset.idx,
@@ -660,6 +675,21 @@
             showToast("Copy failed");
           }
         });
+        debugHighlightFixed.addEventListener("click", () => {
+          const toggled = document.documentElement.classList.toggle("debug-fixed");
+          if(toggled){
+            Array.from(document.querySelectorAll("*")).forEach((el) => {
+              const cs = getComputedStyle(el);
+              if(cs.position === "fixed"){
+                el.setAttribute("data-fixed", "true");
+              }
+            });
+            showToast("Fixed highlighted");
+          }else{
+            document.querySelectorAll("[data-fixed]").forEach((el) => el.removeAttribute("data-fixed"));
+            showToast("Fixed cleared");
+          }
+        });
 
 
         detailModal.addEventListener("click", (e) => {
@@ -1016,6 +1046,11 @@
         max-height:50vh;
         overflow:auto;
         max-width:100%;
+      }
+      .debug-fixed [data-fixed="true"]{
+        outline: 3px solid #e53935 !important;
+        outline-offset: 2px;
+        background: rgba(229,57,53,0.08) !important;
       }
 
 
