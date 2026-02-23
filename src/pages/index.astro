@@ -370,9 +370,16 @@
           head.className = "card-head";
           const glyphWrap = document.createElement("div");
           glyphWrap.className = "glyphWrap";
+          glyphWrap.style.height = "260px";
+          glyphWrap.style.display = "flex";
+          glyphWrap.style.justifyContent = "center";
+          glyphWrap.style.alignItems = "center";
           const glyph = document.createElement("div");
           glyph.className = "glyph";
           glyph.textContent = sign.codepoint?.char || "";
+          glyph.style.fontSize = "220px";
+          glyph.style.lineHeight = "1";
+          glyph.style.transform = "scale(1.15)";
           glyphWrap.appendChild(glyph);
           head.appendChild(glyphWrap);
 
@@ -818,7 +825,7 @@
       .btn.ghost{ background: transparent; }
       .btn.active{ border-color: var(--accent); color: #fef6e9; background: var(--accent); }
 
-      .action-pills{ display:flex; gap:12px; flex-wrap:wrap; }
+      .action-pills{ display:flex; gap:10px; flex-wrap:wrap; }
       .pill{
         border:1px solid rgba(46,36,24,0.35);
         background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(231,220,194,0.9));
@@ -877,6 +884,8 @@
         flex-direction:column !important;
         align-items:center !important;
       }
+      .card .glyphWrap{ border: 1px dashed rgba(139,94,60,0.45); }
+      .card .glyph{ border: 1px dashed rgba(46,36,24,0.45); }
       .glyph{
         font-family: "CodexHieroglyphs", "Noto Sans Egyptian Hieroglyphs", "Segoe UI Symbol", serif !important;
         text-align:center;
@@ -887,14 +896,14 @@
         justify-content:center !important;
         align-items:center !important;
         margin:6px 0 6px 0 !important;
-        height:260px;
+        height:320px;
       }
-      .glyphWrap img{width:220px;height:220px;object-fit:contain;image-rendering:auto;}
-      .glyphWrap svg{width:220px;height:220px;display:block;}
+      .glyphWrap img{width:240px;height:240px;object-fit:contain;image-rendering:auto;}
+      .glyphWrap svg{width:240px;height:240px;display:block;}
       .glyphWrap .glyph{
-        font-size:220px !important;
-        line-height:1 !important;
-        transform: scale(1.15) !important;
+        font-size:240px !important;
+        line-height:0.85 !important;
+        transform:none !important;
         text-align:center !important;
         display:block !important;
       }
@@ -912,8 +921,8 @@
       .meta .name{ font-size:16px; font-weight:700; }
       .meta .category{ font-size:12px; color: var(--muted); }
 
-      .card-body{ font-size:14px; line-height:1.4; }
-      .lines{ display:grid; gap:6px; color: var(--muted); }
+      .card-body{ font-size:14px; line-height:1.35; }
+      .lines{ display:grid; gap:4px; color: var(--muted); }
 
       .actions{ display:flex; gap:8px; flex-wrap:wrap; }
 
@@ -940,11 +949,11 @@
         background: rgba(255,255,255,0.7);
         color: inherit;
         border-radius:12px;
-        padding:10px 12px;
+        padding:8px 10px;
         cursor:pointer;
       }
 
-      .modal-controls{ display:flex; flex-wrap:wrap; gap:16px; margin:12px 0 8px; align-items:flex-end; }
+      .modal-controls{ display:flex; flex-wrap:wrap; gap:14px; margin:12px 0 8px; align-items:flex-end; }
       .check{ display:flex; gap:8px; align-items:center; font-size:12px; color: var(--muted); }
 
       .category-list{
@@ -953,7 +962,7 @@
         margin:8px 0 0;
         display:grid;
         gap:8px;
-        max-height:60vh;
+        max-height:50vh;
         overflow:auto;
       }
       .category-item{
@@ -962,7 +971,7 @@
         background: rgba(255,255,255,0.7);
         color: var(--ink);
         border-radius:12px;
-        padding:12px 14px;
+        padding:10px 12px;
         display:flex;
         align-items:center;
         justify-content:space-between;
@@ -981,8 +990,8 @@
       .detail-key{ font-size:11px; color: var(--muted); text-transform:uppercase; letter-spacing:0.08em; }
       .detail-value{ font-size:14px; font-weight:600; line-height:1.4; }
       .detail-value, .line, .source-pointers{ overflow-wrap:anywhere; word-break:break-word; }
-      .detail-actions{ margin-top:8px; }
-      .glyph-actions{ display:flex; justify-content:center; margin-top:6px; }
+      .detail-actions{ margin-top:6px; }
+      .glyph-actions{ display:flex; justify-content:center; margin-top:4px; }
 
       .detail-list{ margin-top:8px; }
       .bullet{ padding-left:18px; margin:0; }
