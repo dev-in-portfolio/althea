@@ -957,8 +957,7 @@
 
       .review-bar{
         position:fixed !important;
-        left: max(12px, env(safe-area-inset-left, 0px)) !important;
-        right: max(12px, env(safe-area-inset-right, 0px)) !important;
+        inset-inline: max(12px, env(safe-area-inset-left, 0px)) max(12px, env(safe-area-inset-right, 0px)) !important;
         bottom: max(12px, env(safe-area-inset-bottom, 0px)) !important;
         transform:none !important;
         display:flex;
@@ -974,7 +973,7 @@
         transition: opacity 0.2s ease;
         z-index:9999 !important;
         width:auto !important;
-        max-width: none !important;
+        max-width: calc(100vw - 24px) !important;
         box-sizing:border-box !important;
       }
       .review-bar.open{
