@@ -158,6 +158,24 @@
 
     <div class="toast" id="toast" aria-live="polite"></div>
 
+    <dialog id="debugPanel" class="modal">
+      <form method="dialog" class="modal-inner">
+        <div class="modal-head">
+          <div>
+            <div class="mTitle">Debug Info</div>
+            <div class="mSub">Copy this and send it.</div>
+          </div>
+          <button class="close" value="close" aria-label="Close">✕</button>
+        </div>
+        <div class="detail-section">
+          <pre id="debugContent" class="debug-content"></pre>
+          <div class="detail-actions">
+            <button type="button" class="btn" id="debugCopyInline">Copy Debug</button>
+          </div>
+        </div>
+      </form>
+    </dialog>
+
     <script type="module">
       const q = document.getElementById("q");
       const grid = document.getElementById("grid");
@@ -176,6 +194,9 @@
       const debugToggle = document.getElementById("debugToggle");
       const debugCopy = document.getElementById("debugCopy");
       const toast = document.getElementById("toast");
+      const debugPanel = document.getElementById("debugPanel");
+      const debugContent = document.getElementById("debugContent");
+      const debugCopyInline = document.getElementById("debugCopyInline");
 
       const detailModal = document.getElementById("detailModal");
       const mId = document.getElementById("mId");
@@ -202,7 +223,6 @@
       let signs = [];
       let favorites = new Set(JSON.parse(localStorage.getItem(storageKey) || "[]"));
       let currentSign = null;
-      let erudaReady = false;
 
       function norm(s){ return (s || "").toString().toLowerCase(); }
 
@@ -606,19 +626,9 @@
           openDetail(idx);
         });
         debugToggle.addEventListener("click", async () => {
-          if(!erudaReady){
-            const mod = await import("eruda");
-            mod.default.init();
-            erudaReady = true;
-            debugToggle.setAttribute("aria-pressed", "true");
-            showToast("Debug on");
-            return;
-          }
-          const root = document.querySelector(".eruda-container");
-          const isHidden = root?.style.display === "none";
-          if(root) root.style.display = isHidden ? "block" : "none";
-          debugToggle.setAttribute("aria-pressed", String(isHidden));
-          showToast(isHidden ? "Debug on" : "Debug off");
+          const info = collectDebugInfo();
+          debugContent.textContent = JSON.stringify(info, null, 2);
+          debugPanel.showModal();
         });
         debugCopy.addEventListener("click", async () => {
           const info = collectDebugInfo();
@@ -630,6 +640,16 @@
             showToast("Copy failed");
           }
           console.log("[debug-copy]", info);
+        });
+        debugCopyInline.addEventListener("click", async () => {
+          const text = debugContent.textContent || "";
+          if(!text) return;
+          try{
+            await navigator.clipboard.writeText(text);
+            showToast("Debug copied");
+          }catch{
+            showToast("Copy failed");
+          }
         });
 
 
@@ -977,6 +997,17 @@
       .detail-list{ margin-top:6px; }
       .bullet{ padding-left:18px; margin:0; }
       .missing{ color: var(--muted); font-size:12px; }
+      .debug-content{
+        white-space: pre-wrap;
+        word-break: break-word;
+        background: rgba(255,255,255,0.7);
+        border:1px solid var(--line);
+        border-radius:12px;
+        padding:12px;
+        font-size:12px;
+        max-height:50vh;
+        overflow:auto;
+      }
 
 
       .toast{
