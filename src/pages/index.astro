@@ -33,9 +33,7 @@
             <div class="action-pills" role="group" aria-label="Quick actions">
               <button class="pill" id="openCategories">Categories</button>
               <button class="pill" id="toggleFavorites" aria-pressed="false">Favorites</button>
-              <button class="pill" id="openReview">Review Mode</button>
               <button class="pill" id="randomGlyph">Random Glyph</button>
-              <button class="pill" id="debugToggle" aria-pressed="false">Debug</button>
             </div>
           </div>
         </section>
@@ -146,25 +144,6 @@
 
     <div class="toast" id="toast" aria-live="polite"></div>
 
-    <dialog id="debugPanel" class="modal">
-      <form method="dialog" class="modal-inner">
-        <div class="modal-head">
-          <div>
-            <div class="mTitle">Debug Info</div>
-            <div class="mSub">Copy this and send it.</div>
-          </div>
-          <button class="close" value="close" aria-label="Close">✕</button>
-        </div>
-        <div class="detail-section">
-          <pre id="debugContent" class="debug-content"></pre>
-          <div class="detail-actions">
-            <button type="button" class="btn" id="debugCopyInline">Copy Debug</button>
-            <button type="button" class="btn ghost" id="debugHighlightFixed">Highlight Fixed</button>
-          </div>
-        </div>
-      </form>
-    </dialog>
-
     <script type="module">
       const q = document.getElementById("q");
       const grid = document.getElementById("grid");
@@ -178,14 +157,8 @@
       const catFavoritesOnly = document.getElementById("catFavoritesOnly");
       const catClear = document.getElementById("catClear");
       const toggleFavorites = document.getElementById("toggleFavorites");
-      const openReview = document.getElementById("openReview");
       const randomGlyph = document.getElementById("randomGlyph");
-      const debugToggle = document.getElementById("debugToggle");
       const toast = document.getElementById("toast");
-      const debugPanel = document.getElementById("debugPanel");
-      const debugContent = document.getElementById("debugContent");
-      const debugCopyInline = document.getElementById("debugCopyInline");
-      const debugHighlightFixed = document.getElementById("debugHighlightFixed");
 
       const detailModal = document.getElementById("detailModal");
       const mId = document.getElementById("mId");
@@ -221,61 +194,6 @@
         setTimeout(() => toast.classList.remove("show"), 1400);
       }
 
-      function collectDebugInfo(){
-        const cards = Array.from(grid.querySelectorAll(".card"));
-        const visible = cards.filter((c) => c.style.display !== "none");
-        const first = visible[0];
-        const rect = first?.getBoundingClientRect();
-        const headerPill = document.querySelector(".action-pills .pill");
-        const cardPill = first?.querySelector(".pill");
-        const pick = (el) => {
-          if(!el) return null;
-          const cs = getComputedStyle(el);
-          return {
-            className: el.className,
-            text: el.textContent?.trim() || "",
-            fontSize: cs.fontSize,
-            fontWeight: cs.fontWeight,
-            letterSpacing: cs.letterSpacing,
-            textTransform: cs.textTransform,
-            padding: cs.padding,
-            borderRadius: cs.borderRadius,
-            background: cs.backgroundImage || cs.backgroundColor,
-            border: cs.border,
-            boxShadow: cs.boxShadow,
-            appearance: cs.appearance || cs.webkitAppearance || ""
-          };
-        };
-        const fixedEls = Array.from(document.querySelectorAll("*")).filter((el) => {
-          const cs = getComputedStyle(el);
-          return cs.position === "fixed" && el.offsetParent !== null;
-        }).map((el) => {
-          const r = el.getBoundingClientRect();
-          return {
-            tag: el.tagName.toLowerCase(),
-            id: el.id || "",
-            className: el.className || "",
-            rect: { x: Math.round(r.x), y: Math.round(r.y), w: Math.round(r.width), h: Math.round(r.height) }
-          };
-        });
-        return {
-          url: location.href,
-          userAgent: navigator.userAgent,
-          viewport: { w: window.innerWidth, h: window.innerHeight },
-          devicePixelRatio: window.devicePixelRatio,
-          totalSigns: signs.length,
-          visibleCards: visible.length,
-          headerPill: pick(headerPill),
-          cardPill: pick(cardPill),
-          fixedElements: fixedEls,
-          firstCard: first ? {
-            classes: first.className,
-            id: first.dataset.idx,
-            size: rect ? { w: Math.round(rect.width), h: Math.round(rect.height) } : null,
-            html: first.innerHTML.slice(0, 2000)
-          } : null
-        };
-      }
 
       function saveFavorites(){
         localStorage.setItem(storageKey, JSON.stringify(Array.from(favorites)));
@@ -628,48 +546,10 @@
           catFavoritesOnly.checked = state.favoritesOnly;
           applyFilter();
         });
-
-
-        openReview.addEventListener("click", () => {
-          const list = reviewList();
-          if(!list.length) return;
-          const idx = Math.floor(Math.random() * list.length);
-          openDetail(list[idx]);
-        });
         randomGlyph.addEventListener("click", () => {
           if(!signs.length) return;
           const idx = Math.floor(Math.random() * signs.length);
           openDetail(idx);
-        });
-        debugToggle.addEventListener("click", async () => {
-          const info = collectDebugInfo();
-          debugContent.textContent = JSON.stringify(info, null, 2);
-          debugPanel.showModal();
-        });
-        debugCopyInline.addEventListener("click", async () => {
-          const text = debugContent.textContent || "";
-          if(!text) return;
-          try{
-            await navigator.clipboard.writeText(text);
-            showToast("Debug copied");
-          }catch{
-            showToast("Copy failed");
-          }
-        });
-        debugHighlightFixed.addEventListener("click", () => {
-          const toggled = document.documentElement.classList.toggle("debug-fixed");
-          if(toggled){
-            Array.from(document.querySelectorAll("*")).forEach((el) => {
-              const cs = getComputedStyle(el);
-              if(cs.position === "fixed"){
-                el.setAttribute("data-fixed", "true");
-              }
-            });
-            showToast("Fixed highlighted");
-          }else{
-            document.querySelectorAll("[data-fixed]").forEach((el) => el.removeAttribute("data-fixed"));
-            showToast("Fixed cleared");
-          }
         });
 
 
@@ -1033,24 +913,6 @@
       .detail-list{ margin-top:8px; }
       .bullet{ padding-left:18px; margin:0; }
       .missing{ color: var(--muted); font-size:12px; }
-      .debug-content{
-        white-space: pre-wrap;
-        word-break: break-word;
-        background: rgba(255,255,255,0.7);
-        border:1px solid var(--line);
-        border-radius:12px;
-        padding:12px;
-        font-size:12px;
-        font-family: "Courier New", monospace;
-        max-height:50vh;
-        overflow:auto;
-        max-width:100%;
-      }
-      .debug-fixed [data-fixed="true"]{
-        outline: 3px solid #e53935 !important;
-        outline-offset: 2px;
-        background: rgba(229,57,53,0.08) !important;
-      }
 
 
       .toast{ display:none !important; }
