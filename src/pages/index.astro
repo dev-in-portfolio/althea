@@ -31,13 +31,13 @@
           <div class="panel-row scope">
             <div class="scope-label">Scope</div>
             <div class="scope-options" role="radiogroup" aria-label="Search scope">
-              <button class="seg active" data-scope="all" role="radio" aria-checked="true">All</button>
-              <button class="seg" data-scope="gardiner" role="radio" aria-checked="false">Gardiner</button>
-              <button class="seg" data-scope="unicode" role="radio" aria-checked="false">Unicode</button>
-              <button class="seg" data-scope="meaning" role="radio" aria-checked="false">Meaning</button>
-              <button class="seg" data-scope="transliteration" role="radio" aria-checked="false">Translit</button>
-              <button class="seg" data-scope="description" role="radio" aria-checked="false">Description</button>
-              <button class="seg" data-scope="category" role="radio" aria-checked="false">Category</button>
+              <button type="button" class="seg active" data-scope="all" role="radio" aria-checked="true">All</button>
+              <button type="button" class="seg" data-scope="gardiner" role="radio" aria-checked="false">Gardiner</button>
+              <button type="button" class="seg" data-scope="unicode" role="radio" aria-checked="false">Unicode</button>
+              <button type="button" class="seg" data-scope="meaning" role="radio" aria-checked="false">Meaning</button>
+              <button type="button" class="seg" data-scope="transliteration" role="radio" aria-checked="false">Translit</button>
+              <button type="button" class="seg" data-scope="description" role="radio" aria-checked="false">Description</button>
+              <button type="button" class="seg" data-scope="category" role="radio" aria-checked="false">Category</button>
             </div>
           </div>
 
@@ -183,6 +183,8 @@
       const count = document.getElementById("count");
       const total = document.getElementById("total");
       const scopeButtons = Array.from(document.querySelectorAll(".seg"));
+      const scopeOptions = document.querySelector(".scope-options");
+      const scopeLabel = document.querySelector(".scope-label");
       const openCategories = document.getElementById("openCategories");
       const categoryModal = document.getElementById("categoryModal");
       const categoryList = document.getElementById("categoryList");
@@ -379,6 +381,20 @@
           btn.classList.toggle("active", active);
           btn.setAttribute("aria-checked", String(active));
         });
+        if(scopeLabel){
+          const label = scope === "all" ? "Scope" : `Scope: ${scope}`;
+          scopeLabel.textContent = label;
+        }
+        if(q){
+          const hint = scope === "gardiner" ? "Search Gardiner codes…"
+            : scope === "unicode" ? "Search Unicode names…"
+            : scope === "meaning" ? "Search meanings…"
+            : scope === "transliteration" ? "Search transliterations…"
+            : scope === "description" ? "Search descriptions…"
+            : scope === "category" ? "Search categories…"
+            : "Gardiner, Unicode name, meaning, transliteration…";
+          q.placeholder = hint;
+        }
         applyFilter();
       }
 
@@ -610,8 +626,10 @@
           applyFilter();
         });
 
-        scopeButtons.forEach((btn) => {
-          btn.addEventListener("click", () => setScope(btn.dataset.scope));
+        scopeOptions?.addEventListener("click", (e) => {
+          const btn = e.target.closest(".seg");
+          if(!btn) return;
+          setScope(btn.dataset.scope);
         });
 
         openCategories.addEventListener("click", () => categoryModal.showModal());
