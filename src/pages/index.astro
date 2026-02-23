@@ -392,16 +392,9 @@
           head.className = "card-head";
           const glyphWrap = document.createElement("div");
           glyphWrap.className = "glyphWrap";
-          glyphWrap.style.height = "260px";
-          glyphWrap.style.display = "flex";
-          glyphWrap.style.justifyContent = "center";
-          glyphWrap.style.alignItems = "center";
           const glyph = document.createElement("div");
           glyph.className = "glyph";
           glyph.textContent = sign.codepoint?.char || "";
-          glyph.style.fontSize = "220px";
-          glyph.style.lineHeight = "1";
-          glyph.style.transform = "scale(1.15)";
           glyphWrap.appendChild(glyph);
           head.appendChild(glyphWrap);
 
@@ -848,7 +841,7 @@
       .btn.active{ border-color: var(--accent); color: #fef6e9; background: var(--accent); }
 
       .action-pills{ display:flex; gap:10px; flex-wrap:wrap; }
-      .pill{
+      :global(.pill){
         border:1px solid rgba(46,36,24,0.35);
         background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(231,220,194,0.9));
         color: var(--ink);
@@ -861,7 +854,7 @@
         cursor:pointer;
         box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
       }
-      .card .pill{
+      :global(.card .pill){
         border:1px solid rgba(46,36,24,0.35) !important;
         background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(231,220,194,0.9)) !important;
         color: var(--ink) !important;
@@ -876,11 +869,11 @@
         appearance:none !important;
         -webkit-appearance:none !important;
       }
-      .card .fav{ text-transform:none !important; padding:9px 14px !important; }
-      .card .pill:hover{ transform: translateY(-1px); }
-      .pill[aria-pressed="true"]{ background: var(--accent); color:#fef6e9; border-color: var(--accent); }
+      :global(.card .fav){ text-transform:none !important; padding:9px 14px !important; }
+      :global(.card .pill:hover){ transform: translateY(-1px); }
+      :global(.pill[aria-pressed="true"]){ background: var(--accent); color:#fef6e9; border-color: var(--accent); }
 
-      .grid{
+      :global(.grid){
         flex:1;
         min-height:0;
         overflow:auto;
@@ -892,7 +885,7 @@
         column-gap:16px;
         row-gap:72px;
       }
-      .card{
+      :global(.card){
         border:1px solid var(--line);
         border-radius:16px;
         padding:16px;
@@ -903,35 +896,33 @@
         gap:14px;
         position: relative;
       }
-      .card-head{
+      :global(.card-head){
         display:flex !important;
         flex-direction:column !important;
         align-items:center !important;
       }
-      .card .glyphWrap{ border: 1px dashed rgba(139,94,60,0.45); }
-      .card .glyph{ border: 1px dashed rgba(46,36,24,0.45); }
-      .glyph{
+      :global(.glyph){
         font-family: "CodexHieroglyphs", "Noto Sans Egyptian Hieroglyphs", "Segoe UI Symbol", serif !important;
         text-align:center;
       }
-      .glyphWrap{
+      :global(.glyphWrap){
         width:100% !important;
         display:flex !important;
         justify-content:center !important;
         align-items:center !important;
         margin:6px 0 6px 0 !important;
-        height:320px;
+        height:260px;
       }
-      .glyphWrap img{width:240px;height:240px;object-fit:contain;image-rendering:auto;}
-      .glyphWrap svg{width:240px;height:240px;display:block;}
-      .glyphWrap .glyph{
-        font-size:240px !important;
-        line-height:0.85 !important;
-        transform:none !important;
+      :global(.glyphWrap img){width:220px;height:220px;object-fit:contain;image-rendering:auto;}
+      :global(.glyphWrap svg){width:220px;height:220px;display:block;}
+      :global(.glyphWrap .glyph){
+        font-size:220px !important;
+        line-height:1 !important;
+        transform: scale(1.15) !important;
         text-align:center !important;
         display:block !important;
       }
-      .fav{
+      :global(.fav){
         border:1px solid var(--line);
         background: rgba(255,255,255,0.6);
         color: var(--muted);
@@ -939,16 +930,16 @@
         padding:6px 8px;
         cursor:pointer;
       }
-      .fav.active{ color: #fef6e9; background: var(--accent); border-color: var(--accent); }
-      .meta .id{ font-family: "Courier New", monospace; font-size:12px; color: var(--muted); }
-      .card-title{ margin-top:4px; }
-      .meta .name{ font-size:16px; font-weight:700; }
-      .meta .category{ font-size:12px; color: var(--muted); }
+      :global(.fav.active){ color: #fef6e9; background: var(--accent); border-color: var(--accent); }
+      :global(.meta .id){ font-family: "Courier New", monospace; font-size:12px; color: var(--muted); }
+      :global(.card-title){ margin-top:4px; }
+      :global(.meta .name){ font-size:16px; font-weight:700; }
+      :global(.meta .category){ font-size:12px; color: var(--muted); }
 
-      .card-body{ font-size:14px; line-height:1.35; }
-      .lines{ display:grid; gap:4px; color: var(--muted); }
+      :global(.card-body){ font-size:14px; line-height:1.4; }
+      :global(.lines){ display:grid; gap:6px; color: var(--muted); }
 
-      .actions{ display:flex; gap:8px; flex-wrap:wrap; }
+      :global(.actions){ display:flex; gap:8px; flex-wrap:wrap; }
 
       .modal{ border:none; padding:0; background: transparent; }
       .modal::backdrop{ background: rgba(45,34,22,0.28); }
