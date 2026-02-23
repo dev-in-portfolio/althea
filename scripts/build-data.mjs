@@ -48,6 +48,10 @@ const CANDIDATE_FILES = {
   gardinerOcr: [
     path.join(ROOT, "data", "ocr", "Gardiner_signlist.ocr.txt")
   ],
+  jseshSigns: [
+    path.join(ROOT, "data", "signs_definition.xml"),
+    path.join(ROOT, "sources_user", "signs_definition.xml")
+  ],
   tla: [
     path.join(ROOT, "data", "tla-late_egyptian-v19-premium.jsonl")
   ],
@@ -176,6 +180,15 @@ const SOURCES = {
     license: "CC BY-SA 4.0",
     howUsed: "phonetic values",
     defaultPointer: "wiki_triliteral.wiki"
+  },
+  jsesh: {
+    sourceRefId: "jsesh_signs",
+    title: "JSesh sign descriptions",
+    author: "JSesh contributors",
+    year: "current",
+    license: "LGPL (JSesh)",
+    howUsed: "transliterations/tags",
+    defaultPointer: "signs_definition.xml"
   },
   tla: {
     sourceRefId: "tla_late_egyptian",
@@ -582,6 +595,23 @@ function parsePhonogramWiki(jsonText){
   return map;
 }
 
+function parseJseshSigns(text){
+  if(!text) return new Map();
+  const map = new Map();
+  const blocks = text.split(/<sign\\s+/i).slice(1);
+  blocks.forEach((block) => {
+    const signMatch = block.match(/sign\\s*=\\s*\"([^\"]+)\"/i) || block.match(/sign\\s*=\\s*'([^']+)'/i);
+    if(!signMatch) return;
+    const gardiner = normalizeGardiner(signMatch[1]);
+    if(!gardiner) return;
+    const translits = Array.from(block.matchAll(/translitteration\\s*=\\s*\"([^\"]+)\"/gi)).map((m) => m[1].trim());
+    const entry = map.get(gardiner) || { translits: [] };
+    translits.forEach((t) => entry.translits.push(t));
+    map.set(gardiner, entry);
+  });
+  return map;
+}
+
 function parseGardinerOcr(text){
   if(!text) return new Map();
   const map = new Map();
@@ -875,6 +905,7 @@ async function main(){
   const wikiBiliteralPath = firstExisting(CANDIDATE_FILES.wikiBiliteral);
   const wikiTriliteralPath = firstExisting(CANDIDATE_FILES.wikiTriliteral);
   const ocrPath = firstExisting(CANDIDATE_FILES.gardinerOcr);
+  const jseshPath = firstExisting(CANDIDATE_FILES.jseshSigns);
   const tlaPath = firstExisting(CANDIDATE_FILES.tla);
   const ramsesPath = firstExisting(CANDIDATE_FILES.ramses);
   const unicodeMdcPath = firstExisting(CANDIDATE_FILES.unicodeMdc);
@@ -895,6 +926,7 @@ async function main(){
   const wikiBiliteral = wikiBiliteralPath ? parsePhonogramWiki(readText(wikiBiliteralPath)) : new Map();
   const wikiTriliteral = wikiTriliteralPath ? parsePhonogramWiki(readText(wikiTriliteralPath)) : new Map();
   const ocrMap = ocrPath ? parseGardinerOcr(readText(ocrPath)) : new Map();
+  const jseshMap = jseshPath ? parseJseshSigns(readText(jseshPath)) : new Map();
   const tlaExamples = parseTlaExamples(tlaPath, 2);
   const ramsesVocab = parseRamses(ramsesPath);
   const unicodeMdcMap = unicodeMdcPath ? parseUnicodeMdc(readText(unicodeMdcPath)) : new Map();
@@ -1097,6 +1129,15 @@ async function main(){
         const cleaned = cleanToken(t);
         if(cleaned) transliterations.push(item(cleaned));
       });
+    }
+    if(jseshMap.size && gardiner){
+      const jseshEntry = jseshMap.get(gardiner);
+      if(jseshEntry?.translits?.length){
+        jseshEntry.translits.forEach((t) => {
+          const cleaned = cleanToken(t);
+          if(cleaned) transliterations.push(item(cleaned));
+        });
+      }
     }
 
     if(ramsesVocab.size){
