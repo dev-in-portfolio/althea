@@ -235,6 +235,26 @@
         const visible = cards.filter((c) => c.style.display !== "none");
         const first = visible[0];
         const rect = first?.getBoundingClientRect();
+        const headerPill = document.querySelector(".action-pills .pill");
+        const cardPill = first?.querySelector(".pill");
+        const pick = (el) => {
+          if(!el) return null;
+          const cs = getComputedStyle(el);
+          return {
+            className: el.className,
+            text: el.textContent?.trim() || "",
+            fontSize: cs.fontSize,
+            fontWeight: cs.fontWeight,
+            letterSpacing: cs.letterSpacing,
+            textTransform: cs.textTransform,
+            padding: cs.padding,
+            borderRadius: cs.borderRadius,
+            background: cs.backgroundImage || cs.backgroundColor,
+            border: cs.border,
+            boxShadow: cs.boxShadow,
+            appearance: cs.appearance || cs.webkitAppearance || ""
+          };
+        };
         return {
           url: location.href,
           userAgent: navigator.userAgent,
@@ -242,6 +262,8 @@
           devicePixelRatio: window.devicePixelRatio,
           totalSigns: signs.length,
           visibleCards: visible.length,
+          headerPill: pick(headerPill),
+          cardPill: pick(cardPill),
           firstCard: first ? {
             classes: first.className,
             id: first.dataset.idx,
