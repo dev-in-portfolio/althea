@@ -1,47 +1,69 @@
 # Interactive Terms Translator
 
-Maps restaurant BOH/FOH/ops language to tech/product/engineering equivalents (and reverse). Local‑first with optional Neon backend for favorites and custom terms.
+A local-first translator that maps restaurant BOH/FOH/ops language to tech/product/engineering equivalents (and reverse). Built with Astro + optional Neon (Postgres) backend. Works fully without a backend using localStorage.
 
-## Requirements
-- Node.js 20+
-- npm
+## Features
+- Step‑Select flow: Category → Subcategory → Term → Fire
+- Live filtering with Rush Mode + Signals toggles
+- Direction toggle: Restaurant → Tech or Tech → Restaurant
+- Favorites and custom terms (backend if available; local fallback)
+- Full terms library, categories browser, and detail pages
 
-## Termux quick start
+## Quick Start (Termux)
 ```bash
-npm install
-npm run dev
+cd /root/althea
+npm ci
+npm run dev -- --host 0.0.0.0 --port 4321
 ```
-Open: `http://127.0.0.1:4321/`
+Open: `http://localhost:4321/`
 
-## Build + preview
+## Build
 ```bash
 npm run build
-npm run preview -- --host 127.0.0.1 --port 4321
+npm run preview -- --host 0.0.0.0 --port 4321
 ```
 
 ## Environment
-Create `.env` from `.env.example`:
+Create a `.env` from `.env.example`.
+
 ```
-DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/DBNAME
+DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/DBNAME?sslmode=require
 ```
 
-## Neon setup
+## Neon Setup
+1. Create a Neon database.
+2. Run migrations:
 ```bash
 psql "$DATABASE_URL" -f sql/001_init.sql
 ```
+3. Deploy with Netlify Functions (see `netlify/` and `netlify.toml`).
 
-## Scripts
-- `node scripts/generate-terms.mjs` → seed content files
-- `node scripts/build-index.mjs` → build search index
+## Data Ingestion
+The app uses a JSONL dataset stored at:
+```
+data/boh_to_tech_full_enriched_ultra.jsonl
+```
+To regenerate content:
+```bash
+node scripts/generate-terms.mjs
+node scripts/build-index.mjs
+```
 
-## Smoke tests
-Android Chrome:
-1. `/` translator: type “86”, toggle direction, verify results.
-2. `/terms` filter and search.
-3. Favorite a term; check `/favorites`.
-4. Submit `/contribute` and verify local-only save if backend missing.
+## Folder Structure
+```
+src/content/terms/      # Markdown term entries
+public/data/terms.json  # Search index
+netlify/functions/      # API endpoints
+sql/                    # DB migrations
+```
 
-Desktop Chrome:
-1. Check URL params `?q=` and `?dir=`.
-2. Confirm term detail page shows definitions and examples.
-3. Run `npm run build` without errors.
+## Local‑Only Mode
+If the backend is unavailable, favorites and custom terms are stored locally in the browser.
+
+## Smoke Tests
+- Home: select Category → Subcategory → Term → Fire
+- Rush/Signals toggles update available term list
+- Full List renders and filters
+- Favorites save and persist (local)
+- Contribute form saves (local)
+
