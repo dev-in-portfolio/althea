@@ -1,0 +1,91 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths(){
+  const waypoints = await getCollection("waypoints");
+  return waypoints.map((wp) => ({ params: { slug: wp.data.slug ?? wp.slug }, props: { waypoint: wp } }));
+}
+
+const { waypoint } = Astro.props;
+const slug = waypoint.data.slug ?? waypoint.slug;
+---
+<BaseLayout title={`Wayfinder — ${waypoint.data.title}`} chrome={false} bodyClass="walk-only">
+  <div class="walk-mode" data-walk-mode data-mood={waypoint.data.mood} data-type={waypoint.data.type}>
+    <div class="walk-mode-panel">
+      <div class="controls walk-controls-primary">
+        <span class="pill" data-walk-label>Walk Mode</span>
+        <span class="pill" data-walk-duration></span>
+        <button class="pill" data-focus-toggle>Focus</button>
+      </div>
+      <div class="walk-settings walk-screen" data-walk-settings>
+        <h2>Session Settings</h2>
+        <p class="muted">Set your pacing and atmosphere before the walk begins.</p>
+        <div class="walk-tuning walk-tuning-intro">
+          <label>
+            Session goal (minutes)
+            <input type="range" min="3" max="20" step="1" data-walk-goal />
+          </label>
+          <label>
+            Step duration (sec)
+            <input type="range" min="20" max="120" step="5" data-walk-step-range />
+          </label>
+          <label>
+            Haptics
+            <select data-walk-haptics>
+              <option value="off">Off</option>
+              <option value="on">On</option>
+            </select>
+          </label>
+          <label>
+            Soft tones
+            <select data-walk-tones>
+              <option value="off">Off</option>
+              <option value="on">On</option>
+            </select>
+          </label>
+          <label>
+            Ambient sound
+            <select data-walk-ambient>
+              <option value="off">Off</option>
+              <option value="on">On</option>
+            </select>
+          </label>
+          <label>
+            Ambient volume
+            <input type="range" min="0" max="100" step="5" data-walk-ambient-volume />
+          </label>
+        </div>
+        <div class="controls">
+          <button class="pill" data-walk-settings-continue>Start Walk</button>
+          <button class="pill" data-walk-settings-resume hidden>Resume Last Walk</button>
+        </div>
+      </div>
+      <div class="walk-session walk-screen" data-walk-session hidden>
+        <div class="walk-timer" data-walk-timer>05:00</div>
+        <div class="walk-steps" data-walk-steps></div>
+        <div class="walk-controls">
+          <div class="controls walk-controls-main">
+            <button class="pill" data-walk-toggle>Pause</button>
+            <button class="pill" data-walk-next>Next step</button>
+          </div>
+          <div class="controls walk-controls-secondary">
+            <button class="pill" data-walk-end>End walk</button>
+            <button class="pill" data-walk-exit>Exit to Waypoints</button>
+          </div>
+        </div>
+      </div>
+      <div class="walk-summary walk-screen" data-walk-summary hidden>
+        <p class="muted" data-walk-summary-text></p>
+        <div class="walk-summary-meta" data-walk-summary-meta></div>
+        <div class="walk-achievements" data-walk-achievements></div>
+        <div class="walk-history" data-walk-history></div>
+        <div class="walk-summary-links" data-walk-summary-links></div>
+        <div class="controls">
+          <button class="pill" data-walk-restart>Repeat Walk</button>
+          <button class="pill" data-walk-exit>Exit to Waypoints</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

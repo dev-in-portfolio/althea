@@ -1,0 +1,62 @@
+---
+const { title = "Wayfinder", description = "A slow web guide for quiet wandering.", chrome = true, bodyClass = "" } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+  <body class={bodyClass}>
+    {chrome && (
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-title">Wayfinder</div>
+        <div class="brand-subtitle">a slow atlas for epic inner journeys</div>
+      </div>
+      <nav class="nav">
+        <a href="/">The Walk</a>
+        <a href="/waypoints">Waypoints</a>
+        <a href="/bookmarks">Bookmarks</a>
+        <a href="/progress">Progress</a>
+        <a href="/settings">Settings</a>
+      </nav>
+      <div class="hero-strip">
+        <div class="hero-blade">
+          <strong>Wayfinder</strong>
+          <span>Guided walks, gentle pacing, and a focused flow.</span>
+        </div>
+        <div class="hero-metrics">
+          <div>
+            <div class="metric-label">Waypoints</div>
+            <div class="metric-value">100</div>
+          </div>
+          <div>
+            <div class="metric-label">Mode</div>
+            <div class="metric-value">Engaged</div>
+          </div>
+          <div>
+            <div class="metric-label">Compass</div>
+            <div class="metric-value">On</div>
+          </div>
+        </div>
+      </div>
+    </header>
+    )}
+
+    <main class={chrome ? "main" : "main main--bare"}>
+      <slot />
+    </main>
+
+    {chrome && (
+    <footer class="site-footer">
+      <p>Wayfinder is local-first. If backend is unavailable, bookmarks and progress stay on this device.</p>
+    </footer>
+    )}
+
+    <script type="module" src="/scripts/wayfinder.js"></script>
+  </body>
+</html>

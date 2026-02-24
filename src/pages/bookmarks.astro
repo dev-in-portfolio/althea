@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const waypoints = (await getCollection("waypoints")).map((wp) => ({
+  slug: wp.data.slug ?? wp.slug,
+  title: wp.data.title,
+  order: wp.data.order
+}));
+---
+<BaseLayout title="Wayfinder — Bookmarks">
+  <section class="section-card">
+    <h1>Bookmarks</h1>
+    <p>Your saved waypoints are listed here. If the backend is unavailable, this list is device-only.</p>
+    <ul class="grid" data-bookmarks-list></ul>
+  </section>
+  <script is:inline define:vars={{ waypoints }}>
+    window.__WAYPOINTS__ = waypoints;
+  </script>
+</BaseLayout>

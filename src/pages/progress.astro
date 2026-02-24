@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const waypoints = (await getCollection("waypoints")).map((wp) => ({
+  slug: wp.data.slug ?? wp.slug,
+  title: wp.data.title,
+  order: wp.data.order
+}));
+---
+<BaseLayout title="Wayfinder — Progress">
+  <section class="section-card">
+    <h1>Progress</h1>
+    <p>See where you last left off and when it was updated.</p>
+    <div class="grid" data-progress></div>
+  </section>
+  <script is:inline define:vars={{ waypoints }}>
+    window.__WAYPOINTS__ = waypoints;
+  </script>
+</BaseLayout>

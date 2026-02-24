@@ -1,0 +1,113 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const waypoints = (await getCollection("waypoints")).sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout title="Wayfinder — The Walk">
+  <section class="section-card">
+    <h1>The Walk</h1>
+    <p>Wayfinder is a slow web homepage built for long reading. Scroll gently. Use the navigator to jump or resume where you left off.</p>
+    <div class="controls">
+      <div class="scroll-progress" data-scroll-progress>
+        <strong>Progress</strong>
+        <span></span>
+        <button class="resume" data-resume>Resume</button>
+      </div>
+      <select aria-label="Jump to waypoint">
+        <option value="">Jump to waypoint</option>
+        {waypoints.map((wp) => {
+          const slug = wp.data.slug ?? wp.slug;
+          return <option value={`#${slug}`}>{wp.data.order}. {wp.data.title}</option>;
+        })}
+      </select>
+      <script is:inline>
+        const select = document.currentScript.previousElementSibling;
+        select?.addEventListener("change", (e) => {
+          const target = e.target.value;
+          if(target) location.href = target;
+        });
+      </script>
+    </div>
+    <div class="engage-grid">
+      <div class="trail-card">
+        <h3>Your Trail</h3>
+        <p class="muted">The last places you visited.</p>
+        <div class="trail-list" data-trail></div>
+      </div>
+      <div class="pathfinder">
+        <h3>Choose Your Path</h3>
+        <p class="muted">Pick a mood and jump to a fresh waypoint.</p>
+        <div class="controls path-buttons" data-pathfinder>
+          <button class="pill" data-path-mood="calm">Calm</button>
+          <button class="pill" data-path-mood="curious">Curious</button>
+          <button class="pill" data-path-mood="tender">Tender</button>
+          <button class="pill" data-path-mood="focused">Focused</button>
+          <button class="pill" data-path-mood="bright">Bright</button>
+          <button class="pill" data-path-mood="grounded">Grounded</button>
+          <button class="pill" data-path-random="true">Surprise me</button>
+        </div>
+      </div>
+      <div class="progress-meter" data-progress-meter>
+        <h3>Walk Progress</h3>
+        <div class="meter-bar"><span></span></div>
+        <div class="meter-label">0% complete</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="now-playing" data-now-playing>
+    <span class="pill">Now playing</span>
+    <strong data-now-playing-title>Start the Walk</strong>
+  </div>
+
+  <div class="pause-card" data-pause-card hidden>
+    <div class="pause-card-inner">
+      <span class="pill">Pause Card</span>
+      <h3 data-pause-title>Hold the moment</h3>
+      <p data-pause-body>Take one slow breath and name the closest sound.</p>
+      <div class="controls">
+        <button class="pill" data-pause-next>Another card</button>
+        <button class="pill" data-pause-close>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline define:vars={{ waypoints }}>
+    window.__WAYPOINTS__ = waypoints.map((wp) => ({
+      slug: wp.data.slug ?? wp.slug,
+      title: wp.data.title,
+      order: wp.data.order,
+      mood: wp.data.mood,
+      type: wp.data.type
+    }));
+  </script>
+
+  {waypoints.map((wp) => {
+    const slug = wp.data.slug ?? wp.slug;
+    return (
+    <section
+      class="walk-section"
+      id={slug}
+      data-waypoint-section
+      data-slug={slug}
+      data-title={wp.data.title}
+      data-mood={wp.data.mood}
+      data-type={wp.data.type}
+    >
+      <article class="waypoint-card">
+        <h2>{wp.data.order}. {wp.data.title}</h2>
+        <div class="waypoint-meta">
+          <span class="pill">{wp.data.type}</span>
+          <span class="pill">{wp.data.mood}</span>
+        </div>
+        <p>{wp.data.excerpt}</p>
+        <div class="controls">
+          <a class="pill" href={`/waypoints/${slug}`}>Open</a>
+          <button class="bookmark-btn" data-bookmark={slug}>Bookmark</button>
+        </div>
+      </article>
+    </section>
+    );
+  })}
+</BaseLayout>

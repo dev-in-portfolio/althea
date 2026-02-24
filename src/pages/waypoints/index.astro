@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const waypoints = (await getCollection("waypoints")).sort((a, b) => a.data.order - b.data.order);
+const moods = ["calm", "curious", "tender", "focused", "bright", "grounded"];
+const types = ["prompt", "story", "tool", "link"];
+---
+<BaseLayout title="Wayfinder — Waypoints">
+  <section class="section-card">
+    <h1>Waypoints</h1>
+    <p>Filter by mood or type to find the right pace for today.</p>
+    <div class="filter-bar">
+      <label>
+        Mood
+        <select data-filter-mood>
+          <option value="all">All</option>
+          {moods.map((m) => <option value={m}>{m}</option>)}
+        </select>
+      </label>
+      <label>
+        Type
+        <select data-filter-type>
+          <option value="all">All</option>
+          {types.map((t) => <option value={t}>{t}</option>)}
+        </select>
+      </label>
+    </div>
+  </section>
+
+  <section class="grid" data-waypoint-list>
+    {waypoints.map((wp) => {
+      const slug = wp.data.slug ?? wp.slug;
+      return (
+      <article class="waypoint-card" data-waypoint-card data-mood={wp.data.mood} data-type={wp.data.type}>
+        <h2>{wp.data.title}</h2>
+        <div class="waypoint-meta">
+          <span class="pill">#{wp.data.order}</span>
+          <span class="pill">{wp.data.type}</span>
+          <span class="pill">{wp.data.mood}</span>
+        </div>
+        <p>{wp.data.excerpt}</p>
+        <div class="controls">
+          <a class="pill" href={`/waypoints/${slug}`}>Open</a>
+          <button class="bookmark-btn" data-bookmark={slug}>Bookmark</button>
+        </div>
+      </article>
+      );
+    })}
+  </section>
+</BaseLayout>
