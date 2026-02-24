@@ -1,0 +1,38 @@
+---
+const { title = "Paradox Vault", description = "A vault of paradoxes, thought experiments, systems, and riddles." } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-title">Paradox Vault</div>
+        <div class="brand-subtitle">A living archive of contradiction and insight.</div>
+      </div>
+      <nav class="nav">
+        <a href="/">Entrance</a>
+        <a href="/vault">Vault</a>
+        <a href="/tags">Tags</a>
+        <a href="/bookmarks">Bookmarks</a>
+        <a href="/notes">Notes</a>
+      </nav>
+    </header>
+
+    <main class="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <p>Paradox Vault is local-first. Backend is optional for bookmarks and notes.</p>
+    </footer>
+
+    <script type="module" src="/scripts/vault.js"></script>
+  </body>
+</html>

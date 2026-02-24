@@ -1,0 +1,83 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import { render } from "astro:content";
+
+export async function getStaticPaths(){
+  const entries = await getCollection("paradoxes");
+  return entries.map((entry) => ({
+    params: { slug: entry.data.slug ?? entry.slug },
+    props: { entry }
+  }));
+}
+
+const { entry } = Astro.props;
+const slug = entry.data.slug ?? entry.slug;
+const { Content } = await render(entry);
+---
+<BaseLayout title={`Paradox Vault — ${entry.data.title}`}>
+  <article class="panel entry-detail">
+    <h1>{entry.data.title}</h1>
+    <div class="entry-meta">
+      <span class="pill">{entry.data.type}</span>
+      {entry.data.tags.map((tag) => <a class="pill" href={`/tags/${tag}`}>{tag}</a>)}
+    </div>
+    <p class="entry-summary">{entry.data.summary}</p>
+    <div class="controls">
+      <button class="pill" data-bookmark={slug}>Bookmark</button>
+      <a class="pill" href="/vault">Back to Vault</a>
+    </div>
+
+    <section>
+      <h2>Axioms</h2>
+      <ul>
+        {entry.data.axioms.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <section>
+      <h2>Contradictions</h2>
+      <ul>
+        {entry.data.contradictions.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <section>
+      <h2>Prompts</h2>
+      <ul>
+        {entry.data.prompts.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    {entry.data.related.length > 0 && (
+      <section>
+        <h2>Related Entries</h2>
+        <div class="entry-tags">
+          {entry.data.related.map((rel) => <a class="pill" href={`/vault/${rel}`}>{rel}</a>)}
+        </div>
+      </section>
+    )}
+
+    <section>
+      <h2>Notes</h2>
+      <form class="controls" data-note-form data-slug={slug}>
+        <textarea placeholder="Write a note about this paradox..."></textarea>
+        <button class="pill" type="submit">Save Note</button>
+      </form>
+      <div class="notes-list" data-note-list></div>
+    </section>
+
+    {entry.data.sources && entry.data.sources.length > 0 && (
+      <section>
+        <h2>Sources</h2>
+        <ul>
+          {entry.data.sources.map((src) => <li>{src}</li>)}
+        </ul>
+      </section>
+    )}
+
+    <section>
+      <Content />
+    </section>
+  </article>
+</BaseLayout>

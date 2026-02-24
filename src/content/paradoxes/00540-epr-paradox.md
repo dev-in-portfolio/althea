@@ -1,0 +1,48 @@
+---
+title: "EPR paradox"
+slug: "epr-paradox"
+type: THOUGHT_EXPERIMENT
+summary: "The Einstein–Podolsky–Rosen (EPR) paradox is a thought experiment proposed by physicists Albert Einstein, Boris Podolsky and Nathan Rosen, which argues that the description of physical reality provided by quantum mechanics is incomplete. In a 1935 paper titled 'Can Quantum-Mechanical Description of Physical Reality be Considered Complete?', they argued for the existence of 'elements of reality' that were not part of "
+tags:
+  - physics
+axioms:
+  - Assume the rules of the domain apply uniformly.
+  - Assume the observer’s criteria remain fixed.
+  - Assume classification boundaries stay consistent.
+  - Assume the model describes the real case.
+  - Assume repeated steps do not change the outcome.
+  - Assume no hidden variables are introduced midstream.
+contradictions:
+  - Two reasonable lines of inference yield opposite conclusions
+  - A global rule conflicts with a local judgment
+  - A stable resolution appears to violate a starting premise
+  - Changing the framing reverses the outcome
+  - Intuition and formalism diverge at the same step
+related: []
+prompts:
+  - Which assumption is doing the most hidden work?
+  - What changes if you relax the smallest constraint?
+  - Does the paradox dissolve or relocate when reframed?
+  - What is conserved, and what is sacrificed?
+sources:
+  - https://en.wikipedia.org/wiki/EPR_paradox
+order: 540
+---
+## Overview
+The Einstein–Podolsky–Rosen (EPR) paradox is a thought experiment proposed by physicists Albert Einstein, Boris Podolsky and Nathan Rosen, which argues that the description of physical reality provided by quantum mechanics is incomplete. In a 1935 paper titled "Can Quantum-Mechanical Description of Physical Reality be Considered Complete?", they argued for the existence of "elements of reality" that were not part of 
+
+## Tension
+- Two reasonable lines of inference yield opposite conclusions.
+- A global rule conflicts with a local judgment.
+- A stable resolution appears to violate a starting premise.
+- Changing the framing reverses the outcome.
+- Intuition and formalism diverge at the same step.
+
+## Why It Matters
+This entry tests how a stable rule-set can yield unstable conclusions under certain assumptions.
+
+## Prompts
+- Which assumption is doing the most hidden work?
+- What changes if you relax the smallest constraint?
+- Does the paradox dissolve or relocate when reframed?
+- What is conserved, and what is sacrificed?

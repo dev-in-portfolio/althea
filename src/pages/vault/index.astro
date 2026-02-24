@@ -1,0 +1,72 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const entries = (await getCollection("paradoxes")).sort((a, b) => a.data.title.localeCompare(b.data.title));
+const types = ["PARADOX", "THOUGHT_EXPERIMENT", "SYSTEM", "RIDDLE"];
+const tags = Array.from(new Set(entries.flatMap((e) => e.data.tags))).sort();
+---
+<BaseLayout title="Paradox Vault — All Entries">
+  <section class="panel search-bar">
+    <h1>The Vault</h1>
+    <p>Search and filter the archive by type or tag.</p>
+    <input type="search" placeholder="Search title, summary, tag..." data-search />
+    <div class="controls">
+      <label>
+        Type
+        <select data-filter-type>
+          <option value="all">All</option>
+          {types.map((type) => <option value={type}>{type}</option>)}
+        </select>
+      </label>
+      <label>
+        Tag
+        <select data-filter-tag>
+          <option value="all">All</option>
+          {tags.map((tag) => <option value={tag}>{tag}</option>)}
+        </select>
+      </label>
+      <button class="pill ghost" type="button" data-clear-search>Clear</button>
+      <button class="pill accent" type="button" data-random>Random Entry</button>
+    </div>
+    <div class="controls">
+      <span class="pill" data-result-count>{entries.length} results</span>
+    </div>
+    <div class="notice" data-empty-state hidden>No entries match your search.</div>
+  </section>
+
+  <section class="grid" data-vault-list>
+    {entries.map((entry) => {
+      const slug = entry.data.slug ?? entry.slug;
+      const search = `${entry.data.title} ${entry.data.summary} ${entry.data.tags.join(" ")}`.toLowerCase();
+      return (
+        <article
+          class="entry-card"
+          data-entry-card
+          data-type={entry.data.type}
+          data-tags={entry.data.tags.join(",")}
+          data-search={search}
+        >
+          <h3><a href={`/vault/${slug}`}>{entry.data.title}</a></h3>
+          <div class="entry-meta">
+            <span class="pill">{entry.data.type}</span>
+          </div>
+          <p class="entry-summary">{entry.data.summary}</p>
+          <div class="entry-tags">
+            {entry.data.tags.map((tag) => <a class="pill" href={`/tags/${tag}`}>{tag}</a>)}
+          </div>
+          <div class="controls">
+            <button class="pill" data-bookmark={slug}>Bookmark</button>
+          </div>
+        </article>
+      );
+    })}
+  </section>
+
+  <script is:inline define:vars={{ entries }}>
+    window.__ENTRIES__ = entries.map((e) => ({
+      slug: e.data.slug ?? e.slug,
+      title: e.data.title
+    }));
+  </script>
+</BaseLayout>

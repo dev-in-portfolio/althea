@@ -1,0 +1,69 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const entries = (await getCollection("paradoxes")).sort((a, b) => a.data.title.localeCompare(b.data.title));
+const featured = entries.slice(0, 6);
+const tags = Array.from(new Set(entries.flatMap((e) => e.data.tags))).sort();
+---
+<BaseLayout title="Paradox Vault — Entrance">
+  <section class="panel hero">
+    <h1>Vault Entrance</h1>
+    <p>Enter a curated archive of paradoxes, thought experiments, systems, and riddles. Browse the vault or draw a random entry.</p>
+    <div class="controls">
+      <a class="pill accent" href="/vault">Open the Vault</a>
+      <button class="pill ghost" data-random>Random Entry</button>
+    </div>
+    <div class="metrics">
+      <div class="metric">
+        <div class="metric-label">Entries</div>
+        <div class="metric-value">{entries.length}</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Tags</div>
+        <div class="metric-value">{tags.length}</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Types</div>
+        <div class="metric-value">4</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Featured Entries</h2>
+    <div class="grid">
+      {featured.map((entry) => {
+        const slug = entry.data.slug ?? entry.slug;
+        return (
+          <article class="entry-card">
+            <h3><a href={`/vault/${slug}`}>{entry.data.title}</a></h3>
+            <div class="entry-meta">
+              <span class="pill">{entry.data.type}</span>
+            </div>
+            <p class="entry-summary">{entry.data.summary}</p>
+            <div class="entry-tags">
+              {entry.data.tags.map((tag) => <a class="pill" href={`/tags/${tag}`}>{tag}</a>)}
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Browse by Tag</h2>
+    <div class="entry-tags">
+      {tags.map((tag) => <a class="pill" href={`/tags/${tag}`}>{tag}</a>)}
+    </div>
+  </section>
+
+  <script is:inline define:vars={{ entries }}>
+    window.__ENTRIES__ = entries.map((e) => ({
+      slug: e.data.slug ?? e.slug,
+      title: e.data.title,
+      type: e.data.type,
+      tags: e.data.tags
+    }));
+  </script>
+</BaseLayout>

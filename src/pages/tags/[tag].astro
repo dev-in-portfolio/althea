@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths(){
+  const entries = await getCollection("paradoxes");
+  const tags = Array.from(new Set(entries.flatMap((e) => e.data.tags)));
+  return tags.map((tag) => ({ params: { tag } }));
+}
+
+const { tag } = Astro.params;
+const allEntries = await getCollection("paradoxes");
+const entries = allEntries
+  .filter((e) => e.data.tags.includes(tag))
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+<BaseLayout title={`Paradox Vault — ${tag}`}>
+  <section class="panel">
+    <h1>Tag: {tag}</h1>
+    <div class="controls">
+      <button class="pill accent" data-random>Random Entry</button>
+    </div>
+    <div class="grid">
+      {entries.map((entry) => {
+        const slug = entry.data.slug ?? entry.slug;
+        return (
+          <article class="entry-card">
+            <h3><a href={`/vault/${slug}`}>{entry.data.title}</a></h3>
+            <div class="entry-meta">
+              <span class="pill">{entry.data.type}</span>
+            </div>
+            <p class="entry-summary">{entry.data.summary}</p>
+          </article>
+        );
+      })}
+    </div>
+  </section>
+  <script is:inline define:vars={{ allEntries }}>
+    window.__ENTRIES__ = allEntries.map((e) => ({
+      slug: e.data.slug ?? e.slug,
+      title: e.data.title
+    }));
+  </script>
+</BaseLayout>

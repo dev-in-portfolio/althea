@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const entries = await getCollection("paradoxes");
+const tags = Array.from(new Set(entries.flatMap((e) => e.data.tags))).sort();
+---
+<BaseLayout title="Paradox Vault — Tags">
+  <section class="panel">
+    <h1>Tags</h1>
+    <p>Browse the vault by tag.</p>
+    <div class="controls">
+      <button class="pill accent" data-random>Random Entry</button>
+    </div>
+    <div class="entry-tags">
+      {tags.map((tag) => <a class="pill" href={`/tags/${tag}`}>{tag}</a>)}
+    </div>
+  </section>
+  <script is:inline define:vars={{ entries }}>
+    window.__ENTRIES__ = entries.map((e) => ({
+      slug: e.data.slug ?? e.slug,
+      title: e.data.title
+    }));
+  </script>
+</BaseLayout>

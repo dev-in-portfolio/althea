@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const entries = (await getCollection("paradoxes")).map((entry) => ({
+  slug: entry.data.slug ?? entry.slug,
+  title: entry.data.title,
+  summary: entry.data.summary,
+  type: entry.data.type,
+  tags: entry.data.tags
+}));
+---
+<BaseLayout title="Paradox Vault — Notes">
+  <section class="panel">
+    <h1>Notes</h1>
+    <p>All notes grouped by entry.</p>
+    <div class="notes-list" data-notes-list></div>
+  </section>
+  <script is:inline define:vars={{ entries }}>
+    window.__ENTRIES__ = entries;
+  </script>
+</BaseLayout>
