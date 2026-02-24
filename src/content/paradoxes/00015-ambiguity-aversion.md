@@ -1,8 +1,8 @@
 ---
-title: "Ambiguity aversion"
-slug: "ambiguity-aversion"
+title: 'Ambiguity aversion'
+slug: '00015-ambiguity-aversion'
 type: PARADOX
-summary: "In decision theory and economics, ambiguity aversion (also known as uncertainty aversion) is a preference for known risks over unknown risks. An ambiguity-averse individual would rather choose an alternative where the probability distribution of the outcomes is known over one where the probabilities are unknown."
+summary: 'In decision theory and economics, ambiguity aversion (also known as uncertainty aversion) is a preference for known risks over unknown risks. An ambiguity-averse individual would rather choose an alternative where the probability distribution of the outcomes is known over one where the probabilities are unknown.'
 tags:
   - probability
   - economics

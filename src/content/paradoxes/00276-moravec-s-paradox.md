@@ -1,8 +1,8 @@
 ---
-title: "Moravec's paradox"
-slug: "moravec-s-paradox"
+title: 'Moravec''s paradox'
+slug: '00276-moravec-s-paradox'
 type: PARADOX
-summary: "Moravec's paradox is the observation that, as Hans Moravec wrote in 1988, 'it is comparatively easy to make computers exhibit adult level performance on intelligence tests or playing checkers, and difficult or impossible to give them the skills of a one-year-old when it comes to perception and mobility'. This counterintuitive pattern may happen because skills that appear effortless to humans, such as recognizing face"
+summary: 'Moravec''s paradox is the observation that, as Hans Moravec wrote in 1988, ''it is comparatively easy to make computers exhibit adult level performance on intelligence tests or playing checkers, and difficult or impossible to give them the skills of a one-year-old when it comes to perception and mobility''. This counterintuitive pattern may happen because skills that appear effortless to humans, such as recognizing face'
 tags:
   - paradox
 axioms:

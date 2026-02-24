@@ -1,8 +1,8 @@
 ---
-title: "Prisoner's dilemma"
-slug: "prisoner-s-dilemma"
+title: 'Prisoner''s dilemma'
+slug: '00365-prisoner-s-dilemma'
 type: SYSTEM
-summary: "The prisoner's dilemma is a game theory thought experiment involving two rational agents, each of whom can either cooperate for mutual benefit or betray their partner ('defect') for individual gain. The dilemma arises from the fact that while defecting is rational for each agent, cooperation yields a higher payoff for each."
+summary: 'The prisoner''s dilemma is a game theory thought experiment involving two rational agents, each of whom can either cooperate for mutual benefit or betray their partner (''defect'') for individual gain. The dilemma arises from the fact that while defecting is rational for each agent, cooperation yields a higher payoff for each.'
 tags:
   - game-theory
 axioms:

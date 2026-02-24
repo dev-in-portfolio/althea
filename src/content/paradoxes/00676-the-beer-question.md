@@ -1,8 +1,8 @@
 ---
-title: "The beer question"
-slug: "the-beer-question"
+title: 'The beer question'
+slug: '00676-the-beer-question'
 type: THOUGHT_EXPERIMENT
-summary: "The beer question is a thought experiment in politics that attempts to measure authenticity and likability in politicians by asking or polling voters about which politicians they would prefer to drink beer with, as in, spending casual time 'hanging out' with. The question has been discussed as far back as the 2000 United States presidential election, as well as in the context of fictional political works such as The "
+summary: 'The beer question is a thought experiment in politics that attempts to measure authenticity and likability in politicians by asking or polling voters about which politicians they would prefer to drink beer with, as in, spending casual time ''hanging out'' with. The question has been discussed as far back as the 2000 United States presidential election, as well as in the context of fictional political works such as The '
 tags:
   - time
 axioms:

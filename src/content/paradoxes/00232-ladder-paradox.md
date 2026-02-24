@@ -1,8 +1,8 @@
 ---
-title: "Ladder paradox"
-slug: "ladder-paradox"
+title: 'Ladder paradox'
+slug: '00232-ladder-paradox'
 type: PARADOX
-summary: "The ladder paradox (or barn-pole paradox) is a thought experiment in special relativity. It involves a ladder, parallel to the ground, travelling horizontally at relativistic speed (near the speed of light) and therefore undergoing a Lorentz length contraction."
+summary: 'The ladder paradox (or barn-pole paradox) is a thought experiment in special relativity. It involves a ladder, parallel to the ground, travelling horizontally at relativistic speed (near the speed of light) and therefore undergoing a Lorentz length contraction.'
 tags:
   - paradox
 axioms:

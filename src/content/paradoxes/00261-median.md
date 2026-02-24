@@ -1,8 +1,8 @@
 ---
-title: "Median"
-slug: "median"
+title: 'Median'
+slug: '00261-median'
 type: PARADOX
-summary: "The median of a set of numbers is the value separating the higher half from the lower half of a data sample, a population, or a probability distribution. For a data set, it may be thought of as the “middle' value."
+summary: 'The median of a set of numbers is the value separating the higher half from the lower half of a data sample, a population, or a probability distribution. For a data set, it may be thought of as the “middle'' value.'
 tags:
   - set-theory
   - probability

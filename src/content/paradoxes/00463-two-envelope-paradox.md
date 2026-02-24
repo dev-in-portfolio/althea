@@ -1,8 +1,8 @@
 ---
-title: "Two-envelope paradox"
-slug: "two-envelope-paradox"
+title: 'Two-envelope paradox'
+slug: '00463-two-envelope-paradox'
 type: PARADOX
-summary: "The two envelopes problem, also known as the exchange paradox, is a paradox in probability theory. It is of special interest in decision theory and for the Bayesian interpretation of probability theory."
+summary: 'The two envelopes problem, also known as the exchange paradox, is a paradox in probability theory. It is of special interest in decision theory and for the Bayesian interpretation of probability theory.'
 tags:
   - probability
   - decision

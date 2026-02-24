@@ -1,8 +1,8 @@
 ---
-title: "D'Alembert's paradox"
-slug: "d-alembert-s-paradox"
+title: 'D''Alembert''s paradox'
+slug: '00098-d-alembert-s-paradox'
 type: PARADOX
-summary: "In fluid dynamics, d'Alembert's paradox (or the hydrodynamic paradox) is a paradox discovered in 1752 by French mathematician Jean le Rond d'Alembert. D'Alembert proved that – for incompressible and inviscid potential flow – the drag force is zero on a body moving with constant velocity relative to (and simultaneously through) the fluid."
+summary: 'In fluid dynamics, d''Alembert''s paradox (or the hydrodynamic paradox) is a paradox discovered in 1752 by French mathematician Jean le Rond d''Alembert. D''Alembert proved that – for incompressible and inviscid potential flow – the drag force is zero on a body moving with constant velocity relative to (and simultaneously through) the fluid.'
 tags:
   - paradox
 axioms:

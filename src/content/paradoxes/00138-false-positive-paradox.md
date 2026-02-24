@@ -1,8 +1,8 @@
 ---
-title: "False positive paradox"
-slug: "false-positive-paradox"
+title: 'False positive paradox'
+slug: '00138-false-positive-paradox'
 type: PARADOX
-summary: "The base rate fallacy, also called base rate neglect or base rate bias, is a type of fallacy in which people tend to ignore the base rate (e.g., general prevalence) in favor of the information pertaining only to a specific case. Base rate neglect is a specific form of the more general extension neglect."
+summary: 'The base rate fallacy, also called base rate neglect or base rate bias, is a type of fallacy in which people tend to ignore the base rate (e.g., general prevalence) in favor of the information pertaining only to a specific case. Base rate neglect is a specific form of the more general extension neglect.'
 tags:
   - paradox
 axioms:

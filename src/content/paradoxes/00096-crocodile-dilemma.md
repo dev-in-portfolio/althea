@@ -1,8 +1,8 @@
 ---
-title: "Crocodile dilemma"
-slug: "crocodile-dilemma"
+title: 'Crocodile dilemma'
+slug: '00096-crocodile-dilemma'
 type: SYSTEM
-summary: "The crocodile paradox, also known as crocodile sophism, is a paradox in logic in the same family of paradoxes as the liar paradox. The premise states that a crocodile, who has stolen a child, promises the parent that their child will be returned if and only if they correctly predict what the crocodile will do next."
+summary: 'The crocodile paradox, also known as crocodile sophism, is a paradox in logic in the same family of paradoxes as the liar paradox. The premise states that a crocodile, who has stolen a child, promises the parent that their child will be returned if and only if they correctly predict what the crocodile will do next.'
 tags:
   - logic
 axioms:

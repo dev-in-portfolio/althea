@@ -1,8 +1,8 @@
 ---
-title: "Friendship paradox"
-slug: "friendship-paradox"
+title: 'Friendship paradox'
+slug: '00155-friendship-paradox'
 type: PARADOX
-summary: "The friendship paradox is the phenomenon first observed by the sociologist Scott L. Feld in 1991 that on average, an individual's friends have more friends than that individual. It can be explained as a form of sampling bias in which people with more friends are more likely to be in one's own friend group."
+summary: 'The friendship paradox is the phenomenon first observed by the sociologist Scott L. Feld in 1991 that on average, an individual''s friends have more friends than that individual. It can be explained as a form of sampling bias in which people with more friends are more likely to be in one''s own friend group.'
 tags:
   - paradox
 axioms:

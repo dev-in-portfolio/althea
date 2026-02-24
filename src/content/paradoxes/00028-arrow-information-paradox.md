@@ -1,8 +1,8 @@
 ---
-title: "Arrow information paradox"
-slug: "arrow-information-paradox"
+title: 'Arrow information paradox'
+slug: '00028-arrow-information-paradox'
 type: PARADOX
-summary: "The Arrow information paradox (information paradox for short, or AIP), and occasionally referred to as Arrow's disclosure paradox, named after Kenneth Arrow, American economist and joint winner of the Nobel Memorial Prize in Economics with John Hicks, is a problem faced by companies when managing intellectual property across their boundaries. It occurs when they seek external technologies for their business or extern"
+summary: 'The Arrow information paradox (information paradox for short, or AIP), and occasionally referred to as Arrow''s disclosure paradox, named after Kenneth Arrow, American economist and joint winner of the Nobel Memorial Prize in Economics with John Hicks, is a problem faced by companies when managing intellectual property across their boundaries. It occurs when they seek external technologies for their business or extern'
 tags:
   - economics
 axioms:

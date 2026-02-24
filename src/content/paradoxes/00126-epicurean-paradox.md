@@ -1,8 +1,8 @@
 ---
-title: "Epicurean paradox"
-slug: "epicurean-paradox"
+title: 'Epicurean paradox'
+slug: '00126-epicurean-paradox'
 type: PARADOX
-summary: "The Epicurean paradox is a logical dilemma about the problem of evil attributed to the Greek philosopher Epicurus, who argued against the existence of a god who is simultaneously omniscient, omnipotent, and omnibenevolent."
+summary: 'The Epicurean paradox is a logical dilemma about the problem of evil attributed to the Greek philosopher Epicurus, who argued against the existence of a god who is simultaneously omniscient, omnipotent, and omnibenevolent.'
 tags:
   - logic
 axioms:

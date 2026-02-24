@@ -1,8 +1,8 @@
 ---
-title: "Bell's spaceship paradox"
-slug: "bell-s-spaceship-paradox"
+title: 'Bell''s spaceship paradox'
+slug: '00035-bell-s-spaceship-paradox'
 type: PARADOX
-summary: "Bell's spaceship paradox is a thought experiment in special relativity. It was first described by E. Dewan and M. Beran in 1959 but became more widely known after John Stewart Bell elaborated the idea further in 1976."
+summary: 'Bell''s spaceship paradox is a thought experiment in special relativity. It was first described by E. Dewan and M. Beran in 1959 but became more widely known after John Stewart Bell elaborated the idea further in 1976.'
 tags:
   - paradox
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Quantum suicide and immortality"
-slug: "quantum-suicide-and-immortality"
+title: 'Quantum suicide and immortality'
+slug: '00640-quantum-suicide-and-immortality'
 type: THOUGHT_EXPERIMENT
-summary: "Quantum suicide is a thought experiment in quantum mechanics and the philosophy of physics. Purportedly, it can falsify any interpretation of quantum mechanics other than the many-worlds interpretation by means of a variation of the Schrödinger's cat thought experiment from the cat's point of view."
+summary: 'Quantum suicide is a thought experiment in quantum mechanics and the philosophy of physics. Purportedly, it can falsify any interpretation of quantum mechanics other than the many-worlds interpretation by means of a variation of the Schrödinger''s cat thought experiment from the cat''s point of view.'
 tags:
   - physics
 axioms:

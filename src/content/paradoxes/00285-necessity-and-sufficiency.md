@@ -1,8 +1,8 @@
 ---
-title: "Necessity and sufficiency"
-slug: "necessity-and-sufficiency"
+title: 'Necessity and sufficiency'
+slug: '00285-necessity-and-sufficiency'
 type: PARADOX
-summary: "In logic and mathematics, necessity and sufficiency are terms used to describe a conditional or implicational relationship between two statements. For example, in the conditional statement: 'If P then Q', Q is necessary for P, because the truth of Q is 'necessarily' guaranteed by the truth of P. (Equivalently, it is impossible to have P without Q, or the falsity of Q ensures the falsity of P.) Similarly, P is suffici"
+summary: 'In logic and mathematics, necessity and sufficiency are terms used to describe a conditional or implicational relationship between two statements. For example, in the conditional statement: ''If P then Q'', Q is necessary for P, because the truth of Q is ''necessarily'' guaranteed by the truth of P. (Equivalently, it is impossible to have P without Q, or the falsity of Q ensures the falsity of P.) Similarly, P is suffici'
 tags:
   - logic
   - truth

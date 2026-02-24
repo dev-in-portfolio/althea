@@ -1,8 +1,8 @@
 ---
-title: "Goodman's paradox"
-slug: "goodman-s-paradox"
+title: 'Goodman''s paradox'
+slug: '00167-goodman-s-paradox'
 type: PARADOX
-summary: "The new riddle of induction was presented by Nelson Goodman in Fact, Fiction, and Forecast as a successor to Hume's original problem. It presents the logical predicates grue and bleen which are unusual due to their time-dependence."
+summary: 'The new riddle of induction was presented by Nelson Goodman in Fact, Fiction, and Forecast as a successor to Hume''s original problem. It presents the logical predicates grue and bleen which are unusual due to their time-dependence.'
 tags:
   - logic
   - time

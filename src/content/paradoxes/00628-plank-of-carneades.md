@@ -1,8 +1,8 @@
 ---
-title: "Plank of Carneades"
-slug: "plank-of-carneades"
+title: 'Plank of Carneades'
+slug: '00628-plank-of-carneades'
 type: THOUGHT_EXPERIMENT
-summary: "In ethics, the plank of Carneades is a thought experiment first proposed by the academic skeptic philosopher Carneades of Cyrene. It explores the concept of self-defense in relation to murder."
+summary: 'In ethics, the plank of Carneades is a thought experiment first proposed by the academic skeptic philosopher Carneades of Cyrene. It explores the concept of self-defense in relation to murder.'
 tags:
   - ethics
 axioms:

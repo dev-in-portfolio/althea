@@ -1,8 +1,8 @@
 ---
-title: "Banach–Tarski paradox"
-slug: "banach-tarski-paradox"
+title: 'Banach–Tarski paradox'
+slug: '00032-banach-tarski-paradox'
 type: PARADOX
-summary: "The Banach–Tarski paradox is a theorem in set-theoretic geometry that states the following: Given a solid ball in three-dimensional space, there exists a decomposition of the ball into a finite number of disjoint subsets that can be put back together in a different way to yield two identical copies of the original ball. Indeed, the reassembly process involves only moving the pieces around and rotating them, without c"
+summary: 'The Banach–Tarski paradox is a theorem in set-theoretic geometry that states the following: Given a solid ball in three-dimensional space, there exists a decomposition of the ball into a finite number of disjoint subsets that can be put back together in a different way to yield two identical copies of the original ball. Indeed, the reassembly process involves only moving the pieces around and rotating them, without c'
 tags:
   - set-theory
 axioms:

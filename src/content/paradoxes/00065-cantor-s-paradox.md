@@ -1,8 +1,8 @@
 ---
-title: "Cantor's paradox"
-slug: "cantor-s-paradox"
+title: 'Cantor''s paradox'
+slug: '00065-cantor-s-paradox'
 type: PARADOX
-summary: "In set theory, Cantor's paradox states that there is no set of all cardinalities. This is derived from the theorem that there is no greatest cardinal number."
+summary: 'In set theory, Cantor''s paradox states that there is no set of all cardinalities. This is derived from the theorem that there is no greatest cardinal number.'
 tags:
   - set-theory
 axioms:

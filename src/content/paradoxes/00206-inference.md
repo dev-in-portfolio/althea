@@ -1,8 +1,8 @@
 ---
-title: "Inference"
-slug: "inference"
+title: 'Inference'
+slug: '00206-inference'
 type: PARADOX
-summary: "Inferences are steps in logical reasoning, moving from premises to logical consequences; etymologically, the word infer means to 'carry forward'. Inference is theoretically traditionally divided into deduction and induction, a distinction that dates at least to Aristotle (300s BC)."
+summary: 'Inferences are steps in logical reasoning, moving from premises to logical consequences; etymologically, the word infer means to ''carry forward''. Inference is theoretically traditionally divided into deduction and induction, a distinction that dates at least to Aristotle (300s BC).'
 tags:
   - logic
 axioms:

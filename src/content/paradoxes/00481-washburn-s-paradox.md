@@ -1,8 +1,8 @@
 ---
-title: "Washburn's paradox"
-slug: "washburn-s-paradox"
+title: 'Washburn''s paradox'
+slug: '00481-washburn-s-paradox'
 type: PARADOX
-summary: "Washburn's paradox, Washburn's fallacy or the genetic similarity fallacy is a statement about the genetic relatedness of individuals that is relevant in Hamilton's rule. It is named for American anthropologist Sherwood Washburn, who discussed the issue in his critique of sociobiology and kin selection."
+summary: 'Washburn''s paradox, Washburn''s fallacy or the genetic similarity fallacy is a statement about the genetic relatedness of individuals that is relevant in Hamilton''s rule. It is named for American anthropologist Sherwood Washburn, who discussed the issue in his critique of sociobiology and kin selection.'
 tags:
   - paradox
 axioms:

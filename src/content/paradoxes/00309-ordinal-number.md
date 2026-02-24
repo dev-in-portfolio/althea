@@ -1,8 +1,8 @@
 ---
-title: "Ordinal number"
-slug: "ordinal-number"
+title: 'Ordinal number'
+slug: '00309-ordinal-number'
 type: PARADOX
-summary: "In set theory, an ordinal number, or ordinal, is a generalization of ordinal numerals (first, second, nth, etc.) aimed to extend enumeration to infinite sets. Usually Greek letters are used for ordinal number variables to help distinguish them from natural number variables."
+summary: 'In set theory, an ordinal number, or ordinal, is a generalization of ordinal numerals (first, second, nth, etc.) aimed to extend enumeration to infinite sets. Usually Greek letters are used for ordinal number variables to help distinguish them from natural number variables.'
 tags:
   - set-theory
 axioms:

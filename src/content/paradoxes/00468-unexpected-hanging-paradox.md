@@ -1,8 +1,8 @@
 ---
-title: "Unexpected hanging paradox"
-slug: "unexpected-hanging-paradox"
+title: 'Unexpected hanging paradox'
+slug: '00468-unexpected-hanging-paradox'
 type: PARADOX
-summary: "The unexpected hanging paradox or surprise test paradox is a paradox about a person's expectations about the timing of a future event which they are told will occur at an unexpected time. The paradox is variously applied to a prisoner's hanging or a surprise school test."
+summary: 'The unexpected hanging paradox or surprise test paradox is a paradox about a person''s expectations about the timing of a future event which they are told will occur at an unexpected time. The paradox is variously applied to a prisoner''s hanging or a surprise school test.'
 tags:
   - time
 axioms:

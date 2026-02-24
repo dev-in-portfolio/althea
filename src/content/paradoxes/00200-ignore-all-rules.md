@@ -1,8 +1,8 @@
 ---
-title: "Ignore all rules"
-slug: "ignore-all-rules"
+title: 'Ignore all rules'
+slug: '00200-ignore-all-rules'
 type: PARADOX
-summary: "'Ignore all rules' (IAR) is a policy of the English Wikipedia, an online encyclopedia, which reads: 'If a rule prevents you from improving or maintaining Wikipedia, ignore it.' (emphasis and links in original). The rule was proposed by Wikipedia co-founder Larry Sanger to encourage editors to add information without focusing excessively on formatting, though Sanger later criticized the rule's effects on the community"
+summary: 'Ignore all rules'' (IAR) is a policy of the English Wikipedia, an online encyclopedia, which reads: ''If a rule prevents you from improving or maintaining Wikipedia, ignore it.'' (emphasis and links in original). The rule was proposed by Wikipedia co-founder Larry Sanger to encourage editors to add information without focusing excessively on formatting, though Sanger later criticized the rule''s effects on the community'
 tags:
   - paradox
 axioms:

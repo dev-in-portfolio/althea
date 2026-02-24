@@ -1,8 +1,8 @@
 ---
-title: "Stokes' paradox"
-slug: "stokes-paradox"
+title: 'Stokes'' paradox'
+slug: '00428-stokes-paradox'
 type: PARADOX
-summary: "In the science of fluid flow, Stokes' paradox is the phenomenon that there can be no creeping flow of a fluid around a disk in two dimensions; or, equivalently, the fact there is no non-trivial steady-state solution for the Stokes equations around an infinitely long cylinder. This is opposed to the 3-dimensional case, where Stokes' method provides a solution to the problem of flow around a sphere."
+summary: 'In the science of fluid flow, Stokes'' paradox is the phenomenon that there can be no creeping flow of a fluid around a disk in two dimensions; or, equivalently, the fact there is no non-trivial steady-state solution for the Stokes equations around an infinitely long cylinder. This is opposed to the 3-dimensional case, where Stokes'' method provides a solution to the problem of flow around a sphere.'
 tags:
   - paradox
 axioms:

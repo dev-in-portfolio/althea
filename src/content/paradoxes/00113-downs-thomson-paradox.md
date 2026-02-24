@@ -1,8 +1,8 @@
 ---
-title: "Downs–Thomson paradox"
-slug: "downs-thomson-paradox"
+title: 'Downs–Thomson paradox'
+slug: '00113-downs-thomson-paradox'
 type: PARADOX
-summary: "The Downs–Thomson paradox (named after Anthony Downs and John Michael Thomson), also known as the Pigou–Knight–Downs paradox (after Arthur Cecil Pigou and Frank Knight), states that the equilibrium speed of car traffic on a road network is determined by the average door-to-door speed of equivalent journeys taken by public transport or the next best alternative. Although consistent with economic theory, it is a parado"
+summary: 'The Downs–Thomson paradox (named after Anthony Downs and John Michael Thomson), also known as the Pigou–Knight–Downs paradox (after Arthur Cecil Pigou and Frank Knight), states that the equilibrium speed of car traffic on a road network is determined by the average door-to-door speed of equivalent journeys taken by public transport or the next best alternative. Although consistent with economic theory, it is a parado'
 tags:
   - economics
 axioms:

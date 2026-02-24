@@ -1,8 +1,8 @@
 ---
-title: "Temperature paradox"
-slug: "temperature-paradox"
+title: 'Temperature paradox'
+slug: '00440-temperature-paradox'
 type: PARADOX
-summary: "The Temperature paradox or Partee's paradox is a classic puzzle in formal semantics and philosophical logic. Formulated by Barbara Partee in the 1970s, it consists of the following argument, which speakers of English judge as wildly invalid."
+summary: 'The Temperature paradox or Partee''s paradox is a classic puzzle in formal semantics and philosophical logic. Formulated by Barbara Partee in the 1970s, it consists of the following argument, which speakers of English judge as wildly invalid.'
 tags:
   - logic
 axioms:

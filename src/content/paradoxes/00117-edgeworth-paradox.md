@@ -1,8 +1,8 @@
 ---
-title: "Edgeworth paradox"
-slug: "edgeworth-paradox"
+title: 'Edgeworth paradox'
+slug: '00117-edgeworth-paradox'
 type: PARADOX
-summary: "To solve the Bertrand paradox, the Irish economist Francis Ysidro Edgeworth put forward the Edgeworth Paradox in his paper 'The Pure Theory of Monopoly', published in 1897. In economics, the Edgeworth paradox describes a situation in which two players cannot reach a state of equilibrium with pure strategies, i.e."
+summary: 'To solve the Bertrand paradox, the Irish economist Francis Ysidro Edgeworth put forward the Edgeworth Paradox in his paper ''The Pure Theory of Monopoly'', published in 1897. In economics, the Edgeworth paradox describes a situation in which two players cannot reach a state of equilibrium with pure strategies, i.e.'
 tags:
   - economics
 axioms:

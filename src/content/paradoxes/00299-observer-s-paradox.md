@@ -1,8 +1,8 @@
 ---
-title: "Observer's paradox"
-slug: "observer-s-paradox"
+title: 'Observer''s paradox'
+slug: '00299-observer-s-paradox'
 type: PARADOX
-summary: "In the social sciences, the observer's paradox is a situation in which the phenomenon being observed is unwittingly influenced by the presence of the observer/investigator."
+summary: 'In the social sciences, the observer''s paradox is a situation in which the phenomenon being observed is unwittingly influenced by the presence of the observer/investigator.'
 tags:
   - paradox
 axioms:

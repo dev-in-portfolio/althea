@@ -1,8 +1,8 @@
 ---
-title: "Quantum Zeno effect"
-slug: "quantum-zeno-effect"
+title: 'Quantum Zeno effect'
+slug: '00374-quantum-zeno-effect'
 type: PARADOX
-summary: "In quantum mechanics, frequent measurements cause the quantum Zeno effect, a reduction in transitions away from the system's initial state, slowing a system's time evolution. Sometimes this effect is interpreted as 'a system cannot change while you are watching it'."
+summary: 'In quantum mechanics, frequent measurements cause the quantum Zeno effect, a reduction in transitions away from the system''s initial state, slowing a system''s time evolution. Sometimes this effect is interpreted as ''a system cannot change while you are watching it''.'
 tags:
   - time
   - physics
@@ -26,7 +26,8 @@ prompts:
   - Does the paradox dissolve or relocate when reframed?
   - What is conserved, and what is sacrificed?
 sources:
-  - https://en.wikipedia.org/wiki/Quantum_Zeno_effect
+  - https://en.wikipedia.org/wiki/Quantum_
+Zeno_effect
 order: 374
 ---
 ## Overview

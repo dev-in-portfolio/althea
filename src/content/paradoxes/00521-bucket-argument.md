@@ -1,8 +1,8 @@
 ---
-title: "Bucket argument"
-slug: "bucket-argument"
+title: 'Bucket argument'
+slug: '00521-bucket-argument'
 type: THOUGHT_EXPERIMENT
-summary: "Isaac Newton's rotating bucket argument (also known as Newton's bucket) is a thought experiment that was designed to demonstrate that true rotational motion cannot be defined as the relative rotation of the body with respect to the immediately surrounding bodies. It is one of five arguments from the 'properties, causes, and effects' of 'true motion and rest' that support his contention that, in general, true motion a"
+summary: 'Isaac Newton''s rotating bucket argument (also known as Newton''s bucket) is a thought experiment that was designed to demonstrate that true rotational motion cannot be defined as the relative rotation of the body with respect to the immediately surrounding bodies. It is one of five arguments from the ''properties, causes, and effects'' of ''true motion and rest'' that support his contention that, in general, true motion a'
 tags:
   - paradox
 axioms:

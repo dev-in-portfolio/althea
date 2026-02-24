@@ -1,8 +1,8 @@
 ---
-title: "Brainstorm machine"
-slug: "brainstorm-machine"
+title: 'Brainstorm machine'
+slug: '00517-brainstorm-machine'
 type: THOUGHT_EXPERIMENT
-summary: "In the philosophy of mind, the Brainstorm machine is a thought experiment described by Daniel Dennett, to show that it is not possible to intersubjectively compare any two individuals' personal experiences, or qualia, even with perfect technology. It is based on a device described in the film Brainstorm, in which the visual experience of one individual is fed into the brain of another."
+summary: 'In the philosophy of mind, the Brainstorm machine is a thought experiment described by Daniel Dennett, to show that it is not possible to intersubjectively compare any two individuals'' personal experiences, or qualia, even with perfect technology. It is based on a device described in the film Brainstorm, in which the visual experience of one individual is fed into the brain of another.'
 tags:
   - paradox
 axioms:

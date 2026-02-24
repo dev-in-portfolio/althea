@@ -1,8 +1,8 @@
 ---
-title: "Heat death paradox"
-slug: "heat-death-paradox"
+title: 'Heat death paradox'
+slug: '00182-heat-death-paradox'
 type: PARADOX
-summary: "The heat death paradox, also known as thermodynamic paradox, Clausius' paradox, and Kelvin's paradox, is a reductio ad absurdum argument that uses thermodynamics to show the impossibility of an infinitely old universe. It was formulated in February 1862 by Lord Kelvin and expanded upon by Hermann von Helmholtz and William John Macquorn Rankine."
+summary: 'The heat death paradox, also known as thermodynamic paradox, Clausius'' paradox, and Kelvin''s paradox, is a reductio ad absurdum argument that uses thermodynamics to show the impossibility of an infinitely old universe. It was formulated in February 1862 by Lord Kelvin and expanded upon by Hermann von Helmholtz and William John Macquorn Rankine.'
 tags:
   - paradox
 axioms:

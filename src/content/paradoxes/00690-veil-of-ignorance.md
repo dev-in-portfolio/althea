@@ -1,8 +1,8 @@
 ---
-title: "Veil of ignorance"
-slug: "veil-of-ignorance"
+title: 'Veil of ignorance'
+slug: '00690-veil-of-ignorance'
 type: THOUGHT_EXPERIMENT
-summary: "In philosophy, the original position is a hypothetical position from which members of society would consider which principles they would select for the basic structure of their society if they had no knowledge ahead of time regarding the position which they would end up occupying in that society. The idea of having no such knowledge, because everyone is behind a veil of ignorance, represents a thought experiment ofte"
+summary: 'In philosophy, the original position is a hypothetical position from which members of society would consider which principles they would select for the basic structure of their society if they had no knowledge ahead of time regarding the position which they would end up occupying in that society. The idea of having no such knowledge, because everyone is behind a veil of ignorance, represents a thought experiment ofte'
 tags:
   - time
 axioms:

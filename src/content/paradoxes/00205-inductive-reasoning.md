@@ -1,8 +1,8 @@
 ---
-title: "Inductive reasoning"
-slug: "inductive-reasoning"
+title: 'Inductive reasoning'
+slug: '00205-inductive-reasoning'
 type: PARADOX
-summary: "Inductive reasoning refers to a variety of methods of reasoning in which the conclusion of an argument is supported not with deductive certainty, but at best with some degree of probability. Unlike deductive reasoning (such as mathematical induction), where the conclusion is certain, given the premises are correct, inductive reasoning produces conclusions that are at best probable, given the evidence provided."
+summary: 'Inductive reasoning refers to a variety of methods of reasoning in which the conclusion of an argument is supported not with deductive certainty, but at best with some degree of probability. Unlike deductive reasoning (such as mathematical induction), where the conclusion is certain, given the premises are correct, inductive reasoning produces conclusions that are at best probable, given the evidence provided.'
 tags:
   - probability
 axioms:

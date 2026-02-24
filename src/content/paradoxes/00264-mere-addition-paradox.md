@@ -1,8 +1,8 @@
 ---
-title: "Mere addition paradox"
-slug: "mere-addition-paradox"
+title: 'Mere addition paradox'
+slug: '00264-mere-addition-paradox'
 type: PARADOX
-summary: "The mere addition paradox (also known as the repugnant conclusion) is a problem in population ethics identified by Derek Parfit and discussed in his book Reasons and Persons (1984). The paradox identifies the mutual incompatibility of four intuitively compelling assertions about the relative value of populations."
+summary: 'The mere addition paradox (also known as the repugnant conclusion) is a problem in population ethics identified by Derek Parfit and discussed in his book Reasons and Persons (1984). The paradox identifies the mutual incompatibility of four intuitively compelling assertions about the relative value of populations.'
 tags:
   - ethics
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Paradox of the heap"
-slug: "paradox-of-the-heap"
+title: 'Paradox of the heap'
+slug: '00332-paradox-of-the-heap'
 type: PARADOX
-summary: "The sorites paradox (), sometimes known as the paradox of the heap, is a paradox that results from vague predicates. A typical formulation involves a heap of sand, from which grains are removed individually."
+summary: 'The sorites paradox (), sometimes known as the paradox of the heap, is a paradox that results from vague predicates. A typical formulation involves a heap of sand, from which grains are removed individually.'
 tags:
   - vagueness
   - time

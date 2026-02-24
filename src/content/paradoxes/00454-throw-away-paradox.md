@@ -1,8 +1,8 @@
 ---
-title: "Throw away paradox"
-slug: "throw-away-paradox"
+title: 'Throw away paradox'
+slug: '00454-throw-away-paradox'
 type: PARADOX
-summary: "In economics, the throw away paradox is a situation in which a person can gain by throwing away some of his property. It was first described by Robert J. Aumann and B. Peleg as a note on a similar paradox by David Gale."
+summary: 'In economics, the throw away paradox is a situation in which a person can gain by throwing away some of his property. It was first described by Robert J. Aumann and B. Peleg as a note on a similar paradox by David Gale.'
 tags:
   - economics
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "EPR paradox"
-slug: "epr-paradox"
+title: 'EPR paradox'
+slug: '00540-epr-paradox'
 type: THOUGHT_EXPERIMENT
-summary: "The Einstein–Podolsky–Rosen (EPR) paradox is a thought experiment proposed by physicists Albert Einstein, Boris Podolsky and Nathan Rosen, which argues that the description of physical reality provided by quantum mechanics is incomplete. In a 1935 paper titled 'Can Quantum-Mechanical Description of Physical Reality be Considered Complete?', they argued for the existence of 'elements of reality' that were not part of "
+summary: 'The Einstein–Podolsky–Rosen (EPR) paradox is a thought experiment proposed by physicists Albert Einstein, Boris Podolsky and Nathan Rosen, which argues that the description of physical reality provided by quantum mechanics is incomplete. In a 1935 paper titled ''Can Quantum-Mechanical Description of Physical Reality be Considered Complete?'', they argued for the existence of ''elements of reality'' that were not part of '
 tags:
   - physics
 axioms:

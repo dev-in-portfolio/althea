@@ -1,8 +1,8 @@
 ---
-title: "Bellum omnium contra omnes"
-slug: "bellum-omnium-contra-omnes"
+title: 'Bellum omnium contra omnes'
+slug: '00511-bellum-omnium-contra-omnes'
 type: THOUGHT_EXPERIMENT
-summary: "Bellum omnium contra omnes, a Latin phrase meaning 'the war of all against all', is the description that Thomas Hobbes gives to human existence in the state-of-nature thought experiment that he conducts in De Cive (1642) and Leviathan (1651). The common modern English usage is a war of 'each against all' where war is rare and terms such as 'competition' or 'struggle' are more common."
+summary: 'Bellum omnium contra omnes, a Latin phrase meaning ''the war of all against all'', is the description that Thomas Hobbes gives to human existence in the state-of-nature thought experiment that he conducts in De Cive (1642) and Leviathan (1651). The common modern English usage is a war of ''each against all'' where war is rare and terms such as ''competition'' or ''struggle'' are more common.'
 tags:
   - paradox
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Self-absorption paradox"
-slug: "self-absorption-paradox"
+title: 'Self-absorption paradox'
+slug: '00399-self-absorption-paradox'
 type: PARADOX
-summary: "The self-absorption paradox describes the contradictory association whereby higher levels of self-awareness are simultaneously associated with higher levels of psychological distress and with psychological well-being. In 1999 Trapnell and Campbell explored the self-absorption paradox in relation to private self-consciousness or attention to internal aspects of the self."
+summary: 'The self-absorption paradox describes the contradictory association whereby higher levels of self-awareness are simultaneously associated with higher levels of psychological distress and with psychological well-being. In 1999 Trapnell and Campbell explored the self-absorption paradox in relation to private self-consciousness or attention to internal aspects of the self.'
 tags:
   - logic
   - psychology

@@ -1,8 +1,8 @@
 ---
-title: "Code-talker paradox"
-slug: "code-talker-paradox"
+title: 'Code-talker paradox'
+slug: '00080-code-talker-paradox'
 type: PARADOX
-summary: "A code-talker paradox is a situation in which a language prevents communication. As an issue in linguistics, the paradox raises questions about the fundamental nature of languages."
+summary: 'A code-talker paradox is a situation in which a language prevents communication. As an issue in linguistics, the paradox raises questions about the fundamental nature of languages.'
 tags:
   - language
 axioms:

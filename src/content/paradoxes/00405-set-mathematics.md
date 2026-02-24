@@ -1,8 +1,8 @@
 ---
-title: "Set (mathematics)"
-slug: "set-mathematics"
+title: 'Set (mathematics)'
+slug: '00405-set-mathematics'
 type: PARADOX
-summary: "In mathematics, a set is a collection of different things; the things are called elements or members of the set and are typically mathematical objects: numbers, symbols, points in space, lines, geometric shapes, variables, or other sets. A set may be finite or infinite."
+summary: 'In mathematics, a set is a collection of different things; the things are called elements or members of the set and are typically mathematical objects: numbers, symbols, points in space, lines, geometric shapes, variables, or other sets. A set may be finite or infinite.'
 tags:
   - set-theory
 axioms:

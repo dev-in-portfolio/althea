@@ -1,8 +1,8 @@
 ---
-title: "What the Tortoise Said to Achilles"
-slug: "what-the-tortoise-said-to-achilles"
+title: 'What the Tortoise Said to Achilles'
+slug: '00483-what-the-tortoise-said-to-achilles'
 type: PARADOX
-summary: "'What the Tortoise Said to Achilles', written by Lewis Carroll in 1895 for the philosophical journal Mind, is a brief allegorical dialogue on the foundations of logic. The title alludes to one of Zeno's paradoxes of motion, in which Achilles could never overtake the tortoise in a race."
+summary: 'What the Tortoise Said to Achilles'', written by Lewis Carroll in 1895 for the philosophical journal Mind, is a brief allegorical dialogue on the foundations of logic. The title alludes to one of Zeno''s paradoxes of motion, in which Achilles could never overtake the tortoise in a race.'
 tags:
   - logic
 axioms:

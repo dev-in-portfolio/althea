@@ -1,8 +1,8 @@
 ---
-title: "Gender paradox"
-slug: "gender-paradox"
+title: 'Gender paradox'
+slug: '00161-gender-paradox'
 type: PARADOX
-summary: "%5B%5BWikipedia%3ARedirects+for+discussion%5D%5D+debate+closed+as+delete"
+summary: '%5B%5BWikipedia%3ARedirects+for+discussion%5D%5D+debate+closed+as+delete'
 tags:
   - paradox
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Twin Earth thought experiment"
-slug: "twin-earth-thought-experiment"
+title: 'Twin Earth thought experiment'
+slug: '00686-twin-earth-thought-experiment'
 type: THOUGHT_EXPERIMENT
-summary: "Twin Earth is a thought experiment proposed by philosopher Hilary Putnam in his papers 'Meaning and Reference' (1973) and 'The Meaning of 'Meaning'' (1975). It is meant to serve as an illustration of his argument for semantic externalism, or the view that the meanings of words are not purely psychological."
+summary: 'Twin Earth is a thought experiment proposed by philosopher Hilary Putnam in his papers ''Meaning and Reference'' (1973) and ''The Meaning of ''Meaning'''' (1975). It is meant to serve as an illustration of his argument for semantic externalism, or the view that the meanings of words are not purely psychological.'
 tags:
   - logic
   - psychology

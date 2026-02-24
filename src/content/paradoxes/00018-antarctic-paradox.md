@@ -1,8 +1,8 @@
 ---
-title: "Antarctic paradox"
-slug: "antarctic-paradox"
+title: 'Antarctic paradox'
+slug: '00018-antarctic-paradox'
 type: PARADOX
-summary: "High-nutrient, low-chlorophyll (HNLC) regions are regions of the ocean where the abundance of phytoplankton is low and fairly constant despite the availability of macronutrients. Phytoplankton rely on a suite of nutrients for cellular function."
+summary: 'High-nutrient, low-chlorophyll (HNLC) regions are regions of the ocean where the abundance of phytoplankton is low and fairly constant despite the availability of macronutrients. Phytoplankton rely on a suite of nutrients for cellular function.'
 tags:
   - paradox
 axioms:

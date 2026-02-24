@@ -1,8 +1,8 @@
 ---
-title: "Accuracy paradox"
-slug: "accuracy-paradox"
+title: 'Accuracy paradox'
+slug: '00006-accuracy-paradox'
 type: PARADOX
-summary: "The accuracy paradox is the paradoxical finding that accuracy is not a good metric for predictive models when classifying in predictive analytics. This is because a simple model may have a high level of accuracy but too crude to be useful."
+summary: 'The accuracy paradox is the paradoxical finding that accuracy is not a good metric for predictive models when classifying in predictive analytics. This is because a simple model may have a high level of accuracy but too crude to be useful.'
 tags:
   - paradox
 axioms:

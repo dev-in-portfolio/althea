@@ -1,8 +1,8 @@
 ---
-title: "Bell's theorem"
-slug: "bell-s-theorem"
+title: 'Bell''s theorem'
+slug: '00036-bell-s-theorem'
 type: PARADOX
-summary: "Bell's theorem is a term encompassing a number of closely related results in physics, all of which determine that quantum mechanics is incompatible with local hidden-variable theories, given some basic assumptions about the nature of measurement. The first such result was introduced by John Stewart Bell in 1964, building upon the Einstein–Podolsky–Rosen paradox, which had called attention to the phenomenon of quantum"
+summary: 'Bell''s theorem is a term encompassing a number of closely related results in physics, all of which determine that quantum mechanics is incompatible with local hidden-variable theories, given some basic assumptions about the nature of measurement. The first such result was introduced by John Stewart Bell in 1964, building upon the Einstein–Podolsky–Rosen paradox, which had called attention to the phenomenon of quantum'
 tags:
   - physics
 axioms:

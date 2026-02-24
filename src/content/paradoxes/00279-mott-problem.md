@@ -1,8 +1,8 @@
 ---
-title: "Mott problem"
-slug: "mott-problem"
+title: 'Mott problem'
+slug: '00279-mott-problem'
 type: PARADOX
-summary: "The Mott problem is an iconic challenge to quantum mechanics theory: how can the prediction of spherically symmetric wave function result in linear tracks seen in a cloud chamber. The problem was first formulated in 1927 by Albert Einstein and Max Born and solved in 1929 by Nevill Francis Mott."
+summary: 'The Mott problem is an iconic challenge to quantum mechanics theory: how can the prediction of spherically symmetric wave function result in linear tracks seen in a cloud chamber. The problem was first formulated in 1927 by Albert Einstein and Max Born and solved in 1929 by Nevill Francis Mott.'
 tags:
   - physics
 axioms:

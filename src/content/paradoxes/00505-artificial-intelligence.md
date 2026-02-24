@@ -1,8 +1,8 @@
 ---
-title: "Artificial intelligence"
-slug: "artificial-intelligence"
+title: 'Artificial intelligence'
+slug: '00505-artificial-intelligence'
 type: THOUGHT_EXPERIMENT
-summary: "Artificial intelligence (AI) is the capability of computational systems to perform tasks typically associated with human intelligence, such as learning, reasoning, problem-solving, perception, and decision-making. It is a field of research in computer science that develops and studies methods and software that enable machines to perceive their environment and use learning and intelligence to take actions that maximiz"
+summary: 'Artificial intelligence (AI) is the capability of computational systems to perform tasks typically associated with human intelligence, such as learning, reasoning, problem-solving, perception, and decision-making. It is a field of research in computer science that develops and studies methods and software that enable machines to perceive their environment and use learning and intelligence to take actions that maximiz'
 tags:
   - decision
 axioms:
@@ -26,6 +26,8 @@ prompts:
   - What is conserved, and what is sacrificed?
 sources:
   - https://en.wikipedia.org/wiki/Artificial_intelligence
+  - https://plato.stanford.edu/entries/artificial-intelligence/
+  - https://iep.utm.edu/artificial-intelligence/
 order: 505
 ---
 ## Overview

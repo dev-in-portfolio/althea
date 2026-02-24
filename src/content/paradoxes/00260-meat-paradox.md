@@ -1,8 +1,8 @@
 ---
-title: "Meat paradox"
-slug: "meat-paradox"
+title: 'Meat paradox'
+slug: '00260-meat-paradox'
 type: PARADOX
-summary: "The psychology of eating meat is an area of study seeking to illuminate the confluence of morality, emotions, cognition, and personality characteristics in the phenomenon of the consumption of meat. Research into the psychological and cultural factors of meat-eating suggests correlations with masculinity, support for hierarchical values, and reduced openness to experience."
+summary: 'The psychology of eating meat is an area of study seeking to illuminate the confluence of morality, emotions, cognition, and personality characteristics in the phenomenon of the consumption of meat. Research into the psychological and cultural factors of meat-eating suggests correlations with masculinity, support for hierarchical values, and reduced openness to experience.'
 tags:
   - logic
   - ethics

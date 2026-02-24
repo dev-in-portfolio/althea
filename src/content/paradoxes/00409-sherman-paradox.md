@@ -1,8 +1,8 @@
 ---
-title: "Sherman paradox"
-slug: "sherman-paradox"
+title: 'Sherman paradox'
+slug: '00409-sherman-paradox'
 type: PARADOX
-summary: "The Sherman paradox was a term used to describe the anomalous pattern of inheritance found in fragile X syndrome. The phenomenon is also referred to as anticipation or dynamic mutation."
+summary: 'The Sherman paradox was a term used to describe the anomalous pattern of inheritance found in fragile X syndrome. The phenomenon is also referred to as anticipation or dynamic mutation.'
 tags:
   - paradox
 axioms:

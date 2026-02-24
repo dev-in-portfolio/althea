@@ -1,8 +1,8 @@
 ---
-title: "Schrödinger's cat paradox"
-slug: "schr-dinger-s-cat-paradox"
+title: 'Schrödinger''s cat paradox'
+slug: '00395-schr-dinger-s-cat-paradox'
 type: PARADOX
-summary: "In quantum mechanics, Schrödinger's cat is a thought experiment concerning quantum superposition. In the thought experiment, a hypothetical cat in a closed box may be considered to be simultaneously both alive and dead while it is unobserved, as a result of its fate being linked to a random subatomic event that may or may not occur."
+summary: 'In quantum mechanics, Schrödinger''s cat is a thought experiment concerning quantum superposition. In the thought experiment, a hypothetical cat in a closed box may be considered to be simultaneously both alive and dead while it is unobserved, as a result of its fate being linked to a random subatomic event that may or may not occur.'
 tags:
   - physics
 axioms:

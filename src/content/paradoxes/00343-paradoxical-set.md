@@ -1,8 +1,8 @@
 ---
-title: "Paradoxical set"
-slug: "paradoxical-set"
+title: 'Paradoxical set'
+slug: '00343-paradoxical-set'
 type: PARADOX
-summary: "In set theory, a paradoxical set is a set that has a paradoxical decomposition. A paradoxical decomposition of a set is two families of disjoint subsets, along with appropriate group actions that act on some universe (of which the set in question is a subset), such that each partition can be mapped back onto the entire set using only finitely many distinct functions (or compositions thereof) to accomplish the mapping"
+summary: 'In set theory, a paradoxical set is a set that has a paradoxical decomposition. A paradoxical decomposition of a set is two families of disjoint subsets, along with appropriate group actions that act on some universe (of which the set in question is a subset), such that each partition can be mapped back onto the entire set using only finitely many distinct functions (or compositions thereof) to accomplish the mapping'
 tags:
   - set-theory
 axioms:

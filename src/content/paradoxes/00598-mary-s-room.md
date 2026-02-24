@@ -1,8 +1,8 @@
 ---
-title: "Mary's room"
-slug: "mary-s-room"
+title: 'Mary''s room'
+slug: '00598-mary-s-room'
 type: THOUGHT_EXPERIMENT
-summary: "In philosophy of mind, the knowledge argument (also known as Mary's Room, Mary the Colour Scientist, or Mary the super-scientist) is a thought experiment proposed by Frank Jackson in his article 'Epiphenomenal Qualia' (1982), and extended in 'What Mary Didn't Know' (1986). The thought experiment describes Mary, a scientist who exists in a black-and-white world where she has extensive access to physical descriptions o"
+summary: 'In philosophy of mind, the knowledge argument (also known as Mary''s Room, Mary the Colour Scientist, or Mary the super-scientist) is a thought experiment proposed by Frank Jackson in his article ''Epiphenomenal Qualia'' (1982), and extended in ''What Mary Didn''t Know'' (1986). The thought experiment describes Mary, a scientist who exists in a black-and-white world where she has extensive access to physical descriptions o'
 tags:
   - paradox
 axioms:

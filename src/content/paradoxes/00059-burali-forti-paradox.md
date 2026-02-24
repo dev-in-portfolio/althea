@@ -1,8 +1,8 @@
 ---
-title: "Burali-Forti paradox"
-slug: "burali-forti-paradox"
+title: 'Burali-Forti paradox'
+slug: '00059-burali-forti-paradox'
 type: PARADOX
-summary: "In set theory, a field of mathematics, the Burali-Forti paradox demonstrates that constructing 'the set of all ordinal numbers' leads to a contradiction and therefore shows an antinomy in a system that allows its construction. It is named after Cesare Burali-Forti, who, in 1897, published a paper proving a theorem which, unknown to him, contradicted a previously proved result by Georg Cantor."
+summary: 'In set theory, a field of mathematics, the Burali-Forti paradox demonstrates that constructing ''the set of all ordinal numbers'' leads to a contradiction and therefore shows an antinomy in a system that allows its construction. It is named after Cesare Burali-Forti, who, in 1897, published a paper proving a theorem which, unknown to him, contradicted a previously proved result by Georg Cantor.'
 tags:
   - set-theory
 axioms:

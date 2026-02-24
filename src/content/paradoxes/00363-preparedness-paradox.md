@@ -1,8 +1,8 @@
 ---
-title: "Preparedness paradox"
-slug: "preparedness-paradox"
+title: 'Preparedness paradox'
+slug: '00363-preparedness-paradox'
 type: PARADOX
-summary: "The preparedness paradox is the proposition that if a society or individual acts effectively to mitigate a potential disaster such as a pandemic, natural disaster or other catastrophe so that it causes less harm, the avoided danger will be perceived as having been much less serious because of the limited damage actually caused. The paradox is the incorrect perception that there had been no need for careful preparatio"
+summary: 'The preparedness paradox is the proposition that if a society or individual acts effectively to mitigate a potential disaster such as a pandemic, natural disaster or other catastrophe so that it causes less harm, the avoided danger will be perceived as having been much less serious because of the limited damage actually caused. The paradox is the incorrect perception that there had been no need for careful preparatio'
 tags:
   - paradox
 axioms:

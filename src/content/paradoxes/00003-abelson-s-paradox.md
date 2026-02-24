@@ -1,8 +1,8 @@
 ---
-title: "Abelson's paradox"
-slug: "abelson-s-paradox"
+title: 'Abelson''s paradox'
+slug: '00003-abelson-s-paradox'
 type: PARADOX
-summary: "Abelson's paradox is an applied statistics paradox identified by Robert P. Abelson. The paradox pertains to a possible paradoxical relationship between the magnitude of the r2 (i.e., coefficient of determination) effect size and its practical meaning."
+summary: 'Abelson''s paradox is an applied statistics paradox identified by Robert P. Abelson. The paradox pertains to a possible paradoxical relationship between the magnitude of the r2 (i.e., coefficient of determination) effect size and its practical meaning.'
 tags:
   - statistics
 axioms:

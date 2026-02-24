@@ -1,8 +1,8 @@
 ---
-title: "Science-fiction"
-slug: "science-fiction"
+title: 'Science-fiction'
+slug: '00657-science-fiction'
 type: THOUGHT_EXPERIMENT
-summary: "Science fiction (often shortened to sci-fi or abbreviated SF) is the genre of speculative, science-based fiction that imagines advanced and futuristic scientific or technological progress. The elements of science fiction have evolved over time: from space exploration, extraterrestrial life, time travel, and robotics; to parallel universes, dystopian societies, and biological manipulations; and, most lately, to inform"
+summary: 'Science fiction (often shortened to sci-fi or abbreviated SF) is the genre of speculative, science-based fiction that imagines advanced and futuristic scientific or technological progress. The elements of science fiction have evolved over time: from space exploration, extraterrestrial life, time travel, and robotics; to parallel universes, dystopian societies, and biological manipulations; and, most lately, to inform'
 tags:
   - logic
   - time

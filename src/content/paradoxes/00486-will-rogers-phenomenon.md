@@ -1,8 +1,8 @@
 ---
-title: "Will Rogers phenomenon"
-slug: "will-rogers-phenomenon"
+title: 'Will Rogers phenomenon'
+slug: '00486-will-rogers-phenomenon'
 type: PARADOX
-summary: "The Will Rogers phenomenon, also rarely called the Okie paradox, is when moving an observation from one group to another increases the average of both groups. It is named after a joke attributed to the comedian Will Rogers about Dust Bowl migration during the Great Depression: When the Okies left Oklahoma and moved to California, they raised the average intelligence level in both states."
+summary: 'The Will Rogers phenomenon, also rarely called the Okie paradox, is when moving an observation from one group to another increases the average of both groups. It is named after a joke attributed to the comedian Will Rogers about Dust Bowl migration during the Great Depression: When the Okies left Oklahoma and moved to California, they raised the average intelligence level in both states.'
 tags:
   - paradox
 axioms:

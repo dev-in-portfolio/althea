@@ -1,8 +1,8 @@
 ---
-title: "Cognitive psychology"
-slug: "cognitive-psychology"
+title: 'Cognitive psychology'
+slug: '00527-cognitive-psychology'
 type: THOUGHT_EXPERIMENT
-summary: "Cognitive psychology is the scientific study of human mental processes such as attention, language use, memory, perception, problem solving, creativity, and reasoning. Cognitive psychology originated in the 1960s in a break from behaviorism, which held from the 1920s to 1950s that unobservable mental processes were outside the realm of empirical science."
+summary: 'Cognitive psychology is the scientific study of human mental processes such as attention, language use, memory, perception, problem solving, creativity, and reasoning. Cognitive psychology originated in the 1960s in a break from behaviorism, which held from the 1920s to 1950s that unobservable mental processes were outside the realm of empirical science.'
 tags:
   - language
   - psychology

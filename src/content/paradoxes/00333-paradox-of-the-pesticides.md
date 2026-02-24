@@ -1,8 +1,8 @@
 ---
-title: "Paradox of the pesticides"
-slug: "paradox-of-the-pesticides"
+title: 'Paradox of the pesticides'
+slug: '00333-paradox-of-the-pesticides'
 type: PARADOX
-summary: "The paradox of the pesticides is a paradox that states that applying pesticide to a pest may end up increasing the abundance of the pest or other pests if the pesticide upsets natural predator–prey dynamics in the ecosystem."
+summary: 'The paradox of the pesticides is a paradox that states that applying pesticide to a pest may end up increasing the abundance of the pest or other pests if the pesticide upsets natural predator–prey dynamics in the ecosystem.'
 tags:
   - set-theory
 axioms:

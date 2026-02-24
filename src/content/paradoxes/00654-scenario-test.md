@@ -1,8 +1,8 @@
 ---
-title: "Scenario test"
-slug: "scenario-test"
+title: 'Scenario test'
+slug: '00654-scenario-test'
 type: THOUGHT_EXPERIMENT
-summary: "Scenario testing is a software testing activity that uses scenarios: hypothetical stories to help the tester work through a complex problem or test system. The ideal scenario test is a credible, complex, compelling or motivating story; the outcome of which is easy to evaluate."
+summary: 'Scenario testing is a software testing activity that uses scenarios: hypothetical stories to help the tester work through a complex problem or test system. The ideal scenario test is a credible, complex, compelling or motivating story; the outcome of which is easy to evaluate.'
 tags:
   - paradox
 axioms:

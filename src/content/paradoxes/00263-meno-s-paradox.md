@@ -1,8 +1,8 @@
 ---
-title: "Meno's paradox"
-slug: "meno-s-paradox"
+title: 'Meno''s paradox'
+slug: '00263-meno-s-paradox'
 type: PARADOX
-summary: "Meno (; Ancient Greek: Μένων, Ménōn) is a Socratic dialogue written by Plato around 385 BC, but set at an earlier date around 402 BC. Meno begins the dialogue by asking Socrates whether virtue (in Ancient Greek: ἀρετή, aretē) can be taught, acquired by practice, or comes by nature. In order to determine whether virtue is teachable or not, Socrates tells Meno that they first need to determine what virtue is."
+summary: 'Meno (; Ancient Greek: Μένων, Ménōn) is a Socratic dialogue written by Plato around 385 BC, but set at an earlier date around 402 BC. Meno begins the dialogue by asking Socrates whether virtue (in Ancient Greek: ἀρετή, aretē) can be taught, acquired by practice, or comes by nature. In order to determine whether virtue is teachable or not, Socrates tells Meno that they first need to determine what virtue is.'
 tags:
   - set-theory
 axioms:

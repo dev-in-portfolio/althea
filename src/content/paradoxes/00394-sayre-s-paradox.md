@@ -1,8 +1,8 @@
 ---
-title: "Sayre's paradox"
-slug: "sayre-s-paradox"
+title: 'Sayre''s paradox'
+slug: '00394-sayre-s-paradox'
 type: PARADOX
-summary: "Sayre's paradox is a dilemma encountered in the design of automated handwriting recognition systems. A standard statement of the paradox is that a cursively written word cannot be recognized without being segmented and cannot be segmented without being recognized."
+summary: 'Sayre''s paradox is a dilemma encountered in the design of automated handwriting recognition systems. A standard statement of the paradox is that a cursively written word cannot be recognized without being segmented and cannot be segmented without being recognized.'
 tags:
   - paradox
 axioms:

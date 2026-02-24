@@ -1,8 +1,8 @@
 ---
-title: "Philosophical zombie"
-slug: "philosophical-zombie"
+title: 'Philosophical zombie'
+slug: '00623-philosophical-zombie'
 type: THOUGHT_EXPERIMENT
-summary: "In philosophy of mind, a philosophical zombie (or 'p-zombie') is a being in a thought experiment that is physically identical to a normal human being but does not have conscious experience. For example, if a philosophical zombie were poked with a sharp object, it would not feel any pain, but it would react exactly the way any conscious human would."
+summary: 'In philosophy of mind, a philosophical zombie (or ''p-zombie'') is a being in a thought experiment that is physically identical to a normal human being but does not have conscious experience. For example, if a philosophical zombie were poked with a sharp object, it would not feel any pain, but it would react exactly the way any conscious human would.'
 tags:
   - paradox
 axioms:

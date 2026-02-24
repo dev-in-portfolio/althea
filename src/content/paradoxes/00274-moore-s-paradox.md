@@ -1,8 +1,8 @@
 ---
-title: "Moore's paradox"
-slug: "moore-s-paradox"
+title: 'Moore''s paradox'
+slug: '00274-moore-s-paradox'
 type: PARADOX
-summary: "Moore's paradox concerns the apparent absurdity involved in asserting a first-person present-tense sentence such as 'It is raining, but I do not believe that it is raining' or 'It is raining, but I believe that it is not raining.' The first author to note this apparent absurdity was George E. Moore. These 'Moorean' sentences, as they have become known, are paradoxical in that while they appear absurd, they neverthele"
+summary: 'Moore''s paradox concerns the apparent absurdity involved in asserting a first-person present-tense sentence such as ''It is raining, but I do not believe that it is raining'' or ''It is raining, but I believe that it is not raining.'' The first author to note this apparent absurdity was George E. Moore. These ''Moorean'' sentences, as they have become known, are paradoxical in that while they appear absurd, they neverthele'
 tags:
   - paradox
 axioms:

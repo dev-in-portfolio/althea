@@ -1,8 +1,8 @@
 ---
-title: "Knower paradox"
-slug: "knower-paradox"
+title: 'Knower paradox'
+slug: '00229-knower-paradox'
 type: PARADOX
-summary: "The knower paradox is a paradox belonging to the family of the paradoxes of self-reference (like the liar paradox). Informally, it consists in considering a sentence saying of itself that it is not known, and apparently deriving the contradiction that such sentence is both not known and known."
+summary: 'The knower paradox is a paradox belonging to the family of the paradoxes of self-reference (like the liar paradox). Informally, it consists in considering a sentence saying of itself that it is not known, and apparently deriving the contradiction that such sentence is both not known and known.'
 tags:
   - self-reference
 axioms:

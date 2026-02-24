@@ -1,8 +1,8 @@
 ---
-title: "Cole's paradox"
-slug: "cole-s-paradox"
+title: 'Cole''s paradox'
+slug: '00083-cole-s-paradox'
 type: PARADOX
-summary: "Semelparity and iteroparity are two reproductive strategies available to living organisms. A species is semelparous if it is characterized by a single reproductive episode before death, and iteroparous if it is characterized by multiple reproductive cycles."
+summary: 'Semelparity and iteroparity are two reproductive strategies available to living organisms. A species is semelparous if it is characterized by a single reproductive episode before death, and iteroparous if it is characterized by multiple reproductive cycles.'
 tags:
   - paradox
 axioms:

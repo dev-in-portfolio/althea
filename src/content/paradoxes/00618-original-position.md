@@ -1,8 +1,8 @@
 ---
-title: "Original position"
-slug: "original-position"
+title: 'Original position'
+slug: '00618-original-position'
 type: THOUGHT_EXPERIMENT
-summary: "In philosophy, the original position is a hypothetical position from which members of society would consider which principles they would select for the basic structure of their society if they had no knowledge ahead of time regarding the position which they would end up occupying in that society. The idea of having no such knowledge, because everyone is behind a veil of ignorance, represents a thought experiment ofte"
+summary: 'In philosophy, the original position is a hypothetical position from which members of society would consider which principles they would select for the basic structure of their society if they had no knowledge ahead of time regarding the position which they would end up occupying in that society. The idea of having no such knowledge, because everyone is behind a veil of ignorance, represents a thought experiment ofte'
 tags:
   - time
 axioms:
@@ -26,6 +26,7 @@ prompts:
   - What is conserved, and what is sacrificed?
 sources:
   - https://en.wikipedia.org/wiki/Original_position
+  - https://plato.stanford.edu/entries/original-position/
 order: 618
 ---
 ## Overview

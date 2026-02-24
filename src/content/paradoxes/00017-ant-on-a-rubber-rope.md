@@ -1,8 +1,8 @@
 ---
-title: "Ant on a rubber rope"
-slug: "ant-on-a-rubber-rope"
+title: 'Ant on a rubber rope'
+slug: '00017-ant-on-a-rubber-rope'
 type: PARADOX
-summary: "The ant on a rubber rope is a mathematical puzzle with a solution that appears counterintuitive or paradoxical. It is sometimes given as a worm, or inchworm, on a rubber or elastic band, but the principles of the puzzle remain the same."
+summary: 'The ant on a rubber rope is a mathematical puzzle with a solution that appears counterintuitive or paradoxical. It is sometimes given as a worm, or inchworm, on a rubber or elastic band, but the principles of the puzzle remain the same.'
 tags:
   - time
 axioms:

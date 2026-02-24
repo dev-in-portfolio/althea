@@ -1,8 +1,8 @@
 ---
-title: "Braess' paradox"
-slug: "braess-paradox"
+title: 'Braess'' paradox'
+slug: '00055-braess-paradox'
 type: PARADOX
-summary: "Braess's paradox is the observation that adding one or more roads to a road network can slow down overall traffic flow through it. The paradox was first discovered by Arthur Pigou in 1920, and later named after the German mathematician Dietrich Braess in 1968."
+summary: 'Braess''s paradox is the observation that adding one or more roads to a road network can slow down overall traffic flow through it. The paradox was first discovered by Arthur Pigou in 1920, and later named after the German mathematician Dietrich Braess in 1968.'
 tags:
   - paradox
 axioms:

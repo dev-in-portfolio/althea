@@ -1,8 +1,8 @@
 ---
-title: "Mexican paradox"
-slug: "mexican-paradox"
+title: 'Mexican paradox'
+slug: '00269-mexican-paradox'
 type: PARADOX
-summary: "The Mexican paradox is the observation that Mexicans exhibit a surprisingly low incidence of low birth weight (especially foreign-born Mexican mothers), contrary to what would be expected from their socioeconomic status (SES). This appears as an outlier in graphs correlating SES with low-birth-weight rates."
+summary: 'The Mexican paradox is the observation that Mexicans exhibit a surprisingly low incidence of low birth weight (especially foreign-born Mexican mothers), contrary to what would be expected from their socioeconomic status (SES). This appears as an outlier in graphs correlating SES with low-birth-weight rates.'
 tags:
   - economics
 axioms:

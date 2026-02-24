@@ -1,8 +1,8 @@
 ---
-title: "Lists of unsolved problems"
-slug: "lists-of-unsolved-problems"
+title: 'Lists of unsolved problems'
+slug: '00242-lists-of-unsolved-problems'
 type: PARADOX
-summary: "List of unsolved problems may refer to several notable conjectures or open problems in various academic fields:"
+summary: 'List of unsolved problems may refer to several notable conjectures or open problems in various academic fields:'
 tags:
   - paradox
 axioms:

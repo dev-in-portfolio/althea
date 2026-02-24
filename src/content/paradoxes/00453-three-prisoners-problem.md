@@ -1,8 +1,8 @@
 ---
-title: "Three Prisoners problem"
-slug: "three-prisoners-problem"
+title: 'Three Prisoners problem'
+slug: '00453-three-prisoners-problem'
 type: PARADOX
-summary: "The three prisoners problem appeared in Martin Gardner's 'Mathematical Games' column in Scientific American in 1959. It is mathematically equivalent to the Monty Hall problem with the car and goat replaced respectively with freedom and execution."
+summary: 'The three prisoners problem appeared in Martin Gardner''s ''Mathematical Games'' column in Scientific American in 1959. It is mathematically equivalent to the Monty Hall problem with the car and goat replaced respectively with freedom and execution.'
 tags:
   - game-theory
 axioms:

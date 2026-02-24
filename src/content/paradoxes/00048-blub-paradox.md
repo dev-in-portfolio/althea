@@ -1,8 +1,8 @@
 ---
-title: "Blub paradox"
-slug: "blub-paradox"
+title: 'Blub paradox'
+slug: '00048-blub-paradox'
 type: PARADOX
-summary: "Paul Graham (; born November 13, 1964) is an English-American computer scientist, writer, essayist, entrepreneur and investor. His work includes the programming language Arc, the startup Viaweb (later renamed Yahoo!"
+summary: 'Paul Graham (; born November 13, 1964) is an English-American computer scientist, writer, essayist, entrepreneur and investor. His work includes the programming language Arc, the startup Viaweb (later renamed Yahoo!'
 tags:
   - language
 axioms:

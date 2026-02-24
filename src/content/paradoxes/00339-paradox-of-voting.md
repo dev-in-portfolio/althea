@@ -1,8 +1,8 @@
 ---
-title: "Paradox of voting"
-slug: "paradox-of-voting"
+title: 'Paradox of voting'
+slug: '00339-paradox-of-voting'
 type: PARADOX
-summary: "The paradox of voting, also called Downs' paradox, is that for a rational and egoistic voter (Homo economicus), the costs of voting will normally exceed the expected benefits. Because the chance of exercising the pivotal vote is minuscule compared to any realistic estimate of the private individual benefits of the different possible outcomes, the expected benefits of voting are less than the costs."
+summary: 'The paradox of voting, also called Downs'' paradox, is that for a rational and egoistic voter (Homo economicus), the costs of voting will normally exceed the expected benefits. Because the chance of exercising the pivotal vote is minuscule compared to any realistic estimate of the private individual benefits of the different possible outcomes, the expected benefits of voting are less than the costs.'
 tags:
   - economics
 axioms:

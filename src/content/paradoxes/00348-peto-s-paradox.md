@@ -1,8 +1,8 @@
 ---
-title: "Peto's paradox"
-slug: "peto-s-paradox"
+title: 'Peto''s paradox'
+slug: '00348-peto-s-paradox'
 type: PARADOX
-summary: "Peto's paradox is the observation that, at the species level, the incidence of cancer does not appear to correlate with the number of cells in an organism. For example, the incidence of cancer in humans is much higher than the incidence of cancer in whales, despite a whale having about 1000 times more cells than a human."
+summary: 'Peto''s paradox is the observation that, at the species level, the incidence of cancer does not appear to correlate with the number of cells in an organism. For example, the incidence of cancer in humans is much higher than the incidence of cancer in whales, despite a whale having about 1000 times more cells than a human.'
 tags:
   - time
 axioms:

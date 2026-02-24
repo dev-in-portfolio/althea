@@ -1,8 +1,8 @@
 ---
-title: "Big Book (thought experiment)"
-slug: "big-book-thought-experiment"
+title: 'Big Book (thought experiment)'
+slug: '00512-big-book-thought-experiment'
 type: THOUGHT_EXPERIMENT
-summary: "The 'Big Book' is a thought experiment developed by Ludwig Wittgenstein about the nature of ethics and the verifiability of ethical knowledge. This account is given by him in an early work, the 1929 Lecture on Ethics, and it matches also his position given in the early Tractatus Logico-Philosophicus (Proposition 6.41)."
+summary: 'The ''Big Book'' is a thought experiment developed by Ludwig Wittgenstein about the nature of ethics and the verifiability of ethical knowledge. This account is given by him in an early work, the 1929 Lecture on Ethics, and it matches also his position given in the early Tractatus Logico-Philosophicus (Proposition 6.41).'
 tags:
   - logic
   - ethics

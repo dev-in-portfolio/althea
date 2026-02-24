@@ -1,8 +1,8 @@
 ---
-title: "Paradox of nihilism"
-slug: "paradox-of-nihilism"
+title: 'Paradox of nihilism'
+slug: '00324-paradox-of-nihilism'
 type: PARADOX
-summary: "The paradox of nihilism is a family of paradoxes regarding the philosophical implications of nihilism, particularly situations contesting nihilist perspectives on the nature and extent of subjectivity within a nihilist framework. There are a number of variations of this paradox."
+summary: 'The paradox of nihilism is a family of paradoxes regarding the philosophical implications of nihilism, particularly situations contesting nihilist perspectives on the nature and extent of subjectivity within a nihilist framework. There are a number of variations of this paradox.'
 tags:
   - paradox
 axioms:

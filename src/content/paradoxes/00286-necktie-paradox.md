@@ -1,8 +1,8 @@
 ---
-title: "Necktie paradox"
-slug: "necktie-paradox"
+title: 'Necktie paradox'
+slug: '00286-necktie-paradox'
 type: PARADOX
-summary: "The two envelopes problem, also known as the exchange paradox, is a paradox in probability theory. It is of special interest in decision theory and for the Bayesian interpretation of probability theory."
+summary: 'The two envelopes problem, also known as the exchange paradox, is a paradox in probability theory. It is of special interest in decision theory and for the Bayesian interpretation of probability theory.'
 tags:
   - probability
   - decision

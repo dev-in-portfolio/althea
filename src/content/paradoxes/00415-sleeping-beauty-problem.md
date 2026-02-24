@@ -1,8 +1,8 @@
 ---
-title: "Sleeping Beauty problem"
-slug: "sleeping-beauty-problem"
+title: 'Sleeping Beauty problem'
+slug: '00415-sleeping-beauty-problem'
 type: PARADOX
-summary: "The Sleeping Beauty problem, also known as the Sleeping Beauty paradox, is a puzzle in decision theory in which an ideally rational epistemic agent is told she will be awoken from sleep either once or twice according to the toss of a coin. Each time she will have no memory of whether she has been awoken before, and is asked what her degree of belief that 'the outcome of the coin toss is Heads' ought to be when she is"
+summary: 'The Sleeping Beauty problem, also known as the Sleeping Beauty paradox, is a puzzle in decision theory in which an ideally rational epistemic agent is told she will be awoken from sleep either once or twice according to the toss of a coin. Each time she will have no memory of whether she has been awoken before, and is asked what her degree of belief that ''the outcome of the coin toss is Heads'' ought to be when she is'
 tags:
   - time
   - decision

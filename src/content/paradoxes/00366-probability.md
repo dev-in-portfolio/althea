@@ -1,8 +1,8 @@
 ---
-title: "Probability"
-slug: "probability"
+title: 'Probability'
+slug: '00366-probability'
 type: PARADOX
-summary: "Probability concerns events and numerical descriptions of how likely they are to occur. The probability of an event is a number between 0 and 1; the larger the probability, the more likely an event is to occur."
+summary: 'Probability concerns events and numerical descriptions of how likely they are to occur. The probability of an event is a number between 0 and 1; the larger the probability, the more likely an event is to occur.'
 tags:
   - probability
 axioms:
@@ -26,6 +26,7 @@ prompts:
   - What is conserved, and what is sacrificed?
 sources:
   - https://en.wikipedia.org/wiki/Probability
+  - https://iep.utm.edu/probability/
 order: 366
 ---
 ## Overview

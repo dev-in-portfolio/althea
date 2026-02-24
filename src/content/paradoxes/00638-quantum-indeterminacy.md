@@ -1,8 +1,8 @@
 ---
-title: "Quantum indeterminacy"
-slug: "quantum-indeterminacy"
+title: 'Quantum indeterminacy'
+slug: '00638-quantum-indeterminacy'
 type: THOUGHT_EXPERIMENT
-summary: "Quantum indeterminacy is the apparent necessary incompleteness in the description of a physical system, that has become one of the characteristics of the standard description of quantum physics. Prior to quantum physics, it was thought that Quantum indeterminacy can be quantitatively characterized by a probability distribution on the set of outcomes of measurements of an observable."
+summary: 'Quantum indeterminacy is the apparent necessary incompleteness in the description of a physical system, that has become one of the characteristics of the standard description of quantum physics. Prior to quantum physics, it was thought that Quantum indeterminacy can be quantitatively characterized by a probability distribution on the set of outcomes of measurements of an observable.'
 tags:
   - set-theory
   - probability

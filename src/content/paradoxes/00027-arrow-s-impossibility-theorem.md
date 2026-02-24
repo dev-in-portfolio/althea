@@ -1,8 +1,8 @@
 ---
-title: "Arrow's impossibility theorem"
-slug: "arrow-s-impossibility-theorem"
+title: 'Arrow''s impossibility theorem'
+slug: '00027-arrow-s-impossibility-theorem'
 type: PARADOX
-summary: "Arrow's impossibility theorem is a key result in social choice theory showing that no ranked-choice procedure for group decision-making can satisfy the requirements of rational choice. Specifically, American economist Kenneth Arrow showed no such rule can satisfy independence of irrelevant alternatives, the principle that a choice between two alternatives A and B should not depend on the quality of some third, unrela"
+summary: 'Arrow''s impossibility theorem is a key result in social choice theory showing that no ranked-choice procedure for group decision-making can satisfy the requirements of rational choice. Specifically, American economist Kenneth Arrow showed no such rule can satisfy independence of irrelevant alternatives, the principle that a choice between two alternatives A and B should not depend on the quality of some third, unrela'
 tags:
   - economics
   - decision

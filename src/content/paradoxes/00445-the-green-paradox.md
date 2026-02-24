@@ -1,8 +1,8 @@
 ---
-title: "The Green Paradox"
-slug: "the-green-paradox"
+title: 'The Green Paradox'
+slug: '00445-the-green-paradox'
 type: PARADOX
-summary: "The Green Paradox is a controversial book by German economist, Hans-Werner Sinn, describing the observation that an environmental policy that becomes greener with the passage of time acts like an announced expropriation for the owners of fossil fuel resources, inducing them to accelerate resource extraction and hence to accelerate global warming."
+summary: 'The Green Paradox is a controversial book by German economist, Hans-Werner Sinn, describing the observation that an environmental policy that becomes greener with the passage of time acts like an announced expropriation for the owners of fossil fuel resources, inducing them to accelerate resource extraction and hence to accelerate global warming.'
 tags:
   - time
   - economics

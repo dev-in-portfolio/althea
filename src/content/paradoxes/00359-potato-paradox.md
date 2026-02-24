@@ -1,8 +1,8 @@
 ---
-title: "Potato paradox"
-slug: "potato-paradox"
+title: 'Potato paradox'
+slug: '00359-potato-paradox'
 type: PARADOX
-summary: "The potato paradox is a mathematical calculation that has a result which seems counterintuitive to many people. The Universal Book of Mathematics states the problem as such: Fred brings home 100 kg of potatoes, which (being purely mathematical potatoes) consist of 99% water."
+summary: 'The potato paradox is a mathematical calculation that has a result which seems counterintuitive to many people. The Universal Book of Mathematics states the problem as such: Fred brings home 100 kg of potatoes, which (being purely mathematical potatoes) consist of 99% water.'
 tags:
   - paradox
 axioms:

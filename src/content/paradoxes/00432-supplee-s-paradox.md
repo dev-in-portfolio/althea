@@ -1,8 +1,8 @@
 ---
-title: "Supplee's paradox"
-slug: "supplee-s-paradox"
+title: 'Supplee''s paradox'
+slug: '00432-supplee-s-paradox'
 type: PARADOX
-summary: "In relativistic physics, Supplee's paradox (also called the submarine paradox) is a physical paradox that arises when considering the buoyant force exerted on a relativistic bullet (or in a submarine) immersed in a fluid subject to an ambient gravitational field. If a bullet has neutral buoyancy when it is at rest in a perfect fluid and then it is launched with a relativistic speed, observers at rest within the fluid"
+summary: 'In relativistic physics, Supplee''s paradox (also called the submarine paradox) is a physical paradox that arises when considering the buoyant force exerted on a relativistic bullet (or in a submarine) immersed in a fluid subject to an ambient gravitational field. If a bullet has neutral buoyancy when it is at rest in a perfect fluid and then it is launched with a relativistic speed, observers at rest within the fluid'
 tags:
   - physics
 axioms:

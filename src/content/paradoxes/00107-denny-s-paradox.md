@@ -1,8 +1,8 @@
 ---
-title: "Denny's paradox"
-slug: "denny-s-paradox"
+title: 'Denny''s paradox'
+slug: '00107-denny-s-paradox'
 type: PARADOX
-summary: "In biology, Denny's paradox refers to the apparent impossibility of surface-dwelling animals such as the water strider generating enough propulsive force to move. It is named after biologist Mark Denny, and relates to animal locomotion on the surface layer of water."
+summary: 'In biology, Denny''s paradox refers to the apparent impossibility of surface-dwelling animals such as the water strider generating enough propulsive force to move. It is named after biologist Mark Denny, and relates to animal locomotion on the surface layer of water.'
 tags:
   - paradox
 axioms:

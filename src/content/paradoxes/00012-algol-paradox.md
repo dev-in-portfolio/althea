@@ -1,8 +1,8 @@
 ---
-title: "Algol paradox"
-slug: "algol-paradox"
+title: 'Algol paradox'
+slug: '00012-algol-paradox'
 type: PARADOX
-summary: "In stellar astronomy, the Algol paradox is a paradox situation when the two stars of a binary star system appear to act opposite their cycle towards death; one star is more advanced in its stellar evolution than the other despite that star being smaller (less massive) than the other. This paradox is observed when one smaller star has already exited its main sequence form and its larger partner has not."
+summary: 'In stellar astronomy, the Algol paradox is a paradox situation when the two stars of a binary star system appear to act opposite their cycle towards death; one star is more advanced in its stellar evolution than the other despite that star being smaller (less massive) than the other. This paradox is observed when one smaller star has already exited its main sequence form and its larger partner has not.'
 tags:
   - paradox
 axioms:

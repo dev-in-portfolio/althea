@@ -1,8 +1,8 @@
 ---
-title: "Gibbs paradox"
-slug: "gibbs-paradox"
+title: 'Gibbs paradox'
+slug: '00162-gibbs-paradox'
 type: PARADOX
-summary: "In statistical mechanics, a semi-classical derivation of entropy that does not take into account the indistinguishability of particles yields an expression for entropy which is not extensive (is not proportional to the amount of substance in question). This leads to a paradox known as the Gibbs paradox, after Josiah Willard Gibbs, who proposed this thought experiment in 1874‒1875."
+summary: 'In statistical mechanics, a semi-classical derivation of entropy that does not take into account the indistinguishability of particles yields an expression for entropy which is not extensive (is not proportional to the amount of substance in question). This leads to a paradox known as the Gibbs paradox, after Josiah Willard Gibbs, who proposed this thought experiment in 1874‒1875.'
 tags:
   - statistics
 axioms:

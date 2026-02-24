@@ -1,8 +1,8 @@
 ---
-title: "Metabasis paradox"
-slug: "metabasis-paradox"
+title: 'Metabasis paradox'
+slug: '00265-metabasis-paradox'
 type: PARADOX
-summary: "The metabasis paradox is an instance in the received text of Aristotle's Poetics where, according to many scholars, he makes two incompatible statements. In chapter 13 of the book, Aristotle states that for tragedy to end in misfortune is 'correct,' yet in chapter 14 he judges a type of plot in tragedy 'best' that does not end in misfortune."
+summary: 'The metabasis paradox is an instance in the received text of Aristotle''s Poetics where, according to many scholars, he makes two incompatible statements. In chapter 13 of the book, Aristotle states that for tragedy to end in misfortune is ''correct,'' yet in chapter 14 he judges a type of plot in tragedy ''best'' that does not end in misfortune.'
 tags:
   - paradox
 axioms:

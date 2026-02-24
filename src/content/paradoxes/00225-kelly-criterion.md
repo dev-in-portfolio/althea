@@ -1,8 +1,8 @@
 ---
-title: "Kelly criterion"
-slug: "kelly-criterion"
+title: 'Kelly criterion'
+slug: '00225-kelly-criterion'
 type: PARADOX
-summary: "In probability theory, the Kelly criterion (or Kelly strategy or Kelly bet) is a formula for sizing a sequence of bets by maximizing the long-term expected value of the logarithm of wealth, which is equivalent to maximizing the long-term expected geometric growth rate. John Larry Kelly Jr., a researcher at Bell Labs, described the criterion in 1956."
+summary: 'In probability theory, the Kelly criterion (or Kelly strategy or Kelly bet) is a formula for sizing a sequence of bets by maximizing the long-term expected value of the logarithm of wealth, which is equivalent to maximizing the long-term expected geometric growth rate. John Larry Kelly Jr., a researcher at Bell Labs, described the criterion in 1956.'
 tags:
   - probability
 axioms:

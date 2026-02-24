@@ -1,8 +1,8 @@
 ---
-title: "Exercise paradox"
-slug: "exercise-paradox"
+title: 'Exercise paradox'
+slug: '00131-exercise-paradox'
 type: PARADOX
-summary: "The exercise paradox, also known as the workout paradox, refers to the finding that physical activity, while essential for maintaining overall health, does not necessarily lead to significant weight loss or increased calorie expenditure. This paradox challenges the common belief that more exercise equates to more calories burned and consequently, more weight loss."
+summary: 'The exercise paradox, also known as the workout paradox, refers to the finding that physical activity, while essential for maintaining overall health, does not necessarily lead to significant weight loss or increased calorie expenditure. This paradox challenges the common belief that more exercise equates to more calories burned and consequently, more weight loss.'
 tags:
   - paradox
 axioms:

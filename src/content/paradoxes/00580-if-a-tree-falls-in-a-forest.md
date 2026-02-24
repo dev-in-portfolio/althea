@@ -1,8 +1,8 @@
 ---
-title: "If a tree falls in a forest"
-slug: "if-a-tree-falls-in-a-forest"
+title: 'If a tree falls in a forest'
+slug: '00580-if-a-tree-falls-in-a-forest'
 type: THOUGHT_EXPERIMENT
-summary: "'If a tree falls in a forest and no one is around to hear it, does it make a sound?' is a philosophical thought experiment that raises questions regarding observation and perception."
+summary: 'If a tree falls in a forest and no one is around to hear it, does it make a sound?'' is a philosophical thought experiment that raises questions regarding observation and perception.'
 tags:
   - paradox
 axioms:

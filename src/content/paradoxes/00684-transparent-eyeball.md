@@ -1,8 +1,8 @@
 ---
-title: "Transparent eyeball"
-slug: "transparent-eyeball"
+title: 'Transparent eyeball'
+slug: '00684-transparent-eyeball'
 type: THOUGHT_EXPERIMENT
-summary: "The transparent eyeball is a philosophical metaphor originated by American transcendentalist philosopher Ralph Waldo Emerson. In his essay Nature, the metaphor stands for a view of life that is absorbent rather than reflective, and therefore takes in all that nature has to offer without bias or contradiction."
+summary: 'The transparent eyeball is a philosophical metaphor originated by American transcendentalist philosopher Ralph Waldo Emerson. In his essay Nature, the metaphor stands for a view of life that is absorbent rather than reflective, and therefore takes in all that nature has to offer without bias or contradiction.'
 tags:
   - paradox
 axioms:

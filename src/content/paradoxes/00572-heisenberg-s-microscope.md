@@ -1,8 +1,8 @@
 ---
-title: "Heisenberg's microscope"
-slug: "heisenberg-s-microscope"
+title: 'Heisenberg''s microscope'
+slug: '00572-heisenberg-s-microscope'
 type: THOUGHT_EXPERIMENT
-summary: "Heisenberg's microscope is a thought experiment proposed by Werner Heisenberg that has served as the nucleus of some commonly held ideas about quantum mechanics. In particular, it provides an argument for the uncertainty principle on the basis of the principles of classical optics."
+summary: 'Heisenberg''s microscope is a thought experiment proposed by Werner Heisenberg that has served as the nucleus of some commonly held ideas about quantum mechanics. In particular, it provides an argument for the uncertainty principle on the basis of the principles of classical optics.'
 tags:
   - physics
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Self-reference"
-slug: "self-reference"
+title: 'Self-reference'
+slug: '00400-self-reference'
 type: PARADOX
-summary: "Self-reference is a concept that involves referring to oneself or one's own attributes, characteristics, or actions. It can occur in language, logic, mathematics, philosophy, and other fields."
+summary: 'Self-reference is a concept that involves referring to oneself or one''s own attributes, characteristics, or actions. It can occur in language, logic, mathematics, philosophy, and other fields.'
 tags:
   - logic
   - self-reference
@@ -28,6 +28,7 @@ prompts:
   - What is conserved, and what is sacrificed?
 sources:
   - https://en.wikipedia.org/wiki/Self-reference
+  - https://plato.stanford.edu/entries/self-reference/
 order: 400
 ---
 ## Overview

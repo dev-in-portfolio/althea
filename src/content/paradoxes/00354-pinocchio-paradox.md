@@ -1,8 +1,8 @@
 ---
-title: "Pinocchio paradox"
-slug: "pinocchio-paradox"
+title: 'Pinocchio paradox'
+slug: '00354-pinocchio-paradox'
 type: PARADOX
-summary: "The Pinocchio paradox arises in the hypothetical situation when Pinocchio says 'My nose will grow' and is a version of the liar paradox. The liar paradox is defined in philosophy and logic as the statement 'This sentence is false.' Any attempts to assign a classical binary truth value to this statement lead to a contradiction, or paradox."
+summary: 'The Pinocchio paradox arises in the hypothetical situation when Pinocchio says ''My nose will grow'' and is a version of the liar paradox. The liar paradox is defined in philosophy and logic as the statement ''This sentence is false.'' Any attempts to assign a classical binary truth value to this statement lead to a contradiction, or paradox.'
 tags:
   - logic
   - truth

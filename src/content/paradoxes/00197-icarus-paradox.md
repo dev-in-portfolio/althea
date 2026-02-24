@@ -1,8 +1,8 @@
 ---
-title: "Icarus paradox"
-slug: "icarus-paradox"
+title: 'Icarus paradox'
+slug: '00197-icarus-paradox'
 type: PARADOX
-summary: "The Icarus paradox is a neologism coined by Danny Miller in his 1990 book by the same name. The term refers to the phenomenon of businesses failing abruptly after a period of apparent success, where this failure is brought about by the very elements that led to their initial success."
+summary: 'The Icarus paradox is a neologism coined by Danny Miller in his 1990 book by the same name. The term refers to the phenomenon of businesses failing abruptly after a period of apparent success, where this failure is brought about by the very elements that led to their initial success.'
 tags:
   - paradox
 axioms:

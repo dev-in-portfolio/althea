@@ -1,8 +1,8 @@
 ---
-title: "Air conditioning paradox"
-slug: "air-conditioning-paradox"
+title: 'Air conditioning paradox'
+slug: '00010-air-conditioning-paradox'
 type: PARADOX
-summary: "Air conditioning, often abbreviated as A/C (US) or air con (UK), is the process of removing heat from an enclosed space to achieve a more comfortable interior temperature and, in some cases, controlling the humidity of internal air. Air conditioning can be achieved using a mechanical 'air conditioner' or through other methods, such as passive cooling and ventilative cooling."
+summary: 'Air conditioning, often abbreviated as A/C (US) or air con (UK), is the process of removing heat from an enclosed space to achieve a more comfortable interior temperature and, in some cases, controlling the humidity of internal air. Air conditioning can be achieved using a mechanical ''air conditioner'' or through other methods, such as passive cooling and ventilative cooling.'
 tags:
   - paradox
 axioms:

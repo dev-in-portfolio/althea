@@ -1,8 +1,8 @@
 ---
-title: "Aristotle's wheel paradox"
-slug: "aristotle-s-wheel-paradox"
+title: 'Aristotle''s wheel paradox'
+slug: '00026-aristotle-s-wheel-paradox'
 type: PARADOX
-summary: "Aristotle's wheel paradox is a paradox or problem appearing in the pseudo-Aristotelian Greek work Mechanica. It states as follows: A wheel is depicted in two-dimensional space as two circles."
+summary: 'Aristotle''s wheel paradox is a paradox or problem appearing in the pseudo-Aristotelian Greek work Mechanica. It states as follows: A wheel is depicted in two-dimensional space as two circles.'
 tags:
   - paradox
 axioms:

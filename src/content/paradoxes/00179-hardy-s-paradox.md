@@ -1,8 +1,8 @@
 ---
-title: "Hardy's paradox"
-slug: "hardy-s-paradox"
+title: 'Hardy''s paradox'
+slug: '00179-hardy-s-paradox'
 type: PARADOX
-summary: "Hardy's paradox is a thought experiment in quantum mechanics devised by Lucien Hardy in 1992–1993 in which a particle and its antiparticle may interact without annihilating each other. Experiments using the technique of weak measurement have studied an interaction of polarized photons, and these have demonstrated that the phenomenon does occur."
+summary: 'Hardy''s paradox is a thought experiment in quantum mechanics devised by Lucien Hardy in 1992–1993 in which a particle and its antiparticle may interact without annihilating each other. Experiments using the technique of weak measurement have studied an interaction of polarized photons, and these have demonstrated that the phenomenon does occur.'
 tags:
   - physics
 axioms:

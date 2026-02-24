@@ -1,8 +1,8 @@
 ---
-title: "Coastline paradox"
-slug: "coastline-paradox"
+title: 'Coastline paradox'
+slug: '00079-coastline-paradox'
 type: PARADOX
-summary: "The coastline paradox is the counterintuitive observation that the coastline of a landmass does not have a well-defined length or perimeter. This results from the fractal curve–like properties of coastlines, namely the fact that a coastline typically has a fractal dimension."
+summary: 'The coastline paradox is the counterintuitive observation that the coastline of a landmass does not have a well-defined length or perimeter. This results from the fractal curve–like properties of coastlines, namely the fact that a coastline typically has a fractal dimension.'
 tags:
   - paradox
 axioms:

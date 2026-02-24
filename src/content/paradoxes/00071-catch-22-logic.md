@@ -1,8 +1,8 @@
 ---
-title: "Catch-22 (logic)"
-slug: "catch-22-logic"
+title: 'Catch-22 (logic)'
+slug: '00071-catch-22-logic'
 type: PARADOX
-summary: "A catch-22 is a paradoxical situation from which an individual cannot escape because of contradictory rules or limitations. The term was first used by Joseph Heller in his 1961 novel Catch-22."
+summary: 'A catch-22 is a paradoxical situation from which an individual cannot escape because of contradictory rules or limitations. The term was first used by Joseph Heller in his 1961 novel Catch-22.'
 tags:
   - logic
 axioms:

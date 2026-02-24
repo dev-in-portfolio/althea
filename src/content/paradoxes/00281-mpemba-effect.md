@@ -1,8 +1,8 @@
 ---
-title: "Mpemba effect"
-slug: "mpemba-effect"
+title: 'Mpemba effect'
+slug: '00281-mpemba-effect'
 type: PARADOX
-summary: "The Mpemba effect is the observation that very hot liquids or colloids (such as ice cream) can freeze more quickly than colder ones, for similar volumes and surrounding conditions. Physicists remain divided on the effect's reproducibility, precise definition, and underlying mechanisms."
+summary: 'The Mpemba effect is the observation that very hot liquids or colloids (such as ice cream) can freeze more quickly than colder ones, for similar volumes and surrounding conditions. Physicists remain divided on the effect''s reproducibility, precise definition, and underlying mechanisms.'
 tags:
   - paradox
 axioms:

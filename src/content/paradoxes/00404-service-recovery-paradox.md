@@ -1,8 +1,8 @@
 ---
-title: "Service recovery paradox"
-slug: "service-recovery-paradox"
+title: 'Service recovery paradox'
+slug: '00404-service-recovery-paradox'
 type: PARADOX
-summary: "The service recovery paradox (SRP) is a situation in which a customer thinks more highly of a company after the company has corrected a problem with their service, compared to how they would regard the company if non-faulty service had been provided. The main reason behind this thinking is that successful recovery of a faulty service increases the assurance and confidence from the customer."
+summary: 'The service recovery paradox (SRP) is a situation in which a customer thinks more highly of a company after the company has corrected a problem with their service, compared to how they would regard the company if non-faulty service had been provided. The main reason behind this thinking is that successful recovery of a faulty service increases the assurance and confidence from the customer.'
 tags:
   - paradox
 axioms:

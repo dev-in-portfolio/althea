@@ -1,8 +1,8 @@
 ---
-title: "Inventor's paradox"
-slug: "inventor-s-paradox"
+title: 'Inventor''s paradox'
+slug: '00215-inventor-s-paradox'
 type: PARADOX
-summary: "The inventor's paradox is a phenomenon that occurs in seeking a solution to a given problem. Instead of solving a specific type of problem, which would seem intuitively easier, it can be easier to solve a more general problem, which covers the specifics of the sought-after solution."
+summary: 'The inventor''s paradox is a phenomenon that occurs in seeking a solution to a given problem. Instead of solving a specific type of problem, which would seem intuitively easier, it can be easier to solve a more general problem, which covers the specifics of the sought-after solution.'
 tags:
   - paradox
 axioms:

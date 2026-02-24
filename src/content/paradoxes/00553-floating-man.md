@@ -1,8 +1,8 @@
 ---
-title: "Floating man"
-slug: "floating-man"
+title: 'Floating man'
+slug: '00553-floating-man'
 type: THOUGHT_EXPERIMENT
-summary: "The floating man, flying man, or man suspended in air argument is a thought experiment by the Persian philosopher Ibn Sina (Avicenna) which argues for the existence of the soul. This thought experiment is used to argue in favor of knowledge by presence."
+summary: 'The floating man, flying man, or man suspended in air argument is a thought experiment by the Persian philosopher Ibn Sina (Avicenna) which argues for the existence of the soul. This thought experiment is used to argue in favor of knowledge by presence.'
 tags:
   - paradox
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Preface paradox"
-slug: "preface-paradox"
+title: 'Preface paradox'
+slug: '00361-preface-paradox'
 type: PARADOX
-summary: "The preface paradox, or the paradox of the preface, was introduced by David Makinson in 1965. Similar to the lottery paradox, it presents an argument according to which it can be rational to accept mutually incompatible beliefs."
+summary: 'The preface paradox, or the paradox of the preface, was introduced by David Makinson in 1965. Similar to the lottery paradox, it presents an argument according to which it can be rational to accept mutually incompatible beliefs.'
 tags:
   - paradox
 axioms:

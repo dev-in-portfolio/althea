@@ -1,8 +1,8 @@
 ---
-title: "Hilbert's paradox of the Grand Hotel"
-slug: "hilbert-s-paradox-of-the-grand-hotel"
+title: 'Hilbert''s paradox of the Grand Hotel'
+slug: '00185-hilbert-s-paradox-of-the-grand-hotel'
 type: PARADOX
-summary: "Hilbert's paradox of the Grand Hotel (colloquially the Infinite Hotel Paradox or Hilbert's Hotel) is a thought experiment which illustrates a counterintuitive property of infinite sets. It shows that a fully occupied hotel with infinitely many rooms may still accommodate additional guests, even infinitely many of them, and this process may be repeated infinitely often."
+summary: 'Hilbert''s paradox of the Grand Hotel (colloquially the Infinite Hotel Paradox or Hilbert''s Hotel) is a thought experiment which illustrates a counterintuitive property of infinite sets. It shows that a fully occupied hotel with infinitely many rooms may still accommodate additional guests, even infinitely many of them, and this process may be repeated infinitely often.'
 tags:
   - set-theory
 axioms:

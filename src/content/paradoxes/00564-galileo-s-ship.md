@@ -1,8 +1,8 @@
 ---
-title: "Galileo's ship"
-slug: "galileo-s-ship"
+title: 'Galileo''s ship'
+slug: '00564-galileo-s-ship'
 type: THOUGHT_EXPERIMENT
-summary: "Galileo's ship refers to two physics experiments, a thought experiment and an actual experiment, by Galileo Galilei, the 16th- and 17th-century physicist and astronomer. The experiments were created to argue for the idea of a rotating Earth, as opposed to a stationary Earth around which the Sun, planets, and stars rotate."
+summary: 'Galileo''s ship refers to two physics experiments, a thought experiment and an actual experiment, by Galileo Galilei, the 16th- and 17th-century physicist and astronomer. The experiments were created to argue for the idea of a rotating Earth, as opposed to a stationary Earth around which the Sun, planets, and stars rotate.'
 tags:
   - physics
 axioms:

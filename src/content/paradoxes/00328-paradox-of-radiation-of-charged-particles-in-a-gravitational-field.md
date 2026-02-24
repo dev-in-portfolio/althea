@@ -1,8 +1,8 @@
 ---
-title: "Paradox of radiation of charged particles in a gravitational field"
-slug: "paradox-of-radiation-of-charged-particles-in-a-gravitational-field"
+title: 'Paradox of radiation of charged particles in a gravitational field'
+slug: '00328-paradox-of-radiation-of-charged-particles-in-a-gravitational-field'
 type: PARADOX
-summary: "The paradox of a charge in a gravitational field is an apparent physical paradox in the context of general relativity. A charged particle at rest in a gravitational field, such as on the surface of the Earth, must be supported by a force to prevent it from falling."
+summary: 'The paradox of a charge in a gravitational field is an apparent physical paradox in the context of general relativity. A charged particle at rest in a gravitational field, such as on the surface of the Earth, must be supported by a force to prevent it from falling.'
 tags:
   - paradox
 axioms:

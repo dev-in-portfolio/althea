@@ -1,8 +1,8 @@
 ---
-title: "Birthday paradox"
-slug: "birthday-paradox"
+title: 'Birthday paradox'
+slug: '00046-birthday-paradox'
 type: PARADOX
-summary: "In probability theory, the birthday problem asks for the probability that, in a set of n randomly chosen people, at least two will share the same birthday. The birthday paradox is the counterintuitive fact that only 23 people are needed for that probability to exceed 50%."
+summary: 'In probability theory, the birthday problem asks for the probability that, in a set of n randomly chosen people, at least two will share the same birthday. The birthday paradox is the counterintuitive fact that only 23 people are needed for that probability to exceed 50%.'
 tags:
   - set-theory
   - probability

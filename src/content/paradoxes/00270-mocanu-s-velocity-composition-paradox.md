@@ -1,8 +1,8 @@
 ---
-title: "Mocanu's velocity composition paradox"
-slug: "mocanu-s-velocity-composition-paradox"
+title: 'Mocanu''s velocity composition paradox'
+slug: '00270-mocanu-s-velocity-composition-paradox'
 type: PARADOX
-summary: "In relativistic physics, a velocity-addition formula is an equation that specifies how to combine the velocities of objects in a way that is consistent with the requirement that no object's speed can exceed the speed of light. Such formulas apply to successive Lorentz transformations, so they also relate different frames."
+summary: 'In relativistic physics, a velocity-addition formula is an equation that specifies how to combine the velocities of objects in a way that is consistent with the requirement that no object''s speed can exceed the speed of light. Such formulas apply to successive Lorentz transformations, so they also relate different frames.'
 tags:
   - physics
 axioms:

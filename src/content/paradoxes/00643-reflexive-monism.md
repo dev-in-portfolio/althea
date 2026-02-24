@@ -1,8 +1,8 @@
 ---
-title: "Reflexive monism"
-slug: "reflexive-monism"
+title: 'Reflexive monism'
+slug: '00643-reflexive-monism'
 type: THOUGHT_EXPERIMENT
-summary: "Reflexive monism is a philosophical position developed by Max Velmans, in his books Understanding Consciousness (2000, 2009) and Toward a Deeper Understanding of Consciousness (2017), to address the problems of consciousness. It is a modern version of an ancient view that the basic stuff of the universe manifests itself both physically and as conscious experience (a dual-aspect theory in the traditions of Spinoza and"
+summary: 'Reflexive monism is a philosophical position developed by Max Velmans, in his books Understanding Consciousness (2000, 2009) and Toward a Deeper Understanding of Consciousness (2017), to address the problems of consciousness. It is a modern version of an ancient view that the basic stuff of the universe manifests itself both physically and as conscious experience (a dual-aspect theory in the traditions of Spinoza and'
 tags:
   - paradox
 axioms:

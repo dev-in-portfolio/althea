@@ -1,8 +1,8 @@
 ---
-title: "Veridical paradox"
-slug: "veridical-paradox"
+title: 'Veridical paradox'
+slug: '00474-veridical-paradox'
 type: PARADOX
-summary: "A paradox is a logically self-contradictory statement or a statement that runs contrary to one's expectation. It is a statement that, despite apparently valid reasoning from true or apparently true premises, leads to a seemingly self-contradictory or a logically unacceptable conclusion."
+summary: 'A paradox is a logically self-contradictory statement or a statement that runs contrary to one''s expectation. It is a statement that, despite apparently valid reasoning from true or apparently true premises, leads to a seemingly self-contradictory or a logically unacceptable conclusion.'
 tags:
   - logic
 axioms:

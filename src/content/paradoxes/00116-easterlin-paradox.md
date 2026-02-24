@@ -1,8 +1,8 @@
 ---
-title: "Easterlin paradox"
-slug: "easterlin-paradox"
+title: 'Easterlin paradox'
+slug: '00116-easterlin-paradox'
 type: PARADOX
-summary: "The Easterlin paradox is a finding in happiness economics formulated in 1974 by Richard Easterlin, then professor of economics at the University of Pennsylvania, and the first economist to study happiness data. Easterlin further refined his finding during his subsequent long career at the University of Southern California."
+summary: 'The Easterlin paradox is a finding in happiness economics formulated in 1974 by Richard Easterlin, then professor of economics at the University of Pennsylvania, and the first economist to study happiness data. Easterlin further refined his finding during his subsequent long career at the University of Southern California.'
 tags:
   - economics
 axioms:

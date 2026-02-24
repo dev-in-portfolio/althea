@@ -1,8 +1,8 @@
 ---
-title: "Paradox of free choice"
-slug: "paradox-of-free-choice"
+title: 'Paradox of free choice'
+slug: '00321-paradox-of-free-choice'
 type: PARADOX
-summary: "Free choice is a phenomenon in natural language where a linguistic disjunction appears to receive a logical conjunctive interpretation when it interacts with a modal operator. For example, the following English sentences can be interpreted to mean that the addressee can watch a movie and that they can also play video games, depending on their preference: You can watch a movie or play video games."
+summary: 'Free choice is a phenomenon in natural language where a linguistic disjunction appears to receive a logical conjunctive interpretation when it interacts with a modal operator. For example, the following English sentences can be interpreted to mean that the addressee can watch a movie and that they can also play video games, depending on their preference: You can watch a movie or play video games.'
 tags:
   - logic
   - language

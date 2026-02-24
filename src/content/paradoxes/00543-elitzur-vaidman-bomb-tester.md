@@ -1,8 +1,8 @@
 ---
-title: "Elitzur–Vaidman bomb-tester"
-slug: "elitzur-vaidman-bomb-tester"
+title: 'Elitzur–Vaidman bomb-tester'
+slug: '00543-elitzur-vaidman-bomb-tester'
 type: THOUGHT_EXPERIMENT
-summary: "The Elitzur–Vaidman bomb-tester is a quantum mechanics thought experiment that uses interaction-free measurements to verify that a bomb is functional without having to detonate it. It was conceived in 1993 by Avshalom Elitzur and Lev Vaidman."
+summary: 'The Elitzur–Vaidman bomb-tester is a quantum mechanics thought experiment that uses interaction-free measurements to verify that a bomb is functional without having to detonate it. It was conceived in 1993 by Avshalom Elitzur and Lev Vaidman.'
 tags:
   - physics
 axioms:

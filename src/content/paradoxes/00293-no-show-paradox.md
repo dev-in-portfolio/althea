@@ -1,8 +1,8 @@
 ---
-title: "No-show paradox"
-slug: "no-show-paradox"
+title: 'No-show paradox'
+slug: '00293-no-show-paradox'
 type: PARADOX
-summary: "The participation criterion is a voting system criterion that says candidates should never lose an election as a result of receiving too many votes in support. More formally, it says that adding more voters who prefer Alice to Bob should not cause Alice to lose the election to Bob."
+summary: 'The participation criterion is a voting system criterion that says candidates should never lose an election as a result of receiving too many votes in support. More formally, it says that adding more voters who prefer Alice to Bob should not cause Alice to lose the election to Bob.'
 tags:
   - paradox
 axioms:

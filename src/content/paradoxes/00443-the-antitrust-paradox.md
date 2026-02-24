@@ -1,8 +1,8 @@
 ---
-title: "The Antitrust Paradox"
-slug: "the-antitrust-paradox"
+title: 'The Antitrust Paradox'
+slug: '00443-the-antitrust-paradox'
 type: PARADOX
-summary: "The Antitrust Paradox is an influential 1978 book by Robert Bork that criticized the state of United States antitrust law in the 1970s. A second edition, updated to reflect substantial changes in the law, was published in 1993."
+summary: 'The Antitrust Paradox is an influential 1978 book by Robert Bork that criticized the state of United States antitrust law in the 1970s. A second edition, updated to reflect substantial changes in the law, was published in 1993.'
 tags:
   - paradox
 axioms:

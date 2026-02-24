@@ -1,8 +1,8 @@
 ---
-title: "Liar paradox"
-slug: "liar-paradox"
+title: 'Liar paradox'
+slug: '00238-liar-paradox'
 type: PARADOX
-summary: "In philosophy and logic, the classical liar paradox or liar's paradox or antinomy of the liar is the statement of a liar that they are lying: for instance, declaring that 'I am lying'. If the liar is indeed lying, then the liar is telling the truth, which means the liar just lied."
+summary: 'In philosophy and logic, the classical liar paradox or liar''s paradox or antinomy of the liar is the statement of a liar that they are lying: for instance, declaring that ''I am lying''. If the liar is indeed lying, then the liar is telling the truth, which means the liar just lied.'
 tags:
   - logic
   - truth
@@ -27,6 +27,8 @@ prompts:
   - What is conserved, and what is sacrificed?
 sources:
   - https://en.wikipedia.org/wiki/Liar_paradox
+  - https://plato.stanford.edu/entries/liar-paradox/
+  - https://iep.utm.edu/liar-paradox/
 order: 238
 ---
 ## Overview

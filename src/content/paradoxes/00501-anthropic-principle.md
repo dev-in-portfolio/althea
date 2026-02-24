@@ -1,8 +1,8 @@
 ---
-title: "Anthropic principle"
-slug: "anthropic-principle"
+title: 'Anthropic principle'
+slug: '00501-anthropic-principle'
 type: THOUGHT_EXPERIMENT
-summary: "In cosmology and philosophy of science, the anthropic principle, also known as the observation selection effect, is the proposition that the range of possible observations that could be made about the universe is limited by the fact that observations are only possible in the type of universe that is capable of developing observers in the first place. Proponents of the anthropic principle argue that it explains why th"
+summary: 'In cosmology and philosophy of science, the anthropic principle, also known as the observation selection effect, is the proposition that the range of possible observations that could be made about the universe is limited by the fact that observations are only possible in the type of universe that is capable of developing observers in the first place. Proponents of the anthropic principle argue that it explains why th'
 tags:
   - cosmology
 axioms:

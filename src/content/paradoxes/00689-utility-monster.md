@@ -1,8 +1,8 @@
 ---
-title: "Utility monster"
-slug: "utility-monster"
+title: 'Utility monster'
+slug: '00689-utility-monster'
 type: THOUGHT_EXPERIMENT
-summary: "The utility monster is a thought experiment in the study of ethics created by philosopher Robert Nozick in 1974 as a criticism of utilitarianism."
+summary: 'The utility monster is a thought experiment in the study of ethics created by philosopher Robert Nozick in 1974 as a criticism of utilitarianism.'
 tags:
   - ethics
 axioms:

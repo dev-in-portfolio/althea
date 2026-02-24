@@ -1,8 +1,8 @@
 ---
-title: "Liberal paradox"
-slug: "liberal-paradox"
+title: 'Liberal paradox'
+slug: '00239-liberal-paradox'
 type: PARADOX
-summary: "The liberal paradox, also Sen paradox or Sen's paradox, is a logical paradox proposed by Amartya Sen which shows that no means of aggregating individual preferences into a single, social choice, can simultaneously fulfill the following, seemingly mild conditions: The unrestrictedness condition, or U: every possible ranking of each individual's preferences and all outcomes of every possible voting rule will be conside"
+summary: 'The liberal paradox, also Sen paradox or Sen''s paradox, is a logical paradox proposed by Amartya Sen which shows that no means of aggregating individual preferences into a single, social choice, can simultaneously fulfill the following, seemingly mild conditions: The unrestrictedness condition, or U: every possible ranking of each individual''s preferences and all outcomes of every possible voting rule will be conside'
 tags:
   - logic
   - choice

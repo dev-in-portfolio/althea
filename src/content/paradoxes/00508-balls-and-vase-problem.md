@@ -1,8 +1,8 @@
 ---
-title: "Balls and vase problem"
-slug: "balls-and-vase-problem"
+title: 'Balls and vase problem'
+slug: '00508-balls-and-vase-problem'
 type: THOUGHT_EXPERIMENT
-summary: "The Ross–Littlewood paradox (also known as the balls and vase problem or the ping pong ball problem) is a hypothetical problem in abstract mathematics and logic designed to illustrate the paradoxical, or at least non-intuitive, nature of infinity. More specifically, like the Thomson's lamp paradox, the Ross–Littlewood paradox tries to illustrate the conceptual difficulties with the notion of a supertask, in which an "
+summary: 'The Ross–Littlewood paradox (also known as the balls and vase problem or the ping pong ball problem) is a hypothetical problem in abstract mathematics and logic designed to illustrate the paradoxical, or at least non-intuitive, nature of infinity. More specifically, like the Thomson''s lamp paradox, the Ross–Littlewood paradox tries to illustrate the conceptual difficulties with the notion of a supertask, in which an '
 tags:
   - logic
 axioms:

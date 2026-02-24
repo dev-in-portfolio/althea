@@ -1,8 +1,8 @@
 ---
-title: "Prevention paradox"
-slug: "prevention-paradox"
+title: 'Prevention paradox'
+slug: '00364-prevention-paradox'
 type: PARADOX
-summary: "The prevention paradox describes the situation where the majority of cases of a disease come from a population at low or moderate risk of that disease, and only a minority of cases come from the high risk population (of the same disease). This is because the number of people at high risk is small."
+summary: 'The prevention paradox describes the situation where the majority of cases of a disease come from a population at low or moderate risk of that disease, and only a minority of cases come from the high risk population (of the same disease). This is because the number of people at high risk is small.'
 tags:
   - paradox
 axioms:

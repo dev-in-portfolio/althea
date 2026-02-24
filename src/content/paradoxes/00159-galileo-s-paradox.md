@@ -1,8 +1,8 @@
 ---
-title: "Galileo's paradox"
-slug: "galileo-s-paradox"
+title: 'Galileo''s paradox'
+slug: '00159-galileo-s-paradox'
 type: PARADOX
-summary: "Galileo's paradox is a demonstration of one of the surprising properties of infinite sets. In his final scientific work, Two New Sciences, Galileo Galilei made apparently contradictory statements about the positive integers."
+summary: 'Galileo''s paradox is a demonstration of one of the surprising properties of infinite sets. In his final scientific work, Two New Sciences, Galileo Galilei made apparently contradictory statements about the positive integers.'
 tags:
   - set-theory
 axioms:

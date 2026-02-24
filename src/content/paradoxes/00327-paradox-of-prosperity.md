@@ -1,8 +1,8 @@
 ---
-title: "Paradox of prosperity"
-slug: "paradox-of-prosperity"
+title: 'Paradox of prosperity'
+slug: '00327-paradox-of-prosperity'
 type: PARADOX
-summary: "Paradox of prosperity is a term used widely in many instances in economics, social theory and general commentary. In inter-generational analysis, Professor Gilbert N. M. O. Morris defines the term through an analysis of the familial dynamics and social proclivities of what Tom Brokaw has called the 'Greatest Generation'."
+summary: 'Paradox of prosperity is a term used widely in many instances in economics, social theory and general commentary. In inter-generational analysis, Professor Gilbert N. M. O. Morris defines the term through an analysis of the familial dynamics and social proclivities of what Tom Brokaw has called the ''Greatest Generation''.'
 tags:
   - economics
 axioms:

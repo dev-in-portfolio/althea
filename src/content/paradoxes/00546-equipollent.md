@@ -1,8 +1,8 @@
 ---
-title: "Equipollent"
-slug: "equipollent"
+title: 'Equipollent'
+slug: '00546-equipollent'
 type: THOUGHT_EXPERIMENT
-summary: "In mathematics, cardinality is an inherent property of sets, roughly meaning the number of individual objects they contain, which may be infinite. The concept is understood through one-to-one correspondences between sets."
+summary: 'In mathematics, cardinality is an inherent property of sets, roughly meaning the number of individual objects they contain, which may be infinite. The concept is understood through one-to-one correspondences between sets.'
 tags:
   - set-theory
 axioms:

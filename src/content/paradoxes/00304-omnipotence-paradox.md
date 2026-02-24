@@ -1,8 +1,8 @@
 ---
-title: "Omnipotence paradox"
-slug: "omnipotence-paradox"
+title: 'Omnipotence paradox'
+slug: '00304-omnipotence-paradox'
 type: PARADOX
-summary: "The omnipotence paradox is a family of paradoxes that arise with some understandings of the term omnipotent. The paradox arises, for example, if one assumes that an omnipotent being has no limits and is capable of realizing any outcome, even a logically contradictory one such as creating a square circle."
+summary: 'The omnipotence paradox is a family of paradoxes that arise with some understandings of the term omnipotent. The paradox arises, for example, if one assumes that an omnipotent being has no limits and is capable of realizing any outcome, even a logically contradictory one such as creating a square circle.'
 tags:
   - logic
 axioms:

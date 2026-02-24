@@ -1,8 +1,8 @@
 ---
-title: "Paradox of entailment"
-slug: "paradox-of-entailment"
+title: 'Paradox of entailment'
+slug: '00319-paradox-of-entailment'
 type: PARADOX
-summary: "The paradoxes of material implication are a group of classically true formulae involving material conditionals whose translations into natural language are intuitively false when the conditional is translated with English words such as 'implies' or 'if ... then ...'."
+summary: 'The paradoxes of material implication are a group of classically true formulae involving material conditionals whose translations into natural language are intuitively false when the conditional is translated with English words such as ''implies'' or ''if ... then ...''.'
 tags:
   - language
 axioms:

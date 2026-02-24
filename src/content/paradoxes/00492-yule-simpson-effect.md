@@ -1,8 +1,8 @@
 ---
-title: "Yule–Simpson effect"
-slug: "yule-simpson-effect"
+title: 'Yule–Simpson effect'
+slug: '00492-yule-simpson-effect'
 type: PARADOX
-summary: "Simpson's paradox is a phenomenon in probability and statistics in which a trend appears in several groups of data but disappears or reverses when the groups are combined. This result is often encountered in social-science and medical-science statistics, and is particularly problematic when frequency data are unduly given causal interpretations."
+summary: 'Simpson''s paradox is a phenomenon in probability and statistics in which a trend appears in several groups of data but disappears or reverses when the groups are combined. This result is often encountered in social-science and medical-science statistics, and is particularly problematic when frequency data are unduly given causal interpretations.'
 tags:
   - probability
   - statistics

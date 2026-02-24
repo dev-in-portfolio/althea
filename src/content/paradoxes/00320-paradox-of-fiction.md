@@ -1,8 +1,8 @@
 ---
-title: "Paradox of fiction"
-slug: "paradox-of-fiction"
+title: 'Paradox of fiction'
+slug: '00320-paradox-of-fiction'
 type: PARADOX
-summary: "The paradox of fiction, or the paradox of emotional response to fiction, is a philosophical dilemma that questions how people can experience strong emotions to fictional things. The primary question asked is the following: How are people moved by things which do not exist?"
+summary: 'The paradox of fiction, or the paradox of emotional response to fiction, is a philosophical dilemma that questions how people can experience strong emotions to fictional things. The primary question asked is the following: How are people moved by things which do not exist?'
 tags:
   - paradox
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Yablo's paradox"
-slug: "yablo-s-paradox"
+title: 'Yablo''s paradox'
+slug: '00491-yablo-s-paradox'
 type: PARADOX
-summary: "Stephen Yablo (; born 1957) is a Canadian-born American philosopher. He is the Emeritus David W. Skinner Professor of Philosophy at the Massachusetts Institute of Technology (MIT) and taught previously at the University of Michigan, Ann Arbor."
+summary: 'Stephen Yablo (; born 1957) is a Canadian-born American philosopher. He is the Emeritus David W. Skinner Professor of Philosophy at the Massachusetts Institute of Technology (MIT) and taught previously at the University of Michigan, Ann Arbor.'
 tags:
   - set-theory
 axioms:

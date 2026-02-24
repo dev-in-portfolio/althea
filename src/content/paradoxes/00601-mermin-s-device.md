@@ -1,8 +1,8 @@
 ---
-title: "Mermin's device"
-slug: "mermin-s-device"
+title: 'Mermin''s device'
+slug: '00601-mermin-s-device'
 type: THOUGHT_EXPERIMENT
-summary: "In physics, Mermin's device or Mermin's machine is a thought experiment intended to illustrate the non-classical features of nature without making a direct reference to quantum mechanics. The challenge is to reproduce the results of the thought experiment in terms of classical physics."
+summary: 'In physics, Mermin''s device or Mermin''s machine is a thought experiment intended to illustrate the non-classical features of nature without making a direct reference to quantum mechanics. The challenge is to reproduce the results of the thought experiment in terms of classical physics.'
 tags:
   - physics
 axioms:

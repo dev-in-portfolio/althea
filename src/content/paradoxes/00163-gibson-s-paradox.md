@@ -1,8 +1,8 @@
 ---
-title: "Gibson's paradox"
-slug: "gibson-s-paradox"
+title: 'Gibson''s paradox'
+slug: '00163-gibson-s-paradox'
 type: PARADOX
-summary: "Gibson's paradox is the observation that the rate of interest and the general level of prices under the gold standard are positively correlated. It is named for British economist Alfred Herbert Gibson who noted the correlation in a 1923 article for Banker's Magazine."
+summary: 'Gibson''s paradox is the observation that the rate of interest and the general level of prices under the gold standard are positively correlated. It is named for British economist Alfred Herbert Gibson who noted the correlation in a 1923 article for Banker''s Magazine.'
 tags:
   - economics
 axioms:

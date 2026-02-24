@@ -1,8 +1,8 @@
 ---
-title: "Experience machine"
-slug: "experience-machine"
+title: 'Experience machine'
+slug: '00550-experience-machine'
 type: THOUGHT_EXPERIMENT
-summary: "The experience machine or pleasure machine is a thought experiment put forward by philosopher Robert Nozick in his 1974 book Anarchy, State, and Utopia. It is an attempt to refute ethical hedonism by imagining a choice between everyday reality and an apparently preferable simulated reality."
+summary: 'The experience machine or pleasure machine is a thought experiment put forward by philosopher Robert Nozick in his 1974 book Anarchy, State, and Utopia. It is an attempt to refute ethical hedonism by imagining a choice between everyday reality and an apparently preferable simulated reality.'
 tags:
   - ethics
   - choice
@@ -27,6 +27,7 @@ prompts:
   - What is conserved, and what is sacrificed?
 sources:
   - https://en.wikipedia.org/wiki/Experience_machine
+  - https://iep.utm.edu/experience-machine/
 order: 550
 ---
 ## Overview

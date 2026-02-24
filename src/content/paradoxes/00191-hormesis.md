@@ -1,8 +1,8 @@
 ---
-title: "Hormesis"
-slug: "hormesis"
+title: 'Hormesis'
+slug: '00191-hormesis'
 type: PARADOX
-summary: "Hormesis is a two-phased dose-response relationship whereby low-dose exposures have a beneficial effect and high-dose amounts are either inhibitory to function or toxic. Within the hormetic zone, the biological response to low-dose amounts of some stressors is generally favorable."
+summary: 'Hormesis is a two-phased dose-response relationship whereby low-dose exposures have a beneficial effect and high-dose amounts are either inhibitory to function or toxic. Within the hormetic zone, the biological response to low-dose amounts of some stressors is generally favorable.'
 tags:
   - logic
 axioms:

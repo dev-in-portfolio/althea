@@ -1,8 +1,8 @@
 ---
-title: "Newton's cannonball"
-slug: "newton-s-cannonball"
+title: 'Newton''s cannonball'
+slug: '00608-newton-s-cannonball'
 type: THOUGHT_EXPERIMENT
-summary: "Newton's cannonball was a thought experiment Isaac Newton used to hypothesize that the force of gravity was universal, and it was the key force for planetary motion. It appeared in his posthumously published 1728 work De mundi systemate (also published in English as A Treatise of the System of the World)."
+summary: 'Newton''s cannonball was a thought experiment Isaac Newton used to hypothesize that the force of gravity was universal, and it was the key force for planetary motion. It appeared in his posthumously published 1728 work De mundi systemate (also published in English as A Treatise of the System of the World).'
 tags:
   - paradox
 axioms:

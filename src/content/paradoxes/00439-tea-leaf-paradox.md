@@ -1,8 +1,8 @@
 ---
-title: "Tea leaf paradox"
-slug: "tea-leaf-paradox"
+title: 'Tea leaf paradox'
+slug: '00439-tea-leaf-paradox'
 type: PARADOX
-summary: "In fluid dynamics, the tea leaf paradox is a phenomenon where tea leaves in a cup of tea migrate to the center and bottom of the cup after being stirred rather than being forced to the edges of the cup, as would be expected in a spiral centrifuge. The correct physical explanation of the paradox was for the first time given by James Thomson in 1857."
+summary: 'In fluid dynamics, the tea leaf paradox is a phenomenon where tea leaves in a cup of tea migrate to the center and bottom of the cup after being stirred rather than being forced to the edges of the cup, as would be expected in a spiral centrifuge. The correct physical explanation of the paradox was for the first time given by James Thomson in 1857.'
 tags:
   - time
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Postdiction"
-slug: "postdiction"
+title: 'Postdiction'
+slug: '00634-postdiction'
 type: THOUGHT_EXPERIMENT
-summary: "Postdiction involves explanation after the fact. In skepticism, it is considered an effect of hindsight bias that explains claimed predictions of significant events such as plane crashes and natural disasters."
+summary: 'Postdiction involves explanation after the fact. In skepticism, it is considered an effect of hindsight bias that explains claimed predictions of significant events such as plane crashes and natural disasters.'
 tags:
   - paradox
 axioms:

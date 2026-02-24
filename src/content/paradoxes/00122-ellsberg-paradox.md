@@ -1,8 +1,8 @@
 ---
-title: "Ellsberg paradox"
-slug: "ellsberg-paradox"
+title: 'Ellsberg paradox'
+slug: '00122-ellsberg-paradox'
 type: PARADOX
-summary: "In decision theory, the Ellsberg paradox (or Ellsberg's paradox) is a paradox in which people's decisions are inconsistent with subjective expected utility theory. John Maynard Keynes published a version of the paradox in 1921."
+summary: 'In decision theory, the Ellsberg paradox (or Ellsberg''s paradox) is a paradox in which people''s decisions are inconsistent with subjective expected utility theory. John Maynard Keynes published a version of the paradox in 1921.'
 tags:
   - decision
 axioms:

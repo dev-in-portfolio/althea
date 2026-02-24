@@ -1,8 +1,8 @@
 ---
-title: "Productivity paradox"
-slug: "productivity-paradox"
+title: 'Productivity paradox'
+slug: '00368-productivity-paradox'
 type: PARADOX
-summary: "The productivity paradox refers to the slowdown in productivity growth in the United States in the 1970s and 1980s despite rapid development in the field of information technology (IT) over the same period. The term was coined by Erik Brynjolfsson in a 1993 paper ('The Productivity Paradox of IT') inspired by a quip by Nobel Laureate Robert Solow 'You can see the computer age everywhere but in the productivity statis"
+summary: 'The productivity paradox refers to the slowdown in productivity growth in the United States in the 1970s and 1980s despite rapid development in the field of information technology (IT) over the same period. The term was coined by Erik Brynjolfsson in a 1993 paper (''The Productivity Paradox of IT'') inspired by a quip by Nobel Laureate Robert Solow ''You can see the computer age everywhere but in the productivity statis'
 tags:
   - paradox
 axioms:

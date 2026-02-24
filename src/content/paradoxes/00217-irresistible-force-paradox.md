@@ -1,8 +1,8 @@
 ---
-title: "Irresistible force paradox"
-slug: "irresistible-force-paradox"
+title: 'Irresistible force paradox'
+slug: '00217-irresistible-force-paradox'
 type: PARADOX
-summary: "The irresistible force paradox (also unstoppable force paradox or shield and spear paradox), is a classic paradox formulated as 'What happens when an unstoppable force meets an immovable object?' The immovable object and the unstoppable force are both implicitly assumed to be indestructible, or else the question would have a trivial resolution. Furthermore, it is assumed that they are two entities."
+summary: 'The irresistible force paradox (also unstoppable force paradox or shield and spear paradox), is a classic paradox formulated as ''What happens when an unstoppable force meets an immovable object?'' The immovable object and the unstoppable force are both implicitly assumed to be indestructible, or else the question would have a trivial resolution. Furthermore, it is assumed that they are two entities.'
 tags:
   - paradox
 axioms:

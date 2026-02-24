@@ -1,8 +1,8 @@
 ---
-title: "The Lady, or the Tiger?"
-slug: "the-lady-or-the-tiger"
+title: 'The Lady, or the Tiger?'
+slug: '00674-the-lady-or-the-tiger'
 type: THOUGHT_EXPERIMENT
-summary: "'The Lady, or the Tiger?' is a much-anthologized short story written by Frank R. Stockton for publication in the November issue of The Century Magazine in 1882. 'The Lady, or the Tiger?' has entered the English language as an allegorical expression, a shorthand indication or signifier, for a problem that is unsolvable."
+summary: 'The Lady, or the Tiger?'' is a much-anthologized short story written by Frank R. Stockton for publication in the November issue of The Century Magazine in 1882. ''The Lady, or the Tiger?'' has entered the English language as an allegorical expression, a shorthand indication or signifier, for a problem that is unsolvable.'
 tags:
   - language
 axioms:

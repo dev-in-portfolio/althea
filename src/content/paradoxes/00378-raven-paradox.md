@@ -1,8 +1,8 @@
 ---
-title: "Raven paradox"
-slug: "raven-paradox"
+title: 'Raven paradox'
+slug: '00378-raven-paradox'
 type: PARADOX
-summary: "The raven paradox, also known as Hempel's paradox, Hempel's ravens or, rarely, the paradox of indoor ornithology, is a paradox arising from the question of what constitutes evidence for the truth of a statement. Observing objects that are neither black nor ravens may formally increase the likelihood that all ravens are black even though, intuitively, these observations are unrelated."
+summary: 'The raven paradox, also known as Hempel''s paradox, Hempel''s ravens or, rarely, the paradox of indoor ornithology, is a paradox arising from the question of what constitutes evidence for the truth of a statement. Observing objects that are neither black nor ravens may formally increase the likelihood that all ravens are black even though, intuitively, these observations are unrelated.'
 tags:
   - truth
 axioms:

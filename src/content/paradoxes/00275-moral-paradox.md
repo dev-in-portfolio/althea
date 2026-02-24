@@ -1,8 +1,8 @@
 ---
-title: "Moral paradox"
-slug: "moral-paradox"
+title: 'Moral paradox'
+slug: '00275-moral-paradox'
 type: PARADOX
-summary: "In philosophy, an ethical dilemma, also called an ethical paradox or moral dilemma, is a situation in which two or more conflicting moral imperatives, none of which overrides the other, confront an agent. A closely related definition characterizes an ethical dilemma as a situation in which every available choice is wrong."
+summary: 'In philosophy, an ethical dilemma, also called an ethical paradox or moral dilemma, is a situation in which two or more conflicting moral imperatives, none of which overrides the other, confront an agent. A closely related definition characterizes an ethical dilemma as a situation in which every available choice is wrong.'
 tags:
   - ethics
   - choice

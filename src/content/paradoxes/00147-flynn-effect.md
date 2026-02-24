@@ -1,8 +1,8 @@
 ---
-title: "Flynn effect"
-slug: "flynn-effect"
+title: 'Flynn effect'
+slug: '00147-flynn-effect'
 type: PARADOX
-summary: "The Flynn effect is the substantial and long-sustained increase in both fluid and crystallized intelligence test scores that were measured in many parts of the world over the 20th century, named after researcher James Flynn (1934–2020). When intelligence quotient (IQ) tests are initially standardized using a sample of test-takers, by convention the average of the test results is set to 100 and their standard deviatio"
+summary: 'The Flynn effect is the substantial and long-sustained increase in both fluid and crystallized intelligence test scores that were measured in many parts of the world over the 20th century, named after researcher James Flynn (1934–2020). When intelligence quotient (IQ) tests are initially standardized using a sample of test-takers, by convention the average of the test results is set to 100 and their standard deviatio'
 tags:
   - set-theory
 axioms:

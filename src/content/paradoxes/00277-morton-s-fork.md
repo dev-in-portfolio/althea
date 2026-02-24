@@ -1,8 +1,8 @@
 ---
-title: "Morton's fork"
-slug: "morton-s-fork"
+title: 'Morton''s fork'
+slug: '00277-morton-s-fork'
 type: PARADOX
-summary: "A Morton's fork is a type of false dilemma in which contradictory observations lead to the same conclusion. Its name dates back to the rationalising of a benevolence by the 15th century English prelate John Morton."
+summary: 'A Morton''s fork is a type of false dilemma in which contradictory observations lead to the same conclusion. Its name dates back to the rationalising of a benevolence by the 15th century English prelate John Morton.'
 tags:
   - paradox
 axioms:

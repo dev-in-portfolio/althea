@@ -1,8 +1,8 @@
 ---
-title: "Chainstore paradox"
-slug: "chainstore-paradox"
+title: 'Chainstore paradox'
+slug: '00073-chainstore-paradox'
 type: PARADOX
-summary: "The chain store paradox is a game theory problem that challenges conventional rational choice assumptions about strategic behavior in sequential games. It describes a scenario where an incumbent chain store faces sequential entry threats from multiple potential competitors in different markets."
+summary: 'The chain store paradox is a game theory problem that challenges conventional rational choice assumptions about strategic behavior in sequential games. It describes a scenario where an incumbent chain store faces sequential entry threats from multiple potential competitors in different markets.'
 tags:
   - game-theory
   - choice

@@ -1,8 +1,8 @@
 ---
-title: "Buridan's ass"
-slug: "buridan-s-ass"
+title: 'Buridan''s ass'
+slug: '00060-buridan-s-ass'
 type: PARADOX
-summary: "Buridan's ass is an illustration of a paradox in philosophy in the conception of free will. It refers to a hypothetical situation wherein an ass (or donkey) that is equally hungry and thirsty is placed precisely midway between a stack of hay and a pail of water."
+summary: 'Buridan''s ass is an illustration of a paradox in philosophy in the conception of free will. It refers to a hypothetical situation wherein an ass (or donkey) that is equally hungry and thirsty is placed precisely midway between a stack of hay and a pail of water.'
 tags:
   - paradox
 axioms:

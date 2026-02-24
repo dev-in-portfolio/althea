@@ -1,8 +1,8 @@
 ---
-title: "Barber paradox"
-slug: "barber-paradox"
+title: 'Barber paradox'
+slug: '00033-barber-paradox'
 type: PARADOX
-summary: "The barber paradox is a puzzle derived from Russell's paradox. It was suggested to Bertrand Russell as an illustration of the paradox, but he deemed it an invalid modification of his paradox."
+summary: 'The barber paradox is a puzzle derived from Russell''s paradox. It was suggested to Bertrand Russell as an illustration of the paradox, but he deemed it an invalid modification of his paradox.'
 tags:
   - paradox
 axioms:

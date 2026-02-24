@@ -1,8 +1,8 @@
 ---
-title: "Sleep debt"
-slug: "sleep-debt"
+title: 'Sleep debt'
+slug: '00414-sleep-debt'
 type: PARADOX
-summary: "Sleep debt or sleep deficit is the cumulative effect of not getting enough sleep. A large sleep debt may lead to mental or physical fatigue, and can adversely affect one's mood, energy, and ability to think clearly."
+summary: 'Sleep debt or sleep deficit is the cumulative effect of not getting enough sleep. A large sleep debt may lead to mental or physical fatigue, and can adversely affect one''s mood, energy, and ability to think clearly.'
 tags:
   - paradox
 axioms:

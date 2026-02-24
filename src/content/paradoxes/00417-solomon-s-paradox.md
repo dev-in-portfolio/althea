@@ -1,8 +1,8 @@
 ---
-title: "Solomon's paradox"
-slug: "solomon-s-paradox"
+title: 'Solomon''s paradox'
+slug: '00417-solomon-s-paradox'
 type: PARADOX
-summary: "Solomon's paradox is the observation that people can give reasonable advice to others, but fail to apply this advice to their own situation."
+summary: 'Solomon''s paradox is the observation that people can give reasonable advice to others, but fail to apply this advice to their own situation.'
 tags:
   - paradox
 axioms:

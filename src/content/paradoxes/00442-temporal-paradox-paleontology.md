@@ -1,8 +1,8 @@
 ---
-title: "Temporal paradox (paleontology)"
-slug: "temporal-paradox-paleontology"
+title: 'Temporal paradox (paleontology)'
+slug: '00442-temporal-paradox-paleontology'
 type: PARADOX
-summary: "John Alan Feduccia (born April 25, 1943) is a paleornithologist specializing in the origins and phylogeny of birds. He is S. K. Heninger Distinguished Professor Emeritus at the University of North Carolina."
+summary: 'John Alan Feduccia (born April 25, 1943) is a paleornithologist specializing in the origins and phylogeny of birds. He is S. K. Heninger Distinguished Professor Emeritus at the University of North Carolina.'
 tags:
   - paradox
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Observer effect (physics)"
-slug: "observer-effect-physics"
+title: 'Observer effect (physics)'
+slug: '00300-observer-effect-physics'
 type: PARADOX
-summary: "In physics, the observer effect is the disturbance of a system by the act of observation. This is often the result of utilising instruments that, by necessity, alter the state of what they measure in some manner."
+summary: 'In physics, the observer effect is the disturbance of a system by the act of observation. This is often the result of utilising instruments that, by necessity, alter the state of what they measure in some manner.'
 tags:
   - physics
 axioms:

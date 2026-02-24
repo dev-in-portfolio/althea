@@ -1,8 +1,8 @@
 ---
-title: "Elevator paradox (physics)"
-slug: "elevator-paradox-physics"
+title: 'Elevator paradox (physics)'
+slug: '00121-elevator-paradox-physics'
 type: PARADOX
-summary: "The elevator paradox relates to a hydrometer placed on an 'elevator' or vertical conveyor that, by moving to different elevations, changes the atmospheric pressure. In this classic demonstration, the floating hydrometer remains at an equilibrium position."
+summary: 'The elevator paradox relates to a hydrometer placed on an ''elevator'' or vertical conveyor that, by moving to different elevations, changes the atmospheric pressure. In this classic demonstration, the floating hydrometer remains at an equilibrium position.'
 tags:
   - physics
 axioms:

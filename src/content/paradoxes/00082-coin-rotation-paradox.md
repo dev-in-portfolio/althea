@@ -1,8 +1,8 @@
 ---
-title: "Coin rotation paradox"
-slug: "coin-rotation-paradox"
+title: 'Coin rotation paradox'
+slug: '00082-coin-rotation-paradox'
 type: PARADOX
-summary: "The coin rotation paradox is the counter-intuitive mathematical fact that, when one coin is rolled without slipping around the rim of another coin of equal size, the moving coin completes not one but two full rotations after going all the way around the stationary coin, when viewed from an external reference frame. The problem can be further generalized to coins of different radii."
+summary: 'The coin rotation paradox is the counter-intuitive mathematical fact that, when one coin is rolled without slipping around the rim of another coin of equal size, the moving coin completes not one but two full rotations after going all the way around the stationary coin, when viewed from an external reference frame. The problem can be further generalized to coins of different radii.'
 tags:
   - paradox
 axioms:

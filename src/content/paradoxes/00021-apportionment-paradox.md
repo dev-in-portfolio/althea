@@ -1,8 +1,8 @@
 ---
-title: "Apportionment paradox"
-slug: "apportionment-paradox"
+title: 'Apportionment paradox'
+slug: '00021-apportionment-paradox'
 type: PARADOX
-summary: "An apportionment paradox is a situation where an apportionment—a rule for dividing discrete objects according to some proportional relationship—produces results that violate notions of common sense or fairness. Certain quantities, like milk, can be divided in any proportion whatsoever; others, such as horses, cannot—only whole numbers will do."
+summary: 'An apportionment paradox is a situation where an apportionment—a rule for dividing discrete objects according to some proportional relationship—produces results that violate notions of common sense or fairness. Certain quantities, like milk, can be divided in any proportion whatsoever; others, such as horses, cannot—only whole numbers will do.'
 tags:
   - paradox
 axioms:

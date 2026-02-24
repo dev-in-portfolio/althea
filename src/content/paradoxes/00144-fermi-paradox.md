@@ -1,8 +1,8 @@
 ---
-title: "Fermi paradox"
-slug: "fermi-paradox"
+title: 'Fermi paradox'
+slug: '00144-fermi-paradox'
 type: PARADOX
-summary: "The Fermi paradox is the discrepancy between the lack of conclusive evidence of advanced extraterrestrial life and the apparently high likelihood of its existence. The paradox is named after physicist Enrico Fermi, who informally posed the question—remembered by Emil Konopinski as 'But where is everybody?'—during a 1950 conversation at Los Alamos with colleagues Konopinski, Edward Teller, and Herbert York."
+summary: 'The Fermi paradox is the discrepancy between the lack of conclusive evidence of advanced extraterrestrial life and the apparently high likelihood of its existence. The paradox is named after physicist Enrico Fermi, who informally posed the question—remembered by Emil Konopinski as ''But where is everybody?''—during a 1950 conversation at Los Alamos with colleagues Konopinski, Edward Teller, and Herbert York.'
 tags:
   - paradox
 axioms:

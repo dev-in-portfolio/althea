@@ -1,8 +1,8 @@
 ---
-title: "Identical twins paradox"
-slug: "identical-twins-paradox"
+title: 'Identical twins paradox'
+slug: '00199-identical-twins-paradox'
 type: PARADOX
-summary: "What Is Intelligence?: Beyond the Flynn Effect is a book by psychologist James R. Flynn which outlines his model for an explanation of the eponymous Flynn effect. The book summarizes much of the work of Flynn in this area, as well as that of his colleague William Dickens of the Brookings Institution."
+summary: 'What Is Intelligence?: Beyond the Flynn Effect is a book by psychologist James R. Flynn which outlines his model for an explanation of the eponymous Flynn effect. The book summarizes much of the work of Flynn in this area, as well as that of his colleague William Dickens of the Brookings Institution.'
 tags:
   - psychology
 axioms:

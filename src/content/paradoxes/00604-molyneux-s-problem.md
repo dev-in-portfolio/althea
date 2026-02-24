@@ -1,8 +1,8 @@
 ---
-title: "Molyneux's Problem"
-slug: "molyneux-s-problem"
+title: 'Molyneux''s Problem'
+slug: '00604-molyneux-s-problem'
 type: THOUGHT_EXPERIMENT
-summary: "Molyneux's problem is a thought experiment in philosophy concerning immediate recovery from blindness. It was first formulated by William Molyneux, and notably referred to in John Locke's An Essay Concerning Human Understanding (1689)."
+summary: 'Molyneux''s problem is a thought experiment in philosophy concerning immediate recovery from blindness. It was first formulated by William Molyneux, and notably referred to in John Locke''s An Essay Concerning Human Understanding (1689).'
 tags:
   - paradox
 axioms:

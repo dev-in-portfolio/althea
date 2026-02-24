@@ -1,8 +1,8 @@
 ---
-title: "Upstream contamination"
-slug: "upstream-contamination"
+title: 'Upstream contamination'
+slug: '00471-upstream-contamination'
 type: PARADOX
-summary: "Upstream contamination by floating particles is a counterintuitive phenomenon in fluid dynamics. When pouring water from a higher container to a lower one, particles floating in the latter can climb upstream into the upper container."
+summary: 'Upstream contamination by floating particles is a counterintuitive phenomenon in fluid dynamics. When pouring water from a higher container to a lower one, particles floating in the latter can climb upstream into the upper container.'
 tags:
   - paradox
 axioms:

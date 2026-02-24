@@ -1,8 +1,8 @@
 ---
-title: "Berry paradox"
-slug: "berry-paradox"
+title: 'Berry paradox'
+slug: '00040-berry-paradox'
 type: PARADOX
-summary: "The Berry paradox is a self-referential paradox arising from an expression like 'The smallest positive integer not definable in under sixty letters' (a phrase with fifty-seven letters). Bertrand Russell, the first to discuss the paradox in print, attributed it to G. G. Berry (1867–1928), a junior librarian at Oxford's Bodleian Library."
+summary: 'The Berry paradox is a self-referential paradox arising from an expression like ''The smallest positive integer not definable in under sixty letters'' (a phrase with fifty-seven letters). Bertrand Russell, the first to discuss the paradox in print, attributed it to G. G. Berry (1867–1928), a junior librarian at Oxford''s Bodleian Library.'
 tags:
   - paradox
 axioms:

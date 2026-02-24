@@ -1,8 +1,8 @@
 ---
-title: "Grelling–Nelson paradox"
-slug: "grelling-nelson-paradox"
+title: 'Grelling–Nelson paradox'
+slug: '00173-grelling-nelson-paradox'
 type: PARADOX
-summary: "The Grelling–Nelson paradox arises from the question of whether the term 'non-self-descriptive' is self-descriptive. It was formulated in 1908 by Kurt Grelling and Leonard Nelson, and is sometimes mistakenly attributed to the German philosopher and mathematician Hermann Weyl thus occasionally called Weyl's paradox or Grelling's paradox."
+summary: 'The Grelling–Nelson paradox arises from the question of whether the term ''non-self-descriptive'' is self-descriptive. It was formulated in 1908 by Kurt Grelling and Leonard Nelson, and is sometimes mistakenly attributed to the German philosopher and mathematician Hermann Weyl thus occasionally called Weyl''s paradox or Grelling''s paradox.'
 tags:
   - time
 axioms:

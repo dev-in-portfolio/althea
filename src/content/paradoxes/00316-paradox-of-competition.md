@@ -1,8 +1,8 @@
 ---
-title: "Paradox of competition"
-slug: "paradox-of-competition"
+title: 'Paradox of competition'
+slug: '00316-paradox-of-competition'
 type: PARADOX
-summary: "Paradox of competition in economics names a model of a situation where measures, which offer a competitive advantage to an individual economic entity, lead to nullification of advantage if all others behave in the same way. In some cases the finite state is even more disadvantageous for everybody than before (for the totality as well as for the individual)."
+summary: 'Paradox of competition in economics names a model of a situation where measures, which offer a competitive advantage to an individual economic entity, lead to nullification of advantage if all others behave in the same way. In some cases the finite state is even more disadvantageous for everybody than before (for the totality as well as for the individual).'
 tags:
   - economics
 axioms:

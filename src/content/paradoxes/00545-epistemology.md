@@ -1,8 +1,8 @@
 ---
-title: "Epistemology"
-slug: "epistemology"
+title: 'Epistemology'
+slug: '00545-epistemology'
 type: THOUGHT_EXPERIMENT
-summary: "Epistemology is the branch of philosophy that examines the nature, origin, and limits of knowledge. Also called the theory of knowledge, it explores different types of knowledge, such as propositional knowledge about facts, practical knowledge in the form of skills, and knowledge by acquaintance as a familiarity through experience."
+summary: 'Epistemology is the branch of philosophy that examines the nature, origin, and limits of knowledge. Also called the theory of knowledge, it explores different types of knowledge, such as propositional knowledge about facts, practical knowledge in the form of skills, and knowledge by acquaintance as a familiarity through experience.'
 tags:
   - paradox
 axioms:
@@ -26,6 +26,7 @@ prompts:
   - What is conserved, and what is sacrificed?
 sources:
   - https://en.wikipedia.org/wiki/Epistemology
+  - https://plato.stanford.edu/entries/epistemology/
 order: 545
 ---
 ## Overview

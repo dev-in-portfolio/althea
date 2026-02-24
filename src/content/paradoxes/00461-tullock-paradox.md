@@ -1,8 +1,8 @@
 ---
-title: "Tullock paradox"
-slug: "tullock-paradox"
+title: 'Tullock paradox'
+slug: '00461-tullock-paradox'
 type: PARADOX
-summary: "Rent-seeking is the act of growing one's existing wealth by manipulating public policy or economic conditions without creating new wealth. Rent-seeking activities have negative effects on the rest of society."
+summary: 'Rent-seeking is the act of growing one''s existing wealth by manipulating public policy or economic conditions without creating new wealth. Rent-seeking activities have negative effects on the rest of society.'
 tags:
   - economics
 axioms:

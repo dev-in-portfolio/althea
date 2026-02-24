@@ -1,8 +1,8 @@
 ---
-title: "Paradox of tolerance"
-slug: "paradox-of-tolerance"
+title: 'Paradox of tolerance'
+slug: '00337-paradox-of-tolerance'
 type: PARADOX
-summary: "The paradox of tolerance is a philosophical concept suggesting that if a society extends tolerance to those who are intolerant, it risks enabling the eventual dominance of intolerance, thereby undermining the very principle of tolerance. This paradox was articulated by philosopher Karl Popper in The Open Society and Its Enemies (1945), where he argued that a truly tolerant society must retain the right to deny tolera"
+summary: 'The paradox of tolerance is a philosophical concept suggesting that if a society extends tolerance to those who are intolerant, it risks enabling the eventual dominance of intolerance, thereby undermining the very principle of tolerance. This paradox was articulated by philosopher Karl Popper in The Open Society and Its Enemies (1945), where he argued that a truly tolerant society must retain the right to deny tolera'
 tags:
   - paradox
 axioms:

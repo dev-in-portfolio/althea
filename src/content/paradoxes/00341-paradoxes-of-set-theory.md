@@ -1,8 +1,8 @@
 ---
-title: "Paradoxes of set theory"
-slug: "paradoxes-of-set-theory"
+title: 'Paradoxes of set theory'
+slug: '00341-paradoxes-of-set-theory'
 type: PARADOX
-summary: "This article contains a discussion of paradoxes of set theory. As with most mathematical paradoxes, they generally reveal surprising and counter-intuitive mathematical results, rather than actual logical contradictions within modern axiomatic set theory."
+summary: 'This article contains a discussion of paradoxes of set theory. As with most mathematical paradoxes, they generally reveal surprising and counter-intuitive mathematical results, rather than actual logical contradictions within modern axiomatic set theory.'
 tags:
   - set-theory
   - logic

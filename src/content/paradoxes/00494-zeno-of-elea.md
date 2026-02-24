@@ -1,8 +1,8 @@
 ---
-title: "Zeno of Elea"
-slug: "zeno-of-elea"
+title: 'Zeno of Elea'
+slug: '00494-zeno-of-elea'
 type: PARADOX
-summary: "Zeno of Elea (; Ancient Greek: Ζήνων ὁ Ἐλεᾱ́της; c. 490 – c. 430 BC) was a pre-Socratic Greek philosopher from Elea, in Southern Italy (Magna Graecia). He was a student of Parmenides and one of the Eleatics."
+summary: 'Zeno of Elea (; Ancient Greek: Ζήνων ὁ Ἐλεᾱ́της; c. 490 – c. 430 BC) was a pre-Socratic Greek philosopher from Elea, in Southern Italy (Magna Graecia). He was a student of Parmenides and one of the Eleatics.'
 tags:
   - paradox
 axioms:
@@ -25,7 +25,8 @@ prompts:
   - Does the paradox dissolve or relocate when reframed?
   - What is conserved, and what is sacrificed?
 sources:
-  - https://en.wikipedia.org/wiki/Zeno_of_Elea
+  - https://en.wikipedia.org/wiki/
+Zeno_of_Elea
 order: 494
 ---
 ## Overview

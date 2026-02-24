@@ -1,8 +1,8 @@
 ---
-title: "Tritone paradox"
-slug: "tritone-paradox"
+title: 'Tritone paradox'
+slug: '00458-tritone-paradox'
 type: PARADOX
-summary: "The tritone paradox is an auditory illusion in which a sequentially played pair of Shepard tones separated by an interval of a tritone, or half octave, is heard as ascending by some people and as descending by others. Different populations tend to favor one of a limited set of different spots around the chromatic circle as central to the set of 'higher' tones."
+summary: 'The tritone paradox is an auditory illusion in which a sequentially played pair of Shepard tones separated by an interval of a tritone, or half octave, is heard as ascending by some people and as descending by others. Different populations tend to favor one of a limited set of different spots around the chromatic circle as central to the set of ''higher'' tones.'
 tags:
   - set-theory
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Wittgenstein on Rules and Private Language"
-slug: "wittgenstein-on-rules-and-private-language"
+title: 'Wittgenstein on Rules and Private Language'
+slug: '00488-wittgenstein-on-rules-and-private-language'
 type: PARADOX
-summary: "Wittgenstein on Rules and Private Language is a 1982 book by philosopher of language Saul Kripke in which he contends that the central argument of Ludwig Wittgenstein's Philosophical Investigations centers on a skeptical rule-following paradox that undermines the possibility of our ever following rules in our use of language. Kripke writes that this paradox is 'the most radical and original skeptical problem that phi"
+summary: 'Wittgenstein on Rules and Private Language is a 1982 book by philosopher of language Saul Kripke in which he contends that the central argument of Ludwig Wittgenstein''s Philosophical Investigations centers on a skeptical rule-following paradox that undermines the possibility of our ever following rules in our use of language. Kripke writes that this paradox is ''the most radical and original skeptical problem that phi'
 tags:
   - language
 axioms:

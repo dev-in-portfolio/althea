@@ -1,8 +1,8 @@
 ---
-title: "Nash equilibrium"
-slug: "nash-equilibrium"
+title: 'Nash equilibrium'
+slug: '00283-nash-equilibrium'
 type: PARADOX
-summary: "In game theory, a Nash equilibrium is a situation where no player could gain more by changing their own strategy (holding all other players' strategies fixed) in a game. A Nash equilibrium is the most commonly used solution concept for non-cooperative games."
+summary: 'In game theory, a Nash equilibrium is a situation where no player could gain more by changing their own strategy (holding all other players'' strategies fixed) in a game. A Nash equilibrium is the most commonly used solution concept for non-cooperative games.'
 tags:
   - game-theory
 axioms:

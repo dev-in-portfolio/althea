@@ -1,8 +1,8 @@
 ---
-title: "The survival lottery"
-slug: "the-survival-lottery"
+title: 'The survival lottery'
+slug: '00677-the-survival-lottery'
 type: THOUGHT_EXPERIMENT
-summary: "The survival lottery is a thought experiment, proposed by the philosopher John Harris. The basis of the idea is to ask people to imagine if organ donation were expected to save more individuals than it would kill."
+summary: 'The survival lottery is a thought experiment, proposed by the philosopher John Harris. The basis of the idea is to ask people to imagine if organ donation were expected to save more individuals than it would kill.'
 tags:
   - paradox
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Grossman-Stiglitz Paradox"
-slug: "grossman-stiglitz-paradox"
+title: 'Grossman-Stiglitz Paradox'
+slug: '00176-grossman-stiglitz-paradox'
 type: PARADOX
-summary: "The Grossman–Stiglitz Paradox is a paradox introduced by Sanford J. Grossman and Joseph Stiglitz in a joint publication in American Economic Review in 1980 that argues perfectly informationally efficient markets are an impossibility since, if prices perfectly reflected available information, there is no profit to gathering information, in which case there would be little reason to trade and markets would eventually c"
+summary: 'The Grossman–Stiglitz Paradox is a paradox introduced by Sanford J. Grossman and Joseph Stiglitz in a joint publication in American Economic Review in 1980 that argues perfectly informationally efficient markets are an impossibility since, if prices perfectly reflected available information, there is no profit to gathering information, in which case there would be little reason to trade and markets would eventually c'
 tags:
   - economics
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Elevator paradox"
-slug: "elevator-paradox"
+title: 'Elevator paradox'
+slug: '00120-elevator-paradox'
 type: PARADOX
-summary: "The elevator paradox is a paradox first noted by Marvin Stern and George Gamow, physicists who had offices on different floors of a multi-story building. Gamow, who had an office near the bottom of the building noticed that the first elevator to stop at his floor was most often going down, while Stern, who had an office near the top, noticed that the first elevator to stop at his floor was most often going up."
+summary: 'The elevator paradox is a paradox first noted by Marvin Stern and George Gamow, physicists who had offices on different floors of a multi-story building. Gamow, who had an office near the bottom of the building noticed that the first elevator to stop at his floor was most often going down, while Stern, who had an office near the top, noticed that the first elevator to stop at his floor was most often going up.'
 tags:
   - paradox
 axioms:

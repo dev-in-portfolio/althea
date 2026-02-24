@@ -1,8 +1,8 @@
 ---
-title: "Mandeville's paradox"
-slug: "mandeville-s-paradox"
+title: 'Mandeville''s paradox'
+slug: '00254-mandeville-s-paradox'
 type: PARADOX
-summary: "Mandeville's paradox is named after Bernard Mandeville (1670–1733), who posits that actions which may be qualified as vicious with regard to individuals have benefits for society as a whole. This is alluded to in the subtitle of his most famous work, The Fable of The Bees: or, Private Vices, Public Benefits."
+summary: 'Mandeville''s paradox is named after Bernard Mandeville (1670–1733), who posits that actions which may be qualified as vicious with regard to individuals have benefits for society as a whole. This is alluded to in the subtitle of his most famous work, The Fable of The Bees: or, Private Vices, Public Benefits.'
 tags:
   - paradox
 axioms:

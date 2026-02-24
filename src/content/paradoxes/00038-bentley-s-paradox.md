@@ -1,8 +1,8 @@
 ---
-title: "Bentley's paradox"
-slug: "bentley-s-paradox"
+title: 'Bentley''s paradox'
+slug: '00038-bentley-s-paradox'
 type: PARADOX
-summary: "Bentley's paradox (named after Richard Bentley) points to a problem occurring when Newton's theory of gravitation is applied to cosmology. This cosmological paradox states that if all the stars are drawn to each other by gravitation, they should collapse into a single point."
+summary: 'Bentley''s paradox (named after Richard Bentley) points to a problem occurring when Newton''s theory of gravitation is applied to cosmology. This cosmological paradox states that if all the stars are drawn to each other by gravitation, they should collapse into a single point.'
 tags:
   - logic
   - cosmology

@@ -1,8 +1,8 @@
 ---
-title: "European paradox"
-slug: "european-paradox"
+title: 'European paradox'
+slug: '00129-european-paradox'
 type: PARADOX
-summary: "The European paradox is the perceived failure of European countries to translate scientific advances into marketable innovations. The term was coined in a European Commission Green Paper in 1995."
+summary: 'The European paradox is the perceived failure of European countries to translate scientific advances into marketable innovations. The term was coined in a European Commission Green Paper in 1995.'
 tags:
   - paradox
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Contradiction"
-slug: "contradiction"
+title: 'Contradiction'
+slug: '00089-contradiction'
 type: PARADOX
-summary: "In traditional logic, a contradiction involves a proposition conflicting either with itself or established fact. It is often used as a tool to detect disingenuous beliefs and bias."
+summary: 'In traditional logic, a contradiction involves a proposition conflicting either with itself or established fact. It is often used as a tool to detect disingenuous beliefs and bias.'
 tags:
   - logic
 axioms:
@@ -26,6 +26,7 @@ prompts:
   - What is conserved, and what is sacrificed?
 sources:
   - https://en.wikipedia.org/wiki/Contradiction
+  - https://plato.stanford.edu/entries/contradiction/
 order: 89
 ---
 ## Overview

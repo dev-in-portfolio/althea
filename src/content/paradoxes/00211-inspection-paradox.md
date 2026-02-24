@@ -1,8 +1,8 @@
 ---
-title: "Inspection paradox"
-slug: "inspection-paradox"
+title: 'Inspection paradox'
+slug: '00211-inspection-paradox'
 type: PARADOX
-summary: "Renewal theory is the branch of probability theory that generalizes the Poisson process for arbitrary holding times. Instead of exponentially distributed holding times, a renewal process may have any independent and identically distributed (IID) holding times that have finite expectation."
+summary: 'Renewal theory is the branch of probability theory that generalizes the Poisson process for arbitrary holding times. Instead of exponentially distributed holding times, a renewal process may have any independent and identically distributed (IID) holding times that have finite expectation.'
 tags:
   - probability
   - time

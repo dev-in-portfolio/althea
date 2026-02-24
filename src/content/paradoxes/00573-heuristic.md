@@ -1,8 +1,8 @@
 ---
-title: "Heuristic"
-slug: "heuristic"
+title: 'Heuristic'
+slug: '00573-heuristic'
 type: THOUGHT_EXPERIMENT
-summary: "A heuristic or heuristic technique (problem solving, mental shortcut, rule of thumb) is any approach to problem solving that employs a pragmatic method that is not fully optimized, perfected, or rationalized, but is nevertheless 'good enough' as an approximation or attribute substitution. Where finding an optimal solution is impossible or impractical, heuristic methods can be used to speed up the process of finding a"
+summary: 'A heuristic or heuristic technique (problem solving, mental shortcut, rule of thumb) is any approach to problem solving that employs a pragmatic method that is not fully optimized, perfected, or rationalized, but is nevertheless ''good enough'' as an approximation or attribute substitution. Where finding an optimal solution is impossible or impractical, heuristic methods can be used to speed up the process of finding a'
 tags:
   - paradox
 axioms:

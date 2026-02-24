@@ -1,8 +1,8 @@
 ---
-title: "Puzzle"
-slug: "puzzle"
+title: 'Puzzle'
+slug: '00373-puzzle'
 type: PARADOX
-summary: "A puzzle is a game, problem, or toy that tests a person's ingenuity or knowledge. In a puzzle, the solver is expected to put pieces together (or take them apart) in a logical way, in order to find the solution of the puzzle."
+summary: 'A puzzle is a game, problem, or toy that tests a person''s ingenuity or knowledge. In a puzzle, the solver is expected to put pieces together (or take them apart) in a logical way, in order to find the solution of the puzzle.'
 tags:
   - logic
   - game-theory

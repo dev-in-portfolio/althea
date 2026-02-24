@@ -1,8 +1,8 @@
 ---
-title: "Intuition pump"
-slug: "intuition-pump"
+title: 'Intuition pump'
+slug: '00585-intuition-pump'
 type: THOUGHT_EXPERIMENT
-summary: "An intuition pump is a type of thought experiment that leads the audience to a specific conclusion through intuition."
+summary: 'An intuition pump is a type of thought experiment that leads the audience to a specific conclusion through intuition.'
 tags:
   - paradox
 axioms:

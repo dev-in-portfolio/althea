@@ -1,8 +1,8 @@
 ---
-title: "Tarski's undefinability theorem"
-slug: "tarski-s-undefinability-theorem"
+title: 'Tarski''s undefinability theorem'
+slug: '00437-tarski-s-undefinability-theorem'
 type: PARADOX
-summary: "Tarski's undefinability theorem, stated and proved by Alfred Tarski in 1933, is an important limitative result in mathematical logic, the foundations of mathematics, and in formal semantics. Informally, the theorem states that 'arithmetical truth cannot be defined in arithmetic'."
+summary: 'Tarski''s undefinability theorem, stated and proved by Alfred Tarski in 1933, is an important limitative result in mathematical logic, the foundations of mathematics, and in formal semantics. Informally, the theorem states that ''arithmetical truth cannot be defined in arithmetic''.'
 tags:
   - logic
   - truth

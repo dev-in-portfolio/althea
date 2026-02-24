@@ -1,8 +1,8 @@
 ---
-title: "Fenno's paradox"
-slug: "fenno-s-paradox"
+title: 'Fenno''s paradox'
+slug: '00143-fenno-s-paradox'
 type: PARADOX
-summary: "Fenno's paradox is the idea that people generally disapprove of the United States Congress as a whole but often support the congressmen from their own congressional districts. The paradox is named after political scientist Richard Fenno, who discussed this phenomenon in his 1978 book Home Style: House Members in Their Districts."
+summary: 'Fenno''s paradox is the idea that people generally disapprove of the United States Congress as a whole but often support the congressmen from their own congressional districts. The paradox is named after political scientist Richard Fenno, who discussed this phenomenon in his 1978 book Home Style: House Members in Their Districts.'
 tags:
   - paradox
 axioms:

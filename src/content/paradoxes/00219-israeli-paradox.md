@@ -1,8 +1,8 @@
 ---
-title: "Israeli paradox"
-slug: "israeli-paradox"
+title: 'Israeli paradox'
+slug: '00219-israeli-paradox'
 type: PARADOX
-summary: "The Israeli paradox was an apparently paradoxical epidemiological observation that Israeli Jews have a relatively high incidence of coronary heart disease (CHD), despite having a diet relatively low in saturated fats, in apparent contradiction to the widely held belief that the high consumption of such fats is a risk factor for CHD. The paradox was that if the thesis linking saturated fats to CHD is valid, the Israel"
+summary: 'The Israeli paradox was an apparently paradoxical epidemiological observation that Israeli Jews have a relatively high incidence of coronary heart disease (CHD), despite having a diet relatively low in saturated fats, in apparent contradiction to the widely held belief that the high consumption of such fats is a risk factor for CHD. The paradox was that if the thesis linking saturated fats to CHD is valid, the Israel'
 tags:
   - logic
 axioms:

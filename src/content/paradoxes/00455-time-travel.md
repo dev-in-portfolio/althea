@@ -1,8 +1,8 @@
 ---
-title: "Time travel"
-slug: "time-travel"
+title: 'Time travel'
+slug: '00455-time-travel'
 type: PARADOX
-summary: "Time travel is the hypothetical activity of traveling into the past or future. Time travel is a concept in philosophy, space, time and fiction, particularly science fiction."
+summary: 'Time travel is the hypothetical activity of traveling into the past or future. Time travel is a concept in philosophy, space, time and fiction, particularly science fiction.'
 tags:
   - time
 axioms:
@@ -26,6 +26,7 @@ prompts:
   - What is conserved, and what is sacrificed?
 sources:
   - https://en.wikipedia.org/wiki/Time_travel
+  - https://plato.stanford.edu/entries/time-travel/
 order: 455
 ---
 ## Overview

@@ -1,8 +1,8 @@
 ---
-title: "Boy or Girl paradox"
-slug: "boy-or-girl-paradox"
+title: 'Boy or Girl paradox'
+slug: '00053-boy-or-girl-paradox'
 type: PARADOX
-summary: "The Boy or Girl paradox surrounds a set of questions in probability theory, which are also known as The Two Child Problem, Mr. Smith's Children and the Mrs."
+summary: 'The Boy or Girl paradox surrounds a set of questions in probability theory, which are also known as The Two Child Problem, Mr. Smith''s Children and the Mrs.'
 tags:
   - set-theory
   - probability

@@ -1,8 +1,8 @@
 ---
-title: "Grice's paradox"
-slug: "grice-s-paradox"
+title: 'Grice''s paradox'
+slug: '00174-grice-s-paradox'
 type: PARADOX
-summary: "Herbert Paul Grice (13 March 1913 – 28 August 1988), usually publishing under the name H. P. Grice, H. Paul Grice, or Paul Grice, was a British philosopher of language who created the theory of implicature and the cooperative principle (with its namesake Gricean maxims), which became foundational concepts in the linguistic field of pragmatics. His work on meaning has also influenced the philosophical study of semanti"
+summary: 'Herbert Paul Grice (13 March 1913 – 28 August 1988), usually publishing under the name H. P. Grice, H. Paul Grice, or Paul Grice, was a British philosopher of language who created the theory of implicature and the cooperative principle (with its namesake Gricean maxims), which became foundational concepts in the linguistic field of pragmatics. His work on meaning has also influenced the philosophical study of semanti'
 tags:
   - language
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Dining philosophers problem"
-slug: "dining-philosophers-problem"
+title: 'Dining philosophers problem'
+slug: '00537-dining-philosophers-problem'
 type: THOUGHT_EXPERIMENT
-summary: "In computer science, the dining philosophers problem is an example problem often used in concurrent algorithm design to illustrate synchronization issues and techniques for resolving them. It was originally formulated in 1965 by Edsger Dijkstra as a student exam exercise, presented in terms of computers competing for access to tape drive peripherals."
+summary: 'In computer science, the dining philosophers problem is an example problem often used in concurrent algorithm design to illustrate synchronization issues and techniques for resolving them. It was originally formulated in 1965 by Edsger Dijkstra as a student exam exercise, presented in terms of computers competing for access to tape drive peripherals.'
 tags:
   - paradox
 axioms:

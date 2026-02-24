@@ -1,8 +1,8 @@
 ---
-title: "Cramer's paradox"
-slug: "cramer-s-paradox"
+title: 'Cramer''s paradox'
+slug: '00094-cramer-s-paradox'
 type: PARADOX
-summary: "In mathematics, Cramer's paradox or the Cramer–Euler paradox is the statement that the number of points of intersection of two higher-order curves in the plane can be greater than the number of arbitrary points that are usually needed to define one such curve. It is named after the Genevan mathematician Gabriel Cramer."
+summary: 'In mathematics, Cramer''s paradox or the Cramer–Euler paradox is the statement that the number of points of intersection of two higher-order curves in the plane can be greater than the number of arbitrary points that are usually needed to define one such curve. It is named after the Genevan mathematician Gabriel Cramer.'
 tags:
   - paradox
 axioms:

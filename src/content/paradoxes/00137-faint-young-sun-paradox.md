@@ -1,8 +1,8 @@
 ---
-title: "Faint young Sun paradox"
-slug: "faint-young-sun-paradox"
+title: 'Faint young Sun paradox'
+slug: '00137-faint-young-sun-paradox'
 type: PARADOX
-summary: "The faint young Sun paradox or faint young Sun problem describes the apparent contradiction between observations of liquid water early in Earth's history and the astrophysical expectation that the Sun's output would have been only 70 percent as intense during that epoch as it is during the modern epoch. The paradox is this: with the young Sun's output at only 70 percent of its current output, early Earth would be exp"
+summary: 'The faint young Sun paradox or faint young Sun problem describes the apparent contradiction between observations of liquid water early in Earth''s history and the astrophysical expectation that the Sun''s output would have been only 70 percent as intense during that epoch as it is during the modern epoch. The paradox is this: with the young Sun''s output at only 70 percent of its current output, early Earth would be exp'
 tags:
   - paradox
 axioms:

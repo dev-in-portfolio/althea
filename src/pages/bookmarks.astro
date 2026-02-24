@@ -15,6 +15,7 @@ const entries = (await getCollection("paradoxes")).map((entry) => ({
     <h1>Bookmarks</h1>
     <p>Your saved entries appear here.</p>
     <div class="grid" data-bookmarks-list></div>
+    <div class="empty-state" data-bookmarks-empty hidden>No bookmarks yet. Save entries from the Vault.</div>
   </section>
   <script is:inline define:vars={{ entries }}>
     window.__ENTRIES__ = entries;

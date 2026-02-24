@@ -1,8 +1,8 @@
 ---
-title: "Richard's paradox"
-slug: "richard-s-paradox"
+title: 'Richard''s paradox'
+slug: '00383-richard-s-paradox'
 type: PARADOX
-summary: "In logic, Richard's paradox is a semantical antinomy of set theory and natural language first described by the French mathematician Jules Richard in 1905. The paradox is ordinarily used to motivate the importance of distinguishing carefully between mathematics and metamathematics."
+summary: 'In logic, Richard''s paradox is a semantical antinomy of set theory and natural language first described by the French mathematician Jules Richard in 1905. The paradox is ordinarily used to motivate the importance of distinguishing carefully between mathematics and metamathematics.'
 tags:
   - set-theory
   - logic

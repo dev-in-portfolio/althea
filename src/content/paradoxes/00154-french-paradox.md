@@ -1,8 +1,8 @@
 ---
-title: "French paradox"
-slug: "french-paradox"
+title: 'French paradox'
+slug: '00154-french-paradox'
 type: PARADOX
-summary: "The French paradox is an apparently paradoxical epidemiological observation that French people have a relatively low incidence of coronary heart disease (CHD), while having a diet relatively rich in saturated fats, in apparent contradiction to the widely held belief that the high consumption of such fats is a risk factor for CHD. The paradox is that if the thesis linking saturated fats to CHD is valid, the French oug"
+summary: 'The French paradox is an apparently paradoxical epidemiological observation that French people have a relatively low incidence of coronary heart disease (CHD), while having a diet relatively rich in saturated fats, in apparent contradiction to the widely held belief that the high consumption of such fats is a risk factor for CHD. The paradox is that if the thesis linking saturated fats to CHD is valid, the French oug'
 tags:
   - logic
 axioms:

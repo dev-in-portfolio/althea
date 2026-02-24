@@ -1,8 +1,8 @@
 ---
-title: "Bhartrhari's paradox"
-slug: "bhartrhari-s-paradox"
+title: 'Bhartrhari''s paradox'
+slug: '00044-bhartrhari-s-paradox'
 type: PARADOX
-summary: "Bhartṛhari (Devanagari: भर्तृहरि; Bhartrihari; fl. c."
+summary: 'Bhartṛhari (Devanagari: भर्तृहरि; Bhartrihari; fl. c.'
 tags:
   - paradox
 axioms:

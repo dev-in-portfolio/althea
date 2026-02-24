@@ -1,8 +1,8 @@
 ---
-title: "Levinthal paradox"
-slug: "levinthal-paradox"
+title: 'Levinthal paradox'
+slug: '00237-levinthal-paradox'
 type: PARADOX
-summary: "Levinthal's paradox is a thought experiment in the field of computational protein structure prediction; protein folding is the process by which peptides reach a stable native configuration. In theory, a brute force search, testing all possible conformations, would take longer than the age of the universe to identify this minimum energy configuration (the native state)."
+summary: 'Levinthal''s paradox is a thought experiment in the field of computational protein structure prediction; protein folding is the process by which peptides reach a stable native configuration. In theory, a brute force search, testing all possible conformations, would take longer than the age of the universe to identify this minimum energy configuration (the native state).'
 tags:
   - paradox
 axioms:

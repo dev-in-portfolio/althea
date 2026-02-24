@@ -1,8 +1,8 @@
 ---
-title: "Ross' paradox"
-slug: "ross-paradox"
+title: 'Ross'' paradox'
+slug: '00387-ross-paradox'
 type: PARADOX
-summary: "Imperative logic is the field of logic concerned with imperatives. In contrast to declaratives, it is not clear whether imperatives denote propositions or more generally what role truth and falsity play in their semantics."
+summary: 'Imperative logic is the field of logic concerned with imperatives. In contrast to declaratives, it is not clear whether imperatives denote propositions or more generally what role truth and falsity play in their semantics.'
 tags:
   - logic
   - truth

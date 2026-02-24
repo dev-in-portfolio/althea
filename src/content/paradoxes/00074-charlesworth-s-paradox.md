@@ -1,8 +1,8 @@
 ---
-title: "Charlesworth's paradox"
-slug: "charlesworth-s-paradox"
+title: 'Charlesworth''s paradox'
+slug: '00074-charlesworth-s-paradox'
 type: PARADOX
-summary: "Charlesworth's Paradox is a paradox related to kin selection, Hamilton's Rule and the evolution of altruism. The paradox was proposed by Brian Charlesworth and is sometimes used as a teaching example to discuss kin selection."
+summary: 'Charlesworth''s Paradox is a paradox related to kin selection, Hamilton''s Rule and the evolution of altruism. The paradox was proposed by Brian Charlesworth and is sometimes used as a teaching example to discuss kin selection.'
 tags:
   - time
 axioms:

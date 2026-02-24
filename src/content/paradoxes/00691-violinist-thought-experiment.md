@@ -1,8 +1,8 @@
 ---
-title: "Violinist (Thought Experiment)"
-slug: "violinist-thought-experiment"
+title: 'Violinist (Thought Experiment)'
+slug: '00691-violinist-thought-experiment'
 type: THOUGHT_EXPERIMENT
-summary: "'A Defense of Abortion' is a moral philosophy essay by Judith Jarvis Thomson first published in Philosophy & Public Affairs in 1971. Granting for the sake of argument that the fetus has a right to life, Thomson uses thought experiments to argue that the right to life does not include, entail, or imply the right to use someone else's body to survive and that induced abortion is therefore morally permissible."
+summary: 'A Defense of Abortion'' is a moral philosophy essay by Judith Jarvis Thomson first published in Philosophy & Public Affairs in 1971. Granting for the sake of argument that the fetus has a right to life, Thomson uses thought experiments to argue that the right to life does not include, entail, or imply the right to use someone else''s body to survive and that induced abortion is therefore morally permissible.'
 tags:
   - ethics
 axioms:

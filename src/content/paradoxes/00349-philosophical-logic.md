@@ -1,8 +1,8 @@
 ---
-title: "Philosophical logic"
-slug: "philosophical-logic"
+title: 'Philosophical logic'
+slug: '00349-philosophical-logic'
 type: PARADOX
-summary: "Understood in a narrow sense, philosophical logic is the area of logic that studies the application of logical methods to philosophical problems, often in the form of extended logical systems like modal logic. Some theorists conceive of philosophical logic in a broader sense as the study of the scope and nature of logic in general."
+summary: 'Understood in a narrow sense, philosophical logic is the area of logic that studies the application of logical methods to philosophical problems, often in the form of extended logical systems like modal logic. Some theorists conceive of philosophical logic in a broader sense as the study of the scope and nature of logic in general.'
 tags:
   - logic
 axioms:

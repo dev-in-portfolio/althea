@@ -1,8 +1,8 @@
 ---
-title: "SAR paradox"
-slug: "sar-paradox"
+title: 'SAR paradox'
+slug: '00392-sar-paradox'
 type: PARADOX
-summary: "Quantitative structure–activity relationship (QSAR) models are regression or classification models used in the chemical and biological sciences and engineering. In QSAR regression models relate a set of 'predictor' variables (X) to the potency of the response variable (Y), while classification QSAR models relate the predictor variables to a categorical value of the response variable."
+summary: 'Quantitative structure–activity relationship (QSAR) models are regression or classification models used in the chemical and biological sciences and engineering. In QSAR regression models relate a set of ''predictor'' variables (X) to the potency of the response variable (Y), while classification QSAR models relate the predictor variables to a categorical value of the response variable.'
 tags:
   - set-theory
   - logic

@@ -1,8 +1,8 @@
 ---
-title: "Fitch's paradox of knowability"
-slug: "fitch-s-paradox-of-knowability"
+title: 'Fitch''s paradox of knowability'
+slug: '00146-fitch-s-paradox-of-knowability'
 type: PARADOX
-summary: "Fitch's paradox of knowability is a puzzle of epistemic logic. It provides a challenge to the knowability thesis, which states that every truth is, in principle, knowable."
+summary: 'Fitch''s paradox of knowability is a puzzle of epistemic logic. It provides a challenge to the knowability thesis, which states that every truth is, in principle, knowable.'
 tags:
   - logic
   - truth

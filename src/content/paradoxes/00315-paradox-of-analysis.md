@@ -1,8 +1,8 @@
 ---
-title: "Paradox of analysis"
-slug: "paradox-of-analysis"
+title: 'Paradox of analysis'
+slug: '00315-paradox-of-analysis'
 type: PARADOX
-summary: "The paradox of analysis (or Langford–Moore paradox) is a paradox that concerns how an analysis can be correct or informative but not both. The problem was formulated by philosopher G. E. Moore in his book Principia Ethica, and first named by C. H. Langford in his article 'The Notion of Analysis in Moore's Philosophy' (in The Philosophy of G. E. Moore, edited by Paul Arthur Schilpp, Northwestern University, 1942, pp."
+summary: 'The paradox of analysis (or Langford–Moore paradox) is a paradox that concerns how an analysis can be correct or informative but not both. The problem was formulated by philosopher G. E. Moore in his book Principia Ethica, and first named by C. H. Langford in his article ''The Notion of Analysis in Moore''s Philosophy'' (in The Philosophy of G. E. Moore, edited by Paul Arthur Schilpp, Northwestern University, 1942, pp.'
 tags:
   - ethics
 axioms:

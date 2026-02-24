@@ -1,8 +1,8 @@
 ---
-title: "Tzimtzum"
-slug: "tzimtzum"
+title: 'Tzimtzum'
+slug: '00465-tzimtzum'
 type: PARADOX
-summary: "The tzimtzum or tsimtsum (Hebrew: צִמְצוּם, romanized: ṣimṣum, lit. 'contraction, constriction, condensation') is a term used in Lurianic Kabbalah to explain Isaac Luria's doctrine that God began the process of creation by limiting the Ohr Ein Sof (infinite light) of the Godhead in order to allow for a conceptual space in which the Four Worlds, or finite realms, could exist. This primordial initial contraction, formi"
+summary: 'The tzimtzum or tsimtsum (Hebrew: צִמְצוּם, romanized: ṣimṣum, lit. ''contraction, constriction, condensation'') is a term used in Lurianic Kabbalah to explain Isaac Luria''s doctrine that God began the process of creation by limiting the Ohr Ein Sof (infinite light) of the Godhead in order to allow for a conceptual space in which the Four Worlds, or finite realms, could exist. This primordial initial contraction, formi'
 tags:
   - paradox
 axioms:

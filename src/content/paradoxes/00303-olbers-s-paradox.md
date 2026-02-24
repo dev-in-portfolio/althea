@@ -1,8 +1,8 @@
 ---
-title: "Olbers's paradox"
-slug: "olbers-s-paradox"
+title: 'Olbers''s paradox'
+slug: '00303-olbers-s-paradox'
 type: PARADOX
-summary: "Olbers' paradox, also known as the dark night paradox or Olbers and Cheseaux's paradox, is a historical argument in astrophysics and physical cosmology that says the darkness of the night sky conflicts with the assumption of an infinite and eternal static universe. If the universe were static, homogeneous at a large scale, and populated by an infinite number of stars, any line of sight from Earth must end at the surf"
+summary: 'Olbers'' paradox, also known as the dark night paradox or Olbers and Cheseaux''s paradox, is a historical argument in astrophysics and physical cosmology that says the darkness of the night sky conflicts with the assumption of an infinite and eternal static universe. If the universe were static, homogeneous at a large scale, and populated by an infinite number of stars, any line of sight from Earth must end at the surf'
 tags:
   - physics
   - cosmology

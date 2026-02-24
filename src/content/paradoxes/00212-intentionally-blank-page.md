@@ -1,8 +1,8 @@
 ---
-title: "Intentionally blank page"
-slug: "intentionally-blank-page"
+title: 'Intentionally blank page'
+slug: '00212-intentionally-blank-page'
 type: PARADOX
-summary: "An intentionally blank page is a page that has no content and may be unexpected. Such pages may serve purposes ranging from place-holding to space-filling and content separation."
+summary: 'An intentionally blank page is a page that has no content and may be unexpected. Such pages may serve purposes ranging from place-holding to space-filling and content separation.'
 tags:
   - paradox
 axioms:

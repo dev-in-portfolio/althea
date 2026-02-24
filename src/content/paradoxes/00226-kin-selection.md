@@ -1,8 +1,8 @@
 ---
-title: "Kin selection"
-slug: "kin-selection"
+title: 'Kin selection'
+slug: '00226-kin-selection'
 type: PARADOX
-summary: "Kin selection is a process whereby natural selection favours a trait due to its positive effects on the reproductive success of an organism's relatives, even when at a cost to the organism's own survival and reproduction. Kin selection can lead to the evolution of altruistic behaviour."
+summary: 'Kin selection is a process whereby natural selection favours a trait due to its positive effects on the reproductive success of an organism''s relatives, even when at a cost to the organism''s own survival and reproduction. Kin selection can lead to the evolution of altruistic behaviour.'
 tags:
   - paradox
 axioms:

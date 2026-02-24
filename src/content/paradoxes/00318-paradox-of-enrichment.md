@@ -1,8 +1,8 @@
 ---
-title: "Paradox of enrichment"
-slug: "paradox-of-enrichment"
+title: 'Paradox of enrichment'
+slug: '00318-paradox-of-enrichment'
 type: PARADOX
-summary: "The paradox of enrichment is a term from population ecology coined by Michael Rosenzweig in 1971. He described an effect in six predator–prey models where increasing the food available to the prey caused the predator's population to destabilize."
+summary: 'The paradox of enrichment is a term from population ecology coined by Michael Rosenzweig in 1971. He described an effect in six predator–prey models where increasing the food available to the prey caused the predator''s population to destabilize.'
 tags:
   - paradox
 axioms:

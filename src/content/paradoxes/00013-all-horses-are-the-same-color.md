@@ -1,8 +1,8 @@
 ---
-title: "All horses are the same color"
-slug: "all-horses-are-the-same-color"
+title: 'All horses are the same color'
+slug: '00013-all-horses-are-the-same-color'
 type: PARADOX
-summary: "All horses are the same color is a falsidical paradox that arises from a flawed use of mathematical induction to prove the statement All horses are the same color. There is no actual contradiction, as these arguments have a crucial flaw that makes them incorrect."
+summary: 'All horses are the same color is a falsidical paradox that arises from a flawed use of mathematical induction to prove the statement All horses are the same color. There is no actual contradiction, as these arguments have a crucial flaw that makes them incorrect.'
 tags:
   - paradox
 axioms:

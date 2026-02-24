@@ -1,8 +1,8 @@
 ---
-title: "Brownian ratchet"
-slug: "brownian-ratchet"
+title: 'Brownian ratchet'
+slug: '00520-brownian-ratchet'
 type: THOUGHT_EXPERIMENT
-summary: "In the philosophy of thermal and statistical physics, the Brownian ratchet or Feynman–Smoluchowski ratchet is an apparent perpetual motion machine of the second kind (converting thermal energy into mechanical work), first analysed in 1912 as a thought experiment by Polish physicist Marian Smoluchowski. It was popularised by American Nobel laureate physicist Richard Feynman in a physics lecture at the California Insti"
+summary: 'In the philosophy of thermal and statistical physics, the Brownian ratchet or Feynman–Smoluchowski ratchet is an apparent perpetual motion machine of the second kind (converting thermal energy into mechanical work), first analysed in 1912 as a thought experiment by Polish physicist Marian Smoluchowski. It was popularised by American Nobel laureate physicist Richard Feynman in a physics lecture at the California Insti'
 tags:
   - statistics
   - physics

@@ -1,8 +1,8 @@
 ---
-title: "Paradox of the Court"
-slug: "paradox-of-the-court"
+title: 'Paradox of the Court'
+slug: '00330-paradox-of-the-court'
 type: PARADOX
-summary: "The Paradox of the Court, also known as the counterdilemma of Euathlus or Protagoras' paradox, is a paradox originating in ancient Greece. The story is related by the Latin author Aulus Gellius in Attic Nights, who says that the famous sophist Protagoras took on a promising pupil, Euathlus, on the understanding that the student pay Protagoras for his instruction after he wins his first court case."
+summary: 'The Paradox of the Court, also known as the counterdilemma of Euathlus or Protagoras'' paradox, is a paradox originating in ancient Greece. The story is related by the Latin author Aulus Gellius in Attic Nights, who says that the famous sophist Protagoras took on a promising pupil, Euathlus, on the understanding that the student pay Protagoras for his instruction after he wins his first court case.'
 tags:
   - paradox
 axioms:

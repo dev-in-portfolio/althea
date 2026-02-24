@@ -1,8 +1,8 @@
 ---
-title: "Demographic-economic paradox"
-slug: "demographic-economic-paradox"
+title: 'Demographic-economic paradox'
+slug: '00106-demographic-economic-paradox'
 type: PARADOX
-summary: "There is generally an inverse correlation between monetary income and the total fertility rate within and between nations. The higher the degree of education and GDP per capita of a human population, subpopulation or social stratum, the fewer children are born in any developed country."
+summary: 'There is generally an inverse correlation between monetary income and the total fertility rate within and between nations. The higher the degree of education and GDP per capita of a human population, subpopulation or social stratum, the fewer children are born in any developed country.'
 tags:
   - economics
 axioms:

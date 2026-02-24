@@ -1,8 +1,8 @@
 ---
-title: "Decision-making paradox"
-slug: "decision-making-paradox"
+title: 'Decision-making paradox'
+slug: '00100-decision-making-paradox'
 type: PARADOX
-summary: "The decision-making paradox is a phenomenon related to decision-making and the quest for determining reliable decision-making methods. It was first described by Triantaphyllou, and has been recognized in the related literature as a fundamental paradox in multi-criteria decision analysis (MCDA), multi-criteria decision making (MCDM) and decision analysis since then."
+summary: 'The decision-making paradox is a phenomenon related to decision-making and the quest for determining reliable decision-making methods. It was first described by Triantaphyllou, and has been recognized in the related literature as a fundamental paradox in multi-criteria decision analysis (MCDA), multi-criteria decision making (MCDM) and decision analysis since then.'
 tags:
   - decision
 axioms:

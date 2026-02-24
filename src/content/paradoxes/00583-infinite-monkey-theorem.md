@@ -1,8 +1,8 @@
 ---
-title: "Infinite monkey theorem"
-slug: "infinite-monkey-theorem"
+title: 'Infinite monkey theorem'
+slug: '00583-infinite-monkey-theorem'
 type: THOUGHT_EXPERIMENT
-summary: "The infinite monkey theorem states that a monkey hitting keys independently and at random on a typewriter keyboard for an infinite amount of time will almost surely type any given text, including the complete works of William Shakespeare. More precisely, under the assumption of independence and randomness of each keystroke, the monkey would almost surely type every possible finite text an infinite number of times."
+summary: 'The infinite monkey theorem states that a monkey hitting keys independently and at random on a typewriter keyboard for an infinite amount of time will almost surely type any given text, including the complete works of William Shakespeare. More precisely, under the assumption of independence and randomness of each keystroke, the monkey would almost surely type every possible finite text an infinite number of times.'
 tags:
   - time
 axioms:

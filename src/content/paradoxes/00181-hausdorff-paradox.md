@@ -1,8 +1,8 @@
 ---
-title: "Hausdorff paradox"
-slug: "hausdorff-paradox"
+title: 'Hausdorff paradox'
+slug: '00181-hausdorff-paradox'
 type: PARADOX
-summary: "The Hausdorff paradox is a paradox in mathematics named after Felix Hausdorff. It involves the sphere S 2 {\displaystyle {S^{2}}} (the surface of a 3-dimensional ball in R 3 {\displaystyle {\mathbb {R} ^{3}}} )."
+summary: 'The Hausdorff paradox is a paradox in mathematics named after Felix Hausdorff. It involves the sphere S 2 {\\displaystyle {S^{2}}} (the surface of a 3-dimensional ball in R 3 {\\displaystyle {\\mathbb {R} ^{3}}} ).'
 tags:
   - paradox
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Trolley problem"
-slug: "trolley-problem"
+title: 'Trolley problem'
+slug: '00685-trolley-problem'
 type: THOUGHT_EXPERIMENT
-summary: "The trolley problem is a series of thought experiments in ethics, psychology and artificial intelligence involving stylized ethical dilemmas in a scenario of whether to sacrifice one person to save a larger number. The series usually begins with a scenario in which a runaway trolley (tram) or train is on course to collide with and kill a number of people (traditionally five) down the railway track, but a driver or by"
+summary: 'The trolley problem is a series of thought experiments in ethics, psychology and artificial intelligence involving stylized ethical dilemmas in a scenario of whether to sacrifice one person to save a larger number. The series usually begins with a scenario in which a runaway trolley (tram) or train is on course to collide with and kill a number of people (traditionally five) down the railway track, but a driver or by'
 tags:
   - ethics
   - psychology

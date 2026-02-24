@@ -1,8 +1,8 @@
 ---
-title: "Sad clown paradox"
-slug: "sad-clown-paradox"
+title: 'Sad clown paradox'
+slug: '00393-sad-clown-paradox'
 type: PARADOX
-summary: "The sad clown paradox is the contradictory association, in performers, between comedy and mental disorders such as depression and anxiety. For those affected, early life is characterised by feelings of deprivation and isolation, where comedy evolves as a release for tension, removing feelings of suppressed physical rage through a verbal outlet."
+summary: 'The sad clown paradox is the contradictory association, in performers, between comedy and mental disorders such as depression and anxiety. For those affected, early life is characterised by feelings of deprivation and isolation, where comedy evolves as a release for tension, removing feelings of suppressed physical rage through a verbal outlet.'
 tags:
   - paradox
 axioms:

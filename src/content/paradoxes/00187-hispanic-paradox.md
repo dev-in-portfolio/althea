@@ -1,8 +1,8 @@
 ---
-title: "Hispanic paradox"
-slug: "hispanic-paradox"
+title: 'Hispanic paradox'
+slug: '00187-hispanic-paradox'
 type: PARADOX
-summary: "The Hispanic paradox is an epidemiological finding that Hispanic Americans tend to have health outcomes that paradoxically are comparable to, or in some cases better than, those of their U.S. non-Hispanic White counterparts, even though Hispanics have lower average income and education, higher rates of disability, as well as a higher incidence of various cardiovascular risk factors and metabolic diseases. Low socioec"
+summary: 'The Hispanic paradox is an epidemiological finding that Hispanic Americans tend to have health outcomes that paradoxically are comparable to, or in some cases better than, those of their U.S. non-Hispanic White counterparts, even though Hispanics have lower average income and education, higher rates of disability, as well as a higher incidence of various cardiovascular risk factors and metabolic diseases. Low socioec'
 tags:
   - logic
 axioms:

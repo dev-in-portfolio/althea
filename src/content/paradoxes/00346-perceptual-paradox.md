@@ -1,8 +1,8 @@
 ---
-title: "Perceptual paradox"
-slug: "perceptual-paradox"
+title: 'Perceptual paradox'
+slug: '00346-perceptual-paradox'
 type: PARADOX
-summary: "A perceptual paradox illustrates the failure of a theoretical prediction. Theories of perception are supposed to help a researcher predict what will be perceived when senses are stimulated."
+summary: 'A perceptual paradox illustrates the failure of a theoretical prediction. Theories of perception are supposed to help a researcher predict what will be perceived when senses are stimulated.'
 tags:
   - paradox
 axioms:

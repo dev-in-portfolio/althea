@@ -1,8 +1,8 @@
 ---
-title: "Black hole information paradox"
-slug: "black-hole-information-paradox"
+title: 'Black hole information paradox'
+slug: '00047-black-hole-information-paradox'
 type: PARADOX
-summary: "The black hole information paradox is an unsolved problem in physics and a paradox that appears when the predictions of quantum mechanics and general relativity are combined. The theory of general relativity predicts the existence of black holes that are regions of spacetime from which nothing—not even light—can escape."
+summary: 'The black hole information paradox is an unsolved problem in physics and a paradox that appears when the predictions of quantum mechanics and general relativity are combined. The theory of general relativity predicts the existence of black holes that are regions of spacetime from which nothing—not even light—can escape.'
 tags:
   - time
   - physics

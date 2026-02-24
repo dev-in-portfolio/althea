@@ -23,6 +23,15 @@ const { Content } = await render(entry);
       {entry.data.tags.map((tag) => <a class="pill" href={`/tags/${tag}`}>{tag}</a>)}
     </div>
     <p class="entry-summary">{entry.data.summary}</p>
+    <section>
+      <h2>Metadata</h2>
+      <ul>
+        <li>Slug: {slug}</li>
+        <li>Type: {entry.data.type}</li>
+        <li>Tags: {entry.data.tags.join(", ")}</li>
+        <li>Sources: {entry.data.sources ? entry.data.sources.length : 0}</li>
+      </ul>
+    </section>
     <div class="controls">
       <button class="pill" data-bookmark={slug}>Bookmark</button>
       <a class="pill" href="/vault">Back to Vault</a>
@@ -70,8 +79,12 @@ const { Content } = await render(entry);
     {entry.data.sources && entry.data.sources.length > 0 && (
       <section>
         <h2>Sources</h2>
-        <ul>
-          {entry.data.sources.map((src) => <li>{src}</li>)}
+        <ul class="source-list">
+          {entry.data.sources.map((src) => (
+            <li>
+              <a href={src} target="_blank" rel="noreferrer">{src}</a>
+            </li>
+          ))}
         </ul>
       </section>
     )}

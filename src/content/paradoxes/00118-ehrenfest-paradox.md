@@ -1,8 +1,8 @@
 ---
-title: "Ehrenfest paradox"
-slug: "ehrenfest-paradox"
+title: 'Ehrenfest paradox'
+slug: '00118-ehrenfest-paradox'
 type: PARADOX
-summary: "The Ehrenfest paradox concerns the rotation of a 'rigid' disc in the theory of relativity. In its original 1909 formulation as presented by Paul Ehrenfest in relation to the concept of Born rigidity within special relativity, it discusses an ideally rigid cylinder that is made to rotate about its axis of symmetry."
+summary: 'The Ehrenfest paradox concerns the rotation of a ''rigid'' disc in the theory of relativity. In its original 1909 formulation as presented by Paul Ehrenfest in relation to the concept of Born rigidity within special relativity, it discusses an ideally rigid cylinder that is made to rotate about its axis of symmetry.'
 tags:
   - paradox
 axioms:

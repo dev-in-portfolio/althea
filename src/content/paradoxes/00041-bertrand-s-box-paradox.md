@@ -1,8 +1,8 @@
 ---
-title: "Bertrand's box paradox"
-slug: "bertrand-s-box-paradox"
+title: 'Bertrand''s box paradox'
+slug: '00041-bertrand-s-box-paradox'
 type: PARADOX
-summary: "Bertrand's box paradox is a veridical paradox in elementary probability theory. It was first posed by Joseph Bertrand in his 1889 work Calcul des Probabilités."
+summary: 'Bertrand''s box paradox is a veridical paradox in elementary probability theory. It was first posed by Joseph Bertrand in his 1889 work Calcul des Probabilités.'
 tags:
   - probability
 axioms:

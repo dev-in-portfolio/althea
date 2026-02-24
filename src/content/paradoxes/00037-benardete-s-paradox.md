@@ -1,8 +1,8 @@
 ---
-title: "Benardete's paradox"
-slug: "benardete-s-paradox"
+title: 'Benardete''s paradox'
+slug: '00037-benardete-s-paradox'
 type: PARADOX
-summary: "A supertask is a countably infinite sequence of operations that occur sequentially within a finite interval of time. Supertasks are called hypertasks when the number of operations is uncountable."
+summary: 'A supertask is a countably infinite sequence of operations that occur sequentially within a finite interval of time. Supertasks are called hypertasks when the number of operations is uncountable.'
 tags:
   - time
 axioms:

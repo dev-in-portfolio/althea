@@ -1,8 +1,8 @@
 ---
-title: "Lindley's paradox"
-slug: "lindley-s-paradox"
+title: 'Lindley''s paradox'
+slug: '00240-lindley-s-paradox'
 type: PARADOX
-summary: "Lindley's paradox is a counterintuitive situation in statistics in which the Bayesian and frequentist approaches to a hypothesis testing problem give different results for certain choices of the prior distribution. The problem of the disagreement between the two approaches was discussed in Harold Jeffreys' 1939 textbook; it became known as Lindley's paradox after Dennis Lindley called the disagreement a paradox in a "
+summary: 'Lindley''s paradox is a counterintuitive situation in statistics in which the Bayesian and frequentist approaches to a hypothesis testing problem give different results for certain choices of the prior distribution. The problem of the disagreement between the two approaches was discussed in Harold Jeffreys'' 1939 textbook; it became known as Lindley''s paradox after Dennis Lindley called the disagreement a paradox in a '
 tags:
   - statistics
   - choice

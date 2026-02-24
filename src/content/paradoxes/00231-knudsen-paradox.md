@@ -1,8 +1,8 @@
 ---
-title: "Knudsen paradox"
-slug: "knudsen-paradox"
+title: 'Knudsen paradox'
+slug: '00231-knudsen-paradox'
 type: PARADOX
-summary: "The Knudsen paradox has been observed in experiments of channel flow with varying channel width or equivalently different pressures. If the normalized mass flux through the channel is plotted over the Knudsen number based on the channel width a distinct minimum is observed around K n = 0.8 {\displaystyle Kn=0.8} ."
+summary: 'The Knudsen paradox has been observed in experiments of channel flow with varying channel width or equivalently different pressures. If the normalized mass flux through the channel is plotted over the Knudsen number based on the channel width a distinct minimum is observed around K n = 0.8 {\\displaystyle Kn=0.8} .'
 tags:
   - paradox
 axioms:

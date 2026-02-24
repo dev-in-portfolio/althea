@@ -1,8 +1,8 @@
 ---
-title: "Fredkin's paradox"
-slug: "fredkin-s-paradox"
+title: 'Fredkin''s paradox'
+slug: '00151-fredkin-s-paradox'
 type: PARADOX
-summary: "Fredkin's paradox reads 'The more equally attractive two alternatives seem, the harder it can be to choose between them—no matter that, to the same degree, the choice can only matter less.' Thus, a decision-making agent might spend the most time on the least important decisions. It was proposed by American physicist Edward Fredkin."
+summary: 'Fredkin''s paradox reads ''The more equally attractive two alternatives seem, the harder it can be to choose between them—no matter that, to the same degree, the choice can only matter less.'' Thus, a decision-making agent might spend the most time on the least important decisions. It was proposed by American physicist Edward Fredkin.'
 tags:
   - time
   - decision

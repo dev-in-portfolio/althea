@@ -1,8 +1,8 @@
 ---
-title: "Archer's paradox"
-slug: "archer-s-paradox"
+title: 'Archer''s paradox'
+slug: '00022-archer-s-paradox'
 type: PARADOX
-summary: "The archer's paradox is the phenomenon of an arrow traveling in the direction it is pointed at full draw, when it seems that the arrow would have to pass through the starting position it was in before being drawn, where it was pointed to the side of the target. The bending of the arrow when released is the explanation for why the paradox occurs and should not be confused with the paradox itself."
+summary: 'The archer''s paradox is the phenomenon of an arrow traveling in the direction it is pointed at full draw, when it seems that the arrow would have to pass through the starting position it was in before being drawn, where it was pointed to the side of the target. The bending of the arrow when released is the explanation for why the paradox occurs and should not be confused with the paradox itself.'
 tags:
   - paradox
 axioms:

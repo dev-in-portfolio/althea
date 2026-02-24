@@ -1,8 +1,8 @@
 ---
-title: "Norton's dome"
-slug: "norton-s-dome"
+title: 'Norton''s dome'
+slug: '00295-norton-s-dome'
 type: PARADOX
-summary: "Norton's dome is a thought experiment that exhibits a non-deterministic system within the bounds of Newtonian mechanics. It was devised by John D. Norton in 2003."
+summary: 'Norton''s dome is a thought experiment that exhibits a non-deterministic system within the bounds of Newtonian mechanics. It was devised by John D. Norton in 2003.'
 tags:
   - paradox
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Jevons paradox"
-slug: "jevons-paradox"
+title: 'Jevons paradox'
+slug: '00221-jevons-paradox'
 type: PARADOX
-summary: "In economics, the Jevons paradox, or Jevons effect, is said to occur when technological improvements that increase the efficiency of a resource's use lead to a rise, rather than a fall, in total consumption of that resource. Greater efficiency reduces the amount of the resource needed per application, lowering its effective cost; if demand is sufficiently price elastic, this induces demand such that the per-unit savi"
+summary: 'In economics, the Jevons paradox, or Jevons effect, is said to occur when technological improvements that increase the efficiency of a resource''s use lead to a rise, rather than a fall, in total consumption of that resource. Greater efficiency reduces the amount of the resource needed per application, lowering its effective cost; if demand is sufficiently price elastic, this induces demand such that the per-unit savi'
 tags:
   - logic
   - economics

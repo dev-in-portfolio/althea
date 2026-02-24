@@ -1,8 +1,8 @@
 ---
-title: "Gender-equality paradox"
-slug: "gender-equality-paradox"
+title: 'Gender-equality paradox'
+slug: '00160-gender-equality-paradox'
 type: PARADOX
-summary: "The gender-equality paradox is the disputed finding that various gender differences in personality and occupational choice are larger in more gender equal countries. Larger differences are found in Big Five personality traits, Dark Triad traits, self-esteem, depression, personal values, occupational and educational choices."
+summary: 'The gender-equality paradox is the disputed finding that various gender differences in personality and occupational choice are larger in more gender equal countries. Larger differences are found in Big Five personality traits, Dark Triad traits, self-esteem, depression, personal values, occupational and educational choices.'
 tags:
   - choice
 axioms:

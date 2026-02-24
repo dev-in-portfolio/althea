@@ -1,8 +1,8 @@
 ---
-title: "Inverted spectrum"
-slug: "inverted-spectrum"
+title: 'Inverted spectrum'
+slug: '00586-inverted-spectrum'
 type: THOUGHT_EXPERIMENT
-summary: "The inverted spectrum is the hypothetical scenario, pertaining to the philosophy of color, of two people sharing their color vocabulary and discriminations, although the colors one sees—that person's qualia—are systematically different from the colors the other person sees."
+summary: 'The inverted spectrum is the hypothetical scenario, pertaining to the philosophy of color, of two people sharing their color vocabulary and discriminations, although the colors one sees—that person''s qualia—are systematically different from the colors the other person sees.'
 tags:
   - paradox
 axioms:

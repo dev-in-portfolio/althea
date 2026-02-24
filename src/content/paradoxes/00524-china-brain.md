@@ -1,8 +1,8 @@
 ---
-title: "China brain"
-slug: "china-brain"
+title: 'China brain'
+slug: '00524-china-brain'
 type: THOUGHT_EXPERIMENT
-summary: "In the philosophy of mind, the China brain thought experiment (also known as the Chinese Nation, Chinese Gym, or China-body) considers what would happen if each person in the entire population of China were asked to simulate the action of one neuron in the brain, using telephones or walkie-talkies to simulate the axons and dendrites that connect neurons. The question this thought experiment attempts to answer is whet"
+summary: 'In the philosophy of mind, the China brain thought experiment (also known as the Chinese Nation, Chinese Gym, or China-body) considers what would happen if each person in the entire population of China were asked to simulate the action of one neuron in the brain, using telephones or walkie-talkies to simulate the axons and dendrites that connect neurons. The question this thought experiment attempts to answer is whet'
 tags:
   - paradox
 axioms:

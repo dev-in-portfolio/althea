@@ -1,8 +1,8 @@
 ---
-title: "Ball and shot gun"
-slug: "ball-and-shot-gun"
+title: 'Ball and shot gun'
+slug: '00031-ball-and-shot-gun'
 type: PARADOX
-summary: "The ball and shot gun, often also known by the marketing name paradox gun, is a shotgun capable of firing both shot and solid projectiles. First built by Holland and Holland, the term paradox is a proprietary name applied to these guns by Holland and Holland."
+summary: 'The ball and shot gun, often also known by the marketing name paradox gun, is a shotgun capable of firing both shot and solid projectiles. First built by Holland and Holland, the term paradox is a proprietary name applied to these guns by Holland and Holland.'
 tags:
   - paradox
 axioms:

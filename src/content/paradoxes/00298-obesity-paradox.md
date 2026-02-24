@@ -1,8 +1,8 @@
 ---
-title: "Obesity paradox"
-slug: "obesity-paradox"
+title: 'Obesity paradox'
+slug: '00298-obesity-paradox'
 type: PARADOX
-summary: "The obesity paradox is the finding in some studies of a lower mortality rate for overweight or obese people within certain subpopulations. The paradox has been observed in people with cardiovascular disease and cancer."
+summary: 'The obesity paradox is the finding in some studies of a lower mortality rate for overweight or obese people within certain subpopulations. The paradox has been observed in people with cardiovascular disease and cancer.'
 tags:
   - paradox
 axioms:

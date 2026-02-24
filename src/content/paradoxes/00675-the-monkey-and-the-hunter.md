@@ -1,8 +1,8 @@
 ---
-title: "The Monkey and the Hunter"
-slug: "the-monkey-and-the-hunter"
+title: 'The Monkey and the Hunter'
+slug: '00675-the-monkey-and-the-hunter'
 type: THOUGHT_EXPERIMENT
-summary: "In physics, the monkey and hunter is a hypothetical scenario often used to illustrate the effect of gravity on projectile motion. It can be presented as exercise problem or as a demonstration."
+summary: 'In physics, the monkey and hunter is a hypothetical scenario often used to illustrate the effect of gravity on projectile motion. It can be presented as exercise problem or as a demonstration.'
 tags:
   - physics
 axioms:

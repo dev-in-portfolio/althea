@@ -1,8 +1,8 @@
 ---
-title: "No-no paradox"
-slug: "no-no-paradox"
+title: 'No-no paradox'
+slug: '00292-no-no-paradox'
 type: PARADOX
-summary: "The no–no paradox is a distinctive paradox belonging to the family of the semantic paradoxes (like the Liar paradox). It derives its name from the fact that it consists of two sentences each simply denying what the other says."
+summary: 'The no–no paradox is a distinctive paradox belonging to the family of the semantic paradoxes (like the Liar paradox). It derives its name from the fact that it consists of two sentences each simply denying what the other says.'
 tags:
   - paradox
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Extinction paradox"
-slug: "extinction-paradox"
+title: 'Extinction paradox'
+slug: '00135-extinction-paradox'
 type: PARADOX
-summary: "In the small wavelength limit, the total scattering cross-section of an impenetrable sphere is twice its geometrical cross-sectional area (which is the value obtained in classical mechanics)."
+summary: 'In the small wavelength limit, the total scattering cross-section of an impenetrable sphere is twice its geometrical cross-sectional area (which is the value obtained in classical mechanics).'
 tags:
   - paradox
 axioms:

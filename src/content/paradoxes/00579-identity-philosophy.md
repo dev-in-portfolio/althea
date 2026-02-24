@@ -1,8 +1,8 @@
 ---
-title: "Identity (philosophy)"
-slug: "identity-philosophy"
+title: 'Identity (philosophy)'
+slug: '00579-identity-philosophy'
 type: THOUGHT_EXPERIMENT
-summary: "In metaphysics, identity (from Latin: identitas, 'sameness') is the relation each thing bears only to itself. The notion of identity gives rise to many philosophical problems, including the identity of indiscernibles (if x and y share all their properties, are they one and the same thing?), and questions about change and personal identity over time (what has to be the case for a person x at one time and a person y at"
+summary: 'In metaphysics, identity (from Latin: identitas, ''sameness'') is the relation each thing bears only to itself. The notion of identity gives rise to many philosophical problems, including the identity of indiscernibles (if x and y share all their properties, are they one and the same thing?), and questions about change and personal identity over time (what has to be the case for a person x at one time and a person y at'
 tags:
   - time
   - physics

@@ -1,8 +1,8 @@
 ---
-title: "Plato's beard"
-slug: "plato-s-beard"
+title: 'Plato''s beard'
+slug: '00355-plato-s-beard'
 type: PARADOX
-summary: "In metaphysics, Plato's beard is a paradoxical argument dubbed by Willard Van Orman Quine in his 1948 paper 'On What There Is'. The phrase came to be identified as the philosophy of understanding something based on what does not exist."
+summary: 'In metaphysics, Plato''s beard is a paradoxical argument dubbed by Willard Van Orman Quine in his 1948 paper ''On What There Is''. The phrase came to be identified as the philosophy of understanding something based on what does not exist.'
 tags:
   - physics
 axioms:

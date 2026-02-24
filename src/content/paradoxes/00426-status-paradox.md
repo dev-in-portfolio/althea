@@ -1,8 +1,8 @@
 ---
-title: "Status paradox"
-slug: "status-paradox"
+title: 'Status paradox'
+slug: '00426-status-paradox'
 type: PARADOX
-summary: "A status paradox can be one of several paradoxes involving 'status', in the meaning of either medical state or social status."
+summary: 'A status paradox can be one of several paradoxes involving ''status'', in the meaning of either medical state or social status.'
 tags:
   - paradox
 axioms:

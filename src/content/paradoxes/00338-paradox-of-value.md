@@ -1,8 +1,8 @@
 ---
-title: "Paradox of value"
-slug: "paradox-of-value"
+title: 'Paradox of value'
+slug: '00338-paradox-of-value'
 type: PARADOX
-summary: "The paradox of value, also known as the diamond–water paradox, is the paradox that, although water is on the whole more useful in terms of survival than diamonds, diamonds command a higher price in the market. The philosopher Adam Smith is often considered to be the classic presenter of this paradox, although it had already appeared as early as Plato's Euthydemus."
+summary: 'The paradox of value, also known as the diamond–water paradox, is the paradox that, although water is on the whole more useful in terms of survival than diamonds, diamonds command a higher price in the market. The philosopher Adam Smith is often considered to be the classic presenter of this paradox, although it had already appeared as early as Plato''s Euthydemus.'
 tags:
   - paradox
 axioms:

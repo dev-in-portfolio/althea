@@ -1,8 +1,8 @@
 ---
-title: "Scitovsky paradox"
-slug: "scitovsky-paradox"
+title: 'Scitovsky paradox'
+slug: '00396-scitovsky-paradox'
 type: PARADOX
-summary: "The Scitovsky paradox is a paradox in welfare economics which is resolved by stating that there is no increase in social welfare by a return to the original part of the losers. It is named after the Hungarian born American economist, Tibor Scitovsky."
+summary: 'The Scitovsky paradox is a paradox in welfare economics which is resolved by stating that there is no increase in social welfare by a return to the original part of the losers. It is named after the Hungarian born American economist, Tibor Scitovsky.'
 tags:
   - economics
 axioms:

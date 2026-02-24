@@ -1,8 +1,8 @@
 ---
-title: "Mayfield's paradox"
-slug: "mayfield-s-paradox"
+title: 'Mayfield''s paradox'
+slug: '00258-mayfield-s-paradox'
 type: PARADOX
-summary: "Mayfield's Paradox states that to keep everyone out of an information system requires an infinite amount of money, and to get everyone onto an information system also requires infinite money, while costs between these extremes are relatively low. The paradox is depicted as a U-curve, where the cost of a system is on the vertical axis, and the percentage of humanity that can access the system is on the horizontal axis"
+summary: 'Mayfield''s Paradox states that to keep everyone out of an information system requires an infinite amount of money, and to get everyone onto an information system also requires infinite money, while costs between these extremes are relatively low. The paradox is depicted as a U-curve, where the cost of a system is on the vertical axis, and the percentage of humanity that can access the system is on the horizontal axis'
 tags:
   - paradox
 axioms:

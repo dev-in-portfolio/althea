@@ -1,8 +1,8 @@
 ---
-title: "Paradox of thrift"
-slug: "paradox-of-thrift"
+title: 'Paradox of thrift'
+slug: '00335-paradox-of-thrift'
 type: PARADOX
-summary: "The paradox of thrift (or paradox of saving) is a paradox of economics. The paradox states that an increase in autonomous saving leads to a decrease in aggregate demand and thus a decrease in gross output which will in turn lower total saving."
+summary: 'The paradox of thrift (or paradox of saving) is a paradox of economics. The paradox states that an increase in autonomous saving leads to a decrease in aggregate demand and thus a decrease in gross output which will in turn lower total saving.'
 tags:
   - economics
 axioms:

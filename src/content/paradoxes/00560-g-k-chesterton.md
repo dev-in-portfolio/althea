@@ -1,8 +1,8 @@
 ---
-title: "G. K. Chesterton"
-slug: "g-k-chesterton"
+title: 'G. K. Chesterton'
+slug: '00560-g-k-chesterton'
 type: THOUGHT_EXPERIMENT
-summary: "Gilbert Keith Chesterton (29 May 1874 – 14 June 1936) was an English Christian apologist writer. Chesterton's wit, paradoxical style, and defence of tradition made him a dominant figure in early 20th-century literature."
+summary: 'Gilbert Keith Chesterton (29 May 1874 – 14 June 1936) was an English Christian apologist writer. Chesterton''s wit, paradoxical style, and defence of tradition made him a dominant figure in early 20th-century literature.'
 tags:
   - paradox
 axioms:

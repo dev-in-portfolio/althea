@@ -1,8 +1,8 @@
 ---
-title: "Braitenberg vehicle"
-slug: "braitenberg-vehicle"
+title: 'Braitenberg vehicle'
+slug: '00518-braitenberg-vehicle'
 type: THOUGHT_EXPERIMENT
-summary: "A Braitenberg vehicle is a concept presented as a thought experiment by the Italian cyberneticist Valentino Braitenberg in his book Vehicles: Experiments in Synthetic Psychology. The book models the animal world in a minimalistic and constructive way, from simple reactive behaviours (like phototaxis) through the simplest vehicles, to the formation of concepts, spatial behaviour, and generation of ideas."
+summary: 'A Braitenberg vehicle is a concept presented as a thought experiment by the Italian cyberneticist Valentino Braitenberg in his book Vehicles: Experiments in Synthetic Psychology. The book models the animal world in a minimalistic and constructive way, from simple reactive behaviours (like phototaxis) through the simplest vehicles, to the formation of concepts, spatial behaviour, and generation of ideas.'
 tags:
   - psychology
 axioms:

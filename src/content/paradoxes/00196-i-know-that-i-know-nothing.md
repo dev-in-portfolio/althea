@@ -1,8 +1,8 @@
 ---
-title: "I know that I know nothing"
-slug: "i-know-that-i-know-nothing"
+title: 'I know that I know nothing'
+slug: '00196-i-know-that-i-know-nothing'
 type: PARADOX
-summary: "'I know that I know nothing' is a saying derived from Plato's account of the Greek philosopher Socrates: 'For I was conscious that I knew practically nothing...' (Plato, Apology 22d, translated by Harold North Fowler, 1966). It is also sometimes called the Socratic paradox, although this name is often instead used to refer to other seemingly paradoxical claims made by Socrates in Plato's dialogues (most notably, Socr"
+summary: 'I know that I know nothing'' is a saying derived from Plato''s account of the Greek philosopher Socrates: ''For I was conscious that I knew practically nothing...'' (Plato, Apology 22d, translated by Harold North Fowler, 1966). It is also sometimes called the Socratic paradox, although this name is often instead used to refer to other seemingly paradoxical claims made by Socrates in Plato''s dialogues (most notably, Socr'
 tags:
   - time
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Low birth weight paradox"
-slug: "low-birth-weight-paradox"
+title: 'Low birth weight paradox'
+slug: '00251-low-birth-weight-paradox'
 type: PARADOX
-summary: "The low birth-weight paradox is an apparently paradoxical observation relating to the birth weights and mortality rate of children born to tobacco smoking mothers. Low birth-weight children born to smoking mothers have a lower infant mortality rate than the low birth weight children of non-smokers."
+summary: 'The low birth-weight paradox is an apparently paradoxical observation relating to the birth weights and mortality rate of children born to tobacco smoking mothers. Low birth-weight children born to smoking mothers have a lower infant mortality rate than the low birth weight children of non-smokers.'
 tags:
   - paradox
 axioms:

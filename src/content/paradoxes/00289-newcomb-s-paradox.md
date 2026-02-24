@@ -1,8 +1,8 @@
 ---
-title: "Newcomb's paradox"
-slug: "newcomb-s-paradox"
+title: 'Newcomb''s paradox'
+slug: '00289-newcomb-s-paradox'
 type: PARADOX
-summary: "In philosophy and mathematics, Newcomb's problem, also known as Newcomb's paradox, is a thought experiment involving a decision problem where a player must decide whether to take one or two boxes in conditions where a being, often called the 'predictor', is able to predict his choices with near-certainty. Newcomb's paradox was created by William Newcomb of the University of California's Lawrence Livermore Laboratory."
+summary: 'In philosophy and mathematics, Newcomb''s problem, also known as Newcomb''s paradox, is a thought experiment involving a decision problem where a player must decide whether to take one or two boxes in conditions where a being, often called the ''predictor'', is able to predict his choices with near-certainty. Newcomb''s paradox was created by William Newcomb of the University of California''s Lawrence Livermore Laboratory.'
 tags:
   - decision
   - choice

@@ -1,8 +1,8 @@
 ---
-title: "Polanyi's paradox"
-slug: "polanyi-s-paradox"
+title: 'Polanyi''s paradox'
+slug: '00356-polanyi-s-paradox'
 type: PARADOX
-summary: "Polanyi's paradox, named in honour of the British-Hungarian philosopher Michael Polanyi, is the theory that human knowledge of how the world functions and of our own capability are, to a large extent, beyond our explicit understanding. The theory was articulated by Michael Polanyi in his book The Tacit Dimension in 1966, and economist David Autor gave it a name in his 2014 research paper 'Polanyi's Paradox and the Sh"
+summary: 'Polanyi''s paradox, named in honour of the British-Hungarian philosopher Michael Polanyi, is the theory that human knowledge of how the world functions and of our own capability are, to a large extent, beyond our explicit understanding. The theory was articulated by Michael Polanyi in his book The Tacit Dimension in 1966, and economist David Autor gave it a name in his 2014 research paper ''Polanyi''s Paradox and the Sh'
 tags:
   - economics
 axioms:

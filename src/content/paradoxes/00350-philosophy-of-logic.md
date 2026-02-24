@@ -1,8 +1,8 @@
 ---
-title: "Philosophy of logic"
-slug: "philosophy-of-logic"
+title: 'Philosophy of logic'
+slug: '00350-philosophy-of-logic'
 type: PARADOX
-summary: "Philosophy of logic is the branch of philosophy that studies the scope and nature of logic. It investigates the philosophical problems raised by logic, such as the presuppositions often implicitly at work in theories of logic and in their application."
+summary: 'Philosophy of logic is the branch of philosophy that studies the scope and nature of logic. It investigates the philosophical problems raised by logic, such as the presuppositions often implicitly at work in theories of logic and in their application.'
 tags:
   - logic
 axioms:

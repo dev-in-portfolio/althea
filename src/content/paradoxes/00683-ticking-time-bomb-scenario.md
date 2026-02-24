@@ -1,8 +1,8 @@
 ---
-title: "Ticking time bomb scenario"
-slug: "ticking-time-bomb-scenario"
+title: 'Ticking time bomb scenario'
+slug: '00683-ticking-time-bomb-scenario'
 type: THOUGHT_EXPERIMENT
-summary: "The ticking time bomb scenario is a thought experiment that has been used in the ethics debate over whether interrogational torture can ever be justified. The scenario can be formulated as follows: Suppose that a person with knowledge of an imminent terrorist attack that will kill many people is in the hands of the authorities, and he will disclose the information needed to prevent the attack only if he is tortured."
+summary: 'The ticking time bomb scenario is a thought experiment that has been used in the ethics debate over whether interrogational torture can ever be justified. The scenario can be formulated as follows: Suppose that a person with knowledge of an imminent terrorist attack that will kill many people is in the hands of the authorities, and he will disclose the information needed to prevent the attack only if he is tortured.'
 tags:
   - ethics
   - time

@@ -1,8 +1,8 @@
 ---
-title: "Wollheim's paradox"
-slug: "wollheim-s-paradox"
+title: 'Wollheim''s paradox'
+slug: '00489-wollheim-s-paradox'
 type: PARADOX
-summary: "Wollheim's paradox is a problem in political philosophy that points to an inherent contradiction in the concept of democracy. The paradox highlights the fact that a person can simultaneously advocate two conflicting policy options A and B, provided that the person believes that democratic decisions should be followed."
+summary: 'Wollheim''s paradox is a problem in political philosophy that points to an inherent contradiction in the concept of democracy. The paradox highlights the fact that a person can simultaneously advocate two conflicting policy options A and B, provided that the person believes that democratic decisions should be followed.'
 tags:
   - decision
 axioms:

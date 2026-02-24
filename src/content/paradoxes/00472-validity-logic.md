@@ -1,8 +1,8 @@
 ---
-title: "Validity (logic)"
-slug: "validity-logic"
+title: 'Validity (logic)'
+slug: '00472-validity-logic'
 type: PARADOX
-summary: "In logic, specifically in deductive reasoning, an argument is valid if and only if it takes a form that makes it impossible for the premises to be true and the conclusion nevertheless to be false. It is not required for a valid argument to have premises that are actually true, but to have premises that, if they were true, would guarantee the truth of the argument's conclusion."
+summary: 'In logic, specifically in deductive reasoning, an argument is valid if and only if it takes a form that makes it impossible for the premises to be true and the conclusion nevertheless to be false. It is not required for a valid argument to have premises that are actually true, but to have premises that, if they were true, would guarantee the truth of the argument''s conclusion.'
 tags:
   - logic
   - truth

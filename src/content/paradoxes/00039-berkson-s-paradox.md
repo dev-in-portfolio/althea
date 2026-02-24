@@ -1,8 +1,8 @@
 ---
-title: "Berkson's paradox"
-slug: "berkson-s-paradox"
+title: 'Berkson''s paradox'
+slug: '00039-berkson-s-paradox'
 type: PARADOX
-summary: "Berkson's paradox, also known as Berkson's bias, collider bias, endogenous selection bias or Berkson's fallacy, is a result in conditional probability and statistics which is often found to be counterintuitive, and hence a veridical paradox. It is a complicating factor arising in statistical tests of proportions."
+summary: 'Berkson''s paradox, also known as Berkson''s bias, collider bias, endogenous selection bias or Berkson''s fallacy, is a result in conditional probability and statistics which is often found to be counterintuitive, and hence a veridical paradox. It is a complicating factor arising in statistical tests of proportions.'
 tags:
   - probability
   - statistics

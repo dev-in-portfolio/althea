@@ -1,8 +1,8 @@
 ---
-title: "Argument from free will"
-slug: "argument-from-free-will"
+title: 'Argument from free will'
+slug: '00023-argument-from-free-will'
 type: PARADOX
-summary: "The argument from free will, also called the paradox of free will or theological fatalism, contends that omniscience and free will are incompatible and that any conception of God that incorporates both properties is therefore inconceivable. See the various controversies over claims of God's omniscience, in particular the critical notion of foreknowledge."
+summary: 'The argument from free will, also called the paradox of free will or theological fatalism, contends that omniscience and free will are incompatible and that any conception of God that incorporates both properties is therefore inconceivable. See the various controversies over claims of God''s omniscience, in particular the critical notion of foreknowledge.'
 tags:
   - logic
 axioms:

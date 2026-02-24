@@ -1,8 +1,8 @@
 ---
-title: "Paradoxical laughter"
-slug: "paradoxical-laughter"
+title: 'Paradoxical laughter'
+slug: '00342-paradoxical-laughter'
 type: PARADOX
-summary: "Paradoxical laughter is an exaggerated expression of humour which is unwarranted by external events. It may be uncontrollable laughter which may be recognised as inappropriate by the person involved."
+summary: 'Paradoxical laughter is an exaggerated expression of humour which is unwarranted by external events. It may be uncontrollable laughter which may be recognised as inappropriate by the person involved.'
 tags:
   - paradox
 axioms:

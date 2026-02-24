@@ -1,8 +1,8 @@
 ---
-title: "Faraday paradox"
-slug: "faraday-paradox"
+title: 'Faraday paradox'
+slug: '00140-faraday-paradox'
 type: PARADOX
-summary: "The Faraday paradox or Faraday's paradox is any experiment in which Michael Faraday's law of electromagnetic induction appears to predict an incorrect result. The paradoxes fall into two classes: Faraday's law appears to predict that there will be zero electromotive force (EMF) but there is a non-zero EMF. Faraday's law appears to predict that there will be a non-zero EMF but there is zero EMF. Faraday deduced his la"
+summary: 'The Faraday paradox or Faraday''s paradox is any experiment in which Michael Faraday''s law of electromagnetic induction appears to predict an incorrect result. The paradoxes fall into two classes: Faraday''s law appears to predict that there will be zero electromotive force (EMF) but there is a non-zero EMF. Faraday''s law appears to predict that there will be a non-zero EMF but there is zero EMF. Faraday deduced his la'
 tags:
   - paradox
 axioms:

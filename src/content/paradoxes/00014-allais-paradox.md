@@ -1,8 +1,8 @@
 ---
-title: "Allais paradox"
-slug: "allais-paradox"
+title: 'Allais paradox'
+slug: '00014-allais-paradox'
 type: PARADOX
-summary: "The Allais paradox is a choice problem designed by Maurice Allais (1953) to show an inconsistency of actual observed choices with the predictions of expected utility theory. The Allais paradox demonstrates that individuals rarely make rational decisions consistently when required to do so immediately."
+summary: 'The Allais paradox is a choice problem designed by Maurice Allais (1953) to show an inconsistency of actual observed choices with the predictions of expected utility theory. The Allais paradox demonstrates that individuals rarely make rational decisions consistently when required to do so immediately.'
 tags:
   - decision
   - choice

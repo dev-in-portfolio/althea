@@ -1,8 +1,8 @@
 ---
-title: "Bracketing paradox"
-slug: "bracketing-paradox"
+title: 'Bracketing paradox'
+slug: '00054-bracketing-paradox'
 type: PARADOX
-summary: "In linguistic morphology, the bracketing paradox concerns morphologically complex words which have more than one analysis, or bracketing, e.g., one for phonology and one for semantics, and the two are not compatible, or brackets do not align."
+summary: 'In linguistic morphology, the bracketing paradox concerns morphologically complex words which have more than one analysis, or bracketing, e.g., one for phonology and one for semantics, and the two are not compatible, or brackets do not align.'
 tags:
   - logic
 axioms:

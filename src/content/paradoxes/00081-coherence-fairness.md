@@ -1,8 +1,8 @@
 ---
-title: "Coherence (fairness)"
-slug: "coherence-fairness"
+title: 'Coherence (fairness)'
+slug: '00081-coherence-fairness'
 type: PARADOX
-summary: "Coherence, also called uniformity or consistency, is a criterion for evaluating rules for fair division. Coherence requires that the outcome of a fairness rule is fair not only for the overall problem, but also for each sub-problem."
+summary: 'Coherence, also called uniformity or consistency, is a criterion for evaluating rules for fair division. Coherence requires that the outcome of a fairness rule is fair not only for the overall problem, but also for each sub-problem.'
 tags:
   - paradox
 axioms:

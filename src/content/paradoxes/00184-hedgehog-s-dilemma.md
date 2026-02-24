@@ -1,8 +1,8 @@
 ---
-title: "Hedgehog's dilemma"
-slug: "hedgehog-s-dilemma"
+title: 'Hedgehog''s dilemma'
+slug: '00184-hedgehog-s-dilemma'
 type: SYSTEM
-summary: "The hedgehog's dilemma, or sometimes the porcupine dilemma, is a metaphor about the challenges of human intimacy. It describes a situation in which a group of hedgehogs seek to move close to one another to share heat during cold weather."
+summary: 'The hedgehog''s dilemma, or sometimes the porcupine dilemma, is a metaphor about the challenges of human intimacy. It describes a situation in which a group of hedgehogs seek to move close to one another to share heat during cold weather.'
 tags:
   - time
 axioms:

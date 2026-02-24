@@ -1,8 +1,8 @@
 ---
-title: "Coherence (philosophical gambling strategy)"
-slug: "coherence-philosophical-gambling-strategy"
+title: 'Coherence (philosophical gambling strategy)'
+slug: '00529-coherence-philosophical-gambling-strategy'
 type: THOUGHT_EXPERIMENT
-summary: "In decision theory, economics, and probability theory, the Dutch book arguments are a set of results showing that agents must satisfy the axioms of rational choice to avoid a kind of self-contradiction called a Dutch book. A Dutch book, sometimes also called a money pump, is a set of bets that ensures a guaranteed loss, i.e., the gambler will lose money no matter what happens."
+summary: 'In decision theory, economics, and probability theory, the Dutch book arguments are a set of results showing that agents must satisfy the axioms of rational choice to avoid a kind of self-contradiction called a Dutch book. A Dutch book, sometimes also called a money pump, is a set of bets that ensures a guaranteed loss, i.e., the gambler will lose money no matter what happens.'
 tags:
   - set-theory
   - probability

@@ -1,8 +1,8 @@
 ---
-title: "The moving rows"
-slug: "the-moving-rows"
+title: 'The moving rows'
+slug: '00448-the-moving-rows'
 type: PARADOX
-summary: "Zeno's paradoxes are a series of philosophical arguments presented by the ancient Greek philosopher Zeno of Elea (c. 490–430 BC), primarily known through the works of Plato, Aristotle, and later commentators like Simplicius of Cilicia."
+summary: 'Zeno''s paradoxes are a series of philosophical arguments presented by the ancient Greek philosopher Zeno of Elea (c. 490–430 BC), primarily known through the works of Plato, Aristotle, and later commentators like Simplicius of Cilicia.'
 tags:
   - paradox
 axioms:

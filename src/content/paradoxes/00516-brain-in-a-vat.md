@@ -1,8 +1,8 @@
 ---
-title: "Brain-in-a-vat"
-slug: "brain-in-a-vat"
+title: 'Brain-in-a-vat'
+slug: '00516-brain-in-a-vat'
 type: THOUGHT_EXPERIMENT
-summary: "In philosophy, the brain in a vat (BIV) is a scenario used in a variety of thought experiments intended to draw out certain features of human conceptions of knowledge, reality, truth, mind, consciousness, and meaning. Gilbert Harman conceived the scenario, which Hilary Putnam turned into a modernized version of René Descartes's evil demon thought experiment."
+summary: 'In philosophy, the brain in a vat (BIV) is a scenario used in a variety of thought experiments intended to draw out certain features of human conceptions of knowledge, reality, truth, mind, consciousness, and meaning. Gilbert Harman conceived the scenario, which Hilary Putnam turned into a modernized version of René Descartes''s evil demon thought experiment.'
 tags:
   - truth
 axioms:
@@ -26,6 +26,7 @@ prompts:
   - What is conserved, and what is sacrificed?
 sources:
   - https://en.wikipedia.org/wiki/Brain-in-a-vat
+  - https://iep.utm.edu/brain-in-a-vat/
 order: 516
 ---
 ## Overview

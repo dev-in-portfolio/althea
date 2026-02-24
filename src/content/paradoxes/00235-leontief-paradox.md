@@ -1,8 +1,8 @@
 ---
-title: "Leontief paradox"
-slug: "leontief-paradox"
+title: 'Leontief paradox'
+slug: '00235-leontief-paradox'
 type: PARADOX
-summary: "In economics, the Leontief's paradox is that a country with a higher capital per worker has a lower capital/labor ratio in exports than in imports. This econometric finding was the result of Wassily W. Leontief's attempt to test the Heckscher–Ohlin theory ('H–O theory') empirically."
+summary: 'In economics, the Leontief''s paradox is that a country with a higher capital per worker has a lower capital/labor ratio in exports than in imports. This econometric finding was the result of Wassily W. Leontief''s attempt to test the Heckscher–Ohlin theory (''H–O theory'') empirically.'
 tags:
   - economics
 axioms:

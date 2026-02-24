@@ -1,8 +1,8 @@
 ---
-title: "Dyson sphere"
-slug: "dyson-sphere"
+title: 'Dyson sphere'
+slug: '00539-dyson-sphere'
 type: THOUGHT_EXPERIMENT
-summary: "A Dyson sphere is a hypothetical megastructure that encompasses a star and captures a large percentage of its power output. The concept is a thought experiment that attempts to imagine how a spacefaring civilization would meet its energy requirements once those requirements exceed what can be generated from the home planet's resources alone."
+summary: 'A Dyson sphere is a hypothetical megastructure that encompasses a star and captures a large percentage of its power output. The concept is a thought experiment that attempts to imagine how a spacefaring civilization would meet its energy requirements once those requirements exceed what can be generated from the home planet''s resources alone.'
 tags:
   - paradox
 axioms:

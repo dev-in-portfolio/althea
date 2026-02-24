@@ -1,8 +1,8 @@
 ---
-title: "GZK paradox"
-slug: "gzk-paradox"
+title: 'GZK paradox'
+slug: '00156-gzk-paradox'
 type: PARADOX
-summary: "The Greisen–Zatsepin–Kuzmin limit (GZK limit or GZK cutoff) is a theoretical upper limit on the energy of cosmic ray protons traveling from other galaxies through the intergalactic medium to our galaxy. The limit is 5×1019 eV (50 EeV), or about 8 joules (the energy of a proton travelling at ≈ 99.99999999999999999998% the speed of light)."
+summary: 'The Greisen–Zatsepin–Kuzmin limit (GZK limit or GZK cutoff) is a theoretical upper limit on the energy of cosmic ray protons traveling from other galaxies through the intergalactic medium to our galaxy. The limit is 5×1019 eV (50 EeV), or about 8 joules (the energy of a proton travelling at ≈ 99.99999999999999999998% the speed of light).'
 tags:
   - paradox
 axioms:
@@ -25,7 +25,8 @@ prompts:
   - Does the paradox dissolve or relocate when reframed?
   - What is conserved, and what is sacrificed?
 sources:
-  - https://en.wikipedia.org/wiki/GZK_paradox
+  - https://en.wikipedia.org/wiki/G
+ZK_paradox
 order: 156
 ---
 ## Overview

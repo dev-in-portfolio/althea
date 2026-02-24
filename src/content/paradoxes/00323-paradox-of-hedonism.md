@@ -1,8 +1,8 @@
 ---
-title: "Paradox of hedonism"
-slug: "paradox-of-hedonism"
+title: 'Paradox of hedonism'
+slug: '00323-paradox-of-hedonism'
 type: PARADOX
-summary: "The paradox of hedonism, also called the pleasure paradox, refers to the practical difficulties encountered in the pursuit of pleasure. For the hedonist, constant pleasure-seeking may not yield the most actual pleasure or happiness in the long term when consciously pursuing pleasure interferes with experiencing it."
+summary: 'The paradox of hedonism, also called the pleasure paradox, refers to the practical difficulties encountered in the pursuit of pleasure. For the hedonist, constant pleasure-seeking may not yield the most actual pleasure or happiness in the long term when consciously pursuing pleasure interferes with experiencing it.'
 tags:
   - paradox
 axioms:
@@ -26,6 +26,7 @@ prompts:
   - What is conserved, and what is sacrificed?
 sources:
   - https://en.wikipedia.org/wiki/Paradox_of_hedonism
+  - https://iep.utm.edu/paradox-of-hedonism/
 order: 323
 ---
 ## Overview

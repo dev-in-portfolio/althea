@@ -1,8 +1,8 @@
 ---
-title: "Paradox of toil"
-slug: "paradox-of-toil"
+title: 'Paradox of toil'
+slug: '00336-paradox-of-toil'
 type: PARADOX
-summary: "The paradox of toil is the economic hypothesis that, under certain conditions, total employment will shrink if there is an increased desire among the population to take on paid work. According to the macroeconomist Gauti Eggertsson, this occurs when 'the short-term nominal interest rate is zero and there are deflationary pressures and output contraction'."
+summary: 'The paradox of toil is the economic hypothesis that, under certain conditions, total employment will shrink if there is an increased desire among the population to take on paid work. According to the macroeconomist Gauti Eggertsson, this occurs when ''the short-term nominal interest rate is zero and there are deflationary pressures and output contraction''.'
 tags:
   - economics
 axioms:

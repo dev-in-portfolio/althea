@@ -1,8 +1,8 @@
 ---
-title: "Roko's basilisk"
-slug: "roko-s-basilisk"
+title: 'Roko''s basilisk'
+slug: '00648-roko-s-basilisk'
 type: THOUGHT_EXPERIMENT
-summary: "Roko's basilisk is a thought experiment which states that there could be an artificial superintelligence in the future that, while otherwise benevolent, would punish anyone who knew of its potential existence but did not directly contribute to its advancement or development, in order to incentivize that advancement. It originated in a 2010 post at discussion board LessWrong, a rationalist community web forum."
+summary: 'Roko''s basilisk is a thought experiment which states that there could be an artificial superintelligence in the future that, while otherwise benevolent, would punish anyone who knew of its potential existence but did not directly contribute to its advancement or development, in order to incentivize that advancement. It originated in a 2010 post at discussion board LessWrong, a rationalist community web forum.'
 tags:
   - paradox
 axioms:

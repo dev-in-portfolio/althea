@@ -1,8 +1,8 @@
 ---
-title: "Boltzmann brain"
-slug: "boltzmann-brain"
+title: 'Boltzmann brain'
+slug: '00049-boltzmann-brain'
 type: PARADOX
-summary: "The Boltzmann brain thought experiment suggests that it is probably more likely for a brain to spontaneously form, complete with a memory of having existed in our universe, rather than for the entire universe to come about in the manner cosmologists think it actually did. Physicists use the Boltzmann brain thought experiment as a reductio ad absurdum argument for evaluating competing scientific theories."
+summary: 'The Boltzmann brain thought experiment suggests that it is probably more likely for a brain to spontaneously form, complete with a memory of having existed in our universe, rather than for the entire universe to come about in the manner cosmologists think it actually did. Physicists use the Boltzmann brain thought experiment as a reductio ad absurdum argument for evaluating competing scientific theories.'
 tags:
   - probability
   - cosmology

@@ -1,8 +1,8 @@
 ---
-title: "Navigation paradox"
-slug: "navigation-paradox"
+title: 'Navigation paradox'
+slug: '00284-navigation-paradox'
 type: PARADOX
-summary: "The navigation paradox states that increased navigational precision may result in increased collision risk. In the case of ships and aircraft, the advent of Global Positioning System (GPS) navigation has enabled craft to follow navigational paths with such greater precision (often of the order of plus or minus 2 m), that, without better distribution of routes, coordination between neighboring craft and collision avoi"
+summary: 'The navigation paradox states that increased navigational precision may result in increased collision risk. In the case of ships and aircraft, the advent of Global Positioning System (GPS) navigation has enabled craft to follow navigational paths with such greater precision (often of the order of plus or minus 2 m), that, without better distribution of routes, coordination between neighboring craft and collision avoi'
 tags:
   - paradox
 axioms:

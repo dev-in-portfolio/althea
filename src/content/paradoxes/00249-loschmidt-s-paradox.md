@@ -1,8 +1,8 @@
 ---
-title: "Loschmidt's paradox"
-slug: "loschmidt-s-paradox"
+title: 'Loschmidt''s paradox'
+slug: '00249-loschmidt-s-paradox'
 type: PARADOX
-summary: "In physics, Loschmidt's paradox (named for Josef Loschmidt), also known as the reversibility paradox, irreversibility paradox, or Umkehreinwand (from German 'reversal objection'), is the objection that it should not be possible to deduce an irreversible process from time-symmetric dynamics. This puts the time reversal symmetry of (almost) all known low-level fundamental physical processes at odds with any attempt to "
+summary: 'In physics, Loschmidt''s paradox (named for Josef Loschmidt), also known as the reversibility paradox, irreversibility paradox, or Umkehreinwand (from German ''reversal objection''), is the objection that it should not be possible to deduce an irreversible process from time-symmetric dynamics. This puts the time reversal symmetry of (almost) all known low-level fundamental physical processes at odds with any attempt to '
 tags:
   - time
   - physics

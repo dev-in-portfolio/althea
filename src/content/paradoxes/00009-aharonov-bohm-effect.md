@@ -1,8 +1,8 @@
 ---
-title: "Aharonov–Bohm effect"
-slug: "aharonov-bohm-effect"
+title: 'Aharonov–Bohm effect'
+slug: '00009-aharonov-bohm-effect'
 type: PARADOX
-summary: "The Aharonov–Bohm effect, sometimes called the Ehrenberg–Siday–Aharonov–Bohm effect, is a quantum-mechanical phenomenon in which an electrically charged particle is affected by an electromagnetic potential ( φ {\displaystyle \varphi } , A {\displaystyle \mathbf {A} } ), despite being confined to a region in which both the magnetic field B {\displaystyle \mathbf {B} } and electric field E {\displaystyle \mathbf {E} } "
+summary: 'The Aharonov–Bohm effect, sometimes called the Ehrenberg–Siday–Aharonov–Bohm effect, is a quantum-mechanical phenomenon in which an electrically charged particle is affected by an electromagnetic potential ( φ {\\displaystyle \\varphi } , A {\\displaystyle \\mathbf {A} } ), despite being confined to a region in which both the magnetic field B {\\displaystyle \\mathbf {B} } and electric field E {\\displaystyle \\mathbf {E} } '
 tags:
   - time
   - physics

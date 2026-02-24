@@ -1,8 +1,8 @@
 ---
-title: "Painlevé paradox"
-slug: "painlev-paradox"
+title: 'Painlevé paradox'
+slug: '00312-painlev-paradox'
 type: PARADOX
-summary: "In rigid-body dynamics, the Painlevé paradox (also called frictional paroxysms by Jean Jacques Moreau) is the paradox that results from inconsistencies between the contact and Coulomb models of friction. It is named for former French prime minister and mathematician Paul Painlevé."
+summary: 'In rigid-body dynamics, the Painlevé paradox (also called frictional paroxysms by Jean Jacques Moreau) is the paradox that results from inconsistencies between the contact and Coulomb models of friction. It is named for former French prime minister and mathematician Paul Painlevé.'
 tags:
   - paradox
 axioms:

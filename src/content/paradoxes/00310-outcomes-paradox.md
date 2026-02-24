@@ -1,8 +1,8 @@
 ---
-title: "Outcomes paradox"
-slug: "outcomes-paradox"
+title: 'Outcomes paradox'
+slug: '00310-outcomes-paradox'
 type: PARADOX
-summary: "The outcomes paradox (otherwise known as the 'better prognosis hypothesis') is the observation that patients with schizophrenia in developing countries benefit much more from therapy than those in developed countries. This is surprising because the reverse holds for most diseases: 'the richer and more developed the country, the better the patient outcome.' The outcomes paradox came to light in the 1960s due to cross-"
+summary: 'The outcomes paradox (otherwise known as the ''better prognosis hypothesis'') is the observation that patients with schizophrenia in developing countries benefit much more from therapy than those in developed countries. This is surprising because the reverse holds for most diseases: ''the richer and more developed the country, the better the patient outcome.'' The outcomes paradox came to light in the 1960s due to cross-'
 tags:
   - paradox
 axioms:

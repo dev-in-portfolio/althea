@@ -1,8 +1,8 @@
 ---
-title: "Bonini's paradox"
-slug: "bonini-s-paradox"
+title: 'Bonini''s paradox'
+slug: '00050-bonini-s-paradox'
 type: PARADOX
-summary: "Bonini's paradox, named after Stanford business professor Charles Bonini, explains the difficulty in constructing models or simulations that fully capture the workings of complex systems (such as the human brain)."
+summary: 'Bonini''s paradox, named after Stanford business professor Charles Bonini, explains the difficulty in constructing models or simulations that fully capture the workings of complex systems (such as the human brain).'
 tags:
   - paradox
 axioms:

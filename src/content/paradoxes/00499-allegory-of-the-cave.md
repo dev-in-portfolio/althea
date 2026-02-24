@@ -1,8 +1,8 @@
 ---
-title: "Allegory of the cave"
-slug: "allegory-of-the-cave"
+title: 'Allegory of the cave'
+slug: '00499-allegory-of-the-cave'
 type: THOUGHT_EXPERIMENT
-summary: "The allegory of the cave is an allegory presented by the Greek philosopher Plato in his work Republic (514a–520a, Book VII) to compare 'the effect of education (παιδεία) and the lack of it on our nature'. It is written as a dialogue between Plato's brother Glaucon and his mentor Socrates and is narrated by the latter."
+summary: 'The allegory of the cave is an allegory presented by the Greek philosopher Plato in his work Republic (514a–520a, Book VII) to compare ''the effect of education (παιδεία) and the lack of it on our nature''. It is written as a dialogue between Plato''s brother Glaucon and his mentor Socrates and is narrated by the latter.'
 tags:
   - paradox
 axioms:

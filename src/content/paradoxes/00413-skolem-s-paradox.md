@@ -1,8 +1,8 @@
 ---
-title: "Skolem's paradox"
-slug: "skolem-s-paradox"
+title: 'Skolem''s paradox'
+slug: '00413-skolem-s-paradox'
 type: PARADOX
-summary: "In mathematical logic and philosophy, Skolem's paradox is the apparent contradiction that a countable model of first-order set theory could contain an uncountable set. The paradox arises from part of the Löwenheim–Skolem theorem; Thoralf Skolem was the first to discuss the seemingly contradictory aspects of the theorem, and to discover the relativity of set-theoretic notions now known as non-absoluteness."
+summary: 'In mathematical logic and philosophy, Skolem''s paradox is the apparent contradiction that a countable model of first-order set theory could contain an uncountable set. The paradox arises from part of the Löwenheim–Skolem theorem; Thoralf Skolem was the first to discuss the seemingly contradictory aspects of the theorem, and to discover the relativity of set-theoretic notions now known as non-absoluteness.'
 tags:
   - set-theory
   - logic

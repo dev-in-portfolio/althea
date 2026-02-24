@@ -1,8 +1,8 @@
 ---
-title: "Card paradox"
-slug: "card-paradox"
+title: 'Card paradox'
+slug: '00067-card-paradox'
 type: PARADOX
-summary: "The card paradox is a variant of the liar paradox constructed by Philip Jourdain. It is also known as the postcard paradox, Jourdain paradox or Jourdain's paradox."
+summary: 'The card paradox is a variant of the liar paradox constructed by Philip Jourdain. It is also known as the postcard paradox, Jourdain paradox or Jourdain''s paradox.'
 tags:
   - paradox
 axioms:

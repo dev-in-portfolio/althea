@@ -1,8 +1,8 @@
 ---
-title: "Kavka's toxin puzzle"
-slug: "kavka-s-toxin-puzzle"
+title: 'Kavka''s toxin puzzle'
+slug: '00224-kavka-s-toxin-puzzle'
 type: PARADOX
-summary: "Kavka's toxin puzzle is a thought experiment about the possibility of forming an intention to perform an act which, following from reason, is an action one would not actually perform. It was presented by moral and political philosopher Gregory S. Kavka in 'The Toxin Puzzle' (1983), and grew out of his work in deterrence theory and mutual assured destruction."
+summary: 'Kavka''s toxin puzzle is a thought experiment about the possibility of forming an intention to perform an act which, following from reason, is an action one would not actually perform. It was presented by moral and political philosopher Gregory S. Kavka in ''The Toxin Puzzle'' (1983), and grew out of his work in deterrence theory and mutual assured destruction.'
 tags:
   - ethics
 axioms:

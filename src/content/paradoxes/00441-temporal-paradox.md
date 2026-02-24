@@ -1,8 +1,8 @@
 ---
-title: "Temporal paradox"
-slug: "temporal-paradox"
+title: 'Temporal paradox'
+slug: '00441-temporal-paradox'
 type: PARADOX
-summary: "A temporal paradox, time paradox, or time travel paradox, is an apparent or actual contradiction associated with the idea of time travel or other foreknowledge of the future. Temporal paradoxes arise from circumstances involving hypothetical time travel to the past."
+summary: 'A temporal paradox, time paradox, or time travel paradox, is an apparent or actual contradiction associated with the idea of time travel or other foreknowledge of the future. Temporal paradoxes arise from circumstances involving hypothetical time travel to the past.'
 tags:
   - time
 axioms:

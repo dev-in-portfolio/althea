@@ -1,8 +1,8 @@
 ---
-title: "Freedman's paradox"
-slug: "freedman-s-paradox"
+title: 'Freedman''s paradox'
+slug: '00153-freedman-s-paradox'
 type: PARADOX
-summary: "In statistical analysis, Freedman's paradox, named after David Freedman, is a problem in model selection whereby predictor variables with no relationship to the dependent variable can pass tests of significance – both individually via a t-test, and jointly via an F-test for the significance of the regression. Freedman demonstrated (through simulation and asymptotic calculation) that this is a common occurrence when t"
+summary: 'In statistical analysis, Freedman''s paradox, named after David Freedman, is a problem in model selection whereby predictor variables with no relationship to the dependent variable can pass tests of significance – both individually via a t-test, and jointly via an F-test for the significance of the regression. Freedman demonstrated (through simulation and asymptotic calculation) that this is a common occurrence when t'
 tags:
   - statistics
 axioms:

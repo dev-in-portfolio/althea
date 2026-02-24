@@ -1,8 +1,8 @@
 ---
-title: "Von Neumann paradox"
-slug: "von-neumann-paradox"
+title: 'Von Neumann paradox'
+slug: '00478-von-neumann-paradox'
 type: PARADOX
-summary: "In mathematics, the von Neumann paradox, named after John von Neumann, is the idea that one can break a planar figure such as the unit square into sets of points and subject each set to an area-preserving affine transformation such that the result is two planar figures of the same size as the original. This was proved in 1929 by John von Neumann, assuming the axiom of choice."
+summary: 'In mathematics, the von Neumann paradox, named after John von Neumann, is the idea that one can break a planar figure such as the unit square into sets of points and subject each set to an area-preserving affine transformation such that the result is two planar figures of the same size as the original. This was proved in 1929 by John von Neumann, assuming the axiom of choice.'
 tags:
   - set-theory
   - choice

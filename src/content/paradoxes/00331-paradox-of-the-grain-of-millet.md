@@ -1,8 +1,8 @@
 ---
-title: "Paradox of the grain of millet"
-slug: "paradox-of-the-grain-of-millet"
+title: 'Paradox of the grain of millet'
+slug: '00331-paradox-of-the-grain-of-millet'
 type: PARADOX
-summary: "Zeno's paradoxes are a series of philosophical arguments presented by the ancient Greek philosopher Zeno of Elea (c. 490–430 BC), primarily known through the works of Plato, Aristotle, and later commentators like Simplicius of Cilicia."
+summary: 'Zeno''s paradoxes are a series of philosophical arguments presented by the ancient Greek philosopher Zeno of Elea (c. 490–430 BC), primarily known through the works of Plato, Aristotle, and later commentators like Simplicius of Cilicia.'
 tags:
   - paradox
 axioms:

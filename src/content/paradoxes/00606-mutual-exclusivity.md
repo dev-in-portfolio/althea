@@ -1,8 +1,8 @@
 ---
-title: "Mutual exclusivity"
-slug: "mutual-exclusivity"
+title: 'Mutual exclusivity'
+slug: '00606-mutual-exclusivity'
 type: THOUGHT_EXPERIMENT
-summary: "In logic and probability theory, two events (or propositions) are mutually exclusive or disjoint if they cannot both occur at the same time. A clear example is the set of outcomes of a single coin toss, which can result in either heads or tails, but not both."
+summary: 'In logic and probability theory, two events (or propositions) are mutually exclusive or disjoint if they cannot both occur at the same time. A clear example is the set of outcomes of a single coin toss, which can result in either heads or tails, but not both.'
 tags:
   - set-theory
   - logic

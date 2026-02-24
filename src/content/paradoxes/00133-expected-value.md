@@ -1,8 +1,8 @@
 ---
-title: "Expected value"
-slug: "expected-value"
+title: 'Expected value'
+slug: '00133-expected-value'
 type: PARADOX
-summary: "In probability theory, the expected value (also called expectation, expectancy, expectation operator, mathematical expectation, mean, expectation value, or first moment) is a generalization of the weighted average. The expected value of a random variable with a finite number of outcomes is a weighted average of all possible outcomes."
+summary: 'In probability theory, the expected value (also called expectation, expectancy, expectation operator, mathematical expectation, mean, expectation value, or first moment) is a generalization of the weighted average. The expected value of a random variable with a finite number of outcomes is a weighted average of all possible outcomes.'
 tags:
   - probability
 axioms:

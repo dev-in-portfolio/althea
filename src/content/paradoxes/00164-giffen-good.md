@@ -1,8 +1,8 @@
 ---
-title: "Giffen good"
-slug: "giffen-good"
+title: 'Giffen good'
+slug: '00164-giffen-good'
 type: PARADOX
-summary: "In microeconomics and consumer theory, a Giffen good is a product that people consume more of as the price rises and vice versa, violating the law of demand. For ordinary goods, as the price of the good rises, the substitution effect makes consumers purchase less of it, and more of substitute goods; the income effect can either reinforce or weaken this decline in demand, but for an ordinary good never outweighs it."
+summary: 'In microeconomics and consumer theory, a Giffen good is a product that people consume more of as the price rises and vice versa, violating the law of demand. For ordinary goods, as the price of the good rises, the substitution effect makes consumers purchase less of it, and more of substitute goods; the income effect can either reinforce or weaken this decline in demand, but for an ordinary good never outweighs it.'
 tags:
   - economics
 axioms:

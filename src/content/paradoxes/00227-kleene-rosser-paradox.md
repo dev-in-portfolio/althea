@@ -1,8 +1,8 @@
 ---
-title: "Kleene–Rosser paradox"
-slug: "kleene-rosser-paradox"
+title: 'Kleene–Rosser paradox'
+slug: '00227-kleene-rosser-paradox'
 type: PARADOX
-summary: "In mathematics, the Kleene–Rosser paradox is a paradox that shows that certain systems of formal logic are inconsistent, in particular the version of Haskell Curry's combinatory logic introduced in 1930, and Alonzo Church's original lambda calculus, introduced in 1932–1933, both originally intended as systems of formal logic. The paradox was exhibited by Stephen Kleene and J. B. Rosser in 1935."
+summary: 'In mathematics, the Kleene–Rosser paradox is a paradox that shows that certain systems of formal logic are inconsistent, in particular the version of Haskell Curry''s combinatory logic introduced in 1930, and Alonzo Church''s original lambda calculus, introduced in 1932–1933, both originally intended as systems of formal logic. The paradox was exhibited by Stephen Kleene and J. B. Rosser in 1935.'
 tags:
   - logic
 axioms:

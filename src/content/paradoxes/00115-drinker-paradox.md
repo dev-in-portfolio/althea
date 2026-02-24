@@ -1,8 +1,8 @@
 ---
-title: "Drinker paradox"
-slug: "drinker-paradox"
+title: 'Drinker paradox'
+slug: '00115-drinker-paradox'
 type: PARADOX
-summary: "The drinker paradox (also known as the drinker's theorem, the drinker's principle, or the drinking principle) is a theorem of classical predicate logic that can be stated as 'There is someone in the pub such that, if he or she is drinking, then everyone in the pub is drinking.' It was popularised by the mathematical logician Raymond Smullyan, who called it the 'drinking principle' in his 1978 book What Is the Name of"
+summary: 'The drinker paradox (also known as the drinker''s theorem, the drinker''s principle, or the drinking principle) is a theorem of classical predicate logic that can be stated as ''There is someone in the pub such that, if he or she is drinking, then everyone in the pub is drinking.'' It was popularised by the mathematical logician Raymond Smullyan, who called it the ''drinking principle'' in his 1978 book What Is the Name of'
 tags:
   - logic
 axioms:

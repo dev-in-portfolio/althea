@@ -1,8 +1,8 @@
 ---
-title: "Buttered cat paradox"
-slug: "buttered-cat-paradox"
+title: 'Buttered cat paradox'
+slug: '00062-buttered-cat-paradox'
 type: PARADOX
-summary: "The buttered cat paradox is a common joke based on the combination of two adages: Cats always land on their feet. Buttered toast always lands buttered side down."
+summary: 'The buttered cat paradox is a common joke based on the combination of two adages: Cats always land on their feet. Buttered toast always lands buttered side down.'
 tags:
   - paradox
 axioms:

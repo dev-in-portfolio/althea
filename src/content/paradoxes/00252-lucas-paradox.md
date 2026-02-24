@@ -1,8 +1,8 @@
 ---
-title: "Lucas paradox"
-slug: "lucas-paradox"
+title: 'Lucas paradox'
+slug: '00252-lucas-paradox'
 type: PARADOX
-summary: "In economics, the Lucas paradox or the Lucas puzzle is the observation that capital does not flow from developed countries to developing countries despite the fact that developing countries have lower levels of capital per worker. Classical economic theory predicts that capital should flow from rich countries to poor countries, due to the effect of diminishing returns of capital."
+summary: 'In economics, the Lucas paradox or the Lucas puzzle is the observation that capital does not flow from developed countries to developing countries despite the fact that developing countries have lower levels of capital per worker. Classical economic theory predicts that capital should flow from rich countries to poor countries, due to the effect of diminishing returns of capital.'
 tags:
   - economics
 axioms:

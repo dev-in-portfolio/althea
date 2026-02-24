@@ -1,8 +1,8 @@
 ---
-title: "Two Generals' Problem"
-slug: "two-generals-problem"
+title: 'Two Generals'' Problem'
+slug: '00687-two-generals-problem'
 type: THOUGHT_EXPERIMENT
-summary: "In computing, the Two Generals' Problem (or Chinese Generals Problem) is a thought experiment meant to illustrate the pitfalls and design challenges of attempting to coordinate an action by communicating over an unreliable link. In the experiment, two generals are only able to communicate with one another by sending a messenger through enemy territory."
+summary: 'In computing, the Two Generals'' Problem (or Chinese Generals Problem) is a thought experiment meant to illustrate the pitfalls and design challenges of attempting to coordinate an action by communicating over an unreliable link. In the experiment, two generals are only able to communicate with one another by sending a messenger through enemy territory.'
 tags:
   - paradox
 axioms:

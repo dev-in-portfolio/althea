@@ -1,8 +1,8 @@
 ---
-title: "Quine's paradox"
-slug: "quine-s-paradox"
+title: 'Quine''s paradox'
+slug: '00376-quine-s-paradox'
 type: PARADOX
-summary: "Quine's paradox is a paradox concerning truth values, stated by Willard Van Orman Quine. It is related to the liar paradox as a problem, and it purports to show that a sentence can be paradoxical even if it is not self-referring and does not use demonstratives or indexicals (i.e."
+summary: 'Quine''s paradox is a paradox concerning truth values, stated by Willard Van Orman Quine. It is related to the liar paradox as a problem, and it purports to show that a sentence can be paradoxical even if it is not self-referring and does not use demonstratives or indexicals (i.e.'
 tags:
   - truth
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Klein paradox"
-slug: "klein-paradox"
+title: 'Klein paradox'
+slug: '00228-klein-paradox'
 type: PARADOX
-summary: "In relativistic quantum mechanics, the Klein paradox (also known as Klein tunneling) is a quantum phenomenon related to particles encountering high-energy potential barriers. It is named after physicist Oskar Klein who discovered it in 1929."
+summary: 'In relativistic quantum mechanics, the Klein paradox (also known as Klein tunneling) is a quantum phenomenon related to particles encountering high-energy potential barriers. It is named after physicist Oskar Klein who discovered it in 1929.'
 tags:
   - physics
 axioms:

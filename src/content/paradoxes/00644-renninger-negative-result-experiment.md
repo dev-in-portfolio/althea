@@ -1,8 +1,8 @@
 ---
-title: "Renninger negative-result experiment"
-slug: "renninger-negative-result-experiment"
+title: 'Renninger negative-result experiment'
+slug: '00644-renninger-negative-result-experiment'
 type: THOUGHT_EXPERIMENT
-summary: "In quantum mechanics, the Renninger negative-result experiment is a thought experiment that illustrates some of the difficulties of understanding the nature of wave function collapse and measurement in quantum mechanics. The statement is that a particle need not be detected in order for a quantum measurement to occur, and that the lack of a particle detection can also constitute a measurement."
+summary: 'In quantum mechanics, the Renninger negative-result experiment is a thought experiment that illustrates some of the difficulties of understanding the nature of wave function collapse and measurement in quantum mechanics. The statement is that a particle need not be detected in order for a quantum measurement to occur, and that the lack of a particle detection can also constitute a measurement.'
 tags:
   - physics
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Bertrand's paradox (probability)"
-slug: "bertrand-s-paradox-probability"
+title: 'Bertrand''s paradox (probability)'
+slug: '00042-bertrand-s-paradox-probability'
 type: PARADOX
-summary: "The Bertrand paradox is a problem within the classical interpretation of probability theory. Joseph Bertrand introduced it in his work Calcul des probabilités (1889) as an example to show that the principle of indifference may not produce definite, well-defined results for probabilities if it is applied uncritically when the domain of possibilities is infinite."
+summary: 'The Bertrand paradox is a problem within the classical interpretation of probability theory. Joseph Bertrand introduced it in his work Calcul des probabilités (1889) as an example to show that the principle of indifference may not produce definite, well-defined results for probabilities if it is applied uncritically when the domain of possibilities is infinite.'
 tags:
   - probability
 axioms:

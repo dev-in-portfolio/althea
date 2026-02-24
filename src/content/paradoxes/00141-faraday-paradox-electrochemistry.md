@@ -1,8 +1,8 @@
 ---
-title: "Faraday paradox (electrochemistry)"
-slug: "faraday-paradox-electrochemistry"
+title: 'Faraday paradox (electrochemistry)'
+slug: '00141-faraday-paradox-electrochemistry'
 type: PARADOX
-summary: "The Faraday paradox was a once inexplicable aspect of the reaction between nitric acid and steel. Around 1830, the English scientist Michael Faraday found that diluted nitric acid would attack steel, but concentrated nitric acid would not."
+summary: 'The Faraday paradox was a once inexplicable aspect of the reaction between nitric acid and steel. Around 1830, the English scientist Michael Faraday found that diluted nitric acid would attack steel, but concentrated nitric acid would not.'
 tags:
   - paradox
 axioms:

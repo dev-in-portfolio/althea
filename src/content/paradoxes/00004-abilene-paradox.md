@@ -1,8 +1,8 @@
 ---
-title: "Abilene paradox"
-slug: "abilene-paradox"
+title: 'Abilene paradox'
+slug: '00004-abilene-paradox'
 type: PARADOX
-summary: "The Abilene paradox is a collective fallacy, in which a group of people collectively decide on a course of action that is counter to the preferences of most or all individuals in the group, while each individual believes it to be aligned with the preferences of most of the others. It involves a breakdown of group communication in which each member mistakenly believes that their own preferences are counter to the grou"
+summary: 'The Abilene paradox is a collective fallacy, in which a group of people collectively decide on a course of action that is counter to the preferences of most or all individuals in the group, while each individual believes it to be aligned with the preferences of most of the others. It involves a breakdown of group communication in which each member mistakenly believes that their own preferences are counter to the grou'
 tags:
   - paradox
 axioms:

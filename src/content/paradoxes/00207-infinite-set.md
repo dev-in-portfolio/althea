@@ -1,8 +1,8 @@
 ---
-title: "Infinite set"
-slug: "infinite-set"
+title: 'Infinite set'
+slug: '00207-infinite-set'
 type: PARADOX
-summary: "In set theory, an infinite set is a set that is not a finite set. Infinite sets may be countable or uncountable."
+summary: 'In set theory, an infinite set is a set that is not a finite set. Infinite sets may be countable or uncountable.'
 tags:
   - set-theory
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Tachyonic antitelephone"
-slug: "tachyonic-antitelephone"
+title: 'Tachyonic antitelephone'
+slug: '00435-tachyonic-antitelephone'
 type: PARADOX
-summary: "A tachyonic antitelephone is a hypothetical device in theoretical physics that could be used to send signals into one's own past. Albert Einstein in 1907 presented a thought experiment of how faster-than-light signals can lead to a paradox of causality, which was described by Einstein and Arnold Sommerfeld in 1910 as a means 'to telegraph into the past'."
+summary: 'A tachyonic antitelephone is a hypothetical device in theoretical physics that could be used to send signals into one''s own past. Albert Einstein in 1907 presented a thought experiment of how faster-than-light signals can lead to a paradox of causality, which was described by Einstein and Arnold Sommerfeld in 1910 as a means ''to telegraph into the past''.'
 tags:
   - causality
   - physics

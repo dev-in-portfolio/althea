@@ -1,8 +1,8 @@
 ---
-title: "Hilbert–Bernays paradox"
-slug: "hilbert-bernays-paradox"
+title: 'Hilbert–Bernays paradox'
+slug: '00186-hilbert-bernays-paradox'
 type: PARADOX
-summary: "The Hilbert–Bernays paradox is a distinctive paradox belonging to the family of the paradoxes of reference. It is named after David Hilbert and Paul Bernays."
+summary: 'The Hilbert–Bernays paradox is a distinctive paradox belonging to the family of the paradoxes of reference. It is named after David Hilbert and Paul Bernays.'
 tags:
   - paradox
 axioms:

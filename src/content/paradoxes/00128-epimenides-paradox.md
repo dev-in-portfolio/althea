@@ -1,8 +1,8 @@
 ---
-title: "Epimenides paradox"
-slug: "epimenides-paradox"
+title: 'Epimenides paradox'
+slug: '00128-epimenides-paradox'
 type: PARADOX
-summary: "The so-called Epimenides paradox has to do with self-reference in logic. It is named after the Cretan philosopher Epimenides of Knossos (alive circa 600 BC) who said: 'Cretans, liars always, evil beasts, idle bellies'."
+summary: 'The so-called Epimenides paradox has to do with self-reference in logic. It is named after the Cretan philosopher Epimenides of Knossos (alive circa 600 BC) who said: ''Cretans, liars always, evil beasts, idle bellies''.'
 tags:
   - logic
   - self-reference

@@ -1,8 +1,8 @@
 ---
-title: "Paradox of plenty"
-slug: "paradox-of-plenty"
+title: 'Paradox of plenty'
+slug: '00326-paradox-of-plenty'
 type: PARADOX
-summary: "The resource curse, also known as the paradox of plenty or the poverty paradox, is the hypothesis that countries with an abundance of natural resources (such as fossil fuels and certain minerals) have lower economic growth, lower rates of democracy, or poorer development outcomes than countries with fewer natural resources. There are many theories and much academic debate about the reasons for and exceptions to the a"
+summary: 'The resource curse, also known as the paradox of plenty or the poverty paradox, is the hypothesis that countries with an abundance of natural resources (such as fossil fuels and certain minerals) have lower economic growth, lower rates of democracy, or poorer development outcomes than countries with fewer natural resources. There are many theories and much academic debate about the reasons for and exceptions to the a'
 tags:
   - economics
 axioms:

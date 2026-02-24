@@ -1,8 +1,8 @@
 ---
-title: "Physical paradox"
-slug: "physical-paradox"
+title: 'Physical paradox'
+slug: '00352-physical-paradox'
 type: PARADOX
-summary: "A physical paradox is an apparent contradiction in physical descriptions of the universe. While multiple physical paradoxes have accepted resolutions, others defy resolution and may indicate flaws in theory."
+summary: 'A physical paradox is an apparent contradiction in physical descriptions of the universe. While multiple physical paradoxes have accepted resolutions, others defy resolution and may indicate flaws in theory.'
 tags:
   - paradox
 axioms:

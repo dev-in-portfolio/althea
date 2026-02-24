@@ -1,8 +1,8 @@
 ---
-title: "Sticky bead argument"
-slug: "sticky-bead-argument"
+title: 'Sticky bead argument'
+slug: '00667-sticky-bead-argument'
 type: THOUGHT_EXPERIMENT
-summary: "In general relativity, the sticky bead argument is a simple thought experiment designed to show that gravitational radiation is indeed predicted by general relativity and can have physical effects. These claims were not widely accepted prior to about 1955, but after the introduction of the bead argument, any remaining doubts soon disappeared from the research literature."
+summary: 'In general relativity, the sticky bead argument is a simple thought experiment designed to show that gravitational radiation is indeed predicted by general relativity and can have physical effects. These claims were not widely accepted prior to about 1955, but after the introduction of the bead argument, any remaining doubts soon disappeared from the research literature.'
 tags:
   - paradox
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Lombard's paradox"
-slug: "lombard-s-paradox"
+title: 'Lombard''s paradox'
+slug: '00248-lombard-s-paradox'
 type: PARADOX
-summary: "Lombard's paradox describes a paradoxical muscular contraction in humans. When rising to stand from a sitting or squatting position, both the hamstrings and quadriceps contract at the same time, despite them being antagonists to each other."
+summary: 'Lombard''s paradox describes a paradoxical muscular contraction in humans. When rising to stand from a sitting or squatting position, both the hamstrings and quadriceps contract at the same time, despite them being antagonists to each other.'
 tags:
   - time
 axioms:

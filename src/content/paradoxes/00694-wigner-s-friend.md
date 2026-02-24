@@ -1,8 +1,8 @@
 ---
-title: "Wigner's friend"
-slug: "wigner-s-friend"
+title: 'Wigner''s friend'
+slug: '00694-wigner-s-friend'
 type: THOUGHT_EXPERIMENT
-summary: "Wigner's friend is a thought experiment in theoretical quantum physics, first published by the Hungarian-American physicist Eugene Wigner in 1961, and further developed by David Deutsch in 1985. The scenario involves an indirect observation of a quantum measurement: An observer W {\displaystyle W} observes another observer F {\displaystyle F} who performs a quantum measurement on a physical system."
+summary: 'Wigner''s friend is a thought experiment in theoretical quantum physics, first published by the Hungarian-American physicist Eugene Wigner in 1961, and further developed by David Deutsch in 1985. The scenario involves an indirect observation of a quantum measurement: An observer W {\\displaystyle W} observes another observer F {\\displaystyle F} who performs a quantum measurement on a physical system.'
 tags:
   - physics
 axioms:

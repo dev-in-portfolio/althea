@@ -1,8 +1,8 @@
 ---
-title: "Wheeler's delayed choice experiment"
-slug: "wheeler-s-delayed-choice-experiment"
+title: 'Wheeler''s delayed choice experiment'
+slug: '00693-wheeler-s-delayed-choice-experiment'
 type: THOUGHT_EXPERIMENT
-summary: "Wheeler's delayed-choice experiment describes a family of thought experiments in quantum physics proposed by John Archibald Wheeler, with the most prominent among them appearing in 1978 and 1984. These experiments illustrate the central point of quantum theory: 'It is wrong to attribute a tangibility to the photon in all its travel from the point of entry to its last instant of flight.' These experiments close a loop"
+summary: 'Wheeler''s delayed-choice experiment describes a family of thought experiments in quantum physics proposed by John Archibald Wheeler, with the most prominent among them appearing in 1978 and 1984. These experiments illustrate the central point of quantum theory: ''It is wrong to attribute a tangibility to the photon in all its travel from the point of entry to its last instant of flight.'' These experiments close a loop'
 tags:
   - physics
   - choice

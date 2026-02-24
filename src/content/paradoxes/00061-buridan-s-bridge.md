@@ -1,8 +1,8 @@
 ---
-title: "Buridan's bridge"
-slug: "buridan-s-bridge"
+title: 'Buridan''s bridge'
+slug: '00061-buridan-s-bridge'
 type: PARADOX
-summary: "Buridan's Bridge (also known as Sophism 17) is described by Jean Buridan, one of the most famous and influential philosophers of the Late Middle Ages, in his book Sophismata. It is a self-referential paradox that involves a proposition pronounced about an event that might or might not happen in the future."
+summary: 'Buridan''s Bridge (also known as Sophism 17) is described by Jean Buridan, one of the most famous and influential philosophers of the Late Middle Ages, in his book Sophismata. It is a self-referential paradox that involves a proposition pronounced about an event that might or might not happen in the future.'
 tags:
   - paradox
 axioms:

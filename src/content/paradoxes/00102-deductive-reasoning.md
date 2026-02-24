@@ -1,8 +1,8 @@
 ---
-title: "Deductive reasoning"
-slug: "deductive-reasoning"
+title: 'Deductive reasoning'
+slug: '00102-deductive-reasoning'
 type: PARADOX
-summary: "Deductive reasoning is the process of drawing valid inferences. An inference is valid if its conclusion follows logically from its premises, meaning that it is impossible for the premises to be true and the conclusion to be false."
+summary: 'Deductive reasoning is the process of drawing valid inferences. An inference is valid if its conclusion follows logically from its premises, meaning that it is impossible for the premises to be true and the conclusion to be false.'
 tags:
   - logic
 axioms:

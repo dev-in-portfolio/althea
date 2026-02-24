@@ -1,8 +1,8 @@
 ---
-title: "The Paradox of Choice"
-slug: "the-paradox-of-choice"
+title: 'The Paradox of Choice'
+slug: '00447-the-paradox-of-choice'
 type: PARADOX
-summary: "The Paradox of Choice – Why More Is Less is a book about overchoice written by American psychologist Barry Schwartz and first published in 2004 by Harper Perennial. In the book, Schwartz argues that eliminating consumer choices can greatly reduce anxiety for shoppers."
+summary: 'The Paradox of Choice – Why More Is Less is a book about overchoice written by American psychologist Barry Schwartz and first published in 2004 by Harper Perennial. In the book, Schwartz argues that eliminating consumer choices can greatly reduce anxiety for shoppers.'
 tags:
   - psychology
   - choice

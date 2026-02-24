@@ -1,8 +1,8 @@
 ---
-title: "Barbershop paradox"
-slug: "barbershop-paradox"
+title: 'Barbershop paradox'
+slug: '00034-barbershop-paradox'
 type: PARADOX
-summary: "The barbershop paradox was proposed by Lewis Carroll in a three-page essay titled 'A Logical Paradox', which appeared in the July 1894 issue of Mind. The name comes from the 'ornamental' short story that Carroll uses in the article to illustrate the paradox."
+summary: 'The barbershop paradox was proposed by Lewis Carroll in a three-page essay titled ''A Logical Paradox'', which appeared in the July 1894 issue of Mind. The name comes from the ''ornamental'' short story that Carroll uses in the article to illustrate the paradox.'
 tags:
   - logic
 axioms:

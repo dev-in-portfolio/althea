@@ -1,8 +1,8 @@
 ---
-title: "Stockdale paradox"
-slug: "stockdale-paradox"
+title: 'Stockdale paradox'
+slug: '00427-stockdale-paradox'
 type: PARADOX
-summary: "James Bond Stockdale (December 23, 1923 – July 5, 2005) was a U.S. Navy vice admiral, aviator, and Stoic philosopher who received the Medal of Honor in 1976 for his leadership as a POW for more than seven years during the Vietnam War. Stockdale was the most senior naval officer held captive in Hanoi, North Vietnam."
+summary: 'James Bond Stockdale (December 23, 1923 – July 5, 2005) was a U.S. Navy vice admiral, aviator, and Stoic philosopher who received the Medal of Honor in 1976 for his leadership as a POW for more than seven years during the Vietnam War. Stockdale was the most senior naval officer held captive in Hanoi, North Vietnam.'
 tags:
   - paradox
 axioms:

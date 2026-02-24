@@ -1,8 +1,8 @@
 ---
-title: "Impossible object"
-slug: "impossible-object"
+title: 'Impossible object'
+slug: '00203-impossible-object'
 type: PARADOX
-summary: "An impossible object (also known as an impossible figure or an undecidable figure) is a type of optical illusion that consists of a two-dimensional figure which is instantly and naturally understood as representing a projection of a three-dimensional object but cannot exist as a solid object. Impossible objects are of interest to psychologists, mathematicians and artists without falling entirely into any one discipli"
+summary: 'An impossible object (also known as an impossible figure or an undecidable figure) is a type of optical illusion that consists of a two-dimensional figure which is instantly and naturally understood as representing a projection of a three-dimensional object but cannot exist as a solid object. Impossible objects are of interest to psychologists, mathematicians and artists without falling entirely into any one discipli'
 tags:
   - psychology
 axioms:

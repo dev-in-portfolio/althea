@@ -1,8 +1,8 @@
 ---
-title: "Performative contradiction"
-slug: "performative-contradiction"
+title: 'Performative contradiction'
+slug: '00347-performative-contradiction'
 type: PARADOX
-summary: "A performative contradiction (German: performativer Widerspruch) arises when the making of an utterance rests on necessary presuppositions that contradict the proposition asserted in the utterance. The term was coined by Jürgen Habermas and Karl-Otto Apel, who attribute the first elaboration of the concept to Jaakko Hintikka, in his analysis of Descartes' cogito ergo sum argument."
+summary: 'A performative contradiction (German: performativer Widerspruch) arises when the making of an utterance rests on necessary presuppositions that contradict the proposition asserted in the utterance. The term was coined by Jürgen Habermas and Karl-Otto Apel, who attribute the first elaboration of the concept to Jaakko Hintikka, in his analysis of Descartes'' cogito ergo sum argument.'
 tags:
   - paradox
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Philosophy of mind"
-slug: "philosophy-of-mind"
+title: 'Philosophy of mind'
+slug: '00625-philosophy-of-mind'
 type: THOUGHT_EXPERIMENT
-summary: "Philosophy of mind is a branch of philosophy that deals with the nature of the mind and its relation to the body and the external world. The mind–body problem is a paradigmatic issue in philosophy of mind, although a number of other issues are addressed, such as the hard problem of consciousness and the nature of particular mental states."
+summary: 'Philosophy of mind is a branch of philosophy that deals with the nature of the mind and its relation to the body and the external world. The mind–body problem is a paradigmatic issue in philosophy of mind, although a number of other issues are addressed, such as the hard problem of consciousness and the nature of particular mental states.'
 tags:
   - paradox
 axioms:

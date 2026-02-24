@@ -1,8 +1,8 @@
 ---
-title: "Thomson's lamp"
-slug: "thomson-s-lamp"
+title: 'Thomson''s lamp'
+slug: '00452-thomson-s-lamp'
 type: PARADOX
-summary: "Thomson's lamp is a philosophical thought experiment based on infinites. It was devised in 1954 by British philosopher James F. Thomson, who used it to analyze the possibility of a supertask, which is the completion of an infinite number of tasks."
+summary: 'Thomson''s lamp is a philosophical thought experiment based on infinites. It was devised in 1954 by British philosopher James F. Thomson, who used it to analyze the possibility of a supertask, which is the completion of an infinite number of tasks.'
 tags:
   - paradox
 axioms:

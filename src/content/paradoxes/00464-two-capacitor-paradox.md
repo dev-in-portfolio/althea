@@ -1,8 +1,8 @@
 ---
-title: "Two capacitor paradox"
-slug: "two-capacitor-paradox"
+title: 'Two capacitor paradox'
+slug: '00464-two-capacitor-paradox'
 type: PARADOX
-summary: "The two capacitor paradox or capacitor paradox is a paradox, or counterintuitive thought experiment, in electric circuit theory. The thought experiment is usually described as follows: Two identical capacitors are connected in parallel with an open switch between them."
+summary: 'The two capacitor paradox or capacitor paradox is a paradox, or counterintuitive thought experiment, in electric circuit theory. The thought experiment is usually described as follows: Two identical capacitors are connected in parallel with an open switch between them.'
 tags:
   - paradox
 axioms:

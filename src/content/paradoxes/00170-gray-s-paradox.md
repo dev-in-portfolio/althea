@@ -1,8 +1,8 @@
 ---
-title: "Gray's paradox"
-slug: "gray-s-paradox"
+title: 'Gray''s paradox'
+slug: '00170-gray-s-paradox'
 type: PARADOX
-summary: "Gray's Paradox is a paradox posed in 1936 by British zoologist Sir James Gray. The paradox was to figure out how dolphins can obtain such high speeds and accelerations with what appears to be a small muscle mass."
+summary: 'Gray''s Paradox is a paradox posed in 1936 by British zoologist Sir James Gray. The paradox was to figure out how dolphins can obtain such high speeds and accelerations with what appears to be a small muscle mass.'
 tags:
   - paradox
 axioms:

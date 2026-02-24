@@ -1,8 +1,8 @@
 ---
-title: "Lottery paradox"
-slug: "lottery-paradox"
+title: 'Lottery paradox'
+slug: '00250-lottery-paradox'
 type: PARADOX
-summary: "The lottery paradox arises from Henry E. Kyburg Jr. considering a fair 1,000-ticket lottery that has exactly one winning ticket."
+summary: 'The lottery paradox arises from Henry E. Kyburg Jr. considering a fair 1,000-ticket lottery that has exactly one winning ticket.'
 tags:
   - paradox
 axioms:

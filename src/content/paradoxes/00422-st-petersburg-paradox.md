@@ -1,8 +1,8 @@
 ---
-title: "St. Petersburg paradox"
-slug: "st-petersburg-paradox"
+title: 'St. Petersburg paradox'
+slug: '00422-st-petersburg-paradox'
 type: PARADOX
-summary: "The St. Petersburg paradox or St."
+summary: 'The St. Petersburg paradox or St.'
 tags:
   - paradox
 axioms:

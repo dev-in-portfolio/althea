@@ -1,8 +1,8 @@
 ---
-title: "Paradox of suspense"
-slug: "paradox-of-suspense"
+title: 'Paradox of suspense'
+slug: '00329-paradox-of-suspense'
 type: PARADOX
-summary: "Suspense is a state of anxiety or excitement caused by mysteriousness, uncertainty, doubt, or undecidedness. In a narrative work, suspense is the audience's excited anticipation about the plot or conflict (which may be heightened by a violent moment, stressful scene, puzzle, mystery, etc.), particularly as it affects a character for whom the audience feels sympathy."
+summary: 'Suspense is a state of anxiety or excitement caused by mysteriousness, uncertainty, doubt, or undecidedness. In a narrative work, suspense is the audience''s excited anticipation about the plot or conflict (which may be heightened by a violent moment, stressful scene, puzzle, mystery, etc.), particularly as it affects a character for whom the audience feels sympathy.'
 tags:
   - paradox
 axioms:

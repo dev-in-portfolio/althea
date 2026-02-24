@@ -1,8 +1,8 @@
 ---
-title: "Glucose paradox"
-slug: "glucose-paradox"
+title: 'Glucose paradox'
+slug: '00166-glucose-paradox'
 type: PARADOX
-summary: "The glucose paradox was the observation that the large amount of glycogen in the liver was not explained by the small amount of glucose absorbed. The explanation was that the majority of glycogen is made from a number of substances other than glucose."
+summary: 'The glucose paradox was the observation that the large amount of glycogen in the liver was not explained by the small amount of glucose absorbed. The explanation was that the majority of glycogen is made from a number of substances other than glucose.'
 tags:
   - paradox
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Sorites paradox"
-slug: "sorites-paradox"
+title: 'Sorites paradox'
+slug: '00418-sorites-paradox'
 type: PARADOX
-summary: "The sorites paradox (), sometimes known as the paradox of the heap, is a paradox that results from vague predicates. A typical formulation involves a heap of sand, from which grains are removed individually."
+summary: 'The sorites paradox (), sometimes known as the paradox of the heap, is a paradox that results from vague predicates. A typical formulation involves a heap of sand, from which grains are removed individually.'
 tags:
   - vagueness
   - time
@@ -27,6 +27,7 @@ prompts:
   - What is conserved, and what is sacrificed?
 sources:
   - https://en.wikipedia.org/wiki/Sorites_paradox
+  - https://plato.stanford.edu/entries/sorites-paradox/
 order: 418
 ---
 ## Overview

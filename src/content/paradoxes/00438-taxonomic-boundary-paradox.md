@@ -1,8 +1,8 @@
 ---
-title: "Taxonomic boundary paradox"
-slug: "taxonomic-boundary-paradox"
+title: 'Taxonomic boundary paradox'
+slug: '00438-taxonomic-boundary-paradox'
 type: PARADOX
-summary: "The term boundary paradox refers to the conflict between traditional, rank-based classification of life and evolutionary thinking. In the hierarchy of ranked categories it is implicitly assumed that the morphological gap is growing along with increasing ranks: two species from the same genus are more similar than other two species from different genera in the same family, these latter two species are more similar tha"
+summary: 'The term boundary paradox refers to the conflict between traditional, rank-based classification of life and evolutionary thinking. In the hierarchy of ranked categories it is implicitly assumed that the morphological gap is growing along with increasing ranks: two species from the same genus are more similar than other two species from different genera in the same family, these latter two species are more similar tha'
 tags:
   - logic
 axioms:

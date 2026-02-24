@@ -1,8 +1,8 @@
 ---
-title: "Impossible cube"
-slug: "impossible-cube"
+title: 'Impossible cube'
+slug: '00202-impossible-cube'
 type: PARADOX
-summary: "The impossible cube or irrational cube is an impossible object invented by M.C. Escher for his 1958 print Belvedere. It is a two-dimensional figure that superficially resembles a perspective drawing of a three-dimensional cube, with its features drawn inconsistently from the way they would appear in an actual cube."
+summary: 'The impossible cube or irrational cube is an impossible object invented by M.C. Escher for his 1958 print Belvedere. It is a two-dimensional figure that superficially resembles a perspective drawing of a three-dimensional cube, with its features drawn inconsistently from the way they would appear in an actual cube.'
 tags:
   - paradox
 axioms:

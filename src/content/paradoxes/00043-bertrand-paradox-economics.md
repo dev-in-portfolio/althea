@@ -1,8 +1,8 @@
 ---
-title: "Bertrand paradox (economics)"
-slug: "bertrand-paradox-economics"
+title: 'Bertrand paradox (economics)'
+slug: '00043-bertrand-paradox-economics'
 type: PARADOX
-summary: "In economics and commerce, the Bertrand paradox — named after its creator, Joseph Bertrand — describes a situation in which two players (firms) reach a state of Nash equilibrium where both firms charge a price equal to marginal cost ('MC'). The paradox is that in models such as Cournot competition, an increase in the number of firms is associated with a convergence of prices to marginal costs."
+summary: 'In economics and commerce, the Bertrand paradox — named after its creator, Joseph Bertrand — describes a situation in which two players (firms) reach a state of Nash equilibrium where both firms charge a price equal to marginal cost (''MC''). The paradox is that in models such as Cournot competition, an increase in the number of firms is associated with a convergence of prices to marginal costs.'
 tags:
   - economics
 axioms:

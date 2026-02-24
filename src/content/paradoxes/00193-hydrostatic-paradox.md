@@ -1,8 +1,8 @@
 ---
-title: "Hydrostatic paradox"
-slug: "hydrostatic-paradox"
+title: 'Hydrostatic paradox'
+slug: '00193-hydrostatic-paradox'
 type: PARADOX
-summary: "Vertical pressure variation is the variation in pressure as a function of elevation. Depending on the fluid in question and the context being referred to, it may also vary significantly in dimensions perpendicular to elevation as well, and these variations have relevance in the context of pressure gradient force and its effects."
+summary: 'Vertical pressure variation is the variation in pressure as a function of elevation. Depending on the fluid in question and the context being referred to, it may also vary significantly in dimensions perpendicular to elevation as well, and these variations have relevance in the context of pressure gradient force and its effects.'
 tags:
   - paradox
 axioms:

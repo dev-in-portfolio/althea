@@ -1,8 +1,8 @@
 ---
-title: "Einstein's thought experiments"
-slug: "einstein-s-thought-experiments"
+title: 'Einstein''s thought experiments'
+slug: '00542-einstein-s-thought-experiments'
 type: THOUGHT_EXPERIMENT
-summary: "A hallmark of Albert Einstein's career was his use of visualized thought experiments (German: Gedankenexperiment) as a fundamental tool for understanding physical issues and for elucidating his concepts to others. Einstein's thought experiments took diverse forms."
+summary: 'A hallmark of Albert Einstein''s career was his use of visualized thought experiments (German: Gedankenexperiment) as a fundamental tool for understanding physical issues and for elucidating his concepts to others. Einstein''s thought experiments took diverse forms.'
 tags:
   - paradox
 axioms:

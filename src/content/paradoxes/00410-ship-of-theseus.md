@@ -1,8 +1,8 @@
 ---
-title: "Ship of Theseus"
-slug: "ship-of-theseus"
+title: 'Ship of Theseus'
+slug: '00410-ship-of-theseus'
 type: PARADOX
-summary: "The Ship of Theseus, also known as Theseus's Paradox, is a paradox and common thought experiment about whether an object (in the most common stating of the paradox, a ship) is the same object after having all of its original components replaced with others over time. In Greek mythology, Theseus, the mythical king of the city of Athens, rescued the children of Athens from King Minos after slaying the Minotaur and then"
+summary: 'The Ship of Theseus, also known as Theseus''s Paradox, is a paradox and common thought experiment about whether an object (in the most common stating of the paradox, a ship) is the same object after having all of its original components replaced with others over time. In Greek mythology, Theseus, the mythical king of the city of Athens, rescued the children of Athens from King Minos after slaying the Minotaur and then'
 tags:
   - time
 axioms:

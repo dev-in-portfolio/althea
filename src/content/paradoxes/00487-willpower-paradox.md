@@ -1,8 +1,8 @@
 ---
-title: "Willpower paradox"
-slug: "willpower-paradox"
+title: 'Willpower paradox'
+slug: '00487-willpower-paradox'
 type: PARADOX
-summary: "The willpower paradox is the idea that people may do things better by focusing less directly on doing them, implying that the direct exertion of volition may not always be the most powerful way to accomplish a goal. Research suggests that intrapersonal communication (talking to oneself) and maintaining a questioning mind are more likely to bring change."
+summary: 'The willpower paradox is the idea that people may do things better by focusing less directly on doing them, implying that the direct exertion of volition may not always be the most powerful way to accomplish a goal. Research suggests that intrapersonal communication (talking to oneself) and maintaining a questioning mind are more likely to bring change.'
 tags:
   - paradox
 axioms:

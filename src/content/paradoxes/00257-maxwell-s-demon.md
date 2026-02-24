@@ -1,8 +1,8 @@
 ---
-title: "Maxwell's demon"
-slug: "maxwell-s-demon"
+title: 'Maxwell''s demon'
+slug: '00257-maxwell-s-demon'
 type: PARADOX
-summary: "Maxwell's demon is a thought experiment that appears to disprove the second law of thermodynamics. It was proposed by the physicist James Clerk Maxwell in 1867."
+summary: 'Maxwell''s demon is a thought experiment that appears to disprove the second law of thermodynamics. It was proposed by the physicist James Clerk Maxwell in 1867.'
 tags:
   - paradox
 axioms:

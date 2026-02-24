@@ -1,8 +1,8 @@
 ---
-title: "Acosmism"
-slug: "acosmism"
+title: 'Acosmism'
+slug: '00007-acosmism'
 type: PARADOX
-summary: "Acosmism, held in contrast or equivalent to pantheism, denies the reality of the universe, seeing it as ultimately illusory (the prefix 'ἀ-' in Greek meaning negation; like 'un-' in English), and only the infinite unmanifest Absolute as real. Conceptual versions of Acosmism are found in eastern and western philosophies."
+summary: 'Acosmism, held in contrast or equivalent to pantheism, denies the reality of the universe, seeing it as ultimately illusory (the prefix ''ἀ-'' in Greek meaning negation; like ''un-'' in English), and only the infinite unmanifest Absolute as real. Conceptual versions of Acosmism are found in eastern and western philosophies.'
 tags:
   - paradox
 axioms:

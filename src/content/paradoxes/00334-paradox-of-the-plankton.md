@@ -1,8 +1,8 @@
 ---
-title: "Paradox of the plankton"
-slug: "paradox-of-the-plankton"
+title: 'Paradox of the plankton'
+slug: '00334-paradox-of-the-plankton'
 type: PARADOX
-summary: "In aquatic biology, the paradox of the plankton describes the situation in which a limited range of resources supports an unexpectedly wide range of plankton species, apparently flouting the competitive exclusion principle, which holds that when two species compete for the same resource, one will be driven to extinction."
+summary: 'In aquatic biology, the paradox of the plankton describes the situation in which a limited range of resources supports an unexpectedly wide range of plankton species, apparently flouting the competitive exclusion principle, which holds that when two species compete for the same resource, one will be driven to extinction.'
 tags:
   - paradox
 axioms:

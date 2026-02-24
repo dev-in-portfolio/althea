@@ -1,8 +1,8 @@
 ---
-title: "Stability–instability paradox"
-slug: "stability-instability-paradox"
+title: 'Stability–instability paradox'
+slug: '00423-stability-instability-paradox'
 type: PARADOX
-summary: "The stability–instability paradox is an international relations theory first developed by Glenn Snyder regarding the effect of nuclear weapons and mutually assured destruction. It states that when two countries each have nuclear weapons, the probability of a direct war between them greatly decreases, but the probability of minor or indirect conflicts between them increases."
+summary: 'The stability–instability paradox is an international relations theory first developed by Glenn Snyder regarding the effect of nuclear weapons and mutually assured destruction. It states that when two countries each have nuclear weapons, the probability of a direct war between them greatly decreases, but the probability of minor or indirect conflicts between them increases.'
 tags:
   - probability
 axioms:

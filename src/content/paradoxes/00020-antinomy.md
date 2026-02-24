@@ -1,8 +1,8 @@
 ---
-title: "Antinomy"
-slug: "antinomy"
+title: 'Antinomy'
+slug: '00020-antinomy'
 type: PARADOX
-summary: "In philosophy, an antinomy (; Ancient Greek: antí 'against' + nómos 'law') is a real or apparent contradiction between two conclusions, both of which seem justified. It is a term used in logic and epistemology, particularly in the philosophy of Immanuel Kant."
+summary: 'In philosophy, an antinomy (; Ancient Greek: antí ''against'' + nómos ''law'') is a real or apparent contradiction between two conclusions, both of which seem justified. It is a term used in logic and epistemology, particularly in the philosophy of Immanuel Kant.'
 tags:
   - logic
 axioms:

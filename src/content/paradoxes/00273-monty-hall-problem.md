@@ -1,8 +1,8 @@
 ---
-title: "Monty Hall problem"
-slug: "monty-hall-problem"
+title: 'Monty Hall problem'
+slug: '00273-monty-hall-problem'
 type: PARADOX
-summary: "The Monty Hall problem is a brain teaser, in the form of a probability puzzle, based nominally on the American television game show Let's Make a Deal and named after its original host, Monty Hall. The problem was originally posed in a letter by Steve Selvin to the American Statistician in 1975."
+summary: 'The Monty Hall problem is a brain teaser, in the form of a probability puzzle, based nominally on the American television game show Let''s Make a Deal and named after its original host, Monty Hall. The problem was originally posed in a letter by Steve Selvin to the American Statistician in 1975.'
 tags:
   - probability
   - statistics

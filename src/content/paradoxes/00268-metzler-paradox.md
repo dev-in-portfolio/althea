@@ -1,8 +1,8 @@
 ---
-title: "Metzler paradox"
-slug: "metzler-paradox"
+title: 'Metzler paradox'
+slug: '00268-metzler-paradox'
 type: PARADOX
-summary: "In economics, the Metzler paradox (named after the American economist Lloyd Metzler) is the theoretical possibility that the imposition of a tariff on imports may reduce the relative internal price of that good. It was proposed by Lloyd Metzler in 1949 upon examination of tariffs within the Heckscher–Ohlin model."
+summary: 'In economics, the Metzler paradox (named after the American economist Lloyd Metzler) is the theoretical possibility that the imposition of a tariff on imports may reduce the relative internal price of that good. It was proposed by Lloyd Metzler in 1949 upon examination of tariffs within the Heckscher–Ohlin model.'
 tags:
   - economics
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Condorcet paradox"
-slug: "condorcet-paradox"
+title: 'Condorcet paradox'
+slug: '00085-condorcet-paradox'
 type: PARADOX
-summary: "In social choice theory, Condorcet's voting paradox (also called Condorcet's paradox or the Condorcet paradox) is a fundamental discovery by the Marquis de Condorcet that majority rule is inherently self-contradictory. The result implies that it is logically impossible for any voting system to guarantee that a winner will have support from a majority of voters; for example, there can be rock-paper-scissors scenarios "
+summary: 'In social choice theory, Condorcet''s voting paradox (also called Condorcet''s paradox or the Condorcet paradox) is a fundamental discovery by the Marquis de Condorcet that majority rule is inherently self-contradictory. The result implies that it is logically impossible for any voting system to guarantee that a winner will have support from a majority of voters; for example, there can be rock-paper-scissors scenarios '
 tags:
   - logic
   - choice

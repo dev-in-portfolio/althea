@@ -1,8 +1,8 @@
 ---
-title: "Carroll's paradox"
-slug: "carroll-s-paradox"
+title: 'Carroll''s paradox'
+slug: '00070-carroll-s-paradox'
 type: PARADOX
-summary: "In physics, Carroll's paradox arises when considering the motion of a falling rigid rod that is specially constrained. Considered one way, the angular momentum stays constant; considered in a different way, it changes."
+summary: 'In physics, Carroll''s paradox arises when considering the motion of a falling rigid rod that is specially constrained. Considered one way, the angular momentum stays constant; considered in a different way, it changes.'
 tags:
   - physics
 axioms:

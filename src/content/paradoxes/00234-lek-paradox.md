@@ -1,8 +1,8 @@
 ---
-title: "Lek paradox"
-slug: "lek-paradox"
+title: 'Lek paradox'
+slug: '00234-lek-paradox'
 type: PARADOX
-summary: "The lek paradox is a conundrum in evolutionary biology that addresses the persistence of genetic variation in male traits within lek mating systems, despite strong sexual selection through female choice. This paradox arises from the expectation that consistent female preference for particular male traits should erode genetic diversity, theoretically leading to a loss of the benefits of choice."
+summary: 'The lek paradox is a conundrum in evolutionary biology that addresses the persistence of genetic variation in male traits within lek mating systems, despite strong sexual selection through female choice. This paradox arises from the expectation that consistent female preference for particular male traits should erode genetic diversity, theoretically leading to a loss of the benefits of choice.'
 tags:
   - choice
 axioms:

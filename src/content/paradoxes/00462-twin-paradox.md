@@ -1,8 +1,8 @@
 ---
-title: "Twin paradox"
-slug: "twin-paradox"
+title: 'Twin paradox'
+slug: '00462-twin-paradox'
 type: PARADOX
-summary: "In physics, the twin paradox is a thought experiment in special relativity involving twins, one of whom takes a space voyage at relativistic speeds and returns home to find that the twin who remained on Earth has aged more. This result appears puzzling because each twin sees the other twin as moving, and so, as a consequence of an incorrect and naive application of time dilation and the principle of relativity, each "
+summary: 'In physics, the twin paradox is a thought experiment in special relativity involving twins, one of whom takes a space voyage at relativistic speeds and returns home to find that the twin who remained on Earth has aged more. This result appears puzzling because each twin sees the other twin as moving, and so, as a consequence of an incorrect and naive application of time dilation and the principle of relativity, each '
 tags:
   - time
   - physics

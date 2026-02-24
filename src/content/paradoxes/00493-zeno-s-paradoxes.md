@@ -1,8 +1,8 @@
 ---
-title: "Zeno's paradoxes"
-slug: "zeno-s-paradoxes"
+title: 'Zeno''s paradoxes'
+slug: '00493-zeno-s-paradoxes'
 type: PARADOX
-summary: "Zeno's paradoxes are a series of philosophical arguments presented by the ancient Greek philosopher Zeno of Elea (c. 490–430 BC), primarily known through the works of Plato, Aristotle, and later commentators like Simplicius of Cilicia."
+summary: 'Zeno''s paradoxes are a series of philosophical arguments presented by the ancient Greek philosopher Zeno of Elea (c. 490–430 BC), primarily known through the works of Plato, Aristotle, and later commentators like Simplicius of Cilicia.'
 tags:
   - paradox
 axioms:
@@ -25,7 +25,9 @@ prompts:
   - Does the paradox dissolve or relocate when reframed?
   - What is conserved, and what is sacrificed?
 sources:
-  - https://en.wikipedia.org/wiki/Zeno's_paradoxes
+  - https://en.wikipedia.org/wiki/
+  - https://iep.utm.edu/zenos-paradoxes/
+Zeno's_paradoxes
 order: 493
 ---
 ## Overview

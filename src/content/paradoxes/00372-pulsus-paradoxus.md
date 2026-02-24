@@ -1,8 +1,8 @@
 ---
-title: "Pulsus paradoxus"
-slug: "pulsus-paradoxus"
+title: 'Pulsus paradoxus'
+slug: '00372-pulsus-paradoxus'
 type: PARADOX
-summary: "Pulsus paradoxus, also paradoxic pulse or paradoxical pulse, is an abnormally large decrease in stroke volume, systolic blood pressure (a drop more than 10 mmHg) and pulse wave amplitude during inspiration. Pulsus paradoxus is not related to pulse rate or heart rate, and it is not a paradoxical rise in systolic pressure."
+summary: 'Pulsus paradoxus, also paradoxic pulse or paradoxical pulse, is an abnormally large decrease in stroke volume, systolic blood pressure (a drop more than 10 mmHg) and pulse wave amplitude during inspiration. Pulsus paradoxus is not related to pulse rate or heart rate, and it is not a paradoxical rise in systolic pressure.'
 tags:
   - paradox
 axioms:

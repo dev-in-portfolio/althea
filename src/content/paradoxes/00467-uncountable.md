@@ -1,8 +1,8 @@
 ---
-title: "Uncountable"
-slug: "uncountable"
+title: 'Uncountable'
+slug: '00467-uncountable'
 type: PARADOX
-summary: "In mathematics, an uncountable set, informally, is an infinite set that contains too many elements to be countable. The uncountability of a set is closely related to its cardinal number: a set is uncountable if its cardinal number is larger than aleph-null, the cardinality of the natural numbers."
+summary: 'In mathematics, an uncountable set, informally, is an infinite set that contains too many elements to be countable. The uncountability of a set is closely related to its cardinal number: a set is uncountable if its cardinal number is larger than aleph-null, the cardinality of the natural numbers.'
 tags:
   - set-theory
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Aporia"
-slug: "aporia"
+title: 'Aporia'
+slug: '00502-aporia'
 type: THOUGHT_EXPERIMENT
-summary: "In philosophy, an aporia (Ancient Greek: ᾰ̓πορῐ́ᾱ, romanized: aporíā, lit. ''lacking passage', also: 'impasse', 'difficulty in passage', 'puzzlement'') is a conundrum or state of puzzlement. In rhetoric, it is a declaration of doubt, made for rhetorical purpose and often feigned."
+summary: 'In philosophy, an aporia (Ancient Greek: ᾰ̓πορῐ́ᾱ, romanized: aporíā, lit. ''''lacking passage'', also: ''impasse'', ''difficulty in passage'', ''puzzlement'''') is a conundrum or state of puzzlement. In rhetoric, it is a declaration of doubt, made for rhetorical purpose and often feigned.'
 tags:
   - paradox
 axioms:

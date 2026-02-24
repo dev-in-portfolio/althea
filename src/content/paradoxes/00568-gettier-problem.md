@@ -1,8 +1,8 @@
 ---
-title: "Gettier problem"
-slug: "gettier-problem"
+title: 'Gettier problem'
+slug: '00568-gettier-problem'
 type: THOUGHT_EXPERIMENT
-summary: "The Gettier problem, in the field of epistemology, is a landmark philosophical problem concerning the understanding of descriptive knowledge. Attributed to American philosopher Edmund Gettier, Gettier-type counterexamples (called 'Gettier-cases') challenge the long-held justified true belief (JTB) account of knowledge."
+summary: 'The Gettier problem, in the field of epistemology, is a landmark philosophical problem concerning the understanding of descriptive knowledge. Attributed to American philosopher Edmund Gettier, Gettier-type counterexamples (called ''Gettier-cases'') challenge the long-held justified true belief (JTB) account of knowledge.'
 tags:
   - paradox
 axioms:

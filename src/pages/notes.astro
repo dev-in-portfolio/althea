@@ -15,6 +15,7 @@ const entries = (await getCollection("paradoxes")).map((entry) => ({
     <h1>Notes</h1>
     <p>All notes grouped by entry.</p>
     <div class="notes-list" data-notes-list></div>
+    <div class="empty-state" data-notes-empty hidden>No notes yet. Add notes on any entry.</div>
   </section>
   <script is:inline define:vars={{ entries }}>
     window.__ENTRIES__ = entries;

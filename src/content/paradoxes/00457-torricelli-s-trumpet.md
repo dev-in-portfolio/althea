@@ -1,8 +1,8 @@
 ---
-title: "Torricelli's trumpet"
-slug: "torricelli-s-trumpet"
+title: 'Torricelli''s trumpet'
+slug: '00457-torricelli-s-trumpet'
 type: PARADOX
-summary: "A Gabriel's horn (also called Torricelli's trumpet) is a type of geometric figure that has infinite surface area but finite volume. The name refers to the Christian idea that the archangel Gabriel will one day blow his horn to announce Judgment Day."
+summary: 'A Gabriel''s horn (also called Torricelli''s trumpet) is a type of geometric figure that has infinite surface area but finite volume. The name refers to the Christian idea that the archangel Gabriel will one day blow his horn to announce Judgment Day.'
 tags:
   - paradox
 axioms:

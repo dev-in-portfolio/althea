@@ -1,8 +1,8 @@
 ---
-title: "Problem of evil"
-slug: "problem-of-evil"
+title: 'Problem of evil'
+slug: '00367-problem-of-evil'
 type: PARADOX
-summary: "The problem of evil, also known as the problem of suffering, is the philosophical question of how to reconcile the existence of evil and suffering with an omnipotent, omnibenevolent, and omniscient God. There are currently differing definitions of these concepts."
+summary: 'The problem of evil, also known as the problem of suffering, is the philosophical question of how to reconcile the existence of evil and suffering with an omnipotent, omnibenevolent, and omniscient God. There are currently differing definitions of these concepts.'
 tags:
   - paradox
 axioms:

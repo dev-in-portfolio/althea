@@ -1,8 +1,8 @@
 ---
-title: "Cantor's diagonal argument"
-slug: "cantor-s-diagonal-argument"
+title: 'Cantor''s diagonal argument'
+slug: '00064-cantor-s-diagonal-argument'
 type: PARADOX
-summary: "Cantor's diagonal argument (among various similar names) is a mathematical proof that there are infinite sets which cannot be put into one-to-one correspondence with the infinite set of natural numbers – informally, that there are sets which in some sense contain more elements than there are positive integers. Such sets are now called uncountable sets, and the size of infinite sets is treated by the theory of cardina"
+summary: 'Cantor''s diagonal argument (among various similar names) is a mathematical proof that there are infinite sets which cannot be put into one-to-one correspondence with the infinite set of natural numbers – informally, that there are sets which in some sense contain more elements than there are positive integers. Such sets are now called uncountable sets, and the size of infinite sets is treated by the theory of cardina'
 tags:
   - set-theory
 axioms:

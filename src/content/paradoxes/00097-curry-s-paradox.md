@@ -1,8 +1,8 @@
 ---
-title: "Curry's paradox"
-slug: "curry-s-paradox"
+title: 'Curry''s paradox'
+slug: '00097-curry-s-paradox'
 type: PARADOX
-summary: "Curry's paradox is a paradox in which an arbitrary claim F is proved from the mere existence of a sentence C that says of itself 'If C, then F'. The paradox requires only a few apparently-innocuous logical deduction rules."
+summary: 'Curry''s paradox is a paradox in which an arbitrary claim F is proved from the mere existence of a sentence C that says of itself ''If C, then F''. The paradox requires only a few apparently-innocuous logical deduction rules.'
 tags:
   - logic
 axioms:

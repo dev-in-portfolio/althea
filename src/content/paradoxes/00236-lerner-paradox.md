@@ -1,8 +1,8 @@
 ---
-title: "Lerner paradox"
-slug: "lerner-paradox"
+title: 'Lerner paradox'
+slug: '00236-lerner-paradox'
 type: PARADOX
-summary: "In economics, the Lerner paradox is the theoretical possibility that imposing tariffs raises the world price of the import good, causing a deterioration of the tariff-imposing country's terms of trade. Abba Lerner showed the possibility in his 1936 article."
+summary: 'In economics, the Lerner paradox is the theoretical possibility that imposing tariffs raises the world price of the import good, causing a deterioration of the tariff-imposing country''s terms of trade. Abba Lerner showed the possibility in his 1936 article.'
 tags:
   - economics
 axioms:

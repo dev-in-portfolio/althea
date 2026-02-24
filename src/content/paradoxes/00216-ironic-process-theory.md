@@ -1,8 +1,8 @@
 ---
-title: "Ironic process theory"
-slug: "ironic-process-theory"
+title: 'Ironic process theory'
+slug: '00216-ironic-process-theory'
 type: PARADOX
-summary: "In psychology, ironic process theory (IPT), also known as the pink elephant paradox or white bear phenomenon, suggests that when an individual intentionally tries to avoid thinking a certain thought or feeling a certain emotion, a paradoxical effect is produced: the attempted avoidance not only fails in its object but in fact causes the thought or emotion to occur more frequently and more intensely. IPT is also known"
+summary: 'In psychology, ironic process theory (IPT), also known as the pink elephant paradox or white bear phenomenon, suggests that when an individual intentionally tries to avoid thinking a certain thought or feeling a certain emotion, a paradoxical effect is produced: the attempted avoidance not only fails in its object but in fact causes the thought or emotion to occur more frequently and more intensely. IPT is also known'
 tags:
   - psychology
 axioms:

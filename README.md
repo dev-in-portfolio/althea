@@ -1,15 +1,23 @@
 # Paradox Vault
 
-Paradox Vault is a browsable archive of paradoxes, thought experiments, systems, and riddles. It is local‑first and works offline; an optional Neon backend adds bookmarks and notes.
+Paradox Vault is a curated, local‑first archive of paradoxes, thought experiments, systems, and riddles. It includes a Brutalist UI, searchable catalog, and local bookmarks/notes with optional Neon sync.
 
-## Termux / Local Setup
-```sh
-npm ci
-npm run dev -- --host 0.0.0.0 --port 4321
-npm run build
-npm run preview
+## Requirements
+- Node.js 20+
+- npm 9+
+
+## Quick start (Termux-friendly)
+```bash
+npm install
+npm run dev
 ```
 Open: `http://127.0.0.1:4321/`
+
+## Build + preview
+```bash
+npm run build
+npm run preview -- --host 127.0.0.1 --port 4321
+```
 
 ## Environment
 Copy `.env.example` to `.env` and set:
@@ -17,28 +25,13 @@ Copy `.env.example` to `.env` and set:
 DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/DBNAME
 ```
 
-## SQL Migrations (Neon)
-Run `sql/001_init.sql` in the Neon SQL editor:
-```sql
-CREATE TABLE IF NOT EXISTS bookmarks (
-  user_key text NOT NULL,
-  entry_slug text NOT NULL,
-  created_at timestamptz NOT NULL DEFAULT now(),
-  PRIMARY KEY (user_key, entry_slug)
-);
-
-CREATE TABLE IF NOT EXISTS notes (
-  id bigserial PRIMARY KEY,
-  user_key text NOT NULL,
-  entry_slug text NOT NULL,
-  note_text text NOT NULL,
-  updated_at timestamptz NOT NULL DEFAULT now()
-);
-
-CREATE INDEX IF NOT EXISTS notes_user_entry_idx ON notes (user_key, entry_slug);
+## SQL migrations (Neon)
+Run:
+```bash
+psql "$DATABASE_URL" -f sql/001_init.sql
 ```
 
-## Backend Endpoints
+## Backend endpoints
 Netlify Functions:
 - `GET /api/bookmarks?userKey=...`
 - `POST /api/bookmarks` `{ userKey, entry_slug }`
@@ -47,19 +40,32 @@ Netlify Functions:
 - `POST /api/notes` `{ userKey, entry_slug, note_text, id? }`
 - `DELETE /api/notes` `{ userKey, id }`
 
-## Build Index
-The search index is generated at build time:
-```
-npm run build:index
-```
+## Dataset tooling
+Curated ingestion and QA scripts:
 
-## Smoke Tests
+- `node scripts/fetch-curated.mjs`  
+  Pulls curated entries from Wikipedia lists and entry extracts.
+
+- `node scripts/filter-curated.mjs`  
+  Filters non‑paradox entries into `src/content/_rejected` and writes `public/data/curation-report.json`.
+
+- `node scripts/enrich-sources.mjs`  
+  Adds SEP / IEP sources when available.
+
+- `node scripts/build-index.mjs`  
+  Builds `public/data/index.json` for search.
+
+- `node scripts/fix-curated.mjs` / `node scripts/normalize-slugs.mjs`  
+  YAML cleanup and slug normalization (use only if needed).
+
+## Smoke tests
 Android Chrome:
-1. Open `/vault`, search for “liar” and confirm filter results.
-2. Open an entry, add a note, and confirm it appears in `/notes`.
-3. Bookmark an entry and confirm it appears in `/bookmarks`.
+1. `/` → Random Entry works.
+2. `/vault` → Search, filter, Load More.
+3. `/vault/[slug]` → Bookmark + edit notes.
+4. `/bookmarks` and `/notes` show empty states when empty.
 
 Desktop Chrome:
-1. Filter `/vault` by type and tag; verify URL params update.
-2. Open `/tags` and verify tag pages render.
-3. Run `npm run build` without errors.
+1. `/vault` filters update URL params.
+2. `/tags` and `/tags/[tag]` render.
+3. `npm run build` completes without errors.

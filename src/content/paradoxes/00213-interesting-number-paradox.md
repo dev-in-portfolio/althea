@@ -1,8 +1,8 @@
 ---
-title: "Interesting number paradox"
-slug: "interesting-number-paradox"
+title: 'Interesting number paradox'
+slug: '00213-interesting-number-paradox'
 type: PARADOX
-summary: "The interesting number paradox is a humorous paradox which arises from the attempt to classify every natural number as either 'interesting' or 'uninteresting'. The paradox states that every natural number is interesting."
+summary: 'The interesting number paradox is a humorous paradox which arises from the attempt to classify every natural number as either ''interesting'' or ''uninteresting''. The paradox states that every natural number is interesting.'
 tags:
   - paradox
 axioms:

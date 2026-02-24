@@ -1,8 +1,8 @@
 ---
-title: "Countably infinite"
-slug: "countably-infinite"
+title: 'Countably infinite'
+slug: '00092-countably-infinite'
 type: PARADOX
-summary: "In mathematics, a set is countable if either it is finite or it can be made in one to one correspondence with the set of natural numbers. Equivalently, a set is countable if there exists an injective function from it into the natural numbers; this means that each element in the set may be associated to a unique natural number, or that the elements of the set can be counted one at a time, although the counting may nev"
+summary: 'In mathematics, a set is countable if either it is finite or it can be made in one to one correspondence with the set of natural numbers. Equivalently, a set is countable if there exists an injective function from it into the natural numbers; this means that each element in the set may be associated to a unique natural number, or that the elements of the set can be counted one at a time, although the counting may nev'
 tags:
   - set-theory
   - time

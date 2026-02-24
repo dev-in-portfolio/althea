@@ -1,8 +1,8 @@
 ---
-title: "The paradox of banknotes"
-slug: "the-paradox-of-banknotes"
+title: 'The paradox of banknotes'
+slug: '00449-the-paradox-of-banknotes'
 type: PARADOX
-summary: "In economics, the paradox of banknotes or cash paradox is the observation that while the share of cash transactions has fallen over the past few decades due to alternative forms of payment such as credit cards and other electronic payment instruments, the demand for physical currency, measured as the ratio of currency in circulation (CIC) to GDP, has been steadily increasing since the early 2000s. This phenomenon con"
+summary: 'In economics, the paradox of banknotes or cash paradox is the observation that while the share of cash transactions has fallen over the past few decades due to alternative forms of payment such as credit cards and other electronic payment instruments, the demand for physical currency, measured as the ratio of currency in circulation (CIC) to GDP, has been steadily increasing since the early 2000s. This phenomenon con'
 tags:
   - economics
 axioms:

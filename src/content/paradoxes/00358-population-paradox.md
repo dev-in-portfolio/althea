@@ -1,8 +1,8 @@
 ---
-title: "Population paradox"
-slug: "population-paradox"
+title: 'Population paradox'
+slug: '00358-population-paradox'
 type: PARADOX
-summary: "Vote-ratio, weight-ratio, or population-ratio monotonicity is a property of some apportionment methods. It says that if the entitlement for A {\displaystyle A} grows at a faster rate than B {\displaystyle B} (i.e."
+summary: 'Vote-ratio, weight-ratio, or population-ratio monotonicity is a property of some apportionment methods. It says that if the entitlement for A {\\displaystyle A} grows at a faster rate than B {\\displaystyle B} (i.e.'
 tags:
   - paradox
 axioms:

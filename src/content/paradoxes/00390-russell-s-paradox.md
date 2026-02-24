@@ -1,8 +1,8 @@
 ---
-title: "Russell's paradox"
-slug: "russell-s-paradox"
+title: 'Russell''s paradox'
+slug: '00390-russell-s-paradox'
 type: PARADOX
-summary: "In mathematical logic, Russell's paradox (also known as Russell's antinomy) is a set-theoretic paradox published by the British philosopher and mathematician, Bertrand Russell, in 1901. Russell's paradox shows that every set theory that contains an unrestricted comprehension principle leads to contradictions."
+summary: 'In mathematical logic, Russell''s paradox (also known as Russell''s antinomy) is a set-theoretic paradox published by the British philosopher and mathematician, Bertrand Russell, in 1901. Russell''s paradox shows that every set theory that contains an unrestricted comprehension principle leads to contradictions.'
 tags:
   - set-theory
   - logic

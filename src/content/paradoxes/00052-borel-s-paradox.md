@@ -1,8 +1,8 @@
 ---
-title: "Borel's paradox"
-slug: "borel-s-paradox"
+title: 'Borel''s paradox'
+slug: '00052-borel-s-paradox'
 type: PARADOX
-summary: "In probability theory, the Borel–Kolmogorov paradox (sometimes known as Borel's paradox) is a paradox relating to conditional probability with respect to an event of probability zero (also known as a null set). It is named after Émile Borel and Andrey Kolmogorov."
+summary: 'In probability theory, the Borel–Kolmogorov paradox (sometimes known as Borel''s paradox) is a paradox relating to conditional probability with respect to an event of probability zero (also known as a null set). It is named after Émile Borel and Andrey Kolmogorov.'
 tags:
   - set-theory
   - probability

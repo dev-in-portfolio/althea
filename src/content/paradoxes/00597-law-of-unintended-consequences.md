@@ -1,8 +1,8 @@
 ---
-title: "Law of unintended consequences"
-slug: "law-of-unintended-consequences"
+title: 'Law of unintended consequences'
+slug: '00597-law-of-unintended-consequences'
 type: THOUGHT_EXPERIMENT
-summary: "In the social sciences, unintended consequences (sometimes unanticipated consequences or unforeseen consequences, more colloquially called knock-on effects) are outcomes of a purposeful action that are not intended or foreseen. The term was popularized in the 20th century by American sociologist Robert K. Merton."
+summary: 'In the social sciences, unintended consequences (sometimes unanticipated consequences or unforeseen consequences, more colloquially called knock-on effects) are outcomes of a purposeful action that are not intended or foreseen. The term was popularized in the 20th century by American sociologist Robert K. Merton.'
 tags:
   - time
 axioms:

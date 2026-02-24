@@ -31,6 +31,7 @@ const tags = Array.from(new Set(entries.flatMap((e) => e.data.tags))).sort();
     </div>
     <div class="controls">
       <span class="pill" data-result-count>{entries.length} results</span>
+      <span class="pill" data-result-showing>Showing {entries.length} / {entries.length}</span>
     </div>
     <div class="notice" data-empty-state hidden>No entries match your search.</div>
   </section>
@@ -62,6 +63,9 @@ const tags = Array.from(new Set(entries.flatMap((e) => e.data.tags))).sort();
       );
     })}
   </section>
+  <div class="controls">
+    <button class="pill accent" type="button" data-load-more>Load More</button>
+  </div>
 
   <script is:inline define:vars={{ entries }}>
     window.__ENTRIES__ = entries.map((e) => ({

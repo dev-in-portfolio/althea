@@ -1,8 +1,8 @@
 ---
-title: "Parrondo's paradox"
-slug: "parrondo-s-paradox"
+title: 'Parrondo''s paradox'
+slug: '00345-parrondo-s-paradox'
 type: PARADOX
-summary: "Parrondo's paradox, a paradox in game theory, describes how a combination of losing strategies can become a winning strategy. It is named after its creator, Juan Parrondo, who discovered the paradox in 1996."
+summary: 'Parrondo''s paradox, a paradox in game theory, describes how a combination of losing strategies can become a winning strategy. It is named after its creator, Juan Parrondo, who discovered the paradox in 1996.'
 tags:
   - game-theory
 axioms:

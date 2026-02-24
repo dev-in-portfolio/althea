@@ -1,8 +1,8 @@
 ---
-title: "Movement paradox"
-slug: "movement-paradox"
+title: 'Movement paradox'
+slug: '00280-movement-paradox'
 type: PARADOX
-summary: "A movement paradox is a phenomenon of grammar that challenges the transformational approach to syntax. The importance of movement paradoxes is emphasized by those theories of syntax (e.g."
+summary: 'A movement paradox is a phenomenon of grammar that challenges the transformational approach to syntax. The importance of movement paradoxes is emphasized by those theories of syntax (e.g.'
 tags:
   - paradox
 axioms:

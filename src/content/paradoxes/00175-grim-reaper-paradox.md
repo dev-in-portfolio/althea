@@ -1,8 +1,8 @@
 ---
-title: "Grim Reaper paradox"
-slug: "grim-reaper-paradox"
+title: 'Grim Reaper paradox'
+slug: '00175-grim-reaper-paradox'
 type: PARADOX
-summary: "In philosophy, the Grim Reaper paradox is a paradox involving an infinite sequence of Grim Reapers, each tasked with killing a person if no reaper has already killed them. The paradox raises questions about the possibility of continuous time and the infinite past (temporal finitism)."
+summary: 'In philosophy, the Grim Reaper paradox is a paradox involving an infinite sequence of Grim Reapers, each tasked with killing a person if no reaper has already killed them. The paradox raises questions about the possibility of continuous time and the infinite past (temporal finitism).'
 tags:
   - time
 axioms:

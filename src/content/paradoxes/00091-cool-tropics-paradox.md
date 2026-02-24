@@ -1,8 +1,8 @@
 ---
-title: "Cool tropics paradox"
-slug: "cool-tropics-paradox"
+title: 'Cool tropics paradox'
+slug: '00091-cool-tropics-paradox'
 type: PARADOX
-summary: "The cool tropics paradox is the apparent difference between modeled estimates of tropical temperatures during warm, ice-free periods of the Cretaceous and Eocene, and the colder temperatures which proxies suggested were present. The long-standing paradox was resolved when novel proxy derived temperatures showed significantly warmer tropics during past greenhouse climates."
+summary: 'The cool tropics paradox is the apparent difference between modeled estimates of tropical temperatures during warm, ice-free periods of the Cretaceous and Eocene, and the colder temperatures which proxies suggested were present. The long-standing paradox was resolved when novel proxy derived temperatures showed significantly warmer tropics during past greenhouse climates.'
 tags:
   - paradox
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Hooper's paradox"
-slug: "hooper-s-paradox"
+title: 'Hooper''s paradox'
+slug: '00190-hooper-s-paradox'
 type: PARADOX
-summary: "Hooper's paradox is a falsidical paradox based on an optical illusion. A geometric shape with an area of 32 units is dissected into four parts, which afterwards get assembled into a rectangle with an area of only 30 units."
+summary: 'Hooper''s paradox is a falsidical paradox based on an optical illusion. A geometric shape with an area of 32 units is dissected into four parts, which afterwards get assembled into a rectangle with an area of only 30 units.'
 tags:
   - paradox
 axioms:

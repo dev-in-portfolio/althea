@@ -1,8 +1,8 @@
 ---
-title: "Taeuber Paradox"
-slug: "taeuber-paradox"
+title: 'Taeuber Paradox'
+slug: '00436-taeuber-paradox'
 type: PARADOX
-summary: "The Taeuber Paradox is a paradox in demography, which results from two seemingly contradictory expectations given a population-wide decrease in mortality, e.g. from curing or reducing the mortality of a disease in a population."
+summary: 'The Taeuber Paradox is a paradox in demography, which results from two seemingly contradictory expectations given a population-wide decrease in mortality, e.g. from curing or reducing the mortality of a disease in a population.'
 tags:
   - paradox
 axioms:

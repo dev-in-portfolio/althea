@@ -116,9 +116,11 @@ function initBookmarks(){
     const slug = btn.getAttribute("data-bookmark");
     const list = await loadBookmarks();
     btn.dataset.active = list.includes(slug) ? "true" : "false";
+    btn.textContent = list.includes(slug) ? "Bookmarked" : "Bookmark";
     btn.addEventListener("click", async () => {
       const next = await toggleBookmark(slug);
       btn.dataset.active = next.includes(slug) ? "true" : "false";
+      btn.textContent = next.includes(slug) ? "Bookmarked" : "Bookmark";
     });
   });
 }
@@ -130,9 +132,13 @@ function initSearch(){
   const typeSelect = document.querySelector("[data-filter-type]");
   const tagSelect = document.querySelector("[data-filter-tag]");
   const countEl = document.querySelector("[data-result-count]");
+  const showingEl = document.querySelector("[data-result-showing]");
   const emptyEl = document.querySelector("[data-empty-state]");
   const clearBtn = document.querySelector("[data-clear-search]");
+  const loadMoreBtn = document.querySelector("[data-load-more]");
   const rows = Array.from(list.querySelectorAll("[data-entry-card]"));
+  const pageSize = 60;
+  let visibleLimit = pageSize;
 
   const updateUrl = (q, type, tag) => {
     const params = new URLSearchParams();
@@ -148,26 +154,43 @@ function initSearch(){
     const type = typeSelect?.value || "all";
     const tag = tagSelect?.value || "all";
     let visibleCount = 0;
+    let matchCount = 0;
     rows.forEach((row) => {
       const matchQ = !q || row.dataset.search?.includes(q);
       const matchType = type === "all" || row.dataset.type === type;
       const matchTag = tag === "all" || row.dataset.tags?.split(",").includes(tag);
       const show = matchQ && matchType && matchTag;
-      row.style.display = show ? "grid" : "none";
-      if(show) visibleCount += 1;
+      if(show){
+        matchCount += 1;
+        if(visibleCount < visibleLimit){
+          row.style.display = "grid";
+          visibleCount += 1;
+        }else{
+          row.style.display = "none";
+        }
+      }else{
+        row.style.display = "none";
+      }
     });
     updateUrl(q, type, tag);
-    if(countEl) countEl.textContent = `${visibleCount} result${visibleCount === 1 ? "" : "s"}`;
+    if(countEl) countEl.textContent = `${matchCount} result${matchCount === 1 ? "" : "s"}`;
+    if(showingEl) showingEl.textContent = `Showing ${Math.min(visibleCount, matchCount)} / ${matchCount}`;
     if(emptyEl) emptyEl.hidden = visibleCount !== 0;
+    if(loadMoreBtn) loadMoreBtn.hidden = visibleLimit >= matchCount;
   };
 
   qInput?.addEventListener("input", apply);
   typeSelect?.addEventListener("change", apply);
   tagSelect?.addEventListener("change", apply);
+  loadMoreBtn?.addEventListener("click", () => {
+    visibleLimit += pageSize;
+    apply();
+  });
   clearBtn?.addEventListener("click", () => {
     if(qInput) qInput.value = "";
     if(typeSelect) typeSelect.value = "all";
     if(tagSelect) tagSelect.value = "all";
+    visibleLimit = pageSize;
     apply();
   });
 
@@ -178,17 +201,21 @@ function initSearch(){
   if(qInput) qInput.value = q;
   if(typeSelect) typeSelect.value = type;
   if(tagSelect) tagSelect.value = tag;
+  visibleLimit = pageSize;
   apply();
 }
 
 function initBookmarksPage(){
   const target = document.querySelector("[data-bookmarks-list]");
+  const empty = document.querySelector("[data-bookmarks-empty]");
   if(!target) return;
   loadBookmarks().then((items) => {
     if(!items.length){
       target.innerHTML = "<p class='entry-summary'>No bookmarks yet.</p>";
+      if(empty) empty.hidden = false;
       return;
     }
+    if(empty) empty.hidden = true;
     const map = new Map((window.__ENTRIES__ || []).map((w) => [w.slug, w]));
     target.innerHTML = items.map((slug) => {
       const entry = map.get(slug);
@@ -209,12 +236,15 @@ function initBookmarksPage(){
 
 function initNotesPage(){
   const target = document.querySelector("[data-notes-list]");
+  const empty = document.querySelector("[data-notes-empty]");
   if(!target) return;
   loadNotes().then((notes) => {
     if(!notes.length){
       target.innerHTML = "<p class='entry-summary'>No notes yet.</p>";
+      if(empty) empty.hidden = false;
       return;
     }
+    if(empty) empty.hidden = true;
     const map = new Map((window.__ENTRIES__ || []).map((w) => [w.slug, w]));
     const grouped = notes.reduce((acc, note) => {
       acc[note.entry_slug] = acc[note.entry_slug] || [];

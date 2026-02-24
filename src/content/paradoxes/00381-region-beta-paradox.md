@@ -1,8 +1,8 @@
 ---
-title: "Region-beta paradox"
-slug: "region-beta-paradox"
+title: 'Region-beta paradox'
+slug: '00381-region-beta-paradox'
 type: PARADOX
-summary: "The region-beta paradox is the phenomenon that people can sometimes recover more quickly from more distressing experiences than from less distressing ones. The hypothesized reason is that intense states trigger psychological defense processes that reduce the distress, while less intense states do not trigger the same psychological defense processes and, therefore, less effective attenuation of the stress occurs."
+summary: 'The region-beta paradox is the phenomenon that people can sometimes recover more quickly from more distressing experiences than from less distressing ones. The hypothesized reason is that intense states trigger psychological defense processes that reduce the distress, while less intense states do not trigger the same psychological defense processes and, therefore, less effective attenuation of the stress occurs.'
 tags:
   - logic
   - time

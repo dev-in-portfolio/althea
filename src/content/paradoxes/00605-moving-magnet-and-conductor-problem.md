@@ -1,8 +1,8 @@
 ---
-title: "Moving magnet and conductor problem"
-slug: "moving-magnet-and-conductor-problem"
+title: 'Moving magnet and conductor problem'
+slug: '00605-moving-magnet-and-conductor-problem'
 type: THOUGHT_EXPERIMENT
-summary: "The moving magnet and conductor problem is a famous thought experiment, originating in the 19th century, concerning the intersection of classical electromagnetism and special relativity. In it, the current in a conductor moving with constant velocity, v, with respect to a magnet is calculated in the frame of reference of the magnet and in the frame of reference of the conductor."
+summary: 'The moving magnet and conductor problem is a famous thought experiment, originating in the 19th century, concerning the intersection of classical electromagnetism and special relativity. In it, the current in a conductor moving with constant velocity, v, with respect to a magnet is calculated in the frame of reference of the magnet and in the frame of reference of the conductor.'
 tags:
   - paradox
 axioms:

@@ -1,8 +1,8 @@
 ---
-title: "Insolubilia"
-slug: "insolubilia"
+title: 'Insolubilia'
+slug: '00210-insolubilia'
 type: PARADOX
-summary: "In the Middle Ages, variations on the liar paradox were studied under the name of insolubilia ('insolubles')."
+summary: 'In the Middle Ages, variations on the liar paradox were studied under the name of insolubilia (''insolubles'').'
 tags:
   - paradox
 axioms:

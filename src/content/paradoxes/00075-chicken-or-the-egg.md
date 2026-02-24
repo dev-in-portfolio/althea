@@ -1,8 +1,8 @@
 ---
-title: "Chicken or the egg"
-slug: "chicken-or-the-egg"
+title: 'Chicken or the egg'
+slug: '00075-chicken-or-the-egg'
 type: PARADOX
-summary: "The chicken or the egg causality dilemma is commonly stated as the question, 'which came first: the chicken or the egg?' The dilemma stems from the observation that all chickens hatch from eggs and all chicken eggs are laid by chickens. 'Chicken-and-egg' is a metaphoric adjective describing situations where it is not clear which of two events should be considered the cause and which should be considered the effect, t"
+summary: 'The chicken or the egg causality dilemma is commonly stated as the question, ''which came first: the chicken or the egg?'' The dilemma stems from the observation that all chickens hatch from eggs and all chicken eggs are laid by chickens. ''Chicken-and-egg'' is a metaphoric adjective describing situations where it is not clear which of two events should be considered the cause and which should be considered the effect, t'
 tags:
   - causality
 axioms:

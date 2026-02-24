@@ -1,8 +1,8 @@
 ---
-title: "Grandi's series"
-slug: "grandi-s-series"
+title: 'Grandi''s series'
+slug: '00169-grandi-s-series'
 type: PARADOX
-summary: "In mathematics, the infinite series 1 − 1 + 1 − 1 + ⋯ is a divergent series, meaning that the sequence of partial sums of the series does not converge. Although it is divergent, it can be manipulated to yield a number of mathematically interesting results."
+summary: 'In mathematics, the infinite series 1 − 1 + 1 − 1 + ⋯ is a divergent series, meaning that the sequence of partial sums of the series does not converge. Although it is divergent, it can be manipulated to yield a number of mathematically interesting results.'
 tags:
   - paradox
 axioms:

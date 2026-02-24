@@ -1,8 +1,8 @@
 ---
-title: "Proebsting's paradox"
-slug: "proebsting-s-paradox"
+title: 'Proebsting''s paradox'
+slug: '00369-proebsting-s-paradox'
 type: PARADOX
-summary: "In probability theory, Proebsting's paradox is an argument that appears to show that the Kelly criterion can lead to ruin. Although it can be resolved mathematically, it raises some interesting issues about the practical application of Kelly, especially in investing."
+summary: 'In probability theory, Proebsting''s paradox is an argument that appears to show that the Kelly criterion can lead to ruin. Although it can be resolved mathematically, it raises some interesting issues about the practical application of Kelly, especially in investing.'
 tags:
   - probability
 axioms:
