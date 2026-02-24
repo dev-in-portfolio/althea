@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const entries = await getCollection("terms");
+const categories = ["BOH", "FOH", "MANAGEMENT", "INVENTORY", "SERVICE", "GENERAL"].map((c) => ({
+  name: c,
+  count: entries.filter((e) => e.data.category === c).length
+}));
+---
+<BaseLayout title="Categories">
+  <section class="panel">
+    <div class="panel-strip">Categories</div>
+    <h1 class="page-title">Categories</h1>
+    <p class="muted">Browse terms by category.</p>
+    <div class="term-grid">
+      {categories.map((c) => (
+        <article class="term-card">
+          <div class="term-title">{c.name}</div>
+          <div class="term-meta">{c.count} terms</div>
+          <div class="controls">
+            <a class="btn-ghost" href={`/terms?category=${c.name}`}>Open</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

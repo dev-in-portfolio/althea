@@ -1,0 +1,69 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import { render } from "astro:content";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("terms");
+  return entries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry }
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const s = entry.data;
+---
+<BaseLayout title={`Term — ${s.term}`}>
+  <section class="panel">
+    <div class="panel-strip">Term Detail</div>
+    <h1 class="page-title">{s.term}</h1>
+    <div class="term-meta">{s.category} • {s.techEquivalent.join(", ")}</div>
+    <div class="controls">
+      <button class="btn-ghost" data-fav={s.slug}>Favorite</button>
+      <button class="btn-ghost" data-copy={s.term}>Copy Term</button>
+      <a class="btn-ghost" href="/terms">Back</a>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-strip">Tech Equivalents</div>
+    <div class="controls">
+      {s.techEquivalent.map((eq) => (
+        <button class="btn-ghost" data-copy={eq}>{eq}</button>
+      ))}
+    </div>
+  </section>
+
+  <section class="panel-grid">
+    <div class="panel">
+      <div class="panel-strip">Restaurant Definition</div>
+      <div class="term-desc">{s.definitionRestaurant}</div>
+      <ul class="result-list">
+        {s.examplesRestaurant.map((ex) => <li>{ex}</li>)}
+      </ul>
+    </div>
+    <div class="panel">
+      <div class="panel-strip">Tech Definition</div>
+      <div class="term-desc">{s.definitionTech}</div>
+      <ul class="result-list">
+        {s.examplesTech.map((ex) => <li>{ex}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  {s.related.length > 0 && (
+    <section class="panel">
+      <div class="panel-strip">Related Terms</div>
+      <div class="controls">
+        {s.related.map((rel) => <a class="btn-ghost" href={`/terms/${rel}`}>{rel}</a>)}
+      </div>
+    </section>
+  )}
+
+  <section class="panel">
+    <div class="panel-strip">Notes</div>
+    <Content />
+  </section>
+</BaseLayout>

@@ -1,0 +1,16 @@
+{
+  "name": "interactive-terms-translator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npm run build:index && astro dev --host 127.0.0.1 --port 4321",
+    "build:index": "node scripts/build-index.mjs",
+    "build": "npm run build:index && astro build",
+    "preview": "astro preview --host 127.0.0.1 --port 4321"
+  },
+  "dependencies": {
+    "astro": "5.17.1",
+    "pg": "8.11.5"
+  }
+}

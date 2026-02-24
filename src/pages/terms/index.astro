@@ -1,0 +1,61 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const entries = (await getCollection("terms")).sort((a, b) => a.data.term.localeCompare(b.data.term));
+const categories = ["BOH", "FOH", "MANAGEMENT", "INVENTORY", "SERVICE", "GENERAL"];
+const tags = Array.from(new Set(entries.flatMap((e) => e.data.tags))).sort();
+---
+<BaseLayout title="Terms Library">
+  <section class="panel">
+    <div class="panel-strip">Terms Library</div>
+    <h1 class="page-title">Terms Library</h1>
+    <p class="muted">Browse and filter all terms.</p>
+    <div class="controls">
+      <label class="field">
+        Search
+        <input type="search" placeholder="Search term, definition, tags..." data-term-search />
+      </label>
+      <label class="field">
+        Category
+        <select data-term-category>
+          <option value="all">All</option>
+          {categories.map((c) => <option value={c}>{c}</option>)}
+        </select>
+      </label>
+      <label class="field">
+        Tag
+        <select data-term-tag>
+          <option value="all">All</option>
+          {tags.map((t) => <option value={t}>{t}</option>)}
+        </select>
+      </label>
+      <button class="btn-ghost" data-term-clear>86</button>
+    </div>
+    <div class="status-line" data-term-count>{entries.length} results</div>
+    <div class="status-line muted" data-term-empty hidden>No terms match your filters.</div>
+  </section>
+
+  <section class="term-grid" data-term-list>
+    {entries.map((entry) => {
+      const s = entry.data;
+      const search = `${s.term} ${s.definitionRestaurant} ${s.definitionTech} ${s.tags.join(" ")} ${s.techEquivalent.join(" ")}`.toLowerCase();
+      return (
+        <article
+          class="term-card"
+          data-term-card
+          data-category={s.category}
+          data-tags={s.tags.join(",")}
+          data-search={search}
+        >
+          <div class="term-title"><a href={`/terms/${entry.slug}`}>{s.term}</a></div>
+          <div class="term-meta">{s.category} • {s.techEquivalent.join(", ")}</div>
+          <div class="term-desc">{s.definitionRestaurant}</div>
+          <div class="controls">
+            <button class="btn-ghost" data-fav={s.slug}>Favorite</button>
+          </div>
+        </article>
+      );
+    })}
+  </section>
+</BaseLayout>

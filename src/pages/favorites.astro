@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const entries = (await getCollection("terms")).map((entry) => entry.data);
+---
+<BaseLayout title="Favorites">
+  <section class="panel">
+    <div class="panel-strip">Favorites</div>
+    <h1 class="page-title">Favorites</h1>
+    <p class="muted">Saved terms are shown here.</p>
+    <div class="term-grid" data-fav-list></div>
+    <div class="status-line muted" data-fav-empty hidden>No favorites yet.</div>
+  </section>
+  <script is:inline define:vars={{ entries }}>
+    window.__TERMS__ = entries;
+  </script>
+</BaseLayout>
