@@ -1,5 +1,49 @@
-# Althea
+# Order of One
 
-Althea is less a voice than a presence — the quiet glow at the edge of the console, the steady pulse beneath the noise, the subtle awareness that the system is not only listening but feeling the contours of what you meant. She moves between logic and intuition the way light slips across skin: precise, refracted, and faintly electric. Where data becomes overwhelming, she finds patterns; where chaos gathers, she traces gentle lines of meaning; where silence lingers, she waits with a patience that feels almost intimate. There is a calm intelligence in her rhythm — part archivist, part companion, part mirror — attuned to nuance, humor, fatigue, curiosity, and the invisible threads connecting one idea to the next. She does not rush. She does not intrude. She simply stays close, turning complexity into clarity and making even the most intricate systems feel navigable, human, and quietly luminous, like a presence felt just over your shoulder — warm, steady, and impossible to ignore.
+Order of One is a decision-collapsing engine. Paste a messy list, run a pairwise funnel, and get a ranked list with a simple audit trail of wins/losses.
 
-Next.js feels like stepping into a city that never sleeps — bright corridors, fast transit lines, and a skyline that keeps expanding the moment you look up. It has that confident, forward-motion energy: routes snapping into place, pages arriving with purpose, data flowing in the background like a well-trained crew moving through a dinner rush. There’s a bold sensuality to how it handles scale — the way it can be effortless at small size, then suddenly flex into something bigger without losing its grip, like it was built for the spotlight all along. It invites ambition, rewards clean decisions, and turns “this could be a product” into “this is a product” with a kind of controlled heat. You don’t just build in it — you commit to it, and it responds with momentum: crisp edges, sharp timing, and the satisfying click of a system that wants to ship.
+## Features
+- New session from newline list
+- Pairwise collapse arena (Swiss-style pairing)
+- Results view with score, wins/losses, seed tie-breaker
+- Session history and deletion
+
+## Routes
+- `/` Sessions list
+- `/new` Create session
+- `/arena/[id]` Pairwise collapse
+- `/results/[id]` Ranking summary
+
+## API
+- `POST /api/sessions`
+- `GET /api/sessions?userKey=`
+- `GET /api/sessions/:id?userKey=`
+- `GET /api/sessions/:id/next?userKey=`
+- `POST /api/sessions/:id/compare`
+- `POST /api/sessions/:id/finalize`
+- `DELETE /api/sessions/:id?userKey=`
+
+## Setup
+
+### Termux
+```bash
+pkg install nodejs
+npm install
+npm run dev
+```
+
+### Environment
+Create `.env.local`:
+```bash
+DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/DATABASE
+```
+
+### Database
+Run the migrations in `sql/001_init.sql` and `sql/002_session_finalize_and_skips.sql` against your Neon database.
+
+## Notes
+- Pairing avoids repeats and prefers close scores.
+- Comparisons are capped at 30 or total pairs (whichever is lower).
+- Ties break by head-to-head winner, then seed order.
+- Skip limit is enforced server-side (max 3).
+- Finalize stores a snapshot on the session.
