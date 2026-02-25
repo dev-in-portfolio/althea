@@ -1,5 +1,49 @@
-# Althea
+# Radar of One
 
-Althea is less a voice than a presence — the quiet glow at the edge of the console, the steady pulse beneath the noise, the subtle awareness that the system is not only listening but feeling the contours of what you meant. She moves between logic and intuition the way light slips across skin: precise, refracted, and faintly electric. Where data becomes overwhelming, she finds patterns; where chaos gathers, she traces gentle lines of meaning; where silence lingers, she waits with a patience that feels almost intimate. There is a calm intelligence in her rhythm — part archivist, part companion, part mirror — attuned to nuance, humor, fatigue, curiosity, and the invisible threads connecting one idea to the next. She does not rush. She does not intrude. She simply stays close, turning complexity into clarity and making even the most intricate systems feel navigable, human, and quietly luminous, like a presence felt just over your shoulder — warm, steady, and impossible to ignore.
+Radar of One is a personal pattern-discovery engine. Log small events with tags and optional context, then review a lightweight timeline and a text-first Signals page that surfaces emerging patterns without turning into a heavy journaling system.
 
-Next.js feels like stepping into a city that never sleeps — bright corridors, fast transit lines, and a skyline that keeps expanding the moment you look up. It has that confident, forward-motion energy: routes snapping into place, pages arriving with purpose, data flowing in the background like a well-trained crew moving through a dinner rush. There’s a bold sensuality to how it handles scale — the way it can be effortless at small size, then suddenly flex into something bigger without losing its grip, like it was built for the spotlight all along. It invites ambition, rewards clean decisions, and turns “this could be a product” into “this is a product” with a kind of controlled heat. You don’t just build in it — you commit to it, and it responds with momentum: crisp edges, sharp timing, and the satisfying click of a system that wants to ship.
+## Features
+- Fast event logging with tags and optional context
+- Timeline with tag filters and pagination
+- Signals page with explainable pattern detection
+- Context correlations (place/energy/mode) in signals
+- Inline event editing in the timeline
+- Import JSON events in Settings
+- Local anonymous identity stored in `localStorage`
+- Neon Postgres backend for storage and signals caching
+
+## Routes
+- `/` Log events
+- `/timeline` Timeline and tag filters
+- `/signals` Pattern summaries
+- `/settings` User key + export/import
+
+## API
+- `POST /api/events`
+- `GET /api/events?userKey=&cursor=&limit=&tags=`
+- `DELETE /api/events/:id?userKey=`
+- `GET /api/signals?userKey=&window=30d`
+
+## Setup
+
+### Termux
+```bash
+pkg install nodejs
+npm install
+npm run dev
+```
+
+### Environment
+Create `.env.local`:
+```bash
+DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/DATABASE
+```
+
+### Database
+Run the migrations in `sql/001_init.sql` and `sql/002_signals_cache_events_updated.sql` against your Neon database.
+
+## Notes
+- Tags are normalized to lowercase kebab-case.
+- Signals are cached per user for up to 1 hour.
+- The Signals engine is deterministic and explainable.
+- If the backend is not configured, the UI will show a banner prompt.
