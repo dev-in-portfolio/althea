@@ -1,0 +1,62 @@
+{
+  "mathematics-museums--numbers-and-counting-hall": [
+    {
+      "title": "Number (Britannica)",
+      "url": "https://www.britannica.com/science/number"
+    }
+  ],
+  "mathematics-museums--patterns-and-sequences-hall": [
+    {
+      "title": "Sequence (Mathematics) (Britannica)",
+      "url": "https://www.britannica.com/science/sequence-mathematics"
+    }
+  ],
+  "mathematics-museums--symmetry-and-transformations-hall": [
+    {
+      "title": "Symmetry (Mathematics) (Britannica)",
+      "url": "https://www.britannica.com/science/symmetry-mathematics"
+    }
+  ],
+  "mathematics-museums--geometry-hall": [
+    {
+      "title": "Geometry (Britannica)",
+      "url": "https://www.britannica.com/science/geometry"
+    }
+  ],
+  "mathematics-museums--topology-hall": [
+    {
+      "title": "Topology (Britannica)",
+      "url": "https://www.britannica.com/science/topology"
+    }
+  ],
+  "mathematics-museums--fractals-hall": [
+    {
+      "title": "Fractal (Britannica)",
+      "url": "https://www.britannica.com/science/fractal"
+    }
+  ],
+  "mathematics-museums--chaos-and-nonlinear-systems-hall": [
+    {
+      "title": "Chaos theory (Britannica)",
+      "url": "https://www.britannica.com/science/chaos-theory"
+    }
+  ],
+  "mathematics-museums--probability-hall": [
+    {
+      "title": "Probability (Britannica)",
+      "url": "https://www.britannica.com/science/probability"
+    }
+  ],
+  "mathematics-museums--statistics-and-data-hall": [
+    {
+      "title": "Statistics (Britannica)",
+      "url": "https://www.britannica.com/science/statistics"
+    }
+  ],
+  "mathematics-museums--graphs-and-networks-hall": [
+    {
+      "title": "Graph Theory (Britannica)",
+      "url": "https://www.britannica.com/science/graph-theory"
+    }
+  ]
+}

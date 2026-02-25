@@ -1,0 +1,98 @@
+{
+  "space-and-astronomy-museums--orbital-mechanics-and-motion-hall": [
+    {
+      "title": "Basics of Space Flight: Gravity & Mechanics (NASA)",
+      "url": "https://science.nasa.gov/learn/basics-of-space-flight/chapter3-4/"
+    },
+    {
+      "title": "Orbit Analysis (NASA Ames)",
+      "url": "https://www.nasa.gov/ames-engineering/spaceflight-division/flight-dynamics/orbit-analysis/"
+    }
+  ],
+  "space-and-astronomy-museums--rocketry-and-propulsion-hall": [
+    {
+      "title": "Propulsion System (NASA Glenn)",
+      "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/propulsion-system/"
+    },
+    {
+      "title": "Guide to Rockets (NASA Glenn)",
+      "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/guide-to-rockets/"
+    }
+  ],
+  "space-and-astronomy-museums--satellites-and-global-systems-hall": [
+    {
+      "title": "GOES-R Series (NOAA/NASA)",
+      "url": "https://www.goes-r.gov/"
+    },
+    {
+      "title": "GOES Satellite Network (NASA Science)",
+      "url": "https://science.nasa.gov/mission/goes/"
+    }
+  ],
+  "space-and-astronomy-museums--planetary-surfaces-hall": [
+    {
+      "title": "Planetary Geologic Mapping Program (USGS Astrogeology)",
+      "url": "https://www.usgs.gov/centers/astrogeology-science-center/science/usgs-nasa-planetary-geologic-mapping-program"
+    },
+    {
+      "title": "Planetary Mapping (USGS)",
+      "url": "https://www.usgs.gov/index.php/science/science-explorer/planetary-science/planetary-mapping"
+    }
+  ],
+  "space-and-astronomy-museums--mars-and-future-exploration-hall": [
+    {
+      "title": "Mars Exploration Program (NASA Science)",
+      "url": "https://science.nasa.gov/solar-system/programs/mars-exploration"
+    },
+    {
+      "title": "Humans to Mars (NASA)",
+      "url": "https://www.nasa.gov/humans-in-space/humans-to-mars/"
+    }
+  ],
+  "space-and-astronomy-museums--colonizing-space-hall": [
+    {
+      "title": "Moon to Mars Architecture (NASA)",
+      "url": "https://www.nasa.gov/moontomarsarchitecture/"
+    },
+    {
+      "title": "Artemis (NASA)",
+      "url": "https://www.nasa.gov/humans-in-space/artemis/"
+    }
+  ],
+  "space-and-astronomy-museums--cosmic-time-and-deep-time-hall": [
+    {
+      "title": "Universe Overview (NASA Science)",
+      "url": "https://science.nasa.gov/universe/overview/"
+    }
+  ],
+  "space-and-astronomy-museums--extreme-environments-in-space-hall": [
+    {
+      "title": "Heliophysics Overview (NASA Science)",
+      "url": "https://science.nasa.gov/heliophysics/"
+    },
+    {
+      "title": "NASA Space Radiation Lab (NASA)",
+      "url": "https://www.nasa.gov/mission/nasa-space-radiation-lab/"
+    }
+  ],
+  "space-and-astronomy-museums--future-space-technologies-hall": [
+    {
+      "title": "Space Technology Mission Directorate (NASA)",
+      "url": "https://www.nasa.gov/space-technology-mission-directorate/"
+    },
+    {
+      "title": "About STMD (NASA)",
+      "url": "https://www.nasa.gov/about-stmd/"
+    }
+  ],
+  "space-and-astronomy-museums--the-future-of-humanity-in-space-hall": [
+    {
+      "title": "Human Research Program (NASA)",
+      "url": "https://www.nasa.gov/hrp/"
+    },
+    {
+      "title": "Moon to Mars Architecture (NASA)",
+      "url": "https://www.nasa.gov/moontomarsarchitecture/"
+    }
+  ]
+}

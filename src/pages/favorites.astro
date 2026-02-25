@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Favorites">
+  <h1>Favorites</h1>
+  <div id="fav-root" class="list"></div>
+  <script>
+    const root = document.getElementById('fav-root');
+    const useBackend = (import.meta.env.PUBLIC_USE_BACKEND ?? 'true') === 'true';
+
+    function getUserKey() {
+      let key = localStorage.getItem('user-key');
+      if (!key) {
+        key = crypto.randomUUID();
+        localStorage.setItem('user-key', key);
+      }
+      return key;
+    }
+
+    function getLocal() {
+      return JSON.parse(localStorage.getItem('favorites') || '[]');
+    }
+
+    function render(items) {
+      root.innerHTML = '';
+      if (!items.length) {
+        root.innerHTML = '<div class="notice">No favorites yet.</div>';
+        return;
+      }
+      items.forEach((slug) => {
+        const a = document.createElement('a');
+        a.className = 'card';
+        a.href = `/exhibits/${slug}`;
+        a.textContent = slug;
+        root.appendChild(a);
+      });
+    }
+
+    async function loadBackend() {
+      const userKey = getUserKey();
+      const res = await fetch(`/api/favorites?userKey=${encodeURIComponent(userKey)}`);
+      if (!res.ok) throw new Error('backend');
+      const data = await res.json();
+      return data.exhibitSlugs || [];
+    }
+
+    async function init() {
+      try {
+        if (!useBackend) throw new Error('backend disabled');
+        const items = await loadBackend();
+        render(items);
+      } catch (e) {
+        render(getLocal());
+      }
+    }
+
+    init();
+  </script>
+</Base>

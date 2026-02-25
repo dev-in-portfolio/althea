@@ -1,0 +1,17 @@
+---
+const { exhibit } = Astro.props;
+---
+<a class="card" href={`/exhibits/${exhibit.slug}`}>
+  <div style="display:flex; justify-content:space-between; gap:8px;">
+    <strong>{exhibit.title}</strong>
+    <span class="badge">{exhibit.hallSlug}</span>
+  </div>
+  <p class="muted" style="margin:6px 0 0;">{exhibit.summary}</p>
+  {exhibit.tags && exhibit.tags.length > 0 ? (
+    <div style="margin-top:8px; display:flex; gap:6px; flex-wrap:wrap;">
+      {exhibit.tags.slice(0, 4).map((t) => (
+        <span class="badge">{t}</span>
+      ))}
+    </div>
+  ) : null}
+</a>

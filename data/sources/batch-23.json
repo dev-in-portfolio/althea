@@ -1,0 +1,62 @@
+{
+  "biology-and-life-sciences-museums--the-brain-and-nervous-system-hall": [
+    {
+      "title": "Brain Basics (NIH/NINDS)",
+      "url": "https://www.ninds.nih.gov/health-information/public-education/brain-basics"
+    }
+  ],
+  "biology-and-life-sciences-museums--senses-and-perception-hall": [
+    {
+      "title": "The Senses (NIH/NIDCD)",
+      "url": "https://www.nidcd.nih.gov/health/your-senses"
+    }
+  ],
+  "biology-and-life-sciences-museums--development-and-growth-hall": [
+    {
+      "title": "Growth and Development (CDC)",
+      "url": "https://www.cdc.gov/ncbddd/childdevelopment/index.html"
+    }
+  ],
+  "biology-and-life-sciences-museums--aging-and-longevity-hall": [
+    {
+      "title": "Aging (National Institute on Aging)",
+      "url": "https://www.nia.nih.gov/health/aging"
+    }
+  ],
+  "biology-and-life-sciences-museums--biomechanics-and-movement-hall": [
+    {
+      "title": "Biomechanics (Encyclopedia Britannica)",
+      "url": "https://www.britannica.com/science/biomechanics"
+    }
+  ],
+  "biology-and-life-sciences-museums--reproduction-and-life-cycles-hall": [
+    {
+      "title": "Reproduction (Britannica)",
+      "url": "https://www.britannica.com/science/reproduction-biology"
+    }
+  ],
+  "biology-and-life-sciences-museums--animal-behavior-hall": [
+    {
+      "title": "Animal Behavior (Britannica)",
+      "url": "https://www.britannica.com/science/animal-behavior"
+    }
+  ],
+  "biology-and-life-sciences-museums--ecology-and-interdependence-hall": [
+    {
+      "title": "Ecology (Britannica)",
+      "url": "https://www.britannica.com/science/ecology"
+    }
+  ],
+  "biology-and-life-sciences-museums--ecosystems-and-biomes-hall": [
+    {
+      "title": "Ecosystem (Britannica)",
+      "url": "https://www.britannica.com/science/ecosystem"
+    }
+  ],
+  "biology-and-life-sciences-museums--adaptation-and-survival-hall": [
+    {
+      "title": "Adaptation (Britannica)",
+      "url": "https://www.britannica.com/science/adaptation-biology-and-physiology"
+    }
+  ]
+}

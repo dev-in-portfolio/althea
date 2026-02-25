@@ -1,0 +1,66 @@
+{
+  "natural-history-museums--adaptation-and-survival-strategies-hall": [
+    {
+      "title": "What is natural selection? (Natural History Museum, London)",
+      "url": "https://www.nhm.ac.uk/discover/what-is-natural-selection.html"
+    }
+  ],
+  "natural-history-museums--rainforest-worlds-hall": [
+    {
+      "title": "Tropical rainforest (Britannica)",
+      "url": "https://www.britannica.com/science/tropical-rainforest"
+    }
+  ],
+  "natural-history-museums--desert-life-hall": [
+    {
+      "title": "Deserts (U.S. Geological Survey)",
+      "url": "https://www.usgs.gov/programs/land-management-research-program/deserts"
+    }
+  ],
+  "natural-history-museums--arctic-and-polar-worlds-hall": [
+    {
+      "title": "Polar ecosystem (Britannica)",
+      "url": "https://www.britannica.com/science/polar-ecosystem"
+    }
+  ],
+  "natural-history-museums--grasslands-and-savannas-hall": [
+    {
+      "title": "Ecosystems We Study: Grasslands (U.S. Geological Survey)",
+      "url": "https://www.usgs.gov/programs/land-management-research-program/science/ecosystems-we-study-grasslands"
+    },
+    {
+      "title": "Savanna (Britannica)",
+      "url": "https://www.britannica.com/science/savanna"
+    }
+  ],
+  "natural-history-museums--mountains-and-highlands-hall": [
+    {
+      "title": "Mountain ecosystem (Britannica)",
+      "url": "https://www.britannica.com/science/mountain-ecosystem"
+    }
+  ],
+  "natural-history-museums--insects-and-micro-fauna-hall": [
+    {
+      "title": "Insects & Invertebrates (U.S. National Park Service)",
+      "url": "https://www.nps.gov/subjects/insects/index.htm"
+    }
+  ],
+  "natural-history-museums--birds-and-flight-in-nature-hall": [
+    {
+      "title": "Bird flight (Britannica)",
+      "url": "https://www.britannica.com/animal/bird-animal/Flight"
+    }
+  ],
+  "natural-history-museums--marine-life-hall": [
+    {
+      "title": "Marine ecosystem (Britannica)",
+      "url": "https://www.britannica.com/science/marine-ecosystem"
+    }
+  ],
+  "natural-history-museums--freshwater-worlds-hall": [
+    {
+      "title": "Freshwater Wetlands & Systems: Lakes, Rivers, Springs (U.S. Geological Survey)",
+      "url": "https://www.usgs.gov/programs/land-management-research-program/freshwater-wetlands-systems-lakes-rivers-springs"
+    }
+  ]
+}

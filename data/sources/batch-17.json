@@ -1,0 +1,78 @@
+{
+  "botanical-science-museums-gardens--medicinal-plants-hall": [
+    {
+      "title": "WHO guidelines on good agricultural and collection practices (GACP) for medicinal plants (WHO)",
+      "url": "https://www.who.int/publications/i/item/9241546271"
+    }
+  ],
+  "botanical-science-museums-gardens--useful-plants-and-human-society-hall": [
+    {
+      "title": "Plants and Crops (USDA)",
+      "url": "https://www.usda.gov/farming-and-ranching/plants-and-crops"
+    }
+  ],
+  "botanical-science-museums-gardens--agriculture-origins-hall": [
+    {
+      "title": "How agriculture and domestication began (Britannica)",
+      "url": "https://www.britannica.com/topic/agriculture/How-agriculture-and-domestication-began"
+    }
+  ],
+  "botanical-science-museums-gardens--crop-science-and-food-plants-hall": [
+    {
+      "title": "Plants and Crops (USDA)",
+      "url": "https://www.usda.gov/farming-and-ranching/plants-and-crops"
+    },
+    {
+      "title": "Research and Science (USDA)",
+      "url": "https://www.usda.gov/topics/research-and-science"
+    }
+  ],
+  "botanical-science-museums-gardens--trees-and-forest-systems-hall": [
+    {
+      "title": "Forest and Woodland Ecosystems (USDA Forest Service)",
+      "url": "https://research.fs.usda.gov/rmrs/programs/fwe"
+    }
+  ],
+  "botanical-science-museums-gardens--tropical-plant-worlds-hall": [
+    {
+      "title": "Global Forest Resources Assessment 2020 (FAO)",
+      "url": "https://www.fao.org/forest-resources-assessment/2020/en/"
+    }
+  ],
+  "botanical-science-museums-gardens--desert-plants-and-adaptations-hall": [
+    {
+      "title": "Desert (Britannica)",
+      "url": "https://www.britannica.com/science/desert"
+    },
+    {
+      "title": "Xerophyte (Britannica)",
+      "url": "https://www.britannica.com/plant/xerophyte"
+    }
+  ],
+  "botanical-science-museums-gardens--wetlands-and-aquatic-plants-hall": [
+    {
+      "title": "What is a Wetland? (US EPA)",
+      "url": "https://www.epa.gov/wetlands/what-wetland"
+    },
+    {
+      "title": "Indicators: Wetland Vegetation (US EPA)",
+      "url": "https://www.epa.gov/national-aquatic-resource-surveys/indicators-wetland-vegetation-plant-community"
+    }
+  ],
+  "botanical-science-museums-gardens--alpine-and-high-altitude-plants-hall": [
+    {
+      "title": "Alpine vegetation (Britannica)",
+      "url": "https://www.britannica.com/plant/alpine-vegetation"
+    }
+  ],
+  "botanical-science-museums-gardens--native-plants-and-regional-ecology-hall": [
+    {
+      "title": "Why Native Species Matter (USDA)",
+      "url": "https://www.usda.gov/about-usda/general-information/initiatives-and-highlighted-programs/peoples-garden/gardening-advice/why-native-species-matter"
+    },
+    {
+      "title": "Plant Materials (USDA NRCS)",
+      "url": "https://www.nrcs.usda.gov/plant-materials"
+    }
+  ]
+}

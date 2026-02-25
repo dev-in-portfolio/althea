@@ -1,0 +1,74 @@
+{
+  "natural-history-museums--plant-diversity-hall": [
+    {
+      "title": "State of the World's Plants and Fungi (Kew)",
+      "url": "https://www.kew.org/science/state-of-the-worlds-plants-and-fungi"
+    },
+    {
+      "title": "Kew launches Plants of the World Online",
+      "url": "https://www.kew.org/about-us/press-media/kew-launches-plants-of-the-world-online"
+    }
+  ],
+  "natural-history-museums--fungi-and-hidden-life-hall": [
+    {
+      "title": "State of the World's Plants and Fungi (Kew)",
+      "url": "https://www.kew.org/science/state-of-the-worlds-plants-and-fungi"
+    }
+  ],
+  "natural-history-museums--fossils-and-ancient-life-hall": [
+    {
+      "title": "David H. Koch Hall of Fossils - Deep Time (Smithsonian NMNH)",
+      "url": "https://www.naturalhistory.si.edu/exhibits/david-h-koch-hall-fossils-deep-time"
+    },
+    {
+      "title": "Paleontological Collections (National Park Service)",
+      "url": "https://www.nps.gov/museum/exhibits/nca-natural-history/Paleontology.html"
+    }
+  ],
+  "natural-history-museums--natural-cycles-and-seasons-hall": [
+    {
+      "title": "Milankovitch (Orbital) Cycles and Their Role in Earth's Climate (NASA)",
+      "url": "https://science.nasa.gov/science-research/earth-science/milankovitch-orbital-cycles-and-their-role-in-earths-climate/"
+    }
+  ],
+  "natural-history-museums--predator-and-prey-dynamics-hall": [
+    {
+      "title": "Predation (Britannica)",
+      "url": "https://www.britannica.com/science/predation"
+    }
+  ],
+  "natural-history-museums--migration-and-movement-hall": [
+    {
+      "title": "Animal Migration (National Geographic Education)",
+      "url": "https://education.nationalgeographic.org/resource/animal-migration/"
+    }
+  ],
+  "natural-history-museums--natural-selection-and-adaptation-hall": [
+    {
+      "title": "Natural selection (Britannica)",
+      "url": "https://www.britannica.com/science/natural-selection"
+    }
+  ],
+  "natural-history-museums--conservation-and-threatened-species-hall": [
+    {
+      "title": "Facts about the nature crisis (UNEP)",
+      "url": "https://www.unep.org/facts-about-nature-crisis"
+    },
+    {
+      "title": "IUCN Red List of Threatened Species (Britannica)",
+      "url": "https://www.britannica.com/science/endangered-species/IUCN-Red-List-of-Threatened-Species"
+    }
+  ],
+  "natural-history-museums--human-impact-on-nature-hall": [
+    {
+      "title": "Facts about the nature crisis (UNEP)",
+      "url": "https://www.unep.org/facts-about-nature-crisis"
+    }
+  ],
+  "natural-history-museums--future-of-biodiversity-hall": [
+    {
+      "title": "Kunming-Montreal Global Biodiversity Framework (CBD)",
+      "url": "https://www.cbd.int/gbf/"
+    }
+  ]
+}

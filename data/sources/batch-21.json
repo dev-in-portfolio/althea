@@ -1,0 +1,66 @@
+{
+  "marine-science-and-oceanography-museums--climate-change-and-oceans-hall": [
+    {
+      "title": "Ocean & Climate (NOAA Climate.gov)",
+      "url": "https://www.climate.gov/teaching/essential-principles-climate/ocean-and-climate"
+    }
+  ],
+  "marine-science-and-oceanography-museums--ocean-acoustics-and-soundscapes-hall": [
+    {
+      "title": "Ocean Sound (NOAA Ocean Exploration)",
+      "url": "https://oceanexplorer.noaa.gov/facts/sound.html"
+    }
+  ],
+  "marine-science-and-oceanography-museums--navigation-and-ocean-mapping-hall": [
+    {
+      "title": "Seafloor Mapping (NOAA Ocean Exploration)",
+      "url": "https://oceanexplorer.noaa.gov/education/seafloor-mapping/"
+    },
+    {
+      "title": "What is bathymetry? (NOAA Ocean Service)",
+      "url": "https://oceanservice.noaa.gov/facts/bathymetry.html"
+    }
+  ],
+  "marine-science-and-oceanography-museums--submersibles-and-ocean-technology-hall": [
+    {
+      "title": "Submersibles (NOAA Ocean Exploration)",
+      "url": "https://oceanexplorer.noaa.gov/facts/submersibles.html"
+    }
+  ],
+  "marine-science-and-oceanography-museums--marine-research-methods-hall": [
+    {
+      "title": "Ocean Exploration Methods (NOAA)",
+      "url": "https://oceanexplorer.noaa.gov/explorations/10dives/welcome.html"
+    }
+  ],
+  "marine-science-and-oceanography-museums--fisheries-and-human-use-hall": [
+    {
+      "title": "Fisheries (NOAA Fisheries)",
+      "url": "https://www.fisheries.noaa.gov/insight/fisheries-united-states"
+    }
+  ],
+  "marine-science-and-oceanography-museums--pollution-and-plastics-hall": [
+    {
+      "title": "Marine Debris (NOAA)",
+      "url": "https://marinedebris.noaa.gov/"
+    }
+  ],
+  "marine-science-and-oceanography-museums--conservation-and-protected-seas-hall": [
+    {
+      "title": "Marine Protected Areas (NOAA)",
+      "url": "https://marineprotectedareas.noaa.gov/"
+    }
+  ],
+  "marine-science-and-oceanography-museums--maritime-hazards-and-safety-hall": [
+    {
+      "title": "U.S. Coast Guard Navigation Center (USCG)",
+      "url": "https://www.navcen.uscg.gov/"
+    }
+  ],
+  "marine-science-and-oceanography-museums--future-ocean-stewardship-hall": [
+    {
+      "title": "Ocean Service Education (NOAA Ocean Service)",
+      "url": "https://oceanservice.noaa.gov/education/"
+    }
+  ]
+}

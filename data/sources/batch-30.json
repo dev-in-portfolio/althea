@@ -1,0 +1,62 @@
+{
+  "chemistry-museums--biochemistry-basics-hall": [
+    {
+      "title": "Biochemistry (Britannica)",
+      "url": "https://www.britannica.com/science/biochemistry"
+    }
+  ],
+  "chemistry-museums--environmental-chemistry-hall": [
+    {
+      "title": "Environmental Chemistry (Britannica)",
+      "url": "https://www.britannica.com/science/environmental-chemistry"
+    }
+  ],
+  "chemistry-museums--industrial-chemistry-hall": [
+    {
+      "title": "Industrial Chemistry (Britannica)",
+      "url": "https://www.britannica.com/science/industrial-chemistry"
+    }
+  ],
+  "chemistry-museums--green-chemistry-hall": [
+    {
+      "title": "Green Chemistry (US EPA)",
+      "url": "https://www.epa.gov/greenchemistry"
+    }
+  ],
+  "chemistry-museums--lab-methods-and-safety-hall": [
+    {
+      "title": "Laboratory Safety (CDC/NIOSH)",
+      "url": "https://www.cdc.gov/niosh/topics/lab/"
+    }
+  ],
+  "chemistry-museums--analytical-chemistry-hall": [
+    {
+      "title": "Analytical Chemistry (Britannica)",
+      "url": "https://www.britannica.com/science/analytical-chemistry"
+    }
+  ],
+  "chemistry-museums--molecular-modeling-hall": [
+    {
+      "title": "Molecular Modeling (Britannica)",
+      "url": "https://www.britannica.com/science/molecular-modeling"
+    }
+  ],
+  "chemistry-museums--chemistry-demo-theater-hall": [
+    {
+      "title": "Chemistry (American Chemical Society)",
+      "url": "https://www.acs.org/education/resources/highschool/chemmatters.html"
+    }
+  ],
+  "chemistry-museums--chemistry-in-the-home-hall": [
+    {
+      "title": "Household Chemistry (US EPA)",
+      "url": "https://www.epa.gov/saferchoice"
+    }
+  ],
+  "chemistry-museums--chemistry-frontiers-hall": [
+    {
+      "title": "Frontiers in Chemical Research (NSF CHE)",
+      "url": "https://www.nsf.gov/dir/index.jsp?org=CHE"
+    }
+  ]
+}

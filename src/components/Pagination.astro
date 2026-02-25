@@ -1,0 +1,10 @@
+---
+const { page = 1, totalPages = 1, base = '' } = Astro.props;
+const prev = Math.max(1, page - 1);
+const next = Math.min(totalPages, page + 1);
+---
+<div class="pager">
+  <a class="badge" href={`${base}page=${prev}`} aria-disabled={page === 1}>Prev</a>
+  <span class="muted">Page {page} / {totalPages}</span>
+  <a class="badge" href={`${base}page=${next}`} aria-disabled={page === totalPages}>Next</a>
+</div>

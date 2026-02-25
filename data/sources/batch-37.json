@@ -1,0 +1,62 @@
+{
+  "robotics-and-automation-museums--what-is-a-robot-hall": [
+    {
+      "title": "What is a robot? (Britannica)",
+      "url": "https://www.britannica.com/technology/robot"
+    }
+  ],
+  "robotics-and-automation-museums--early-automation-and-mechanical-wonders-hall": [
+    {
+      "title": "Automation (Britannica)",
+      "url": "https://www.britannica.com/technology/automation"
+    }
+  ],
+  "robotics-and-automation-museums--industrial-robotics-hall": [
+    {
+      "title": "Industrial robot (Britannica)",
+      "url": "https://www.britannica.com/technology/industrial-robot"
+    }
+  ],
+  "robotics-and-automation-museums--robot-arms-and-manipulation-hall": [
+    {
+      "title": "Robot arm (Britannica)",
+      "url": "https://www.britannica.com/technology/robot"
+    }
+  ],
+  "robotics-and-automation-museums--sensors-and-perception-hall": [
+    {
+      "title": "Sensor (Britannica)",
+      "url": "https://www.britannica.com/technology/sensor"
+    }
+  ],
+  "robotics-and-automation-museums--vision-systems-hall": [
+    {
+      "title": "Computer Vision (Britannica)",
+      "url": "https://www.britannica.com/technology/computer-vision"
+    }
+  ],
+  "robotics-and-automation-museums--motion-planning-hall": [
+    {
+      "title": "Robotics (IEEE Robotics and Automation Society)",
+      "url": "https://www.ieee-ras.org/"
+    }
+  ],
+  "robotics-and-automation-museums--control-systems-hall": [
+    {
+      "title": "Control System (Britannica)",
+      "url": "https://www.britannica.com/technology/control-system"
+    }
+  ],
+  "robotics-and-automation-museums--actuators-and-motors-hall": [
+    {
+      "title": "Electric Motor (Britannica)",
+      "url": "https://www.britannica.com/technology/electric-motor"
+    }
+  ],
+  "robotics-and-automation-museums--human-robot-interaction-hall": [
+    {
+      "title": "Human–Robot Interaction (IEEE RAS)",
+      "url": "https://www.ieee-ras.org/human-robot-interaction"
+    }
+  ]
+}

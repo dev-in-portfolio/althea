@@ -1,0 +1,62 @@
+{
+  "mathematics-museums--logic-and-reasoning-hall": [
+    {
+      "title": "Logic (Britannica)",
+      "url": "https://www.britannica.com/science/logic"
+    }
+  ],
+  "mathematics-museums--proof-and-paradox-hall": [
+    {
+      "title": "Mathematical proof (Britannica)",
+      "url": "https://www.britannica.com/science/proof"
+    }
+  ],
+  "mathematics-museums--puzzles-and-games-hall": [
+    {
+      "title": "Game theory (Britannica)",
+      "url": "https://www.britannica.com/science/game-theory"
+    }
+  ],
+  "mathematics-museums--optimization-hall": [
+    {
+      "title": "Optimization (Britannica)",
+      "url": "https://www.britannica.com/science/optimization"
+    }
+  ],
+  "mathematics-museums--algorithms-hall": [
+    {
+      "title": "Algorithm (Britannica)",
+      "url": "https://www.britannica.com/science/algorithm"
+    }
+  ],
+  "mathematics-museums--cryptography-hall": [
+    {
+      "title": "Cryptology (Britannica)",
+      "url": "https://www.britannica.com/science/cryptology"
+    }
+  ],
+  "mathematics-museums--mathematical-modeling-hall": [
+    {
+      "title": "Mathematical model (Britannica)",
+      "url": "https://www.britannica.com/science/mathematical-model"
+    }
+  ],
+  "mathematics-museums--math-in-nature-hall": [
+    {
+      "title": "Fibonacci number (Britannica)",
+      "url": "https://www.britannica.com/science/Fibonacci-number"
+    }
+  ],
+  "mathematics-museums--math-in-music-hall": [
+    {
+      "title": "Music and mathematics (Britannica)",
+      "url": "https://www.britannica.com/topic/music/Theory-of-music"
+    }
+  ],
+  "mathematics-museums--math-in-art-and-design-hall": [
+    {
+      "title": "Golden ratio (Britannica)",
+      "url": "https://www.britannica.com/science/golden-ratio"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getWings, getHalls } from '../../lib/data';
+export const prerender = false;
+const { wing } = Astro.params;
+const w = getWings().find(x => x.slug === wing);
+const halls = getHalls().filter(h => h.wingSlug === wing);
+---
+<Base title={w ? w.name : 'Wing'}>
+  <h1>{w ? w.name : 'Wing not found'}</h1>
+  {w && w.description ? <p class="muted">{w.description}</p> : null}
+  {halls.length === 0 ? (
+    <div class="notice">No halls found for this wing.</div>
+  ) : (
+    <div class="grid">
+      {halls.map((h) => (
+        <a class="card" href={`/halls/${h.slug}`}>
+          <strong>{h.name}</strong>
+          <div class="muted">{h.slug}</div>
+        </a>
+      ))}
+    </div>
+  )}
+</Base>

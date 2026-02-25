@@ -1,0 +1,62 @@
+{
+  "robotics-and-automation-museums--machine-learning-and-adaptation-hall": [
+    {
+      "title": "Machine Learning (NIST)",
+      "url": "https://www.nist.gov/artificial-intelligence"
+    }
+  ],
+  "robotics-and-automation-museums--safety-and-reliability-hall": [
+    {
+      "title": "Safety of Robotics Systems (IEEE RAS)",
+      "url": "https://www.ieee-ras.org/publications/ram"
+    }
+  ],
+  "robotics-and-automation-museums--ethics-and-responsibility-hall": [
+    {
+      "title": "AI Risk Management Framework (NIST)",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework"
+    }
+  ],
+  "robotics-and-automation-museums--robot-design-studio-hall": [
+    {
+      "title": "Robotics (IEEE RAS)",
+      "url": "https://www.ieee-ras.org/"
+    }
+  ],
+  "robotics-and-automation-museums--build-and-test-lab-hall": [
+    {
+      "title": "Standards and Robotics (NIST)",
+      "url": "https://www.nist.gov/el/intelligent-systems-division-73500"
+    }
+  ],
+  "robotics-and-automation-museums--coding-and-algorithms-hall": [
+    {
+      "title": "Algorithms (Britannica)",
+      "url": "https://www.britannica.com/science/algorithm"
+    }
+  ],
+  "robotics-and-automation-museums--prosthetics-and-exoskeletons-hall": [
+    {
+      "title": "Prosthesis (Britannica)",
+      "url": "https://www.britannica.com/science/prosthesis"
+    }
+  ],
+  "robotics-and-automation-museums--future-of-work-and-automation-hall": [
+    {
+      "title": "Automation (Britannica)",
+      "url": "https://www.britannica.com/technology/automation"
+    }
+  ],
+  "robotics-and-automation-museums--futurist-robotics-showcase-hall": [
+    {
+      "title": "Robotics (IEEE RAS)",
+      "url": "https://www.ieee-ras.org/"
+    }
+  ],
+  "robotics-and-automation-museums--robotics-playground-demo-arena-hall": [
+    {
+      "title": "Robotics (IEEE RAS)",
+      "url": "https://www.ieee-ras.org/"
+    }
+  ]
+}

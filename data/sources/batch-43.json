@@ -1,0 +1,62 @@
+{
+  "archaeological-science-museums--what-is-archaeology-hall": [
+    {
+      "title": "Archaeology (Britannica)",
+      "url": "https://www.britannica.com/science/archaeology"
+    }
+  ],
+  "archaeological-science-museums--fieldwork-and-excavation-hall": [
+    {
+      "title": "What is Archaeology? (SAA)",
+      "url": "https://www.saa.org/education-outreach/what-is-archaeology"
+    }
+  ],
+  "archaeological-science-museums--stratigraphy-and-site-layers-hall": [
+    {
+      "title": "Stratigraphy (USGS)",
+      "url": "https://www.usgs.gov/centers/geology-geophysics-and-geochemistry/science/stratigraphy"
+    }
+  ],
+  "archaeological-science-museums--dating-the-past-hall": [
+    {
+      "title": "What is radiocarbon dating? (USGS)",
+      "url": "https://www.usgs.gov/faqs/what-radiocarbon-dating"
+    }
+  ],
+  "archaeological-science-museums--materials-and-artifacts-hall": [
+    {
+      "title": "Artifact (Britannica)",
+      "url": "https://www.britannica.com/science/artifact-archaeology"
+    }
+  ],
+  "archaeological-science-museums--ceramics-and-pottery-science-hall": [
+    {
+      "title": "Pottery (Britannica)",
+      "url": "https://www.britannica.com/art/pottery"
+    }
+  ],
+  "archaeological-science-museums--stone-tools-and-lithics-hall": [
+    {
+      "title": "Stone tool (Britannica)",
+      "url": "https://www.britannica.com/technology/stone-tool"
+    }
+  ],
+  "archaeological-science-museums--metals-and-metallurgy-hall": [
+    {
+      "title": "Metallurgy (Britannica)",
+      "url": "https://www.britannica.com/technology/metallurgy"
+    }
+  ],
+  "archaeological-science-museums--trade-and-networks-hall": [
+    {
+      "title": "Trade (Britannica)",
+      "url": "https://www.britannica.com/topic/trade"
+    }
+  ],
+  "archaeological-science-museums--ancient-food-and-agriculture-hall": [
+    {
+      "title": "Agriculture | Origins (Britannica)",
+      "url": "https://www.britannica.com/topic/agriculture/Origins"
+    }
+  ]
+}

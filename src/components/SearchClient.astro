@@ -1,0 +1,142 @@
+---
+const { defaultWing = '', defaultHall = '' } = Astro.props;
+---
+<div class="card" id="search-root" data-wing={defaultWing} data-hall={defaultHall}>
+  <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+    <input type="search" id="q" placeholder="Search exhibits" />
+    <input type="text" id="tag" placeholder="Tag" />
+    <select id="sort">
+      <option value="title">Title</option>
+      <option value="hall">Hall</option>
+      <option value="wing">Wing</option>
+    </select>
+    <button id="clear">Clear</button>
+    <span class="pill">Tip: filter by tag or hall slug</span>
+  </div>
+  <div id="results" class="list" style="margin-top:12px;"></div>
+  <div id="pager" class="pager"></div>
+</div>
+
+<script>
+  const root = document.getElementById('search-root');
+  const qEl = document.getElementById('q');
+  const tagEl = document.getElementById('tag');
+  const sortEl = document.getElementById('sort');
+  const resultsEl = document.getElementById('results');
+  const pagerEl = document.getElementById('pager');
+  const clearEl = document.getElementById('clear');
+
+  const params = new URLSearchParams(window.location.search);
+  const defaultWing = root.dataset.wing || '';
+  const defaultHall = root.dataset.hall || '';
+
+  function getState() {
+    return {
+      q: params.get('q') || '',
+      tag: params.get('tag') || '',
+      sort: params.get('sort') || 'title',
+      page: Number(params.get('page') || '1'),
+      pageSize: Number(params.get('pageSize') || '20'),
+      wing: params.get('wing') || defaultWing,
+      hall: params.get('hall') || defaultHall,
+    };
+  }
+
+  function setState(next) {
+    Object.entries(next).forEach(([k, v]) => {
+      if (v === '' || v == null) params.delete(k);
+      else params.set(k, String(v));
+    });
+    const url = `${window.location.pathname}?${params.toString()}`;
+    window.history.replaceState({}, '', url);
+  }
+
+  async function loadIndex() {
+    const res = await fetch('/search-index.json');
+    return res.json();
+  }
+
+  function render(items, state, totalPages) {
+    resultsEl.innerHTML = '';
+    if (!items.length) {
+      resultsEl.innerHTML = '<div class="notice">No exhibits found.</div>';
+    } else {
+      for (const e of items) {
+        const card = document.createElement('a');
+        card.className = 'card';
+        card.href = `/exhibits/${e.slug}`;
+        card.innerHTML = `<div style="display:flex; justify-content:space-between; gap:8px;">` +
+          `<strong>${e.title}</strong>` +
+          `<span class="badge">${e.hallSlug}</span>` +
+          `</div>` +
+          `<p class="muted" style="margin:6px 0 0;">${e.summary}</p>`;
+        resultsEl.appendChild(card);
+      }
+    }
+
+    pagerEl.innerHTML = '';
+    const prev = Math.max(1, state.page - 1);
+    const next = Math.min(totalPages, state.page + 1);
+    const prevBtn = document.createElement('button');
+    prevBtn.textContent = 'Prev';
+    prevBtn.disabled = state.page === 1;
+    prevBtn.onclick = () => updatePage(prev);
+    const nextBtn = document.createElement('button');
+    nextBtn.textContent = 'Next';
+    nextBtn.disabled = state.page === totalPages;
+    nextBtn.onclick = () => updatePage(next);
+    const info = document.createElement('span');
+    info.className = 'muted';
+    info.textContent = `Page ${state.page} / ${totalPages}`;
+    pagerEl.appendChild(prevBtn);
+    pagerEl.appendChild(info);
+    pagerEl.appendChild(nextBtn);
+  }
+
+  function applyFilters(data, state) {
+    const q = state.q.toLowerCase();
+    const tag = state.tag.toLowerCase();
+    let filtered = data;
+    if (state.wing) filtered = filtered.filter(e => e.wingSlug === state.wing);
+    if (state.hall) filtered = filtered.filter(e => e.hallSlug === state.hall);
+    if (q) filtered = filtered.filter(e =>
+      e.title.toLowerCase().includes(q) ||
+      (e.summary || '').toLowerCase().includes(q) ||
+      (e.tags || []).some(t => t.includes(q))
+    );
+    if (tag) filtered = filtered.filter(e => (e.tags || []).some(t => t.includes(tag)));
+
+    const sorted = [...filtered].sort((a, b) => {
+      if (state.sort === 'hall') return a.hallSlug.localeCompare(b.hallSlug);
+      if (state.sort === 'wing') return a.wingSlug.localeCompare(b.wingSlug);
+      return a.title.localeCompare(b.title);
+    });
+    return sorted;
+  }
+
+  function updatePage(page) {
+    setState({ page });
+    run();
+  }
+
+  async function run() {
+    const data = await loadIndex();
+    const state = getState();
+    qEl.value = state.q;
+    tagEl.value = state.tag;
+    sortEl.value = state.sort;
+
+    const filtered = applyFilters(data, state);
+    const totalPages = Math.max(1, Math.ceil(filtered.length / state.pageSize));
+    const start = (state.page - 1) * state.pageSize;
+    const pageItems = filtered.slice(start, start + state.pageSize);
+    render(pageItems, state, totalPages);
+  }
+
+  qEl.addEventListener('input', () => { setState({ q: qEl.value, page: 1 }); run(); });
+  tagEl.addEventListener('input', () => { setState({ tag: tagEl.value, page: 1 }); run(); });
+  sortEl.addEventListener('change', () => { setState({ sort: sortEl.value, page: 1 }); run(); });
+  clearEl.addEventListener('click', () => { qEl.value = ''; tagEl.value = ''; setState({ q: '', tag: '', page: 1 }); run(); });
+
+  run();
+</script>

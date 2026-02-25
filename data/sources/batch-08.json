@@ -1,0 +1,70 @@
+{
+  "earth-science-and-geology-museums--rivers-and-erosion-hall": [
+    {
+      "title": "Geomorphology & Sediment Transport (USGS)",
+      "url": "https://www.usgs.gov/centers/washington-water-science-center/science/geomorphology-sediment-transport"
+    },
+    {
+      "title": "The Work of Water (NPS)",
+      "url": "https://www.nps.gov/teachers/classrooms/the-work-of-water.htm"
+    }
+  ],
+  "earth-science-and-geology-museums--weathering-and-landscape-change-hall": [
+    {
+      "title": "Landscape Change and Impacts (USGS)",
+      "url": "https://www.usgs.gov/programs/ecosystems-land-change-science-program/science/landscape-change-and-impacts"
+    }
+  ],
+  "earth-science-and-geology-museums--soil-and-surface-systems-hall": [
+    {
+      "title": "Soil Science (USDA NRCS)",
+      "url": "https://www.nrcs.usda.gov/conservation-basics/natural-resource-concerns/soil/soil-science"
+    }
+  ],
+  "earth-science-and-geology-museums--atmosphere-and-air-systems-hall": [
+    {
+      "title": "What is Earth's Atmosphere? (NASA)",
+      "url": "https://www.nasa.gov/general/what-is-earths-atmosphere/"
+    }
+  ],
+  "earth-science-and-geology-museums--weather-and-storm-systems-hall": [
+    {
+      "title": "NWS Education (NOAA)",
+      "url": "https://www.weather.gov/education"
+    },
+    {
+      "title": "Severe Weather 101 (NOAA NSSL)",
+      "url": "https://www.nssl.noaa.gov/education/"
+    }
+  ],
+  "earth-science-and-geology-museums--climate-and-climate-change-hall": [
+    {
+      "title": "Climate Change: Evidence (NASA)",
+      "url": "https://science.nasa.gov/climate-change/evidence/"
+    }
+  ],
+  "earth-science-and-geology-museums--ice-and-glacial-processes-hall": [
+    {
+      "title": "Glaciers and Landscape Change (USGS)",
+      "url": "https://www.usgs.gov/programs/ecosystems-land-change-science-program/science/glaciers-and-climate-project"
+    }
+  ],
+  "earth-science-and-geology-museums--deserts-and-arid-lands-hall": [
+    {
+      "title": "Deserts: Geology and Resources (USGS)",
+      "url": "https://www.usgs.gov/publications/deserts-geology-and-resources"
+    }
+  ],
+  "earth-science-and-geology-museums--caves-and-underground-worlds-hall": [
+    {
+      "title": "Caves and Karst (NPS)",
+      "url": "https://www.nps.gov/subjects/caves/cave-karst-resources.htm"
+    }
+  ],
+  "earth-science-and-geology-museums--natural-resources-hall": [
+    {
+      "title": "Mineral Resources Program (USGS)",
+      "url": "https://www.usgs.gov/programs/mineral-resources-program"
+    }
+  ]
+}

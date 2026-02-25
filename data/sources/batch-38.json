@@ -1,0 +1,62 @@
+{
+  "robotics-and-automation-museums--social-robots-hall": [
+    {
+      "title": "Social Robot (Britannica)",
+      "url": "https://www.britannica.com/technology/robot"
+    }
+  ],
+  "robotics-and-automation-museums--service-robots-hall": [
+    {
+      "title": "Service Robot (IFR)",
+      "url": "https://ifr.org/service-robots"
+    }
+  ],
+  "robotics-and-automation-museums--medical-robotics-hall": [
+    {
+      "title": "Robotics in Surgery (NIH/NIBIB)",
+      "url": "https://www.nibib.nih.gov/science-education/science-topics/robotics-surgery"
+    }
+  ],
+  "robotics-and-automation-museums--warehouse-and-logistics-automation-hall": [
+    {
+      "title": "Automation (Britannica)",
+      "url": "https://www.britannica.com/technology/automation"
+    }
+  ],
+  "robotics-and-automation-museums--autonomous-vehicles-hall": [
+    {
+      "title": "Automated Vehicles for Safety (NHTSA)",
+      "url": "https://www.nhtsa.gov/technology-innovation/automated-vehicles-safety"
+    }
+  ],
+  "robotics-and-automation-museums--drones-and-aerial-robotics-hall": [
+    {
+      "title": "Unmanned Aircraft Systems (FAA)",
+      "url": "https://www.faa.gov/uas"
+    }
+  ],
+  "robotics-and-automation-museums--underwater-robotics-hall": [
+    {
+      "title": "Underwater Robotics (NOAA Ocean Exploration)",
+      "url": "https://oceanexplorer.noaa.gov/facts/robots.html"
+    }
+  ],
+  "robotics-and-automation-museums--space-robotics-hall": [
+    {
+      "title": "Robotics (NASA)",
+      "url": "https://www.nasa.gov/technology/robotics/"
+    }
+  ],
+  "robotics-and-automation-museums--swarm-robotics-hall": [
+    {
+      "title": "Swarm Robotics (IEEE RAS)",
+      "url": "https://www.ieee-ras.org/robotics-and-automation-magazine"
+    }
+  ],
+  "robotics-and-automation-museums--ai-for-robotics-hall": [
+    {
+      "title": "Artificial Intelligence (NIST)",
+      "url": "https://www.nist.gov/artificial-intelligence"
+    }
+  ]
+}

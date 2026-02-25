@@ -1,0 +1,66 @@
+{
+  "chemistry-museums--oxidation-reduction-and-electrochemistry-hall": [
+    {
+      "title": "Oxidation–Reduction Reaction (Britannica)",
+      "url": "https://www.britannica.com/science/oxidation-reduction-reaction"
+    }
+  ],
+  "chemistry-museums--gases-and-atmosphere-chemistry-hall": [
+    {
+      "title": "Atmosphere (Britannica)",
+      "url": "https://www.britannica.com/science/atmosphere"
+    }
+  ],
+  "chemistry-museums--water-chemistry-hall": [
+    {
+      "title": "Water (Britannica)",
+      "url": "https://www.britannica.com/science/water"
+    }
+  ],
+  "chemistry-museums--carbon-chemistry-and-organics-hall": [
+    {
+      "title": "Organic compound (Britannica)",
+      "url": "https://www.britannica.com/science/organic-compound"
+    }
+  ],
+  "chemistry-museums--polymers-and-plastics-hall": [
+    {
+      "title": "Polymer (Britannica)",
+      "url": "https://www.britannica.com/science/polymer"
+    }
+  ],
+  "chemistry-museums--materials-and-everyday-chemistry-hall": [
+    {
+      "title": "Materials science (Britannica)",
+      "url": "https://www.britannica.com/science/materials-science"
+    }
+  ],
+  "chemistry-museums--chemistry-of-color-and-light-hall": [
+    {
+      "title": "Color (Britannica)",
+      "url": "https://www.britannica.com/science/color"
+    }
+  ],
+  "chemistry-museums--chemistry-of-smell-and-taste-hall": [
+    {
+      "title": "Olfaction (Britannica)",
+      "url": "https://www.britannica.com/science/olfaction"
+    },
+    {
+      "title": "Taste (Britannica)",
+      "url": "https://www.britannica.com/science/taste"
+    }
+  ],
+  "chemistry-museums--food-chemistry-hall": [
+    {
+      "title": "Food chemistry (Encyclopedia Britannica)",
+      "url": "https://www.britannica.com/science/food-chemistry"
+    }
+  ],
+  "chemistry-museums--medicinal-and-pharmaceutical-chemistry-hall": [
+    {
+      "title": "Pharmaceutical chemistry (Britannica)",
+      "url": "https://www.britannica.com/science/pharmaceutical-chemistry"
+    }
+  ]
+}

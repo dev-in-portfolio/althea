@@ -1,0 +1,14 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getHalls } from '../../lib/data';
+export const prerender = false;
+import SearchClient from '../../components/SearchClient.astro';
+const { hall } = Astro.params;
+const h = getHalls().find(x => x.slug === hall);
+---
+<Base title={h ? h.name : 'Hall'}>
+  <h1>{h ? h.name : 'Hall not found'}</h1>
+  {h && h.description ? <p class="muted">{h.description}</p> : null}
+  <h2 class="section-title">Exhibits</h2>
+  <SearchClient defaultHall={hall} />
+</Base>

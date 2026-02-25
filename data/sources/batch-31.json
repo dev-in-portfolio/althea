@@ -1,0 +1,66 @@
+{
+  "materials-science-museums--what-are-materials-hall": [
+    {
+      "title": "Materials Science (Britannica)",
+      "url": "https://www.britannica.com/science/materials-science"
+    }
+  ],
+  "materials-science-museums--structure-of-materials-hall": [
+    {
+      "title": "Structure of Matter (NIST)",
+      "url": "https://www.nist.gov/pml/physical-measurement-laboratory"
+    }
+  ],
+  "materials-science-museums--crystals-and-defects-hall": [
+    {
+      "title": "Crystal Defects (Britannica)",
+      "url": "https://www.britannica.com/science/crystal-defect"
+    }
+  ],
+  "materials-science-museums--metals-and-alloys-hall": [
+    {
+      "title": "Metal (Britannica)",
+      "url": "https://www.britannica.com/science/metal"
+    }
+  ],
+  "materials-science-museums--ceramics-and-glass-hall": [
+    {
+      "title": "Ceramic (Britannica)",
+      "url": "https://www.britannica.com/science/ceramic"
+    },
+    {
+      "title": "Glass (Britannica)",
+      "url": "https://www.britannica.com/science/glass"
+    }
+  ],
+  "materials-science-museums--polymers-and-elastomers-hall": [
+    {
+      "title": "Polymer (Britannica)",
+      "url": "https://www.britannica.com/science/polymer"
+    }
+  ],
+  "materials-science-museums--composites-hall": [
+    {
+      "title": "Composite Material (Britannica)",
+      "url": "https://www.britannica.com/science/composite-material"
+    }
+  ],
+  "materials-science-museums--biomaterials-hall": [
+    {
+      "title": "Biomaterials (NIH/NIBIB)",
+      "url": "https://www.nibib.nih.gov/science-education/science-topics/biomaterials"
+    }
+  ],
+  "materials-science-museums--electronic-materials-hall": [
+    {
+      "title": "Semiconductors (NIST)",
+      "url": "https://www.nist.gov/pml/semiconductor-measurements"
+    }
+  ],
+  "materials-science-museums--magnetic-materials-hall": [
+    {
+      "title": "Magnetism (Britannica)",
+      "url": "https://www.britannica.com/science/magnetism"
+    }
+  ]
+}

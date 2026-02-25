@@ -1,0 +1,62 @@
+{
+  "earth-science-and-geology-museums--formation-of-earth-hall": [
+    {
+      "title": "Geologic Time (NPS)",
+      "url": "https://www.nps.gov/subjects/geology/geotime.htm"
+    }
+  ],
+  "earth-science-and-geology-museums--plate-tectonics-hall": [
+    {
+      "title": "Plate Tectonics (USGS)",
+      "url": "https://www.usgs.gov/educational-resources/plate-tectonics"
+    }
+  ],
+  "earth-science-and-geology-museums--volcanoes-and-magma-hall": [
+    {
+      "title": "About Volcanoes (USGS)",
+      "url": "https://www.usgs.gov/index.php/programs/VHP/about-volcanoes"
+    }
+  ],
+  "earth-science-and-geology-museums--earthquakes-and-seismic-forces-hall": [
+    {
+      "title": "Earthquake Hazards Program (USGS)",
+      "url": "https://www.usgs.gov/earthquake-hazards"
+    }
+  ],
+  "earth-science-and-geology-museums--mountain-building-hall": [
+    {
+      "title": "Orogeny (Britannica)",
+      "url": "https://www.britannica.com/science/orogeny"
+    }
+  ],
+  "earth-science-and-geology-museums--rock-cycle-hall": [
+    {
+      "title": "Types of Rocks / Rock Cycle (NPS)",
+      "url": "https://www.nps.gov/choh/learn/kidsyouth/activity-1-types-of-rocks.htm"
+    }
+  ],
+  "earth-science-and-geology-museums--minerals-and-earth-materials-hall": [
+    {
+      "title": "Mineral Resources Program - Education (USGS)",
+      "url": "https://www.usgs.gov/programs/mineral-resources-program/science/education"
+    }
+  ],
+  "earth-science-and-geology-museums--fossils-and-ancient-landscapes-hall": [
+    {
+      "title": "Fossils and Paleontology (NPS)",
+      "url": "https://www.nps.gov/subjects/fossils/index.htm"
+    }
+  ],
+  "earth-science-and-geology-museums--geological-time-hall": [
+    {
+      "title": "Geologic Time Scale (NPS)",
+      "url": "https://www.nps.gov/subjects/geology/time-scale.htm"
+    }
+  ],
+  "earth-science-and-geology-museums--oceans-and-seafloor-hall": [
+    {
+      "title": "Seafloor Mapping (NOAA Ocean Exploration)",
+      "url": "https://oceanexplorer.noaa.gov/education/seafloor-mapping/"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "mineral-and-gem-museums--diamonds-hall": [
+    {
+      "title": "Diamond | Properties, Occurrence, and Uses (Britannica)",
+      "url": "https://www.britannica.com/science/diamond-gemstone"
+    },
+    {
+      "title": "Diamond (GIA Encyclopedia)",
+      "url": "https://www.gia.edu/diamond"
+    }
+  ],
+  "mineral-and-gem-museums--gold-and-precious-metals-hall": [
+    {
+      "title": "Gold | History, Properties, and Uses (Britannica)",
+      "url": "https://www.britannica.com/science/gold-chemical-element"
+    },
+    {
+      "title": "Mineral Commodity Summaries (USGS)",
+      "url": "https://www.usgs.gov/centers/national-minerals-information-center/mineral-commodity-summaries"
+    }
+  ],
+  "mineral-and-gem-museums--ore-and-mining-hall": [
+    {
+      "title": "Mining (Britannica)",
+      "url": "https://www.britannica.com/technology/mining"
+    },
+    {
+      "title": "Mineral Resources Program (USGS)",
+      "url": "https://www.usgs.gov/programs/mineral-resources-program"
+    }
+  ],
+  "mineral-and-gem-museums--mining-history-hall": [
+    {
+      "title": "Mining | History (Britannica)",
+      "url": "https://www.britannica.com/technology/mining/History"
+    }
+  ],
+  "mineral-and-gem-museums--minerals-in-everyday-life-hall": [
+    {
+      "title": "Mineral Resources Program (USGS)",
+      "url": "https://www.usgs.gov/programs/mineral-resources-program"
+    },
+    {
+      "title": "Mineral Commodity Summaries (USGS)",
+      "url": "https://www.usgs.gov/centers/national-minerals-information-center/mineral-commodity-summaries"
+    }
+  ],
+  "mineral-and-gem-museums--synthetic-and-lab-grown-gems-hall": [
+    {
+      "title": "Lab-Grown Diamonds (GIA)",
+      "url": "https://www.gia.edu/lab-grown-diamonds"
+    },
+    {
+      "title": "Synthetic Diamond (Britannica)",
+      "url": "https://www.britannica.com/technology/synthetic-diamond"
+    }
+  ],
+  "mineral-and-gem-museums--preservation-and-conservation-hall": [
+    {
+      "title": "Caring for Your Collections (Smithsonian MCI)",
+      "url": "https://www.si.edu/mci/english/learn_more/taking_care/caring_for_collections.html"
+    },
+    {
+      "title": "Caring for Your Collections (Smithsonian MCI)",
+      "url": "https://www.si.edu/mci/english/learn_more/taking_care/collections.html"
+    }
+  ],
+  "mineral-and-gem-museums--jewelry-and-ornamentation-hall": [
+    {
+      "title": "Jewelry | History and Cultural Context (Britannica)",
+      "url": "https://www.britannica.com/art/jewelry"
+    }
+  ],
+  "mineral-and-gem-museums--geological-origins-of-gems-hall": [
+    {
+      "title": "Geology 101 for Gemologists (GIA)",
+      "url": "https://www.gia.edu/webinar-geology-101-for-gemologists"
+    },
+    {
+      "title": "Gemstone | Mineral (Britannica)",
+      "url": "https://www.britannica.com/science/gemstone"
+    }
+  ],
+  "mineral-and-gem-museums--future-materials-and-gem-science-hall": [
+    {
+      "title": "Material Science (National Institute of Standards and Technology)",
+      "url": "https://www.nist.gov/mml"
+    },
+    {
+      "title": "Critical Minerals (USGS)",
+      "url": "https://www.usgs.gov/science/science-explorer/minerals/critical-minerals"
+    }
+  ]
+}

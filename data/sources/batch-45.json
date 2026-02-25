@@ -1,0 +1,62 @@
+{
+  "archaeological-science-museums--remote-sensing-and-mapping-hall": [
+    {
+      "title": "LiDAR for Archaeology (USGS 3DEP)",
+      "url": "https://www.usgs.gov/3d-elevation-program"
+    }
+  ],
+  "archaeological-science-museums--underwater-archaeology-hall": [
+    {
+      "title": "Underwater Archaeology (NOAA)",
+      "url": "https://oceanexplorer.noaa.gov/explorations/05deepwater/background/archaeology/archaeology.html"
+    }
+  ],
+  "archaeological-science-museums--experimental-archaeology-hall": [
+    {
+      "title": "Experimental Archaeology (EXARC)",
+      "url": "https://exarc.net/"
+    }
+  ],
+  "archaeological-science-museums--cultural-heritage-and-repatriation-hall": [
+    {
+      "title": "NAGPRA (National Park Service)",
+      "url": "https://www.nps.gov/subjects/nagpra/index.htm"
+    }
+  ],
+  "archaeological-science-museums--ancient-climates-and-environments-hall": [
+    {
+      "title": "Paleoclimatology (NASA Earth Observatory)",
+      "url": "https://earthobservatory.nasa.gov/features/Paleoclimatology"
+    }
+  ],
+  "archaeological-science-museums--civilization-case-studies-hall": [
+    {
+      "title": "Archaeology (Britannica)",
+      "url": "https://www.britannica.com/science/archaeology"
+    }
+  ],
+  "archaeological-science-museums--everyday-life-in-the-past-hall": [
+    {
+      "title": "Archaeology (Britannica)",
+      "url": "https://www.britannica.com/science/archaeology"
+    }
+  ],
+  "archaeological-science-museums--conflict-and-collapse-hall": [
+    {
+      "title": "Collapse (Britannica)",
+      "url": "https://www.britannica.com/science/collapse-societal"
+    }
+  ],
+  "archaeological-science-museums--museums-collections-and-provenance-hall": [
+    {
+      "title": "Provenance (Britannica)",
+      "url": "https://www.britannica.com/topic/provenance"
+    }
+  ],
+  "archaeological-science-museums--future-of-archaeological-science-hall": [
+    {
+      "title": "Archaeology (Britannica)",
+      "url": "https://www.britannica.com/science/archaeology"
+    }
+  ]
+}

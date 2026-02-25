@@ -1,0 +1,77 @@
+[
+  {
+    "slug": "natural-history-museums",
+    "name": "Natural History Museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums",
+    "name": "Space & Astronomy Museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums",
+    "name": "Earth Science & Geology Museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums",
+    "name": "Mineral & Gem Museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums",
+    "name": "Paleontology Museums",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens",
+    "name": "Botanical Science Museums / Gardens",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums",
+    "name": "Marine Science & Oceanography Museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums",
+    "name": "Biology & Life Sciences Museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums",
+    "name": "Physics Museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums",
+    "name": "Chemistry Museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums",
+    "name": "Materials Science Museums",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers",
+    "name": "Nanotechnology & Advanced Materials Centers",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums",
+    "name": "Robotics & Automation Museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums",
+    "name": "Mathematics Museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums",
+    "name": "Archaeological Science Museums",
+    "description": ""
+  }
+]

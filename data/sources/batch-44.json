@@ -1,0 +1,62 @@
+{
+  "archaeological-science-museums--ancient-water-systems-hall": [
+    {
+      "title": "Irrigation | History (Britannica)",
+      "url": "https://www.britannica.com/technology/irrigation/History"
+    }
+  ],
+  "archaeological-science-museums--architecture-and-built-environments-hall": [
+    {
+      "title": "Architecture (Britannica)",
+      "url": "https://www.britannica.com/topic/architecture"
+    }
+  ],
+  "archaeological-science-museums--writing-and-recordkeeping-hall": [
+    {
+      "title": "Writing (Britannica)",
+      "url": "https://www.britannica.com/topic/writing"
+    }
+  ],
+  "archaeological-science-museums--burial-practices-and-bioarchaeology-hall": [
+    {
+      "title": "Bioarchaeology (Britannica)",
+      "url": "https://www.britannica.com/science/bioarchaeology"
+    }
+  ],
+  "archaeological-science-museums--human-remains-and-ethics-hall": [
+    {
+      "title": "NAGPRA (National Park Service)",
+      "url": "https://www.nps.gov/subjects/nagpra/index.htm"
+    }
+  ],
+  "archaeological-science-museums--ancient-diseases-and-health-hall": [
+    {
+      "title": "Paleopathology (Britannica)",
+      "url": "https://www.britannica.com/science/paleopathology"
+    }
+  ],
+  "archaeological-science-museums--dna-and-ancient-genomics-hall": [
+    {
+      "title": "Ancient DNA (Nature Education)",
+      "url": "https://www.nature.com/scitable/topicpage/ancient-dna-technology-and-its-applications-7081/"
+    }
+  ],
+  "archaeological-science-museums--isotopes-and-mobility-hall": [
+    {
+      "title": "Isotope geochemistry (Britannica)",
+      "url": "https://www.britannica.com/science/isotope-geochemistry"
+    }
+  ],
+  "archaeological-science-museums--conservation-and-preservation-hall": [
+    {
+      "title": "ICOM-CC (International Council of Museums - Conservation)",
+      "url": "https://icom-cc.org/"
+    }
+  ],
+  "archaeological-science-museums--restoration-lab-hall": [
+    {
+      "title": "Smithsonian Museum Conservation Institute (MCI)",
+      "url": "https://www.si.edu/mci"
+    }
+  ]
+}

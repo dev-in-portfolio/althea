@@ -1,0 +1,66 @@
+{
+  "marine-science-and-oceanography-museums--ocean-realms-overview-hall": [
+    {
+      "title": "Ocean (NOAA Ocean Service)",
+      "url": "https://oceanservice.noaa.gov/"
+    },
+    {
+      "title": "Ocean Exploration (NOAA)",
+      "url": "https://oceanexplorer.noaa.gov/"
+    }
+  ],
+  "marine-science-and-oceanography-museums--coastal-systems-hall": [
+    {
+      "title": "Office for Coastal Management (NOAA)",
+      "url": "https://coast.noaa.gov/"
+    }
+  ],
+  "marine-science-and-oceanography-museums--open-ocean-pelagic-hall": [
+    {
+      "title": "Open Ocean (NOAA Ocean Explorer)",
+      "url": "https://oceanexplorer.noaa.gov/facts/open-ocean.html"
+    }
+  ],
+  "marine-science-and-oceanography-museums--deep-sea-hall": [
+    {
+      "title": "What is the Deep Sea? (NOAA Ocean Exploration)",
+      "url": "https://oceanexplorer.noaa.gov/facts/deep-sea.html"
+    }
+  ],
+  "marine-science-and-oceanography-museums--coral-reefs-hall": [
+    {
+      "title": "Coral Reefs (NOAA)",
+      "url": "https://www.noaa.gov/education/resource-collections/marine-life/coral-reefs"
+    }
+  ],
+  "marine-science-and-oceanography-museums--estuaries-and-marshes-hall": [
+    {
+      "title": "What is an Estuary? (NOAA)",
+      "url": "https://oceanservice.noaa.gov/facts/estuary.html"
+    }
+  ],
+  "marine-science-and-oceanography-museums--ocean-biodiversity-hall": [
+    {
+      "title": "Marine Biodiversity (NOAA)",
+      "url": "https://oceanservice.noaa.gov/facts/biodiversity.html"
+    }
+  ],
+  "marine-science-and-oceanography-museums--marine-food-webs-hall": [
+    {
+      "title": "Food Webs (NOAA)",
+      "url": "https://oceanservice.noaa.gov/facts/foodweb.html"
+    }
+  ],
+  "marine-science-and-oceanography-museums--plankton-and-the-microscopic-ocean-hall": [
+    {
+      "title": "What are Plankton? (NOAA)",
+      "url": "https://oceanservice.noaa.gov/facts/plankton.html"
+    }
+  ],
+  "marine-science-and-oceanography-museums--marine-mammals-hall": [
+    {
+      "title": "Marine Mammals (NOAA Fisheries)",
+      "url": "https://www.fisheries.noaa.gov/topic/marine-mammals"
+    }
+  ]
+}

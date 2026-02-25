@@ -1,0 +1,62 @@
+{
+  "natural-history-museums--origins-of-earth-hall": [
+    {
+      "title": "Geologic Time: The Story of Earth",
+      "url": "https://www.nps.gov/subjects/geology/time.htm"
+    }
+  ],
+  "natural-history-museums--deep-time-hall": [
+    {
+      "title": "Geologic Time Scale",
+      "url": "https://www.nps.gov/subjects/geology/time-scale.htm"
+    }
+  ],
+  "natural-history-museums--evolution-of-life-hall": [
+    {
+      "title": "Understanding Evolution (UC Berkeley)",
+      "url": "https://evolution.berkeley.edu"
+    }
+  ],
+  "natural-history-museums--biodiversity-hall": [
+    {
+      "title": "Biodiversity (Smithsonian)",
+      "url": "https://www.si.edu/spotlight/biodiversity"
+    }
+  ],
+  "natural-history-museums--ecosystems-of-the-world-hall": [
+    {
+      "title": "Ecosystems (USGS)",
+      "url": "https://www.usgs.gov/ecosystems"
+    }
+  ],
+  "natural-history-museums--ancient-oceans-hall": [
+    {
+      "title": "Ancient Oceans (NPS Geology)",
+      "url": "https://www.nps.gov/subjects/geology/ancient-oceans.htm"
+    }
+  ],
+  "natural-history-museums--ice-age-and-climate-history-hall": [
+    {
+      "title": "NASA Paleoclimatology",
+      "url": "https://earthobservatory.nasa.gov/features/Paleoclimatology"
+    }
+  ],
+  "natural-history-museums--human-origins-hall": [
+    {
+      "title": "Smithsonian Human Origins",
+      "url": "https://humanorigins.si.edu"
+    }
+  ],
+  "natural-history-museums--megafauna-hall": [
+    {
+      "title": "Pleistocene megafaunal extinctions (Britannica)",
+      "url": "https://www.britannica.com/science/Pleistocene-epoch"
+    }
+  ],
+  "natural-history-museums--extinction-and-survival-hall": [
+    {
+      "title": "Mass extinction (National Geographic Society)",
+      "url": "https://education.nationalgeographic.org/resource/mass-extinction/"
+    }
+  ]
+}

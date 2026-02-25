@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import { getWings } from '../lib/data';
+import SearchClient from '../components/SearchClient.astro';
+
+const wings = getWings();
+---
+<Base title="Lobby">
+  <div class="hero">
+    <h1>Lobby</h1>
+    <p class="muted">Explore wings, halls, and exhibits with research‑grade summaries and citations.</p>
+  </div>
+
+  <h2 class="section-title">Search</h2>
+  <SearchClient />
+
+  <h2 class="section-title">Wings</h2>
+  {wings.length === 0 ? (
+    <div class="notice">No wings loaded yet.</div>
+  ) : (
+    <div class="grid">
+      {wings.map((w) => (
+        <a class="card" href={`/wings/${w.slug}`}>
+          <strong>{w.name}</strong>
+          <div class="muted">{w.slug}</div>
+        </a>
+      ))}
+    </div>
+  )}
+</Base>

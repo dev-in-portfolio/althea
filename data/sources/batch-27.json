@@ -1,0 +1,62 @@
+{
+  "physics-museums--nuclear-physics-hall": [
+    {
+      "title": "Nuclear Physics (IAEA)",
+      "url": "https://www.iaea.org/topics/nuclear-physics"
+    }
+  ],
+  "physics-museums--radiation-and-detection-hall": [
+    {
+      "title": "Radiation Basics (US EPA)",
+      "url": "https://www.epa.gov/radiation/radiation-basics"
+    }
+  ],
+  "physics-museums--particle-physics-hall": [
+    {
+      "title": "What is Particle Physics? (CERN)",
+      "url": "https://home.cern/science/physics/particle-physics"
+    }
+  ],
+  "physics-museums--the-standard-model-hall": [
+    {
+      "title": "The Standard Model (CERN)",
+      "url": "https://home.cern/science/physics/standard-model"
+    }
+  ],
+  "physics-museums--fields-and-forces-of-nature-hall": [
+    {
+      "title": "Fundamental Forces (NASA)",
+      "url": "https://imagine.gsfc.nasa.gov/science/toolbox/forces1.html"
+    }
+  ],
+  "physics-museums--measurement-and-instruments-hall": [
+    {
+      "title": "NIST Measurement Standards Laboratory",
+      "url": "https://www.nist.gov/mml/psd/measurements"
+    }
+  ],
+  "physics-museums--physics-of-everyday-life-hall": [
+    {
+      "title": "Physics (Britannica)",
+      "url": "https://www.britannica.com/science/physics"
+    }
+  ],
+  "physics-museums--extreme-physics-hall": [
+    {
+      "title": "Black Holes (NASA Science)",
+      "url": "https://science.nasa.gov/universe/black-holes/"
+    }
+  ],
+  "physics-museums--experiment-and-demo-theater-hall": [
+    {
+      "title": "Physics Education Resources (AIP)",
+      "url": "https://www.aip.org/statistics/education"
+    }
+  ],
+  "physics-museums--frontiers-of-physics-hall": [
+    {
+      "title": "Physics (American Physical Society)",
+      "url": "https://www.aps.org/"
+    }
+  ]
+}

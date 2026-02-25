@@ -1,0 +1,37 @@
+---
+import "../styles/global.css";
+const { title = "Micro-Exhibits" } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="site">
+      <div class="wrap">
+        <div>
+          <div class="pill">Astro + Neon</div>
+          <strong style="display:block; font-size:18px; margin-top:6px;">Micro-Exhibits</strong>
+          <div class="muted" style="font-size:12px;">Digital Science Museum</div>
+        </div>
+        <nav>
+          <a href="/">Lobby</a>
+          <a href="/wings">Wings</a>
+          <a href="/halls">Halls</a>
+          <a href="/exhibits">Exhibits</a>
+          <a href="/random">Random</a>
+          <a href="/favorites">Favorites</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

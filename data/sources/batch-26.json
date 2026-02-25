@@ -1,0 +1,62 @@
+{
+  "physics-museums--electricity-basics-hall": [
+    {
+      "title": "Electricity (NASA Glenn)",
+      "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/electricity/"
+    }
+  ],
+  "physics-museums--circuits-and-electronics-hall": [
+    {
+      "title": "Electricity (NASA Glenn)",
+      "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/electricity/"
+    }
+  ],
+  "physics-museums--magnetism-hall": [
+    {
+      "title": "Magnetism (NASA Glenn)",
+      "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/magnetism/"
+    }
+  ],
+  "physics-museums--electromagnetism-hall": [
+    {
+      "title": "Electromagnetism (NASA Glenn)",
+      "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/electromagnetism/"
+    }
+  ],
+  "physics-museums--heat-and-thermodynamics-hall": [
+    {
+      "title": "Thermodynamics (NASA Glenn)",
+      "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thermodynamics/"
+    }
+  ],
+  "physics-museums--states-of-matter-physical-hall": [
+    {
+      "title": "States of Matter (NASA Glenn)",
+      "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/states-of-matter/"
+    }
+  ],
+  "physics-museums--materials-and-physical-properties-hall": [
+    {
+      "title": "Material Properties (NASA Glenn)",
+      "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/material-properties/"
+    }
+  ],
+  "physics-museums--relativity-and-spacetime-hall": [
+    {
+      "title": "Einstein's Theory of Relativity (NASA)",
+      "url": "https://www.nasa.gov/mission_pages/chandra/news/relativity.html"
+    }
+  ],
+  "physics-museums--quantum-worlds-hall": [
+    {
+      "title": "Quantum Mechanics (Britannica)",
+      "url": "https://www.britannica.com/science/quantum-mechanics"
+    }
+  ],
+  "physics-museums--atomic-and-molecular-physics-hall": [
+    {
+      "title": "Atomic Physics (Britannica)",
+      "url": "https://www.britannica.com/science/atomic-physics"
+    }
+  ]
+}

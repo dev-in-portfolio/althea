@@ -1,0 +1,62 @@
+{
+  "paleontology-museums--predator-and-prey-in-deep-time-hall": [
+    {
+      "title": "Predation (Britannica)",
+      "url": "https://www.britannica.com/science/predation"
+    }
+  ],
+  "paleontology-museums--adaptations-and-survival-hall": [
+    {
+      "title": "Adaptation (Britannica)",
+      "url": "https://www.britannica.com/science/adaptation-biology-and-physiology"
+    }
+  ],
+  "paleontology-museums--paleoenvironment-reconstruction-hall": [
+    {
+      "title": "Paleoecology (Britannica)",
+      "url": "https://www.britannica.com/science/paleoecology"
+    }
+  ],
+  "paleontology-museums--climate-through-time-hall": [
+    {
+      "title": "Paleoclimatology (NASA Earth Observatory)",
+      "url": "https://earthobservatory.nasa.gov/features/Paleoclimatology"
+    }
+  ],
+  "paleontology-museums--fossils-and-modern-species-links-hall": [
+    {
+      "title": "Evolution (Britannica)",
+      "url": "https://www.britannica.com/science/evolution-scientific-theory"
+    }
+  ],
+  "paleontology-museums--microfossils-and-ancient-seas-hall": [
+    {
+      "title": "Microfossil (Britannica)",
+      "url": "https://www.britannica.com/science/microfossil"
+    }
+  ],
+  "paleontology-museums--amber-and-preserved-life-hall": [
+    {
+      "title": "Amber (Britannica)",
+      "url": "https://www.britannica.com/science/amber"
+    }
+  ],
+  "paleontology-museums--human-evolution-fossils-hall": [
+    {
+      "title": "Human evolution (Smithsonian Human Origins)",
+      "url": "https://humanorigins.si.edu/evidence/human-evolution"
+    }
+  ],
+  "paleontology-museums--dinosaurs-in-culture-and-science-hall": [
+    {
+      "title": "Dinosaur (Britannica)",
+      "url": "https://www.britannica.com/animal/dinosaur"
+    }
+  ],
+  "paleontology-museums--future-of-paleontology-hall": [
+    {
+      "title": "Paleobiology Database (PBDB)",
+      "url": "https://paleobiodb.org/"
+    }
+  ]
+}

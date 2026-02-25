@@ -1,0 +1,62 @@
+{
+  "materials-science-museums--optical-materials-hall": [
+    {
+      "title": "Optical Materials (NIST)",
+      "url": "https://www.nist.gov/pml/optical-materials"
+    }
+  ],
+  "materials-science-museums--thermal-materials-hall": [
+    {
+      "title": "Thermal Properties of Materials (NIST)",
+      "url": "https://www.nist.gov/pml/materials-science-and-engineering"
+    }
+  ],
+  "materials-science-museums--mechanical-strength-and-failure-hall": [
+    {
+      "title": "Mechanical Properties (NIST)",
+      "url": "https://www.nist.gov/mml/materials-science-and-engineering"
+    }
+  ],
+  "materials-science-museums--fracture-fatigue-and-wear-hall": [
+    {
+      "title": "Fatigue (Britannica)",
+      "url": "https://www.britannica.com/technology/fatigue"
+    }
+  ],
+  "materials-science-museums--corrosion-and-protection-hall": [
+    {
+      "title": "Corrosion (NACE International/AMPP)",
+      "url": "https://www.ampp.org/resources/general/corrosion"
+    }
+  ],
+  "materials-science-museums--surface-science-and-coatings-hall": [
+    {
+      "title": "Surface Science (NIST)",
+      "url": "https://www.nist.gov/pml/materials-science-and-engineering"
+    }
+  ],
+  "materials-science-museums--materials-processing-hall": [
+    {
+      "title": "Materials Processing (NIST)",
+      "url": "https://www.nist.gov/mml"
+    }
+  ],
+  "materials-science-museums--manufacturing-and-fabrication-hall": [
+    {
+      "title": "Manufacturing USA (NIST)",
+      "url": "https://www.manufacturingusa.com/"
+    }
+  ],
+  "materials-science-museums--3d-printing-and-additive-manufacturing-hall": [
+    {
+      "title": "Additive Manufacturing (NIST)",
+      "url": "https://www.nist.gov/programs-projects/additive-manufacturing"
+    }
+  ],
+  "materials-science-museums--smart-materials-hall": [
+    {
+      "title": "Smart Materials (Britannica)",
+      "url": "https://www.britannica.com/science/smart-material"
+    }
+  ]
+}

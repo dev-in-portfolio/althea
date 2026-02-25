@@ -1,0 +1,70 @@
+{
+  "nanotechnology-and-advanced-materials-centers--photonics-and-plasmonics-hall": [
+    {
+      "title": "Nanoplasmonics and Three-Dimensional Plasmonic Metamaterials (NIST)",
+      "url": "https://www.nist.gov/programs-projects/nanoplasmonics-and-three-dimensional-plasmonic-metamaterials"
+    }
+  ],
+  "nanotechnology-and-advanced-materials-centers--nanomedicine-hall": [
+    {
+      "title": "Nanomedicine (NIH Common Fund)",
+      "url": "https://commonfund.nih.gov/nanomedicine"
+    },
+    {
+      "title": "Nanomedicine (Britannica)",
+      "url": "https://www.britannica.com/science/nanomedicine"
+    }
+  ],
+  "nanotechnology-and-advanced-materials-centers--drug-delivery-and-diagnostics-hall": [
+    {
+      "title": "Building a multilayered drug delivery system that’s activated by ultrasound (NIBIB)",
+      "url": "https://www.nibib.nih.gov/news-events/newsroom/building-multilayered-drug-delivery-system-%E2%80%99s-activated-ultrasound"
+    }
+  ],
+  "nanotechnology-and-advanced-materials-centers--biomimicry-and-nano-design-hall": [
+    {
+      "title": "Biomimicry (Merriam-Webster)",
+      "url": "https://www.merriam-webster.com/dictionary/biomimicry"
+    }
+  ],
+  "nanotechnology-and-advanced-materials-centers--nanochemistry-hall": [
+    {
+      "title": "Nanotechnology: Overview (Britannica)",
+      "url": "https://www.britannica.com/technology/nanotechnology/Overview-of-nanotechnology"
+    }
+  ],
+  "nanotechnology-and-advanced-materials-centers--catalysis-at-the-nano-scale-hall": [
+    {
+      "title": "Nanotechnology: Overview (Britannica)",
+      "url": "https://www.britannica.com/technology/nanotechnology/Overview-of-nanotechnology"
+    }
+  ],
+  "nanotechnology-and-advanced-materials-centers--coatings-and-thin-films-hall": [
+    {
+      "title": "Thin Films for Microelectronics and Photonics (NIST)",
+      "url": "https://www.nist.gov/publications/thin-films-microelectronics-and-photonics-physics-mechanics-characterization-and"
+    }
+  ],
+  "nanotechnology-and-advanced-materials-centers--advanced-composites-hall": [
+    {
+      "title": "NASA Creates Partnership to Advance Composite Materials for Aircraft of the Future (NASA)",
+      "url": "https://www.nasa.gov/news-release/nasa-creates-partnership-to-advance-composite-materials-for-aircraft-of-the-future/"
+    }
+  ],
+  "nanotechnology-and-advanced-materials-centers--meta-materials-hall": [
+    {
+      "title": "Metamaterials (Ames Laboratory)",
+      "url": "https://www.ameslab.gov/metamaterials"
+    },
+    {
+      "title": "Metasurfaces: Two-Dimensional Equivalents of Metamaterials (NIST)",
+      "url": "https://www.nist.gov/publications/overview-theory-and-applications-metasurfaces-two-dimensional-equivalents-metamaterials"
+    }
+  ],
+  "nanotechnology-and-advanced-materials-centers--superconductors-and-extreme-materials-hall": [
+    {
+      "title": "Superconductivity (Britannica)",
+      "url": "https://www.britannica.com/science/superconductivity"
+    }
+  ]
+}

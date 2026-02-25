@@ -1,0 +1,20 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getHalls } from '../../lib/data';
+const halls = getHalls();
+---
+<Base title="Halls">
+  <h1>Halls</h1>
+  {halls.length === 0 ? (
+    <div class="notice">No halls loaded yet.</div>
+  ) : (
+    <div class="grid">
+      {halls.map((h) => (
+        <a class="card" href={`/halls/${h.slug}`}>
+          <strong>{h.name}</strong>
+          <div class="muted">{h.slug}</div>
+        </a>
+      ))}
+    </div>
+  )}
+</Base>

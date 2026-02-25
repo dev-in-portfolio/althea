@@ -1,0 +1,70 @@
+{
+  "earth-science-and-geology-museums--energy-from-the-earth-hall": [
+    {
+      "title": "Energy Resources Program (USGS)",
+      "url": "https://www.usgs.gov/programs/energy-resources-program"
+    }
+  ],
+  "earth-science-and-geology-museums--natural-hazards-hall": [
+    {
+      "title": "Natural Hazards Mission Area (USGS)",
+      "url": "https://www.usgs.gov/mission-areas/natural-hazards"
+    }
+  ],
+  "earth-science-and-geology-museums--water-cycle-hall": [
+    {
+      "title": "The Water Cycle (USGS)",
+      "url": "https://www.usgs.gov/publications/water-cycle"
+    }
+  ],
+  "earth-science-and-geology-museums--coastal-systems-hall": [
+    {
+      "title": "NOAA Office for Coastal Management",
+      "url": "https://coast.noaa.gov/"
+    },
+    {
+      "title": "What is coastal zone management? (NOAA)",
+      "url": "https://oceanservice.noaa.gov/facts/czm.html"
+    }
+  ],
+  "earth-science-and-geology-museums--earth-observation-and-mapping-hall": [
+    {
+      "title": "NASA Earth System Observatory (NASA Science)",
+      "url": "https://science.nasa.gov/earth-science/missions/earth-system-observatory/"
+    },
+    {
+      "title": "Earth Mapping Resources Initiative (USGS)",
+      "url": "https://www.usgs.gov/earth-mapping-resources-initiative-earth-mri"
+    }
+  ],
+  "earth-science-and-geology-museums--earth-through-time-hall": [
+    {
+      "title": "Geologic Time Scale (NPS)",
+      "url": "https://www.nps.gov/subjects/geology/time-scale.htm"
+    }
+  ],
+  "earth-science-and-geology-museums--human-interaction-with-earth-hall": [
+    {
+      "title": "Land Change Science Program (USGS)",
+      "url": "https://www.usgs.gov/programs/land-change-science-program"
+    }
+  ],
+  "earth-science-and-geology-museums--environmental-change-hall": [
+    {
+      "title": "Land Change Science Program: About (USGS)",
+      "url": "https://www.usgs.gov/programs/land-change-science-program/about"
+    }
+  ],
+  "earth-science-and-geology-museums--sustainability-and-stewardship-hall": [
+    {
+      "title": "Sustainability (US EPA)",
+      "url": "https://www.epa.gov/sustainability"
+    }
+  ],
+  "earth-science-and-geology-museums--future-earth-hall": [
+    {
+      "title": "NASA Earth System Observatory (NASA Science)",
+      "url": "https://science.nasa.gov/earth-science/missions/earth-system-observatory/"
+    }
+  ]
+}

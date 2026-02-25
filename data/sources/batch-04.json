@@ -1,0 +1,82 @@
+{
+  "space-and-astronomy-museums--our-place-in-the-universe-hall": [
+    {
+      "title": "Universe Overview (NASA Science)",
+      "url": "https://science.nasa.gov/universe/overview/"
+    },
+    {
+      "title": "Universe (NASA Science)",
+      "url": "https://science.nasa.gov/universe"
+    }
+  ],
+  "space-and-astronomy-museums--solar-system-hall": [
+    {
+      "title": "Solar System Exploration (NASA Science)",
+      "url": "https://science.nasa.gov/solar-system/"
+    }
+  ],
+  "space-and-astronomy-museums--planetary-worlds-hall": [
+    {
+      "title": "Planetary Science (NASA Science)",
+      "url": "https://science.nasa.gov/planetary-science/"
+    }
+  ],
+  "space-and-astronomy-museums--moons-and-ring-systems-hall": [
+    {
+      "title": "Moons in Our Solar System (NASA Science)",
+      "url": "https://science.nasa.gov/solar-system/moons/"
+    },
+    {
+      "title": "Saturn Rings: Overview (NASA Science/Cassini)",
+      "url": "https://science.nasa.gov/mission/cassini/science/rings/"
+    }
+  ],
+  "space-and-astronomy-museums--stars-and-stellar-life-cycles-hall": [
+    {
+      "title": "Stars (NASA Science)",
+      "url": "https://science.nasa.gov/universe/stars/"
+    }
+  ],
+  "space-and-astronomy-museums--birth-of-stars-hall": [
+    {
+      "title": "Star Formation and Evolution (Britannica)",
+      "url": "https://www.britannica.com/science/star-astronomy/Star-formation-and-evolution"
+    }
+  ],
+  "space-and-astronomy-museums--galaxies-and-cosmic-structure-hall": [
+    {
+      "title": "Galaxies (NASA Science)",
+      "url": "https://science.nasa.gov/universe/galaxies/"
+    },
+    {
+      "title": "Large-Scale Structures (NASA Science)",
+      "url": "https://science.nasa.gov/universe/galaxies/large-scale-structures/"
+    }
+  ],
+  "space-and-astronomy-museums--the-milky-way-hall": [
+    {
+      "title": "The Milky Way Galaxy (NASA Science)",
+      "url": "https://science.nasa.gov/resource/the-milky-way-galaxy"
+    }
+  ],
+  "space-and-astronomy-museums--cosmology-and-origins-of-the-universe-hall": [
+    {
+      "title": "Universe Overview (NASA Science)",
+      "url": "https://science.nasa.gov/universe/overview/"
+    },
+    {
+      "title": "WMAP Overview (NASA Science)",
+      "url": "https://science.nasa.gov/mission/wmap/wmap-overview/"
+    }
+  ],
+  "space-and-astronomy-museums--dark-matter-and-dark-energy-hall": [
+    {
+      "title": "Dark Matter & Dark Energy (NASA Science)",
+      "url": "https://science.nasa.gov/dark-matter-dark-energy"
+    },
+    {
+      "title": "What is Dark Energy? (NASA Science)",
+      "url": "https://science.nasa.gov/dark-energy/"
+    }
+  ]
+}

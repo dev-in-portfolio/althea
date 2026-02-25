@@ -1,0 +1,62 @@
+{
+  "mathematics-museums--measurement-and-scaling-hall": [
+    {
+      "title": "Measurement (NIST)",
+      "url": "https://www.nist.gov/measurement-science"
+    }
+  ],
+  "mathematics-museums--mapping-and-coordinates-hall": [
+    {
+      "title": "Coordinate system (Britannica)",
+      "url": "https://www.britannica.com/science/coordinate-system"
+    }
+  ],
+  "mathematics-museums--infinity-and-limits-hall": [
+    {
+      "title": "Infinity (Britannica)",
+      "url": "https://www.britannica.com/science/infinity-mathematics"
+    }
+  ],
+  "mathematics-museums--dimensionality-hall": [
+    {
+      "title": "Dimension (Britannica)",
+      "url": "https://www.britannica.com/science/dimension"
+    }
+  ],
+  "mathematics-museums--calculus-concepts-hall": [
+    {
+      "title": "Calculus (Britannica)",
+      "url": "https://www.britannica.com/science/calculus"
+    }
+  ],
+  "mathematics-museums--discrete-math-hall": [
+    {
+      "title": "Discrete mathematics (Britannica)",
+      "url": "https://www.britannica.com/science/discrete-mathematics"
+    }
+  ],
+  "mathematics-museums--applied-math-hall": [
+    {
+      "title": "Applied mathematics (Britannica)",
+      "url": "https://www.britannica.com/science/applied-mathematics"
+    }
+  ],
+  "mathematics-museums--computing-and-math-hall": [
+    {
+      "title": "Computational mathematics (Britannica)",
+      "url": "https://www.britannica.com/science/computational-mathematics"
+    }
+  ],
+  "mathematics-museums--math-history-and-cultures-hall": [
+    {
+      "title": "History of mathematics (Britannica)",
+      "url": "https://www.britannica.com/science/mathematics/History-of-mathematics"
+    }
+  ],
+  "mathematics-museums--frontiers-of-mathematics-hall": [
+    {
+      "title": "Mathematics (American Mathematical Society)",
+      "url": "https://www.ams.org/"
+    }
+  ]
+}

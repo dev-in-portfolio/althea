@@ -1,0 +1,70 @@
+{
+  "botanical-science-museums-gardens--plant-diversity-hall": [
+    {
+      "title": "State of the World's Plants and Fungi (Kew)",
+      "url": "https://www.kew.org/science/state-of-the-worlds-plants-and-fungi"
+    },
+    {
+      "title": "Plants of the World Online (Kew)",
+      "url": "https://powo.science.kew.org/"
+    }
+  ],
+  "botanical-science-museums-gardens--plant-anatomy-and-structures-hall": [
+    {
+      "title": "Plant Anatomy (Britannica)",
+      "url": "https://www.britannica.com/science/plant-anatomy"
+    }
+  ],
+  "botanical-science-museums-gardens--plant-life-cycles-hall": [
+    {
+      "title": "Plant Life Cycles (Britannica)",
+      "url": "https://www.britannica.com/science/plant-life-cycle"
+    }
+  ],
+  "botanical-science-museums-gardens--seeds-spores-and-reproduction-hall": [
+    {
+      "title": "Plant Reproduction (Britannica)",
+      "url": "https://www.britannica.com/science/plant-reproduction"
+    }
+  ],
+  "botanical-science-museums-gardens--photosynthesis-and-energy-hall": [
+    {
+      "title": "Photosynthesis (Britannica)",
+      "url": "https://www.britannica.com/science/photosynthesis"
+    },
+    {
+      "title": "Photosynthesis (Khan Academy)",
+      "url": "https://www.khanacademy.org/science/biology/photosynthesis-in-plants"
+    }
+  ],
+  "botanical-science-museums-gardens--plant-genetics-and-breeding-hall": [
+    {
+      "title": "Plant Breeding (Britannica)",
+      "url": "https://www.britannica.com/science/plant-breeding"
+    }
+  ],
+  "botanical-science-museums-gardens--evolution-of-plants-hall": [
+    {
+      "title": "Plant Evolution (Britannica)",
+      "url": "https://www.britannica.com/science/plant/Origin-of-plants"
+    }
+  ],
+  "botanical-science-museums-gardens--pollination-and-coevolution-hall": [
+    {
+      "title": "Pollination (Britannica)",
+      "url": "https://www.britannica.com/science/pollination"
+    }
+  ],
+  "botanical-science-museums-gardens--plant-animal-relationships-hall": [
+    {
+      "title": "Mutualism (Britannica)",
+      "url": "https://www.britannica.com/science/mutualism"
+    }
+  ],
+  "botanical-science-museums-gardens--plant-defense-and-chemistry-hall": [
+    {
+      "title": "Plant Defense: Secondary Metabolites (Britannica)",
+      "url": "https://www.britannica.com/science/secondary-metabolite"
+    }
+  ]
+}

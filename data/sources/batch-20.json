@@ -1,0 +1,62 @@
+{
+  "marine-science-and-oceanography-museums--sharks-and-predators-hall": [
+    {
+      "title": "Sharks (NOAA Fisheries)",
+      "url": "https://www.fisheries.noaa.gov/topic/sharks"
+    }
+  ],
+  "marine-science-and-oceanography-museums--fish-diversity-hall": [
+    {
+      "title": "Fish and Invertebrates (NOAA Fisheries)",
+      "url": "https://www.fisheries.noaa.gov/species/fish"
+    }
+  ],
+  "marine-science-and-oceanography-museums--invertebrate-worlds-hall": [
+    {
+      "title": "Invertebrates (Smithsonian Ocean)",
+      "url": "https://ocean.si.edu/ocean-life/invertebrates"
+    }
+  ],
+  "marine-science-and-oceanography-museums--ocean-currents-and-circulation-hall": [
+    {
+      "title": "Ocean Circulation (NOAA Ocean Service)",
+      "url": "https://oceanservice.noaa.gov/education/tutorial_currents/"
+    }
+  ],
+  "marine-science-and-oceanography-museums--waves-tides-and-coastal-dynamics-hall": [
+    {
+      "title": "Tides and Water Levels (NOAA Ocean Service)",
+      "url": "https://oceanservice.noaa.gov/education/tutorial_tides/"
+    }
+  ],
+  "marine-science-and-oceanography-museums--seafloor-geology-hall": [
+    {
+      "title": "Seafloor Mapping (NOAA Ocean Exploration)",
+      "url": "https://oceanexplorer.noaa.gov/education/seafloor-mapping/"
+    }
+  ],
+  "marine-science-and-oceanography-museums--hydrothermal-vents-hall": [
+    {
+      "title": "Hydrothermal Vents (NOAA Ocean Exploration)",
+      "url": "https://oceanexplorer.noaa.gov/facts/vents.html"
+    }
+  ],
+  "marine-science-and-oceanography-museums--polar-oceans-hall": [
+    {
+      "title": "Polar Regions (NOAA Climate.gov)",
+      "url": "https://www.climate.gov/news-features/category/polar"
+    }
+  ],
+  "marine-science-and-oceanography-museums--ocean-chemistry-hall": [
+    {
+      "title": "Ocean Acidification (NOAA)",
+      "url": "https://oceanacidification.noaa.gov/"
+    }
+  ],
+  "marine-science-and-oceanography-museums--ocean-atmosphere-connections-hall": [
+    {
+      "title": "El Niño and La Niña (NOAA Climate.gov)",
+      "url": "https://www.climate.gov/enso"
+    }
+  ]
+}

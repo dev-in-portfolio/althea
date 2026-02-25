@@ -1,0 +1,74 @@
+{
+  "biology-and-life-sciences-museums--symbiosis-and-coevolution-hall": [
+    {
+      "title": "Symbiosis (Britannica)",
+      "url": "https://www.britannica.com/science/symbiosis"
+    },
+    {
+      "title": "Coevolution (Britannica)",
+      "url": "https://www.britannica.com/science/coevolution"
+    }
+  ],
+  "biology-and-life-sciences-museums--plant-biology-hall": [
+    {
+      "title": "Plant (Britannica)",
+      "url": "https://www.britannica.com/plant/plant"
+    }
+  ],
+  "biology-and-life-sciences-museums--animal-diversity-hall": [
+    {
+      "title": "Animal Diversity Web: About Us (University of Michigan)",
+      "url": "https://animaldiversity.org/about/"
+    }
+  ],
+  "biology-and-life-sciences-museums--marine-biology-hall": [
+    {
+      "title": "Marine biology (Britannica)",
+      "url": "https://www.britannica.com/science/marine-biology"
+    }
+  ],
+  "biology-and-life-sciences-museums--genetics-in-society-and-ethics-hall": [
+    {
+      "title": "ELSI Research Program (NHGRI)",
+      "url": "https://www.genome.gov/Funded-Programs-Projects/ELSI-Research-Program-ethical-legal-social-implications"
+    }
+  ],
+  "biology-and-life-sciences-museums--biotechnology-and-bioengineering-hall": [
+    {
+      "title": "Biotechnology (Britannica)",
+      "url": "https://www.britannica.com/technology/biotechnology"
+    }
+  ],
+  "biology-and-life-sciences-museums--conservation-biology-hall": [
+    {
+      "title": "Conservation (Britannica summary)",
+      "url": "https://www.britannica.com/summary/conservation-ecology"
+    }
+  ],
+  "biology-and-life-sciences-museums--one-health-human-animal-environment-hall": [
+    {
+      "title": "About One Health (CDC)",
+      "url": "https://www.cdc.gov/onehealth/index.html"
+    }
+  ],
+  "biology-and-life-sciences-museums--frontiers-in-life-science-hall": [
+    {
+      "title": "About BIO (NSF Directorate for Biological Sciences)",
+      "url": "https://www.nsf.gov/bio/about"
+    },
+    {
+      "title": "FIBR: Frontiers in Integrative Biological Research (NSF)",
+      "url": "https://www.nsf.gov/funding/opportunities/fibr-frontiers-integrative-biological-research/6188/nsf06-579"
+    }
+  ],
+  "biology-and-life-sciences-museums--future-of-biology-hall": [
+    {
+      "title": "About BIO (NSF Directorate for Biological Sciences)",
+      "url": "https://www.nsf.gov/bio/about"
+    },
+    {
+      "title": "NIGMS Overview (NIH)",
+      "url": "https://www.nigms.nih.gov/about/overview/Pages/Overview"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Random">
+  <h1>Random Exhibit</h1>
+  <div class="notice">Redirecting...</div>
+  <script>
+    function seededRand(seed) {
+      let x = Math.sin(seed) * 10000;
+      return x - Math.floor(x);
+    }
+    async function go() {
+      const res = await fetch('/exhibit-slugs.json');
+      const slugs = await res.json();
+      if (!slugs.length) return;
+      const url = new URL(window.location.href);
+      const seedParam = url.searchParams.get('seed');
+      const seed = seedParam ? Number(seedParam) : Number(localStorage.getItem('random-seed') || '1');
+      const nextSeed = seed + 1;
+      localStorage.setItem('random-seed', String(nextSeed));
+      const idx = Math.floor(seededRand(seed) * slugs.length);
+      window.location.href = `/exhibits/${slugs[idx]}`;
+    }
+    go();
+  </script>
+</Base>

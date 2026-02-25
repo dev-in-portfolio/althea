@@ -1,0 +1,66 @@
+{
+  "paleontology-museums--ice-age-mammals-hall": [
+    {
+      "title": "Pleistocene Epoch (Britannica)",
+      "url": "https://www.britannica.com/science/Pleistocene-epoch"
+    }
+  ],
+  "paleontology-museums--plant-fossils-hall": [
+    {
+      "title": "Fossil | Plant Fossils (Britannica)",
+      "url": "https://www.britannica.com/science/fossil"
+    },
+    {
+      "title": "Paleobotany (Britannica)",
+      "url": "https://www.britannica.com/science/paleobotany"
+    }
+  ],
+  "paleontology-museums--ancient-forests-hall": [
+    {
+      "title": "Petrified forest (Britannica)",
+      "url": "https://www.britannica.com/science/petrified-forest"
+    }
+  ],
+  "paleontology-museums--evolutionary-transitions-hall": [
+    {
+      "title": "Evolution (Britannica)",
+      "url": "https://www.britannica.com/science/evolution-scientific-theory"
+    }
+  ],
+  "paleontology-museums--extinction-events-hall": [
+    {
+      "title": "Extinction (Britannica)",
+      "url": "https://www.britannica.com/science/extinction"
+    }
+  ],
+  "paleontology-museums--mass-extinctions-hall": [
+    {
+      "title": "Mass extinction (National Geographic Education)",
+      "url": "https://education.nationalgeographic.org/resource/mass-extinction/"
+    }
+  ],
+  "paleontology-museums--fossil-hunting-and-fieldwork-hall": [
+    {
+      "title": "Fossils and Paleontology (NPS)",
+      "url": "https://www.nps.gov/subjects/fossils/index.htm"
+    }
+  ],
+  "paleontology-museums--fossil-preparation-hall": [
+    {
+      "title": "Fossil Preparation (Smithsonian NMNH) (PDF)",
+      "url": "https://naturalhistory.si.edu/sites/default/files/media/file/fossil-preparation.pdf"
+    }
+  ],
+  "paleontology-museums--trace-fossils-and-footprints-hall": [
+    {
+      "title": "Trace fossil (Britannica)",
+      "url": "https://www.britannica.com/science/trace-fossil"
+    }
+  ],
+  "paleontology-museums--ancient-ecosystems-hall": [
+    {
+      "title": "Paleoecology (Britannica)",
+      "url": "https://www.britannica.com/science/paleoecology"
+    }
+  ]
+}

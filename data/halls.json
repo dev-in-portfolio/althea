@@ -1,0 +1,2702 @@
+[
+  {
+    "slug": "natural-history-museums--origins-of-earth-hall",
+    "name": "Origins of Earth Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--deep-time-hall",
+    "name": "Deep Time Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--evolution-of-life-hall",
+    "name": "Evolution of Life Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--biodiversity-hall",
+    "name": "Biodiversity Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--ecosystems-of-the-world-hall",
+    "name": "Ecosystems of the World Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--ancient-oceans-hall",
+    "name": "Ancient Oceans Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--ice-age-and-climate-history-hall",
+    "name": "Ice Age & Climate History Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--human-origins-hall",
+    "name": "Human Origins Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--megafauna-hall",
+    "name": "Megafauna Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--extinction-and-survival-hall",
+    "name": "Extinction & Survival Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--adaptation-and-survival-strategies-hall",
+    "name": "Adaptation & Survival Strategies Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--rainforest-worlds-hall",
+    "name": "Rainforest Worlds Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--desert-life-hall",
+    "name": "Desert Life Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--arctic-and-polar-worlds-hall",
+    "name": "Arctic & Polar Worlds Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--grasslands-and-savannas-hall",
+    "name": "Grasslands & Savannas Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--mountains-and-highlands-hall",
+    "name": "Mountains & Highlands Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--insects-and-micro-fauna-hall",
+    "name": "Insects & Micro-Fauna Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--birds-and-flight-in-nature-hall",
+    "name": "Birds & Flight in Nature Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--marine-life-hall",
+    "name": "Marine Life Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--freshwater-worlds-hall",
+    "name": "Freshwater Worlds Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--plant-diversity-hall",
+    "name": "Plant Diversity Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--fungi-and-hidden-life-hall",
+    "name": "Fungi & Hidden Life Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--fossils-and-ancient-life-hall",
+    "name": "Fossils & Ancient Life Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--natural-cycles-and-seasons-hall",
+    "name": "Natural Cycles & Seasons Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--predator-and-prey-dynamics-hall",
+    "name": "Predator & Prey Dynamics Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--migration-and-movement-hall",
+    "name": "Migration & Movement Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--natural-selection-and-adaptation-hall",
+    "name": "Natural Selection & Adaptation Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--conservation-and-threatened-species-hall",
+    "name": "Conservation & Threatened Species Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--human-impact-on-nature-hall",
+    "name": "Human Impact on Nature Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "natural-history-museums--future-of-biodiversity-hall",
+    "name": "Future of Biodiversity Hall",
+    "wingSlug": "natural-history-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--our-place-in-the-universe-hall",
+    "name": "Our Place in the Universe Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--solar-system-hall",
+    "name": "Solar System Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--planetary-worlds-hall",
+    "name": "Planetary Worlds Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--moons-and-ring-systems-hall",
+    "name": "Moons & Ring Systems Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--stars-and-stellar-life-cycles-hall",
+    "name": "Stars & Stellar Life Cycles Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--birth-of-stars-hall",
+    "name": "Birth of Stars Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--galaxies-and-cosmic-structure-hall",
+    "name": "Galaxies & Cosmic Structure Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--the-milky-way-hall",
+    "name": "The Milky Way Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--cosmology-and-origins-of-the-universe-hall",
+    "name": "Cosmology & Origins of the Universe Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--dark-matter-and-dark-energy-hall",
+    "name": "Dark Matter & Dark Energy Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--black-holes-and-extreme-physics-hall",
+    "name": "Black Holes & Extreme Physics Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--exoplanets-and-search-for-life-hall",
+    "name": "Exoplanets & Search for Life Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--space-exploration-history-hall",
+    "name": "Space Exploration History Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--human-spaceflight-hall",
+    "name": "Human Spaceflight Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--robotic-exploration-hall",
+    "name": "Robotic Exploration Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--living-in-space-hall",
+    "name": "Living in Space Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--space-telescopes-and-observation-hall",
+    "name": "Space Telescopes & Observation Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--light-and-cosmic-radiation-hall",
+    "name": "Light & Cosmic Radiation Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--asteroids-comets-and-impacts-hall",
+    "name": "Asteroids, Comets & Impacts Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--space-weather-hall",
+    "name": "Space Weather Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--orbital-mechanics-and-motion-hall",
+    "name": "Orbital Mechanics & Motion Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--rocketry-and-propulsion-hall",
+    "name": "Rocketry & Propulsion Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--satellites-and-global-systems-hall",
+    "name": "Satellites & Global Systems Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--planetary-surfaces-hall",
+    "name": "Planetary Surfaces Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--mars-and-future-exploration-hall",
+    "name": "Mars & Future Exploration Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--colonizing-space-hall",
+    "name": "Colonizing Space Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--cosmic-time-and-deep-time-hall",
+    "name": "Cosmic Time & Deep Time Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--extreme-environments-in-space-hall",
+    "name": "Extreme Environments in Space Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--future-space-technologies-hall",
+    "name": "Future Space Technologies Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "space-and-astronomy-museums--the-future-of-humanity-in-space-hall",
+    "name": "The Future of Humanity in Space Hall",
+    "wingSlug": "space-and-astronomy-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--formation-of-earth-hall",
+    "name": "Formation of Earth Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--plate-tectonics-hall",
+    "name": "Plate Tectonics Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--volcanoes-and-magma-hall",
+    "name": "Volcanoes & Magma Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--earthquakes-and-seismic-forces-hall",
+    "name": "Earthquakes & Seismic Forces Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--mountain-building-hall",
+    "name": "Mountain Building Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--rock-cycle-hall",
+    "name": "Rock Cycle Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--minerals-and-earth-materials-hall",
+    "name": "Minerals & Earth Materials Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--fossils-and-ancient-landscapes-hall",
+    "name": "Fossils & Ancient Landscapes Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--geological-time-hall",
+    "name": "Geological Time Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--oceans-and-seafloor-hall",
+    "name": "Oceans & Seafloor Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--rivers-and-erosion-hall",
+    "name": "Rivers & Erosion Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--weathering-and-landscape-change-hall",
+    "name": "Weathering & Landscape Change Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--soil-and-surface-systems-hall",
+    "name": "Soil & Surface Systems Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--atmosphere-and-air-systems-hall",
+    "name": "Atmosphere & Air Systems Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--weather-and-storm-systems-hall",
+    "name": "Weather & Storm Systems Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--climate-and-climate-change-hall",
+    "name": "Climate & Climate Change Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--ice-and-glacial-processes-hall",
+    "name": "Ice & Glacial Processes Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--deserts-and-arid-lands-hall",
+    "name": "Deserts & Arid Lands Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--caves-and-underground-worlds-hall",
+    "name": "Caves & Underground Worlds Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--natural-resources-hall",
+    "name": "Natural Resources Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--energy-from-the-earth-hall",
+    "name": "Energy from the Earth Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--natural-hazards-hall",
+    "name": "Natural Hazards Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--water-cycle-hall",
+    "name": "Water Cycle Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--coastal-systems-hall",
+    "name": "Coastal Systems Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--earth-observation-and-mapping-hall",
+    "name": "Earth Observation & Mapping Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--earth-through-time-hall",
+    "name": "Earth Through Time Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--human-interaction-with-earth-hall",
+    "name": "Human Interaction with Earth Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--environmental-change-hall",
+    "name": "Environmental Change Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--sustainability-and-stewardship-hall",
+    "name": "Sustainability & Stewardship Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "earth-science-and-geology-museums--future-earth-hall",
+    "name": "Future Earth Hall",
+    "wingSlug": "earth-science-and-geology-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--crystal-formation-hall",
+    "name": "Crystal Formation Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--mineral-diversity-hall",
+    "name": "Mineral Diversity Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--gemstones-of-the-world-hall",
+    "name": "Gemstones of the World Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--precious-stones-hall",
+    "name": "Precious Stones Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--industrial-minerals-hall",
+    "name": "Industrial Minerals Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--optical-and-light-reactive-minerals-hall",
+    "name": "Optical & Light-Reactive Minerals Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--crystal-structures-hall",
+    "name": "Crystal Structures Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--colors-in-minerals-hall",
+    "name": "Colors in Minerals Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--rare-and-exotic-minerals-hall",
+    "name": "Rare & Exotic Minerals Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--meteorite-minerals-hall",
+    "name": "Meteorite Minerals Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--formation-environments-hall",
+    "name": "Formation Environments Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--pegmatites-and-giant-crystals-hall",
+    "name": "Pegmatites & Giant Crystals Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--fluorescent-minerals-hall",
+    "name": "Fluorescent Minerals Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--minerals-in-technology-hall",
+    "name": "Minerals in Technology Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--gem-cutting-and-faceting-hall",
+    "name": "Gem Cutting & Faceting Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--historical-gems-hall",
+    "name": "Historical Gems Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--cultural-significance-of-gems-hall",
+    "name": "Cultural Significance of Gems Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--mineral-identification-hall",
+    "name": "Mineral Identification Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--mineral-hardness-and-properties-hall",
+    "name": "Mineral Hardness & Properties Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--birth-of-gemstones-hall",
+    "name": "Birth of Gemstones Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--diamonds-hall",
+    "name": "Diamonds Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--gold-and-precious-metals-hall",
+    "name": "Gold & Precious Metals Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--ore-and-mining-hall",
+    "name": "Ore & Mining Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--mining-history-hall",
+    "name": "Mining History Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--minerals-in-everyday-life-hall",
+    "name": "Minerals in Everyday Life Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--synthetic-and-lab-grown-gems-hall",
+    "name": "Synthetic & Lab-Grown Gems Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--preservation-and-conservation-hall",
+    "name": "Preservation & Conservation Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--jewelry-and-ornamentation-hall",
+    "name": "Jewelry & Ornamentation Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--geological-origins-of-gems-hall",
+    "name": "Geological Origins of Gems Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "mineral-and-gem-museums--future-materials-and-gem-science-hall",
+    "name": "Future Materials & Gem Science Hall",
+    "wingSlug": "mineral-and-gem-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--fossil-formation-hall",
+    "name": "Fossil Formation Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--deep-time-and-earth-history-hall",
+    "name": "Deep Time & Earth History Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--precambrian-life-hall",
+    "name": "Precambrian Life Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--cambrian-explosion-hall",
+    "name": "Cambrian Explosion Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--age-of-fishes-hall",
+    "name": "Age of Fishes Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--age-of-reptiles-hall",
+    "name": "Age of Reptiles Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--dinosaur-worlds-hall",
+    "name": "Dinosaur Worlds Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--marine-reptiles-hall",
+    "name": "Marine Reptiles Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--flying-reptiles-hall",
+    "name": "Flying Reptiles Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--early-mammals-hall",
+    "name": "Early Mammals Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--ice-age-mammals-hall",
+    "name": "Ice Age Mammals Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--plant-fossils-hall",
+    "name": "Plant Fossils Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--ancient-forests-hall",
+    "name": "Ancient Forests Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--evolutionary-transitions-hall",
+    "name": "Evolutionary Transitions Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--extinction-events-hall",
+    "name": "Extinction Events Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--mass-extinctions-hall",
+    "name": "Mass Extinctions Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--fossil-hunting-and-fieldwork-hall",
+    "name": "Fossil Hunting & Fieldwork Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--fossil-preparation-hall",
+    "name": "Fossil Preparation Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--trace-fossils-and-footprints-hall",
+    "name": "Trace Fossils & Footprints Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--ancient-ecosystems-hall",
+    "name": "Ancient Ecosystems Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--predator-and-prey-in-deep-time-hall",
+    "name": "Predator & Prey in Deep Time Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--adaptations-and-survival-hall",
+    "name": "Adaptations & Survival Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--paleoenvironment-reconstruction-hall",
+    "name": "Paleoenvironment Reconstruction Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--climate-through-time-hall",
+    "name": "Climate Through Time Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--fossils-and-modern-species-links-hall",
+    "name": "Fossils & Modern Species Links Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--microfossils-and-ancient-seas-hall",
+    "name": "Microfossils & Ancient Seas Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--amber-and-preserved-life-hall",
+    "name": "Amber & Preserved Life Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--human-evolution-fossils-hall",
+    "name": "Human Evolution Fossils Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--dinosaurs-in-culture-and-science-hall",
+    "name": "Dinosaurs in Culture & Science Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "paleontology-museums--future-of-paleontology-hall",
+    "name": "Future of Paleontology Hall",
+    "wingSlug": "paleontology-museums",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--plant-diversity-hall",
+    "name": "Plant Diversity Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--plant-anatomy-and-structures-hall",
+    "name": "Plant Anatomy & Structures Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--plant-life-cycles-hall",
+    "name": "Plant Life Cycles Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--seeds-spores-and-reproduction-hall",
+    "name": "Seeds, Spores & Reproduction Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--photosynthesis-and-energy-hall",
+    "name": "Photosynthesis & Energy Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--plant-genetics-and-breeding-hall",
+    "name": "Plant Genetics & Breeding Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--evolution-of-plants-hall",
+    "name": "Evolution of Plants Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--pollination-and-coevolution-hall",
+    "name": "Pollination & Coevolution Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--plant-animal-relationships-hall",
+    "name": "Plant–Animal Relationships Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--plant-defense-and-chemistry-hall",
+    "name": "Plant Defense & Chemistry Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--medicinal-plants-hall",
+    "name": "Medicinal Plants Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--useful-plants-and-human-society-hall",
+    "name": "Useful Plants & Human Society Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--agriculture-origins-hall",
+    "name": "Agriculture Origins Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--crop-science-and-food-plants-hall",
+    "name": "Crop Science & Food Plants Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--trees-and-forest-systems-hall",
+    "name": "Trees & Forest Systems Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--tropical-plant-worlds-hall",
+    "name": "Tropical Plant Worlds Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--desert-plants-and-adaptations-hall",
+    "name": "Desert Plants & Adaptations Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--wetlands-and-aquatic-plants-hall",
+    "name": "Wetlands & Aquatic Plants Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--alpine-and-high-altitude-plants-hall",
+    "name": "Alpine & High-Altitude Plants Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--native-plants-and-regional-ecology-hall",
+    "name": "Native Plants & Regional Ecology Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--invasive-species-hall",
+    "name": "Invasive Species Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--conservation-and-rare-plants-hall",
+    "name": "Conservation & Rare Plants Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--climate-change-and-plants-hall",
+    "name": "Climate Change & Plants Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--soil-roots-and-mycorrhizae-hall",
+    "name": "Soil, Roots & Mycorrhizae Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--plant-microbiomes-hall",
+    "name": "Plant Microbiomes Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--plant-growth-and-hormones-hall",
+    "name": "Plant Growth & Hormones Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--botanical-exploration-and-collecting-hall",
+    "name": "Botanical Exploration & Collecting Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--herbarium-and-plant-records-hall",
+    "name": "Herbarium & Plant Records Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--horticulture-and-cultivation-hall",
+    "name": "Horticulture & Cultivation Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "botanical-science-museums-gardens--future-plants-and-sustainability-hall",
+    "name": "Future Plants & Sustainability Hall",
+    "wingSlug": "botanical-science-museums-gardens",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--ocean-realms-overview-hall",
+    "name": "Ocean Realms Overview Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--coastal-systems-hall",
+    "name": "Coastal Systems Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--open-ocean-pelagic-hall",
+    "name": "Open Ocean (Pelagic) Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--deep-sea-hall",
+    "name": "Deep Sea Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--coral-reefs-hall",
+    "name": "Coral Reefs Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--estuaries-and-marshes-hall",
+    "name": "Estuaries & Marshes Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--ocean-biodiversity-hall",
+    "name": "Ocean Biodiversity Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--marine-food-webs-hall",
+    "name": "Marine Food Webs Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--plankton-and-the-microscopic-ocean-hall",
+    "name": "Plankton & the Microscopic Ocean Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--marine-mammals-hall",
+    "name": "Marine Mammals Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--sharks-and-predators-hall",
+    "name": "Sharks & Predators Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--fish-diversity-hall",
+    "name": "Fish Diversity Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--invertebrate-worlds-hall",
+    "name": "Invertebrate Worlds Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--ocean-currents-and-circulation-hall",
+    "name": "Ocean Currents & Circulation Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--waves-tides-and-coastal-dynamics-hall",
+    "name": "Waves, Tides & Coastal Dynamics Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--seafloor-geology-hall",
+    "name": "Seafloor Geology Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--hydrothermal-vents-hall",
+    "name": "Hydrothermal Vents Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--polar-oceans-hall",
+    "name": "Polar Oceans Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--ocean-chemistry-hall",
+    "name": "Ocean Chemistry Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--ocean-atmosphere-connections-hall",
+    "name": "Ocean–Atmosphere Connections Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--climate-change-and-oceans-hall",
+    "name": "Climate Change & Oceans Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--ocean-acoustics-and-soundscapes-hall",
+    "name": "Ocean Acoustics & Soundscapes Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--navigation-and-ocean-mapping-hall",
+    "name": "Navigation & Ocean Mapping Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--submersibles-and-ocean-technology-hall",
+    "name": "Submersibles & Ocean Technology Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--marine-research-methods-hall",
+    "name": "Marine Research Methods Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--fisheries-and-human-use-hall",
+    "name": "Fisheries & Human Use Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--pollution-and-plastics-hall",
+    "name": "Pollution & Plastics Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--conservation-and-protected-seas-hall",
+    "name": "Conservation & Protected Seas Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--maritime-hazards-and-safety-hall",
+    "name": "Maritime Hazards & Safety Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "marine-science-and-oceanography-museums--future-ocean-stewardship-hall",
+    "name": "Future Ocean Stewardship Hall",
+    "wingSlug": "marine-science-and-oceanography-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--what-is-life-hall",
+    "name": "What Is Life? Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--cells-and-microscopic-life-hall",
+    "name": "Cells & Microscopic Life Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--dna-genes-and-heredity-hall",
+    "name": "DNA, Genes & Heredity Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--evolution-and-diversity-hall",
+    "name": "Evolution & Diversity Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--classification-and-tree-of-life-hall",
+    "name": "Classification & Tree of Life Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--microbes-and-microbiomes-hall",
+    "name": "Microbes & Microbiomes Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--viruses-and-infectious-disease-hall",
+    "name": "Viruses & Infectious Disease Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--immunity-and-defense-hall",
+    "name": "Immunity & Defense Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--human-biology-overview-hall",
+    "name": "Human Biology Overview Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--organ-systems-hall",
+    "name": "Organ Systems Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--the-brain-and-nervous-system-hall",
+    "name": "The Brain & Nervous System Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--senses-and-perception-hall",
+    "name": "Senses & Perception Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--development-and-growth-hall",
+    "name": "Development & Growth Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--aging-and-longevity-hall",
+    "name": "Aging & Longevity Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--biomechanics-and-movement-hall",
+    "name": "Biomechanics & Movement Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--reproduction-and-life-cycles-hall",
+    "name": "Reproduction & Life Cycles Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--animal-behavior-hall",
+    "name": "Animal Behavior Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--ecology-and-interdependence-hall",
+    "name": "Ecology & Interdependence Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--ecosystems-and-biomes-hall",
+    "name": "Ecosystems & Biomes Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--adaptation-and-survival-hall",
+    "name": "Adaptation & Survival Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--symbiosis-and-coevolution-hall",
+    "name": "Symbiosis & Coevolution Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--plant-biology-hall",
+    "name": "Plant Biology Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--animal-diversity-hall",
+    "name": "Animal Diversity Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--marine-biology-hall",
+    "name": "Marine Biology Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--genetics-in-society-and-ethics-hall",
+    "name": "Genetics in Society & Ethics Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--biotechnology-and-bioengineering-hall",
+    "name": "Biotechnology & Bioengineering Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--conservation-biology-hall",
+    "name": "Conservation Biology Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--one-health-human-animal-environment-hall",
+    "name": "One Health (Human/Animal/Environment) Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--frontiers-in-life-science-hall",
+    "name": "Frontiers in Life Science Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "biology-and-life-sciences-museums--future-of-biology-hall",
+    "name": "Future of Biology Hall",
+    "wingSlug": "biology-and-life-sciences-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--motion-and-forces-hall",
+    "name": "Motion & Forces Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--gravity-and-orbits-hall",
+    "name": "Gravity & Orbits Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--energy-and-work-hall",
+    "name": "Energy & Work Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--momentum-and-collisions-hall",
+    "name": "Momentum & Collisions Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--simple-machines-and-mechanics-hall",
+    "name": "Simple Machines & Mechanics Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--fluids-and-pressure-hall",
+    "name": "Fluids & Pressure Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--waves-and-vibrations-hall",
+    "name": "Waves & Vibrations Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--sound-and-acoustics-hall",
+    "name": "Sound & Acoustics Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--light-and-optics-hall",
+    "name": "Light & Optics Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--color-and-vision-hall",
+    "name": "Color & Vision Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--electricity-basics-hall",
+    "name": "Electricity Basics Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--circuits-and-electronics-hall",
+    "name": "Circuits & Electronics Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--magnetism-hall",
+    "name": "Magnetism Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--electromagnetism-hall",
+    "name": "Electromagnetism Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--heat-and-thermodynamics-hall",
+    "name": "Heat & Thermodynamics Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--states-of-matter-physical-hall",
+    "name": "States of Matter (Physical) Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--materials-and-physical-properties-hall",
+    "name": "Materials & Physical Properties Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--relativity-and-spacetime-hall",
+    "name": "Relativity & Spacetime Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--quantum-worlds-hall",
+    "name": "Quantum Worlds Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--atomic-and-molecular-physics-hall",
+    "name": "Atomic & Molecular Physics Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--nuclear-physics-hall",
+    "name": "Nuclear Physics Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--radiation-and-detection-hall",
+    "name": "Radiation & Detection Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--particle-physics-hall",
+    "name": "Particle Physics Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--the-standard-model-hall",
+    "name": "The Standard Model Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--fields-and-forces-of-nature-hall",
+    "name": "Fields & Forces of Nature Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--measurement-and-instruments-hall",
+    "name": "Measurement & Instruments Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--physics-of-everyday-life-hall",
+    "name": "Physics of Everyday Life Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--extreme-physics-hall",
+    "name": "Extreme Physics Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--experiment-and-demo-theater-hall",
+    "name": "Experiment & Demo Theater Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "physics-museums--frontiers-of-physics-hall",
+    "name": "Frontiers of Physics Hall",
+    "wingSlug": "physics-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--matter-and-molecules-hall",
+    "name": "Matter & Molecules Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--elements-and-the-periodic-table-hall",
+    "name": "Elements & the Periodic Table Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--atomic-structure-hall",
+    "name": "Atomic Structure Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--chemical-bonding-hall",
+    "name": "Chemical Bonding Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--states-of-matter-chemical-hall",
+    "name": "States of Matter (Chemical) Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--mixtures-and-solutions-hall",
+    "name": "Mixtures & Solutions Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--acids-bases-and-ph-hall",
+    "name": "Acids, Bases & pH Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--reactions-and-energy-hall",
+    "name": "Reactions & Energy Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--reaction-rates-and-catalysts-hall",
+    "name": "Reaction Rates & Catalysts Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--equilibrium-hall",
+    "name": "Equilibrium Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--oxidation-reduction-and-electrochemistry-hall",
+    "name": "Oxidation, Reduction & Electrochemistry Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--gases-and-atmosphere-chemistry-hall",
+    "name": "Gases & Atmosphere Chemistry Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--water-chemistry-hall",
+    "name": "Water Chemistry Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--carbon-chemistry-and-organics-hall",
+    "name": "Carbon Chemistry & Organics Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--polymers-and-plastics-hall",
+    "name": "Polymers & Plastics Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--materials-and-everyday-chemistry-hall",
+    "name": "Materials & Everyday Chemistry Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--chemistry-of-color-and-light-hall",
+    "name": "Chemistry of Color & Light Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--chemistry-of-smell-and-taste-hall",
+    "name": "Chemistry of Smell & Taste Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--food-chemistry-hall",
+    "name": "Food Chemistry Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--medicinal-and-pharmaceutical-chemistry-hall",
+    "name": "Medicinal & Pharmaceutical Chemistry Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--biochemistry-basics-hall",
+    "name": "Biochemistry Basics Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--environmental-chemistry-hall",
+    "name": "Environmental Chemistry Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--industrial-chemistry-hall",
+    "name": "Industrial Chemistry Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--green-chemistry-hall",
+    "name": "Green Chemistry Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--lab-methods-and-safety-hall",
+    "name": "Lab Methods & Safety Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--analytical-chemistry-hall",
+    "name": "Analytical Chemistry Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--molecular-modeling-hall",
+    "name": "Molecular Modeling Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--chemistry-demo-theater-hall",
+    "name": "Chemistry Demo Theater Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--chemistry-in-the-home-hall",
+    "name": "Chemistry in the Home Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "chemistry-museums--chemistry-frontiers-hall",
+    "name": "Chemistry Frontiers Hall",
+    "wingSlug": "chemistry-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--what-are-materials-hall",
+    "name": "What Are Materials? Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--structure-of-materials-hall",
+    "name": "Structure of Materials Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--crystals-and-defects-hall",
+    "name": "Crystals & Defects Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--metals-and-alloys-hall",
+    "name": "Metals & Alloys Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--ceramics-and-glass-hall",
+    "name": "Ceramics & Glass Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--polymers-and-elastomers-hall",
+    "name": "Polymers & Elastomers Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--composites-hall",
+    "name": "Composites Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--biomaterials-hall",
+    "name": "Biomaterials Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--electronic-materials-hall",
+    "name": "Electronic Materials Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--magnetic-materials-hall",
+    "name": "Magnetic Materials Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--optical-materials-hall",
+    "name": "Optical Materials Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--thermal-materials-hall",
+    "name": "Thermal Materials Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--mechanical-strength-and-failure-hall",
+    "name": "Mechanical Strength & Failure Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--fracture-fatigue-and-wear-hall",
+    "name": "Fracture, Fatigue & Wear Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--corrosion-and-protection-hall",
+    "name": "Corrosion & Protection Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--surface-science-and-coatings-hall",
+    "name": "Surface Science & Coatings Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--materials-processing-hall",
+    "name": "Materials Processing Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--manufacturing-and-fabrication-hall",
+    "name": "Manufacturing & Fabrication Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--3d-printing-and-additive-manufacturing-hall",
+    "name": "3D Printing & Additive Manufacturing Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--smart-materials-hall",
+    "name": "Smart Materials Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--shape-memory-and-responsive-materials-hall",
+    "name": "Shape Memory & Responsive Materials Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--energy-materials-batteries-fuel-cells-hall",
+    "name": "Energy Materials (Batteries/Fuel Cells) Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--semiconductor-basics-hall",
+    "name": "Semiconductor Basics Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--materials-in-architecture-hall",
+    "name": "Materials in Architecture Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--materials-in-transportation-hall",
+    "name": "Materials in Transportation Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--materials-in-medicine-hall",
+    "name": "Materials in Medicine Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--recycling-and-circular-materials-hall",
+    "name": "Recycling & Circular Materials Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--testing-and-characterization-hall",
+    "name": "Testing & Characterization Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--materials-design-and-simulation-hall",
+    "name": "Materials Design & Simulation Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "materials-science-museums--future-materials-hall",
+    "name": "Future Materials Hall",
+    "wingSlug": "materials-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--scale-and-the-nano-world-hall",
+    "name": "Scale & the Nano World Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--seeing-the-invisible-microscopy-hall",
+    "name": "Seeing the Invisible (Microscopy) Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--nanostructures-and-patterns-hall",
+    "name": "Nanostructures & Patterns Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--carbon-nanomaterials-hall",
+    "name": "Carbon Nanomaterials Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--nanoparticles-and-colloids-hall",
+    "name": "Nanoparticles & Colloids Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--nano-in-nature-hall",
+    "name": "Nano in Nature Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--nanofabrication-hall",
+    "name": "Nanofabrication Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--cleanroom-and-manufacturing-hall",
+    "name": "Cleanroom & Manufacturing Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--nanoelectronics-hall",
+    "name": "Nanoelectronics Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--quantum-materials-hall",
+    "name": "Quantum Materials Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--photonics-and-plasmonics-hall",
+    "name": "Photonics & Plasmonics Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--nanomedicine-hall",
+    "name": "Nanomedicine Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--drug-delivery-and-diagnostics-hall",
+    "name": "Drug Delivery & Diagnostics Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--biomimicry-and-nano-design-hall",
+    "name": "Biomimicry & Nano Design Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--nanochemistry-hall",
+    "name": "Nanochemistry Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--catalysis-at-the-nano-scale-hall",
+    "name": "Catalysis at the Nano Scale Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--coatings-and-thin-films-hall",
+    "name": "Coatings & Thin Films Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--advanced-composites-hall",
+    "name": "Advanced Composites Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--meta-materials-hall",
+    "name": "Meta-Materials Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--superconductors-and-extreme-materials-hall",
+    "name": "Superconductors & Extreme Materials Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--energy-at-the-nano-scale-hall",
+    "name": "Energy at the Nano Scale Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--sensors-and-nanosystems-hall",
+    "name": "Sensors & Nanosystems Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--nano-robotics-concepts-hall",
+    "name": "Nano Robotics Concepts Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--safety-risk-and-regulation-hall",
+    "name": "Safety, Risk & Regulation Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--ethics-and-society-hall",
+    "name": "Ethics & Society Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--prototyping-and-applications-hall",
+    "name": "Prototyping & Applications Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--consumer-products-and-nano-hall",
+    "name": "Consumer Products & Nano Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--environmental-nano-tech-hall",
+    "name": "Environmental Nano Tech Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--frontier-research-showcase-hall",
+    "name": "Frontier Research Showcase Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "nanotechnology-and-advanced-materials-centers--future-of-nano-and-advanced-materials-hall",
+    "name": "Future of Nano & Advanced Materials Hall",
+    "wingSlug": "nanotechnology-and-advanced-materials-centers",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--what-is-a-robot-hall",
+    "name": "What Is a Robot? Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--early-automation-and-mechanical-wonders-hall",
+    "name": "Early Automation & Mechanical Wonders Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--industrial-robotics-hall",
+    "name": "Industrial Robotics Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--robot-arms-and-manipulation-hall",
+    "name": "Robot Arms & Manipulation Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--sensors-and-perception-hall",
+    "name": "Sensors & Perception Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--vision-systems-hall",
+    "name": "Vision Systems Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--motion-planning-hall",
+    "name": "Motion Planning Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--control-systems-hall",
+    "name": "Control Systems Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--actuators-and-motors-hall",
+    "name": "Actuators & Motors Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--human-robot-interaction-hall",
+    "name": "Human–Robot Interaction Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--social-robots-hall",
+    "name": "Social Robots Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--service-robots-hall",
+    "name": "Service Robots Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--medical-robotics-hall",
+    "name": "Medical Robotics Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--warehouse-and-logistics-automation-hall",
+    "name": "Warehouse & Logistics Automation Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--autonomous-vehicles-hall",
+    "name": "Autonomous Vehicles Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--drones-and-aerial-robotics-hall",
+    "name": "Drones & Aerial Robotics Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--underwater-robotics-hall",
+    "name": "Underwater Robotics Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--space-robotics-hall",
+    "name": "Space Robotics Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--swarm-robotics-hall",
+    "name": "Swarm Robotics Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--ai-for-robotics-hall",
+    "name": "AI for Robotics Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--machine-learning-and-adaptation-hall",
+    "name": "Machine Learning & Adaptation Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--safety-and-reliability-hall",
+    "name": "Safety & Reliability Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--ethics-and-responsibility-hall",
+    "name": "Ethics & Responsibility Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--robot-design-studio-hall",
+    "name": "Robot Design Studio Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--build-and-test-lab-hall",
+    "name": "Build & Test Lab Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--coding-and-algorithms-hall",
+    "name": "Coding & Algorithms Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--prosthetics-and-exoskeletons-hall",
+    "name": "Prosthetics & Exoskeletons Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--future-of-work-and-automation-hall",
+    "name": "Future of Work & Automation Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--futurist-robotics-showcase-hall",
+    "name": "Futurist Robotics Showcase Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "robotics-and-automation-museums--robotics-playground-demo-arena-hall",
+    "name": "Robotics Playground / Demo Arena Hall",
+    "wingSlug": "robotics-and-automation-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--numbers-and-counting-hall",
+    "name": "Numbers & Counting Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--patterns-and-sequences-hall",
+    "name": "Patterns & Sequences Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--symmetry-and-transformations-hall",
+    "name": "Symmetry & Transformations Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--geometry-hall",
+    "name": "Geometry Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--topology-hall",
+    "name": "Topology Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--fractals-hall",
+    "name": "Fractals Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--chaos-and-nonlinear-systems-hall",
+    "name": "Chaos & Nonlinear Systems Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--probability-hall",
+    "name": "Probability Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--statistics-and-data-hall",
+    "name": "Statistics & Data Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--graphs-and-networks-hall",
+    "name": "Graphs & Networks Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--logic-and-reasoning-hall",
+    "name": "Logic & Reasoning Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--proof-and-paradox-hall",
+    "name": "Proof & Paradox Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--puzzles-and-games-hall",
+    "name": "Puzzles & Games Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--optimization-hall",
+    "name": "Optimization Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--algorithms-hall",
+    "name": "Algorithms Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--cryptography-hall",
+    "name": "Cryptography Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--mathematical-modeling-hall",
+    "name": "Mathematical Modeling Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--math-in-nature-hall",
+    "name": "Math in Nature Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--math-in-music-hall",
+    "name": "Math in Music Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--math-in-art-and-design-hall",
+    "name": "Math in Art & Design Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--measurement-and-scaling-hall",
+    "name": "Measurement & Scaling Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--mapping-and-coordinates-hall",
+    "name": "Mapping & Coordinates Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--infinity-and-limits-hall",
+    "name": "Infinity & Limits Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--dimensionality-hall",
+    "name": "Dimensionality Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--calculus-concepts-hall",
+    "name": "Calculus Concepts Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--discrete-math-hall",
+    "name": "Discrete Math Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--applied-math-hall",
+    "name": "Applied Math Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--computing-and-math-hall",
+    "name": "Computing & Math Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--math-history-and-cultures-hall",
+    "name": "Math History & Cultures Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "mathematics-museums--frontiers-of-mathematics-hall",
+    "name": "Frontiers of Mathematics Hall",
+    "wingSlug": "mathematics-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--what-is-archaeology-hall",
+    "name": "What Is Archaeology? Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--fieldwork-and-excavation-hall",
+    "name": "Fieldwork & Excavation Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--stratigraphy-and-site-layers-hall",
+    "name": "Stratigraphy & Site Layers Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--dating-the-past-hall",
+    "name": "Dating the Past Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--materials-and-artifacts-hall",
+    "name": "Materials & Artifacts Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--ceramics-and-pottery-science-hall",
+    "name": "Ceramics & Pottery Science Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--stone-tools-and-lithics-hall",
+    "name": "Stone Tools & Lithics Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--metals-and-metallurgy-hall",
+    "name": "Metals & Metallurgy Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--trade-and-networks-hall",
+    "name": "Trade & Networks Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--ancient-food-and-agriculture-hall",
+    "name": "Ancient Food & Agriculture Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--ancient-water-systems-hall",
+    "name": "Ancient Water Systems Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--architecture-and-built-environments-hall",
+    "name": "Architecture & Built Environments Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--writing-and-recordkeeping-hall",
+    "name": "Writing & Recordkeeping Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--burial-practices-and-bioarchaeology-hall",
+    "name": "Burial Practices & Bioarchaeology Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--human-remains-and-ethics-hall",
+    "name": "Human Remains & Ethics Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--ancient-diseases-and-health-hall",
+    "name": "Ancient Diseases & Health Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--dna-and-ancient-genomics-hall",
+    "name": "DNA & Ancient Genomics Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--isotopes-and-mobility-hall",
+    "name": "Isotopes & Mobility Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--conservation-and-preservation-hall",
+    "name": "Conservation & Preservation Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--restoration-lab-hall",
+    "name": "Restoration Lab Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--remote-sensing-and-mapping-hall",
+    "name": "Remote Sensing & Mapping Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--underwater-archaeology-hall",
+    "name": "Underwater Archaeology Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--experimental-archaeology-hall",
+    "name": "Experimental Archaeology Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--cultural-heritage-and-repatriation-hall",
+    "name": "Cultural Heritage & Repatriation Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--ancient-climates-and-environments-hall",
+    "name": "Ancient Climates & Environments Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--civilization-case-studies-hall",
+    "name": "Civilization Case Studies Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--everyday-life-in-the-past-hall",
+    "name": "Everyday Life in the Past Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--conflict-and-collapse-hall",
+    "name": "Conflict & Collapse Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--museums-collections-and-provenance-hall",
+    "name": "Museums, Collections & Provenance Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  },
+  {
+    "slug": "archaeological-science-museums--future-of-archaeological-science-hall",
+    "name": "Future of Archaeological Science Hall",
+    "wingSlug": "archaeological-science-museums",
+    "description": ""
+  }
+]

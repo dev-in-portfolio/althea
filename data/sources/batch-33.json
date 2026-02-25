@@ -1,0 +1,66 @@
+{
+  "materials-science-museums--shape-memory-and-responsive-materials-hall": [
+    {
+      "title": "Shape-memory alloy (Britannica)",
+      "url": "https://www.britannica.com/technology/shape-memory-alloy"
+    }
+  ],
+  "materials-science-museums--energy-materials-batteries-fuel-cells-hall": [
+    {
+      "title": "Battery (Britannica)",
+      "url": "https://www.britannica.com/technology/battery"
+    },
+    {
+      "title": "Fuel Cell (Britannica)",
+      "url": "https://www.britannica.com/technology/fuel-cell"
+    }
+  ],
+  "materials-science-museums--semiconductor-basics-hall": [
+    {
+      "title": "Semiconductor (Britannica)",
+      "url": "https://www.britannica.com/science/semiconductor"
+    }
+  ],
+  "materials-science-museums--materials-in-architecture-hall": [
+    {
+      "title": "Building Materials (Britannica)",
+      "url": "https://www.britannica.com/technology/building-construction"
+    }
+  ],
+  "materials-science-museums--materials-in-transportation-hall": [
+    {
+      "title": "Aerospace Materials (NASA)",
+      "url": "https://www.nasa.gov/centers-and-facilities/glenn/aerospace-materials/"
+    }
+  ],
+  "materials-science-museums--materials-in-medicine-hall": [
+    {
+      "title": "Biomaterials (NIH/NIBIB)",
+      "url": "https://www.nibib.nih.gov/science-education/science-topics/biomaterials"
+    }
+  ],
+  "materials-science-museums--recycling-and-circular-materials-hall": [
+    {
+      "title": "Materials and Recycling (US EPA)",
+      "url": "https://www.epa.gov/recycle"
+    }
+  ],
+  "materials-science-museums--testing-and-characterization-hall": [
+    {
+      "title": "Materials Measurement Laboratory (NIST)",
+      "url": "https://www.nist.gov/mml"
+    }
+  ],
+  "materials-science-museums--materials-design-and-simulation-hall": [
+    {
+      "title": "Materials Genome Initiative (NIST)",
+      "url": "https://www.nist.gov/mgi"
+    }
+  ],
+  "materials-science-museums--future-materials-hall": [
+    {
+      "title": "Materials Genome Initiative (NIST)",
+      "url": "https://www.nist.gov/mgi"
+    }
+  ]
+}

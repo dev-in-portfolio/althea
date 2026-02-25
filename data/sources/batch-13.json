@@ -1,0 +1,66 @@
+{
+  "paleontology-museums--fossil-formation-hall": [
+    {
+      "title": "Fossils | Formation (Britannica)",
+      "url": "https://www.britannica.com/science/fossil"
+    },
+    {
+      "title": "Fossils (NPS)",
+      "url": "https://www.nps.gov/subjects/fossils/index.htm"
+    }
+  ],
+  "paleontology-museums--deep-time-and-earth-history-hall": [
+    {
+      "title": "Geologic Time Scale (NPS)",
+      "url": "https://www.nps.gov/subjects/geology/time-scale.htm"
+    }
+  ],
+  "paleontology-museums--precambrian-life-hall": [
+    {
+      "title": "Precambrian (Britannica)",
+      "url": "https://www.britannica.com/science/Precambrian"
+    }
+  ],
+  "paleontology-museums--cambrian-explosion-hall": [
+    {
+      "title": "Cambrian explosion (Britannica)",
+      "url": "https://www.britannica.com/science/Cambrian-explosion"
+    }
+  ],
+  "paleontology-museums--age-of-fishes-hall": [
+    {
+      "title": "Devonian Period (Britannica)",
+      "url": "https://www.britannica.com/science/Devonian-Period"
+    }
+  ],
+  "paleontology-museums--age-of-reptiles-hall": [
+    {
+      "title": "Mesozoic Era (Britannica)",
+      "url": "https://www.britannica.com/science/Mesozoic-Era"
+    }
+  ],
+  "paleontology-museums--dinosaur-worlds-hall": [
+    {
+      "title": "Dinosaur (Britannica)",
+      "url": "https://www.britannica.com/animal/dinosaur"
+    }
+  ],
+  "paleontology-museums--marine-reptiles-hall": [
+    {
+      "title": "Marine reptile (Britannica)",
+      "url": "https://www.britannica.com/animal/marine-reptile"
+    }
+  ],
+  "paleontology-museums--flying-reptiles-hall": [
+    {
+      "title": "Pterosaur (Britannica)",
+      "url": "https://www.britannica.com/animal/pterosaur"
+    }
+  ],
+  "paleontology-museums--early-mammals-hall": [
+    {
+      "title": "Mammal | Evolution (Britannica)",
+      "url": "https://www.britannica.com/animal/mammal"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "space-and-astronomy-museums--black-holes-and-extreme-physics-hall": [
+    {
+      "title": "Black Holes (NASA Science)",
+      "url": "https://science.nasa.gov/universe/black-holes/"
+    }
+  ],
+  "space-and-astronomy-museums--exoplanets-and-search-for-life-hall": [
+    {
+      "title": "Exoplanets (NASA Science)",
+      "url": "https://science.nasa.gov/exoplanets/"
+    }
+  ],
+  "space-and-astronomy-museums--space-exploration-history-hall": [
+    {
+      "title": "NASA History", 
+      "url": "https://www.nasa.gov/history/"
+    }
+  ],
+  "space-and-astronomy-museums--human-spaceflight-hall": [
+    {
+      "title": "International Space Station Overview (NASA)",
+      "url": "https://www.nasa.gov/international-space-station/space-station-overview/"
+    }
+  ],
+  "space-and-astronomy-museums--robotic-exploration-hall": [
+    {
+      "title": "Robotics (NASA)",
+      "url": "https://www.nasa.gov/technology/robotics/"
+    }
+  ],
+  "space-and-astronomy-museums--living-in-space-hall": [
+    {
+      "title": "Human Research Program (NASA)",
+      "url": "https://www.nasa.gov/hrp/"
+    }
+  ],
+  "space-and-astronomy-museums--space-telescopes-and-observation-hall": [
+    {
+      "title": "James Webb Telescope Overview (NASA Science)",
+      "url": "https://science.nasa.gov/mission/webb/telescope-overview/"
+    },
+    {
+      "title": "Great Observatories (Britannica)",
+      "url": "https://www.britannica.com/topic/Great-Observatories"
+    }
+  ],
+  "space-and-astronomy-museums--light-and-cosmic-radiation-hall": [
+    {
+      "title": "Cosmic Radiation (US EPA)",
+      "url": "https://www.epa.gov/radtown/cosmic-radiation"
+    },
+    {
+      "title": "Heliophysics (NASA Science)",
+      "url": "https://science.nasa.gov/heliophysics/"
+    }
+  ],
+  "space-and-astronomy-museums--asteroids-comets-and-impacts-hall": [
+    {
+      "title": "Asteroid Facts (NASA Science)",
+      "url": "https://science.nasa.gov/solar-system/asteroids/facts/"
+    }
+  ],
+  "space-and-astronomy-museums--space-weather-hall": [
+    {
+      "title": "Space Weather Overview (NOAA SWPC)",
+      "url": "https://www.swpc.noaa.gov/products/space-weather-overview"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "biology-and-life-sciences-museums--what-is-life-hall": [
+    {
+      "title": "Life (Britannica)",
+      "url": "https://www.britannica.com/science/life"
+    }
+  ],
+  "biology-and-life-sciences-museums--cells-and-microscopic-life-hall": [
+    {
+      "title": "Cell (Britannica)",
+      "url": "https://www.britannica.com/science/cell-biology"
+    }
+  ],
+  "biology-and-life-sciences-museums--dna-genes-and-heredity-hall": [
+    {
+      "title": "DNA (Genome.gov)",
+      "url": "https://www.genome.gov/genetics-glossary/DNA"
+    },
+    {
+      "title": "Gene (Genome.gov)",
+      "url": "https://www.genome.gov/genetics-glossary/Gene"
+    }
+  ],
+  "biology-and-life-sciences-museums--evolution-and-diversity-hall": [
+    {
+      "title": "Understanding Evolution (UC Berkeley)",
+      "url": "https://evolution.berkeley.edu/"
+    }
+  ],
+  "biology-and-life-sciences-museums--classification-and-tree-of-life-hall": [
+    {
+      "title": "Tree of Life Web Project",
+      "url": "http://tolweb.org/tree/"
+    }
+  ],
+  "biology-and-life-sciences-museums--microbes-and-microbiomes-hall": [
+    {
+      "title": "Microbiome (NIH Common Fund)",
+      "url": "https://commonfund.nih.gov/hmp"
+    }
+  ],
+  "biology-and-life-sciences-museums--viruses-and-infectious-disease-hall": [
+    {
+      "title": "Infectious Diseases (CDC)",
+      "url": "https://www.cdc.gov/infectioncontrol/" 
+    },
+    {
+      "title": "Virus (Britannica)",
+      "url": "https://www.britannica.com/science/virus"
+    }
+  ],
+  "biology-and-life-sciences-museums--immunity-and-defense-hall": [
+    {
+      "title": "Immune System (NIH)",
+      "url": "https://www.niaid.nih.gov/research/immune-system"
+    }
+  ],
+  "biology-and-life-sciences-museums--human-biology-overview-hall": [
+    {
+      "title": "The Human Body (NIH MedlinePlus)",
+      "url": "https://medlineplus.gov/thehumanbody.html"
+    }
+  ],
+  "biology-and-life-sciences-museums--organ-systems-hall": [
+    {
+      "title": "Organs and Organ Systems (Britannica)",
+      "url": "https://www.britannica.com/science/organ-system"
+    }
+  ]
+}

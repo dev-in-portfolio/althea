@@ -1,0 +1,74 @@
+{
+  "botanical-science-museums-gardens--invasive-species-hall": [
+    {
+      "title": "Invasive Species (USDA APHIS)",
+      "url": "https://www.aphis.usda.gov/aphis/ourfocus/planthealth/plant-pest-and-disease-programs/invasive-species"
+    }
+  ],
+  "botanical-science-museums-gardens--conservation-and-rare-plants-hall": [
+    {
+      "title": "State of the World's Plants and Fungi (Kew)",
+      "url": "https://www.kew.org/science/state-of-the-worlds-plants-and-fungi"
+    }
+  ],
+  "botanical-science-museums-gardens--climate-change-and-plants-hall": [
+    {
+      "title": "Climate Change Impacts on Plants (USGS)",
+      "url": "https://www.usgs.gov/faqs/how-can-climate-change-affect-plants"
+    }
+  ],
+  "botanical-science-museums-gardens--soil-roots-and-mycorrhizae-hall": [
+    {
+      "title": "Soil Health (USDA NRCS)",
+      "url": "https://www.nrcs.usda.gov/conservation-basics/soil-health"
+    },
+    {
+      "title": "Mycorrhiza (Britannica)",
+      "url": "https://www.britannica.com/science/mycorrhiza"
+    }
+  ],
+  "botanical-science-museums-gardens--plant-microbiomes-hall": [
+    {
+      "title": "The Plant Microbiome (PNAS)",
+      "url": "https://www.pnas.org/doi/10.1073/pnas.1413565112"
+    }
+  ],
+  "botanical-science-museums-gardens--plant-growth-and-hormones-hall": [
+    {
+      "title": "Plant hormone (Britannica)",
+      "url": "https://www.britannica.com/science/plant-hormone"
+    }
+  ],
+  "botanical-science-museums-gardens--botanical-exploration-and-collecting-hall": [
+    {
+      "title": "Herbarium | Plant Collection (Britannica)",
+      "url": "https://www.britannica.com/science/herbarium"
+    },
+    {
+      "title": "Herbarium (Royal Botanic Gardens, Kew)",
+      "url": "https://www.kew.org/science/collections-and-resources/collections/herbarium"
+    }
+  ],
+  "botanical-science-museums-gardens--herbarium-and-plant-records-hall": [
+    {
+      "title": "Herbarium | Plant Collection (Britannica)",
+      "url": "https://www.britannica.com/science/herbarium"
+    },
+    {
+      "title": "Herbarium (Royal Botanic Gardens, Kew)",
+      "url": "https://www.kew.org/science/collections-and-resources/collections/herbarium"
+    }
+  ],
+  "botanical-science-museums-gardens--horticulture-and-cultivation-hall": [
+    {
+      "title": "Horticulture (Britannica)",
+      "url": "https://www.britannica.com/science/horticulture"
+    }
+  ],
+  "botanical-science-museums-gardens--future-plants-and-sustainability-hall": [
+    {
+      "title": "State of the World's Plants and Fungi (Kew)",
+      "url": "https://www.kew.org/science/state-of-the-worlds-plants-and-fungi"
+    }
+  ]
+}

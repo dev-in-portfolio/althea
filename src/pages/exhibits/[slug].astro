@@ -1,0 +1,107 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getExhibits, getHalls, getWings } from '../../lib/data';
+import { enrichExhibit } from '../../lib/enrich';
+import { marked } from 'marked';
+
+export const prerender = false;
+const { slug } = Astro.params;
+const exhibitRaw = getExhibits().find(e => e.slug === slug);
+const hall = exhibitRaw ? getHalls().find(h => h.slug === exhibitRaw.hallSlug) : null;
+const wing = hall ? getWings().find(w => w.slug === hall.wingSlug) : null;
+const exhibit = exhibitRaw ? enrichExhibit(exhibitRaw, hall || undefined, wing || undefined) : null;
+const bodyHtml = exhibit?.body ? marked.parse(exhibit.body) : '';
+---
+<Base title={exhibit ? exhibit.title : 'Exhibit'}>
+  {!exhibit ? (
+    <div class="notice">Exhibit not found.</div>
+  ) : (
+    <>
+      <div id="exhibit-root" data-slug={exhibit.slug}>
+        <h1>{exhibit.title}</h1>
+        <div class="muted">{wing?.name} → {hall?.name}</div>
+      <div style="margin-top:12px; display:flex; gap:8px;">
+        <button id="fav-btn">Add to favorites</button>
+        <a class="badge" href="/favorites">View favorites</a>
+      </div>
+
+      <div style="margin-top:16px;" set:html={bodyHtml}></div>
+
+      <h2 class="section-title">Sources</h2>
+      {exhibit.sources && exhibit.sources.length > 0 ? (
+        <div class="list">
+          {exhibit.sources.map((s) => (
+            <a class="card" href={s.url} rel="noopener" target="_blank">
+              <strong>{s.title}</strong>
+              <div class="muted">{s.url}</div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="notice">No sources yet.</div>
+      )}
+      <script>
+        const useBackend = (import.meta.env.PUBLIC_USE_BACKEND ?? 'true') === 'true';
+        const slug = document.getElementById('exhibit-root')?.dataset.slug;
+        if (!slug) throw new Error('missing slug');
+
+        function getUserKey() {
+          let key = localStorage.getItem('user-key');
+          if (!key) {
+            key = crypto.randomUUID();
+            localStorage.setItem('user-key', key);
+          }
+          return key;
+        }
+
+        function localFavs() {
+          return JSON.parse(localStorage.getItem('favorites') || '[]');
+        }
+
+        function saveLocalFavs(list) {
+          localStorage.setItem('favorites', JSON.stringify(list));
+        }
+
+        async function addFavorite() {
+          const userKey = getUserKey();
+          if (useBackend) {
+            try {
+              const res = await fetch('/api/favorites?userKey=' + encodeURIComponent(userKey), {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({ userKey, exhibitSlug: slug }),
+              });
+              if (res.ok) return;
+            } catch {}
+          }
+          const list = localFavs();
+          if (!list.includes(slug)) {
+            list.unshift(slug);
+            saveLocalFavs(list);
+          }
+        }
+
+        async function trackRecent() {
+          const userKey = getUserKey();
+          if (useBackend) {
+            try {
+              await fetch('/api/recent?userKey=' + encodeURIComponent(userKey), {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({ userKey, exhibitSlug: slug }),
+              });
+              return;
+            } catch {}
+          }
+          const list = JSON.parse(localStorage.getItem('recent') || '[]');
+          const next = [{ exhibit_slug: slug, last_viewed: new Date().toISOString() }, ...list.filter(r => (r.exhibit_slug || r) !== slug)].slice(0, 200);
+          localStorage.setItem('recent', JSON.stringify(next));
+        }
+
+        document.getElementById('fav-btn')?.addEventListener('click', addFavorite);
+        trackRecent();
+      </script>
+      </div>
+    </>
+  )}
+</Base>

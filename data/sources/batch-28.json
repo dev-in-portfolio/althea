@@ -1,0 +1,62 @@
+{
+  "chemistry-museums--matter-and-molecules-hall": [
+    {
+      "title": "Matter (Britannica)",
+      "url": "https://www.britannica.com/science/matter"
+    }
+  ],
+  "chemistry-museums--elements-and-the-periodic-table-hall": [
+    {
+      "title": "Periodic Table (IUPAC)",
+      "url": "https://iupac.org/what-we-do/periodic-table-of-elements/"
+    }
+  ],
+  "chemistry-museums--atomic-structure-hall": [
+    {
+      "title": "Atomic Structure (Britannica)",
+      "url": "https://www.britannica.com/science/atom"
+    }
+  ],
+  "chemistry-museums--chemical-bonding-hall": [
+    {
+      "title": "Chemical Bond (Britannica)",
+      "url": "https://www.britannica.com/science/chemical-bond"
+    }
+  ],
+  "chemistry-museums--states-of-matter-chemical-hall": [
+    {
+      "title": "States of Matter (Britannica)",
+      "url": "https://www.britannica.com/science/state-of-matter"
+    }
+  ],
+  "chemistry-museums--mixtures-and-solutions-hall": [
+    {
+      "title": "Solution (Britannica)",
+      "url": "https://www.britannica.com/science/solution-chemistry"
+    }
+  ],
+  "chemistry-museums--acids-bases-and-ph-hall": [
+    {
+      "title": "Acid-Base Reaction (Britannica)",
+      "url": "https://www.britannica.com/science/acid-base-reaction"
+    }
+  ],
+  "chemistry-museums--reactions-and-energy-hall": [
+    {
+      "title": "Chemical reaction (Britannica)",
+      "url": "https://www.britannica.com/science/chemical-reaction"
+    }
+  ],
+  "chemistry-museums--reaction-rates-and-catalysts-hall": [
+    {
+      "title": "Chemical kinetics (Britannica)",
+      "url": "https://www.britannica.com/science/chemical-kinetics"
+    }
+  ],
+  "chemistry-museums--equilibrium-hall": [
+    {
+      "title": "Chemical equilibrium (Britannica)",
+      "url": "https://www.britannica.com/science/chemical-equilibrium"
+    }
+  ]
+}
