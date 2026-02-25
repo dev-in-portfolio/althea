@@ -1,0 +1,449 @@
+MESSAGE 3/3 — BLUEPRINT: Angle (Solo Express + Neon App)
+
+Purpose
+
+Angle takes a short statement or situation description and returns multiple reframes (perspective shifts) through a fixed set of lenses. It is deterministic and explainable (rule + template driven), not AI-dependent. Outputs are stored per anonymous user so you can revisit and refine.
+
+
+---
+
+Repo deliverable
+
+Repo name: angle
+Runtime: Node 20
+Server: Express
+DB: Neon Postgres (via pg)
+UI: Server-rendered EJS (minimal, fast, Termux-friendly)
+
+
+---
+
+File tree
+
+angle/
+  package.json
+  package-lock.json
+  .env.example
+  README.md
+
+  sql/
+    001_init.sql
+
+  src/
+    server.js
+    db.js
+
+    middleware/
+      userKey.js
+      security.js
+
+    utils/
+      validate.js
+      text.js
+      classify.js
+
+    apps/
+      angle/
+        routes.js
+        service.js
+        lenses.js
+
+    views/
+      layout.ejs
+      index.ejs
+      history.ejs
+      run.ejs
+
+  public/
+    app.css
+    app.js
+
+
+---
+
+Dependencies (boring / pinned)
+
+Prod
+
+express
+
+pg
+
+ejs
+
+helmet
+
+compression (HTTP gzip)
+
+
+Dev
+
+nodemon (optional)
+
+
+Pin exact versions in package.json.
+
+
+---
+
+Environment variables
+
+.env.example
+
+DATABASE_URL=REDACTED_NEON_POSTGRES_URL
+PORT=3000
+NODE_ENV=development
+
+
+---
+
+Database schema
+
+Store each input and the generated angle outputs as JSON.
+
+sql/001_init.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists angle_runs (
+  id uuid primary key default gen_random_uuid(),
+  user_key text not null,
+  input text not null,
+  classification jsonb not null,
+  outputs jsonb not null,
+  created_at timestamptz not null default now()
+);
+
+create index if not exists idx_angle_runs_user_time
+  on angle_runs(user_key, created_at desc);
+
+
+---
+
+Identity model (anonymous user key)
+
+Same: localStorage UUID → sent as x-user-key header on every request.
+src/middleware/userKey.js:
+
+require header
+
+length cap
+
+attach req.userKey
+
+
+
+---
+
+HTTP routes
+
+UI routes (EJS)
+
+GET / → input form + lens output preview
+
+GET /history → list runs
+
+GET /run/:id → view one run
+
+
+API routes
+
+POST /api/angle → generate reframes + store
+
+GET /api/history → list runs JSON
+
+GET /api/run/:id → single run JSON
+
+DELETE /api/run/:id → delete run
+
+
+All API routes require x-user-key.
+
+
+---
+
+Request/response contracts
+
+POST /api/angle
+
+Body
+
+{
+  "text": "string (non-empty)",
+  "lensSet": "default",
+  "maxOutputLen": 420
+}
+
+Response
+
+{
+  "id": "uuid",
+  "classification": {
+    "domain": "work|relationship|self|systems|unknown",
+    "tone": "neutral|negative|positive|mixed",
+    "keywords": ["project","failed"]
+  },
+  "outputs": [
+    { "lens": "Systems", "reframe": "..." },
+    { "lens": "Incentives", "reframe": "..." },
+    { "lens": "Communication", "reframe": "..." },
+    { "lens": "Environment", "reframe": "..." },
+    { "lens": "Expectations", "reframe": "..." }
+  ]
+}
+
+
+---
+
+Lens system (deterministic)
+
+src/apps/angle/lenses.js defines a fixed lens library. Each lens includes:
+
+name
+
+promptTemplate (not AI—just a template with slots)
+
+rules (when to apply / how to phrase)
+
+
+Default lens set (locked for MVP)
+
+1. Systems
+
+
+2. Incentives
+
+
+3. Communication
+
+
+4. Environment
+
+
+5. Expectations
+
+
+6. Constraints
+
+
+7. Time Horizon
+
+
+8. Counterfactual (“If the opposite were true…”)
+
+
+
+You can output 5 lenses by default and allow “Show 8” toggle.
+
+
+---
+
+Classification engine (simple + stable)
+
+src/utils/classify.js
+
+Goal: keep reframes relevant without ML.
+
+Steps
+
+1. Normalize text: lowercase, trim, collapse spaces
+
+
+2. Extract keywords:
+
+split on whitespace/punct
+
+remove stopwords (small embedded list)
+
+keep top N by frequency (N=8)
+
+
+
+3. Domain detection (rules)
+
+if contains: “project, deadline, bug, deploy, team” → work
+
+“friend, partner, family” → relationship
+
+“feel, anxious, tired, stuck” → self
+
+“system, process, workflow, pipeline” → systems
+
+else unknown
+
+
+
+4. Tone detection (light rules)
+
+negative words set → negative
+
+positive words set → positive
+
+else neutral/mixed
+
+
+
+
+This classification is stored to DB and shown on result page.
+
+
+---
+
+Reframe generation engine
+
+src/apps/angle/service.js
+
+Inputs
+
+text
+
+classification
+
+lensSet
+
+maxOutputLen
+
+
+Output rules
+
+each reframe must be non-empty
+
+must reference at least one extracted keyword (to avoid generic fluff)
+
+must stay under maxOutputLen
+
+must be phrased as an interpretation, not a command
+
+
+Template strategy
+
+Each lens has 2–4 templates chosen deterministically by:
+
+hash(text + lensName) mod templateCount This keeps output stable: same input → same reframes.
+
+
+Example (Systems lens) templates:
+
+“From a systems view, this looks like {keyword} failing at {layer}. The pressure point is {keyword2}.”
+
+“If this is a systems failure, the weakest link is likely {keyword}. The upstream cause may be {keyword2}.”
+
+
+Fill slots using keyword list and domain hints.
+
+
+---
+
+UI behavior (minimal JS)
+
+public/app.js
+
+generate userKey
+
+intercept submit → POST /api/angle with header
+
+redirect to /run/:id
+
+“copy” buttons for each reframe (clipboard API)
+
+
+No heavy frontend frameworks.
+
+
+---
+
+Security / sanity
+
+src/middleware/security.js
+
+helmet()
+
+body size limit (e.g., 64kb)
+
+rate limit: e.g., 60 angle generations per 10 minutes per IP + userKey
+
+input validation:
+
+min length 3 chars
+
+max length 10,000 chars (or lower if you want tighter)
+
+reject binary/invalid unicode
+
+
+
+
+---
+
+README requirements (Termux exact)
+
+README.md must include:
+
+install: npm ci
+
+dev: npm run dev
+
+start: npm run start
+
+Neon setup: run sql/001_init.sql
+
+env: set DATABASE_URL
+
+usage: paste → generate → history → view run
+
+smoke tests checklist
+
+
+
+---
+
+Smoke tests
+
+Android Chrome
+
+1. Open /
+
+
+2. Input: “Project failed.”
+
+
+3. Generate and verify:
+
+at least 5 reframes
+
+each contains a keyword reference
+
+copy button works
+
+
+
+4. Visit /history → run listed
+
+
+5. Open /run/:id → loads
+
+
+
+Desktop Chrome
+
+1. Input a longer paragraph
+
+
+2. Verify outputs remain under maxOutputLen
+
+
+3. Generate same input twice → outputs identical (determinism)
+
+
+4. Delete run → removed from history
+
+
+
+
+---
+
+Done definition
+
+Done = app runs locally in Termux, stores runs in Neon, generates deterministic multi-lens reframes with non-empty outputs, and UI works on mobile + desktop.
+
+
