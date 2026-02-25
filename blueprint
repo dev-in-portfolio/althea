@@ -1,0 +1,415 @@
+MESSAGE 2/3 — BLUEPRINT: Causality (Solo Express + Neon App)
+
+Purpose
+
+Causality lets you build cause → effect chains and returns insights: root causes, downstream impact, leverage points, and suggested intervention targets. It’s deterministic and explainable (graph logic + scoring), not a “tracker.” Chains are saved per anonymous user for revisit and refinement.
+
+
+---
+
+Repo deliverable
+
+Repo name: causality
+Runtime: Node 20
+Server: Express
+DB: Neon Postgres (via pg)
+UI: Server-rendered EJS (minimal, fast)
+
+
+---
+
+File tree
+
+causality/
+  package.json
+  package-lock.json
+  .env.example
+  README.md
+
+  sql/
+    001_init.sql
+
+  src/
+    server.js
+    db.js
+
+    middleware/
+      userKey.js
+      security.js
+
+    utils/
+      validate.js
+      graph.js
+      text.js
+
+    apps/
+      causality/
+        routes.js
+        service.js
+
+    views/
+      layout.ejs
+      index.ejs
+      chain.ejs
+      history.ejs
+
+  public/
+    app.css
+    app.js
+
+
+---
+
+Dependencies (boring / pinned)
+
+Prod
+
+express
+
+pg
+
+ejs
+
+helmet
+
+compression (HTTP gzip)
+
+
+Dev
+
+nodemon (optional)
+
+
+Pin exact versions in package.json.
+
+
+---
+
+Environment variables
+
+.env.example
+
+DATABASE_URL=REDACTED_NEON_POSTGRES_URL
+PORT=3000
+NODE_ENV=development
+
+
+---
+
+Database schema
+
+This schema supports a directed graph per chain (nodes + edges), plus computed insights snapshots.
+
+sql/001_init.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists chains (
+  id uuid primary key default gen_random_uuid(),
+  user_key text not null,
+  title text not null default '',
+  created_at timestamptz not null default now()
+);
+
+create table if not exists chain_nodes (
+  id uuid primary key default gen_random_uuid(),
+  chain_id uuid not null references chains(id) on delete cascade,
+  user_key text not null,
+  label text not null,
+  weight int not null default 3,
+  created_at timestamptz not null default now(),
+  unique(chain_id, label)
+);
+
+create table if not exists chain_edges (
+  id uuid primary key default gen_random_uuid(),
+  chain_id uuid not null references chains(id) on delete cascade,
+  user_key text not null,
+  from_node_id uuid not null references chain_nodes(id) on delete cascade,
+  to_node_id uuid not null references chain_nodes(id) on delete cascade,
+  strength int not null default 3,
+  created_at timestamptz not null default now(),
+  constraint edge_no_self check (from_node_id <> to_node_id),
+  unique(chain_id, from_node_id, to_node_id)
+);
+
+create table if not exists chain_insights (
+  id uuid primary key default gen_random_uuid(),
+  chain_id uuid not null references chains(id) on delete cascade,
+  user_key text not null,
+  payload jsonb not null,
+  computed_at timestamptz not null default now()
+);
+
+create index if not exists idx_chains_user_time on chains(user_key, created_at desc);
+create index if not exists idx_nodes_chain on chain_nodes(chain_id);
+create index if not exists idx_edges_chain on chain_edges(chain_id);
+create index if not exists idx_insights_chain_time on chain_insights(chain_id, computed_at desc);
+
+
+---
+
+Identity model (anonymous user key)
+
+Same pattern: localStorage UUID → send x-user-key header.
+
+src/middleware/userKey.js
+
+require header
+
+length cap
+
+attach req.userKey
+
+
+
+---
+
+HTTP routes
+
+UI routes (EJS)
+
+GET / → create chain (title) + quick add nodes/edges UI
+
+GET /history → list chains
+
+GET /chain/:id → view/edit chain + insights panel
+
+
+API routes
+
+POST /api/chains → create chain { title? }
+
+GET /api/chains → list chains
+
+GET /api/chains/:id → get chain graph (nodes + edges)
+
+POST /api/chains/:id/nodes → add node { label, weight? }
+
+POST /api/chains/:id/edges → add edge { fromLabel|fromNodeId, toLabel|toNodeId, strength? }
+
+DELETE /api/chains/:id/nodes/:nodeId
+
+DELETE /api/chains/:id/edges/:edgeId
+
+POST /api/chains/:id/insights → compute insights + store snapshot
+
+GET /api/chains/:id/insights → latest snapshot
+
+
+All API routes require x-user-key.
+
+
+---
+
+Request/response contracts
+
+POST /api/chains/:id/insights
+
+Response
+
+{
+  "chainId": "uuid",
+  "insights": {
+    "roots": [{ "nodeId":"...", "label":"...", "score": 0.91 }],
+    "sinks": [{ "nodeId":"...", "label":"...", "score": 0.88 }],
+    "leverage": [{ "nodeId":"...", "label":"...", "score": 0.93, "why": "..." }],
+    "bottlenecks": [{ "nodeId":"...", "label":"...", "score": 0.79 }],
+    "suggestions": [
+      { "type":"intervention", "target":"poor sleep", "reason":"High downstream impact" }
+    ],
+    "meta": {
+      "nodeCount": 7,
+      "edgeCount": 6,
+      "hasCycle": false
+    }
+  }
+}
+
+
+---
+
+Engine design (graph logic, deterministic)
+
+src/apps/causality/service.js
+
+Build the graph
+
+Load nodes/edges for chain
+
+Create adjacency list
+
+Verify all edges refer to existing nodes
+
+Detect cycles (DFS). If cycle exists:
+
+don’t reject; flag hasCycle=true
+
+compute insights but reduce confidence
+
+
+
+Compute influence scores
+
+Goal: identify leverage points and roots.
+
+Use simple, stable scoring:
+
+1. Out-degree impact: nodes that cause many downstream effects
+
+
+2. Downstream reach: count reachable nodes from each node (DFS/BFS)
+
+
+3. Weighted reach: incorporate edge strength (1–5) and node weight (1–5)
+
+
+4. Betweenness-ish bottlenecks: approximate by counting how often a node appears in shortest-ish paths (cheap approximation: for each root, BFS tree paths count; not full betweenness)
+
+
+
+Leverage score example:
+
+leverage = normalized( downstreamReach * avgEdgeStrengthOut * nodeWeight )
+
+
+Identify categories
+
+Roots: low in-degree, high reach
+
+Sinks: high in-degree, low out-degree
+
+Leverage: high reach and mid in-degree/out-degree
+
+Bottlenecks: high path-through count
+
+
+Produce explanations (“why”)
+
+Every insight card must include:
+
+evidence numbers (reach count, downstream nodes, strength averages)
+
+simple explanation sentence
+
+
+No “mystical” claims.
+
+
+---
+
+UI behavior (minimal JS)
+
+public/app.js
+
+Generates userKey
+
+Fetch wrapper that always sets x-user-key
+
+On chain page:
+
+add node inline
+
+add edge via two dropdown selects (from/to)
+
+compute insights button
+
+
+
+No heavy front-end framework.
+
+
+---
+
+Security / sanity
+
+src/middleware/security.js
+
+helmet()
+
+body size limit (e.g., 128kb)
+
+rate limiting:
+
+chain edits: moderate
+
+insights compute: stricter (e.g., 20 per 10 min) since it can be expensive
+
+
+
+Validation rules:
+
+max nodes per chain (e.g., 200)
+
+max edges per chain (e.g., 400)
+
+label length caps
+
+prohibit duplicate edges (enforced by DB unique)
+
+
+
+---
+
+README requirements (Termux exact)
+
+README.md must include:
+
+install: npm ci
+
+dev: npm run dev
+
+start: npm run start
+
+Neon setup: run sql/001_init.sql
+
+env: set DATABASE_URL
+
+usage: create chain → add nodes → add edges → compute insights
+
+smoke tests checklist
+
+
+
+---
+
+Smoke tests
+
+Android Chrome
+
+1. Create chain “Sleep cascade”
+
+
+2. Add nodes (late night, poor sleep, slow morning, rushed work, errors)
+
+
+3. Add edges in order
+
+
+4. Compute insights
+
+
+5. Verify leverage shows “poor sleep” or similar mid-chain node
+
+
+
+Desktop Chrome
+
+1. Create chain with 20 nodes and branching
+
+
+2. Compute insights quickly and consistently
+
+
+3. Add an edge creating a cycle → insights still compute, hasCycle=true
+
+
+
+
+---
+
+Done definition
+
+Done = you can create/edit chains, compute insights deterministically, store and reload everything from Neon, and UI works on mobile and desktop.
+
+
