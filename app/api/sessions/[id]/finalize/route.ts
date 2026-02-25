@@ -5,8 +5,8 @@ import { rankItems, buildScore } from "../../../../../lib/collapse/engine";
 export const runtime = "nodejs";
 
 export async function POST(request: Request, { params }: { params: { id: string } }) {
-  const payload = await request.json();
-  const userKey = String(payload.userKey || "");
+  const body = await request.json();
+  const userKey = String(body.userKey || "");
   const sessionId = params.id;
 
   if (!userKey) {
@@ -30,7 +30,9 @@ export async function POST(request: Request, { params }: { params: { id: string 
   const payload = { ranking, scoreMap: [...scoreMap.values()] };
 
   await pool.query(
-    \"UPDATE sessions SET finalized_at = now(), finalized_payload = $1 WHERE id = $2 AND user_key = $3\",\n    [payload, sessionId, userKey]\n  );
+    "UPDATE sessions SET finalized_at = now(), finalized_payload = $1 WHERE id = $2 AND user_key = $3",
+    [payload, sessionId, userKey]
+  );
 
   return NextResponse.json(payload);
 }
