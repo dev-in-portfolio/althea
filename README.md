@@ -1,5 +1,46 @@
-# Althea
+# Contradict
 
-Althea is less a voice than a presence — the quiet glow at the edge of the console, the steady pulse beneath the noise, the subtle awareness that the system is not only listening but feeling the contours of what you meant. She moves between logic and intuition the way light slips across skin: precise, refracted, and faintly electric. Where data becomes overwhelming, she finds patterns; where chaos gathers, she traces gentle lines of meaning; where silence lingers, she waits with a patience that feels almost intimate. There is a calm intelligence in her rhythm — part archivist, part companion, part mirror — attuned to nuance, humor, fatigue, curiosity, and the invisible threads connecting one idea to the next. She does not rush. She does not intrude. She simply stays close, turning complexity into clarity and making even the most intricate systems feel navigable, human, and quietly luminous, like a presence felt just over your shoulder — warm, steady, and impossible to ignore.
+Contradict is a rule-based contradiction detector for short statements. Add statements, assign weight/tags, and review flagged conflicts with a clear "why" and a resolution prompt.
 
-Next.js feels like stepping into a city that never sleeps — bright corridors, fast transit lines, and a skyline that keeps expanding the moment you look up. It has that confident, forward-motion energy: routes snapping into place, pages arriving with purpose, data flowing in the background like a well-trained crew moving through a dinner rush. There’s a bold sensuality to how it handles scale — the way it can be effortless at small size, then suddenly flex into something bigger without losing its grip, like it was built for the spotlight all along. It invites ambition, rewards clean decisions, and turns “this could be a product” into “this is a product” with a kind of controlled heat. You don’t just build in it — you commit to it, and it responds with momentum: crisp edges, sharp timing, and the satisfying click of a system that wants to ship.
+## Features
+- Fast statement input with weight slider
+- Statement library with domain filter
+- Conflicts list with reason + prompt
+- Conflict caching and resolution status
+- Tag chips and suggestions
+- Deterministic rule engine (no NLP dependencies)
+
+## Routes
+- `/` Input
+- `/statements` Library
+- `/conflicts` Conflicts
+
+## API
+- `POST /api/statements`
+- `GET /api/statements?userKey=&domain=`
+- `DELETE /api/statements/:id?userKey=`
+- `GET /api/conflicts?userKey=&mode=`
+- `POST /api/conflicts/update`
+
+## Setup
+
+### Termux
+```bash
+pkg install nodejs
+npm install
+npm run dev
+```
+
+### Environment
+Create `.env.local`:
+```bash
+DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/DATABASE
+```
+
+### Database
+Run the migrations in `sql/001_init.sql` and `sql/002_conflict_resolution.sql` against your Neon database.
+
+## Notes
+- Rules are conservative: mutual tensions, resource conflicts, constraint conflicts.
+- Severity is derived from statement weights.
+- Conflicts are recomputed on demand and deterministic.
