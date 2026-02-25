@@ -1,0 +1,341 @@
+MESSAGE 1/3 — BLUEPRINT: Compression (Solo Express + Neon App)
+
+Purpose
+
+Compression takes pasted text and produces multiple compression layers (e.g., 75% / 50% / 25%) plus a core sentence. It is deterministic, explainable, and lightweight (no AI dependency required). It stores runs per anonymous user so you can revisit outputs.
+
+
+---
+
+Repo deliverable
+
+Repo name: compression
+Runtime: Node 20
+Server: Express
+DB: Neon Postgres (via pg)
+UI: Server-rendered EJS (minimal, fast, Termux-friendly)
+
+
+---
+
+File tree
+
+compression/
+  package.json
+  package-lock.json
+  .env.example
+  README.md
+
+  sql/
+    001_init.sql
+
+  src/
+    server.js
+    db.js
+
+    middleware/
+      userKey.js
+      security.js
+
+    utils/
+      text.js
+      validate.js
+
+    apps/
+      compression/
+        routes.js
+        service.js
+
+    views/
+      layout.ejs
+      index.ejs
+      history.ejs
+      run.ejs
+
+  public/
+    app.css
+    app.js
+
+
+---
+
+Dependencies (keep boring / pinned)
+
+Prod
+
+express
+
+pg
+
+ejs
+
+helmet (basic headers)
+
+compression (HTTP gzip; optional but stable)
+
+
+Dev
+
+nodemon (optional)
+
+
+Pin versions in package.json (exact pins, not caret).
+
+
+---
+
+Environment variables
+
+.env.example
+
+DATABASE_URL=REDACTED_NEON_POSTGRES_URL
+PORT=3000
+NODE_ENV=development
+
+
+---
+
+Database schema
+
+sql/001_init.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists compression_runs (
+  id uuid primary key default gen_random_uuid(),
+  user_key text not null,
+  original text not null,
+  options jsonb not null default '{}'::jsonb,
+  result jsonb not null,
+  created_at timestamptz not null default now()
+);
+
+create index if not exists idx_compression_runs_user_time
+  on compression_runs(user_key, created_at desc);
+
+
+---
+
+Identity model (anonymous user key)
+
+Client: localStorage UUID (created once), included on every API request as header x-user-key.
+Server: middleware enforces it exists and is sane.
+
+src/middleware/userKey.js
+
+require x-user-key
+
+length limit (e.g., 200)
+
+attach to req.userKey
+
+
+
+---
+
+HTTP routes
+
+UI routes (server-rendered)
+
+GET / → paste form + options
+
+GET /history → list past runs (for this user)
+
+GET /run/:id → view one run result
+
+
+API routes
+
+POST /api/compress → run compression and store
+
+GET /api/history → list runs JSON
+
+GET /api/run/:id → single run JSON
+
+DELETE /api/run/:id → delete run
+
+
+All API routes require x-user-key.
+
+
+---
+
+Request/response contracts
+
+POST /api/compress Body
+
+{
+  "text": "string (non-empty)",
+  "levels": [75, 50, 25],
+  "maxSentences": 60
+}
+
+Response
+
+{
+  "id": "uuid",
+  "result": {
+    "core": "string",
+    "layers": {
+      "75": "string",
+      "50": "string",
+      "25": "string"
+    },
+    "meta": {
+      "sentenceCount": 18,
+      "kept": { "75": 14, "50": 9, "25": 5 }
+    }
+  }
+}
+
+
+---
+
+Engine design (deterministic)
+
+src/apps/compression/service.js
+
+Step 1: Normalize & split
+
+Normalize whitespace
+
+Split into sentences with a conservative splitter:
+
+break on .?! followed by space + capital OR newline
+
+keep it simple and stable
+
+
+Hard cap sentence count (maxSentences) to prevent abuse
+
+
+Step 2: Score sentences
+
+Score each sentence with a transparent heuristic:
+
+lengthScore: longer sentences (to a cap) get slightly higher weight
+
+keywordScore: repeated “content words” across text (tf-lite)
+
+positionScore: early sentences get small boost
+
+uniqueness penalty: if sentence duplicates another (normalized), penalize
+
+
+Output score = weighted sum (keep weights constant).
+
+Step 3: Build compression layers
+
+For each level (e.g., 50):
+
+target keep ratio = level / 100
+
+keep top N scored sentences (N = ceil(ratio * sentenceCount))
+
+reassemble in original order (important: keeps narrative coherence)
+
+ensure non-empty; if N becomes 0, force 1 sentence
+
+
+Step 4: Core sentence
+
+Pick best single sentence by score, but if it’s extremely long, choose next best under a max length threshold (e.g., 200 chars).
+
+
+---
+
+UI behavior (minimal JS)
+
+public/app.js
+
+Generates userKey in localStorage if missing
+
+Intercepts form submit → POST /api/compress with header
+
+Redirect to /run/:id
+
+
+No client DB logic. DB is server-only.
+
+
+---
+
+Security / sanity
+
+src/middleware/security.js
+
+helmet()
+
+request body size limit (e.g., 256kb)
+
+basic rate limit (in-memory, per IP + per userKey) with conservative caps:
+
+e.g., 30 compress requests per 10 minutes
+
+
+
+
+---
+
+README requirements (Termux exact)
+
+README.md must include:
+
+Node version expectation (Node 20)
+
+Install: npm ci
+
+Run dev: npm run dev
+
+Run prod: npm run start
+
+DB setup: run sql/001_init.sql in Neon
+
+Env: set DATABASE_URL
+
+Smoke tests checklist
+
+
+
+---
+
+Smoke tests (must include)
+
+Android Chrome
+
+1. Open /
+
+
+2. Paste 8–12 sentences, run compression
+
+
+3. Verify layers show different lengths and are non-empty
+
+
+4. Open /history, ensure run saved
+
+
+5. Open /run/:id directly, verify loads
+
+
+
+Desktop Chrome
+
+1. Repeat with 50+ sentences (within max)
+
+
+2. Confirm response < 1s locally
+
+
+3. Delete a run; verify it disappears from history
+
+
+
+
+---
+
+Done definition
+
+Done = repo runs locally in Termux, saves runs to Neon, UI pages work without errors, and compression outputs are deterministic and non-empty at all levels.
+
+
