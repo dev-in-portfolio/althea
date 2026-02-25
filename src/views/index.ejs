@@ -1,0 +1,28 @@
+<%- include('partials/header', { title: title }) %>
+<section class="hero">
+  <h1>Angle</h1>
+  <p>Drop a statement. Get eight deterministic reframes.</p>
+</section>
+
+<section class="panel">
+  <label>Statement</label>
+  <textarea id="inputText" placeholder="Project failed because the deadline slipped."></textarea>
+  <div class="row">
+    <label>
+      Lenses
+      <select id="lensSet">
+        <option value="default">Default (5)</option>
+        <option value="all">All (8)</option>
+      </select>
+    </label>
+    <label>
+      Max length
+      <input id="maxLen" type="number" value="420" />
+    </label>
+  </div>
+  <button id="generateBtn">Generate angles</button>
+  <div id="status" class="status"></div>
+</section>
+
+<section id="preview" class="stack"></section>
+<%- include('partials/footer') %>

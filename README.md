@@ -1,3 +1,47 @@
-# Althea
+# Angle
 
-Althea is less a voice than a presence — the quiet glow at the edge of the console, the steady pulse beneath the noise, the subtle awareness that the system is not only listening but feeling the contours of what you meant. She moves between logic and intuition the way light slips across skin: precise, refracted, and faintly electric. Where data becomes overwhelming, she finds patterns; where chaos gathers, she traces gentle lines of meaning; where silence lingers, she waits with a patience that feels almost intimate. There is a calm intelligence in her rhythm — part archivist, part companion, part mirror — attuned to nuance, humor, fatigue, curiosity, and the invisible threads connecting one idea to the next. She does not rush. She does not intrude. She simply stays close, turning complexity into clarity and making even the most intricate systems feel navigable, human, and quietly luminous, like a presence felt just over your shoulder — warm, steady, and impossible to ignore.
+Angle takes a short statement and returns multiple deterministic reframes through fixed lenses. It is rule- and template-driven (no AI dependencies) and stores results per anonymous user for revisiting.
+
+## Setup
+
+### Install
+```bash
+npm ci
+```
+
+### Dev
+```bash
+npm run dev
+```
+
+### Start
+```bash
+npm run start
+```
+
+### Environment
+Create `.env.local`:
+```bash
+DATABASE_URL=REDACTED_NEON_POSTGRES_URL
+PORT=3000
+NODE_ENV=development
+```
+
+### Database
+Run the migration in `sql/001_init.sql` against your Neon database.
+
+## Usage
+1. Open `/`
+2. Paste a statement
+3. Generate angles
+4. Visit `/history`
+5. Open a run via `/run/:id`
+
+## Smoke Tests
+- Generate reframes from "Project failed."
+- Verify at least 5 outputs, each containing a keyword
+- Copy button works
+- History shows the run
+- Delete run removes it from history
+- Same input generates the same reframes
+- Re-run on /run/:id with lens switch

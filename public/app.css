@@ -1,0 +1,107 @@
+:root {
+  --bg: #07080e;
+  --panel: #111827;
+  --text: #f5f2e8;
+  --muted: #b5a89a;
+  --accent: #ffb66e;
+  --accent-2: #ff875e;
+  --border: #2a3448;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", "Sora", "Inter", system-ui, -apple-system, sans-serif;
+  background:
+    radial-gradient(900px 600px at 80% -10%, rgba(255, 182, 110, 0.2), transparent 60%),
+    radial-gradient(800px 500px at 10% 0%, rgba(255, 135, 94, 0.18), transparent 55%),
+    radial-gradient(1000px 800px at 50% 110%, rgba(255, 210, 162, 0.18), transparent 60%),
+    var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+nav {
+  display: flex;
+  gap: 16px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(10, 12, 18, 0.9);
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+}
+
+.hero {
+  padding: 24px;
+  border-radius: 16px;
+  background: rgba(17, 24, 40, 0.9);
+  border: 1px solid rgba(255, 182, 110, 0.2);
+  margin-bottom: 20px;
+}
+
+.panel {
+  padding: 18px;
+  border-radius: 14px;
+  background: rgba(17, 24, 40, 0.9);
+  border: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+
+label { display: block; margin-bottom: 8px; color: var(--muted); }
+
+textarea, input, select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #0f121c;
+  color: var(--text);
+}
+
+button {
+  margin-top: 12px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #2a1b14;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.stack { display: grid; gap: 14px; }
+
+.card {
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(18, 22, 34, 0.9);
+}
+
+.status { margin-top: 10px; color: var(--muted); }
+
+.copy {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}

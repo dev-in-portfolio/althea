@@ -1,0 +1,11 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/new/page": "app/new/page.js",
+  "/page": "app/page.js",
+  "/problems/[id]/solutions/page": "app/problems/[id]/solutions/page.js",
+  "/problems/[id]/page": "app/problems/[id]/page.js",
+  "/api/problems/[id]/route": "app/api/problems/[id]/route.js",
+  "/api/problems/[id]/solutions/route": "app/api/problems/[id]/solutions/route.js",
+  "/api/problems/route": "app/api/problems/route.js",
+  "/api/problems/[id]/solve/route": "app/api/problems/[id]/solve/route.js"
+}

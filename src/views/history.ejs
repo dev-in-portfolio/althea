@@ -1,0 +1,33 @@
+<%- include('partials/header', { title: title }) %>
+<section class="hero">
+  <h1>History</h1>
+  <p>Your recent reframes.</p>
+</section>
+
+<section class="panel">
+  <% if (error) { %>
+    <div class="status"><%= error %></div>
+  <% } %>
+  <div id="historyList" class="stack">
+    <% if (runs && runs.length) { %>
+      <% runs.forEach(function(run) { %>
+        <div class="card">
+          <strong><%= run.input.slice(0, 80) %></strong>
+          <div class="row">
+            <a href="/run/<%= run.id %>">Open</a>
+            <button class="copy" data-delete="<%= run.id %>">Delete</button>
+          </div>
+        </div>
+      <% }) %>
+    <% } %>
+  </div>
+  <div class="row">
+    <% if (page > 1) { %>
+      <a href="/history?page=<%= page - 1 %>">Previous</a>
+    <% } %>
+    <% if (hasNext) { %>
+      <a href="/history?page=<%= page + 1 %>">Next</a>
+    <% } %>
+  </div>
+</section>
+<%- include('partials/footer') %>

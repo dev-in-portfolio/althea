@@ -1,0 +1,50 @@
+<%- include('partials/header', { title: title }) %>
+<section class="hero">
+  <h1>Angle Run</h1>
+  <p>Deterministic reframes for your statement.</p>
+</section>
+
+<section class="panel">
+  <% if (error) { %>
+    <div class="status"><%= error %></div>
+  <% } else if (run) { %>
+    <div class="row">
+      <div><strong>Domain:</strong> <%= run.classification.domain %></div>
+      <div><strong>Tone:</strong> <%= run.classification.tone %></div>
+    </div>
+    <div><strong>Keywords:</strong> <%= (run.classification.keywords || []).join(", ") %></div>
+    <div class="mono"><%= run.input %></div>
+  <% } %>
+</section>
+
+<section id="runOutputs" class="stack">
+  <% if (run && run.outputs) { %>
+    <% run.outputs.forEach(function(item) { %>
+      <div class="card">
+        <div class="row" style="justify-content: space-between; align-items: center;">
+          <strong><%= item.lens %></strong>
+          <button class="copy" data-copy="<%= item.reframe %>">Copy</button>
+        </div>
+        <p><%= item.reframe %></p>
+      </div>
+    <% }) %>
+  <% } %>
+</section>
+
+<section class="panel">
+  <div class="row">
+    <label>
+      Lenses
+      <select id="rerunLensSet">
+        <option value="default">Default (5)</option>
+        <option value="all">All (8)</option>
+      </select>
+    </label>
+    <label>
+      Max length
+      <input id="rerunMaxLen" type="number" value="420" />
+    </label>
+  </div>
+  <button id="rerunBtn">Generate again</button>
+</section>
+<%- include('partials/footer') %>
