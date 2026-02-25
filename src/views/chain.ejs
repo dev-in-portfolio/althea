@@ -1,0 +1,65 @@
+<%- include('partials/header', { page }) %>
+<section class="panel">
+  <div class="chain-header">
+    <div>
+      <h1 id="chainTitle">Chain</h1>
+      <p class="subtitle">Add nodes and edges to map the cause → effect logic.</p>
+    </div>
+    <button id="computeInsights" class="secondary">Compute insights</button>
+  </div>
+  <form id="updateTitleForm" class="form inline-form">
+    <label>
+      Edit title
+      <input type="text" name="title" id="chainTitleInput" maxlength="120" required />
+    </label>
+    <button type="submit" class="ghost">Update title</button>
+  </form>
+</section>
+
+<section class="grid">
+  <div class="panel">
+    <h2>Add node</h2>
+    <form id="addNodeForm" class="form">
+      <label>
+        Label
+        <input type="text" name="label" maxlength="120" required />
+      </label>
+      <label>
+        Weight (1–5)
+        <input type="number" name="weight" min="1" max="5" value="3" />
+      </label>
+      <button type="submit">Add node</button>
+    </form>
+    <div class="list" id="nodesList"></div>
+  </div>
+
+  <div class="panel">
+    <h2>Add edge</h2>
+    <form id="addEdgeForm" class="form">
+      <label>
+        From
+        <select name="from" id="edgeFrom"></select>
+      </label>
+      <label>
+        To
+        <select name="to" id="edgeTo"></select>
+      </label>
+      <label>
+        Strength (1–5)
+        <input type="number" name="strength" min="1" max="5" value="3" />
+      </label>
+      <button type="submit">Add edge</button>
+    </form>
+    <div class="list" id="edgesList"></div>
+  </div>
+</section>
+
+<section class="panel">
+  <h2>Insights</h2>
+  <div id="insightsPanel" class="insights"></div>
+</section>
+
+<script>
+  window.__CHAIN_ID__ = "<%= chainId %>";
+</script>
+<%- include('partials/footer') %>

@@ -1,0 +1,22 @@
+<%- include('partials/header', { page }) %>
+<section class="panel">
+  <h1>Start a cause → effect chain</h1>
+  <p class="subtitle">Capture a chain, then add nodes and edges to reveal leverage points.</p>
+  <form id="createChainForm" class="form">
+    <label>
+      Chain title
+      <input type="text" name="title" placeholder="Sleep cascade" maxlength="120" required />
+    </label>
+    <button type="submit">Create chain</button>
+  </form>
+</section>
+
+<section class="panel">
+  <h2>How it works</h2>
+  <ul class="list">
+    <li>Add nodes for causes, conditions, and outcomes.</li>
+    <li>Draw edges to show influence direction and strength.</li>
+    <li>Compute insights for roots, leverage points, and bottlenecks.</li>
+  </ul>
+</section>
+<%- include('partials/footer') %>

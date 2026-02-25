@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Causality</title>
+    <link rel="stylesheet" href="/app.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">Causality</div>
+      <nav class="nav">
+        <a href="/" class="<%= page === 'home' ? 'active' : '' %>">New Chain</a>
+        <a href="/history" class="<%= page === 'history' ? 'active' : '' %>">History</a>
+      </nav>
+      <div class="user-key" id="userKeyDisplay"></div>
+    </header>
+    <main class="content">

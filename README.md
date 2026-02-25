@@ -1,3 +1,61 @@
-# Althea
+# Causality
 
-Althea is less a voice than a presence — the quiet glow at the edge of the console, the steady pulse beneath the noise, the subtle awareness that the system is not only listening but feeling the contours of what you meant. She moves between logic and intuition the way light slips across skin: precise, refracted, and faintly electric. Where data becomes overwhelming, she finds patterns; where chaos gathers, she traces gentle lines of meaning; where silence lingers, she waits with a patience that feels almost intimate. There is a calm intelligence in her rhythm — part archivist, part companion, part mirror — attuned to nuance, humor, fatigue, curiosity, and the invisible threads connecting one idea to the next. She does not rush. She does not intrude. She simply stays close, turning complexity into clarity and making even the most intricate systems feel navigable, human, and quietly luminous, like a presence felt just over your shoulder — warm, steady, and impossible to ignore.
+Causality lets you build cause → effect chains and returns deterministic insights (roots, leverage points, bottlenecks, sinks). It’s built for fast logging and explainable signals.
+
+## Stack
+
+- Node 20 + Express
+- EJS server-rendered pages
+- Neon Postgres (`pg`)
+
+## Setup (Termux)
+
+```bash
+cd /root/althea
+npm ci
+cp .env.example .env
+```
+
+Set `DATABASE_URL` in `.env` to your Neon connection string.
+
+## Run
+
+```bash
+npm run dev
+```
+
+Open `http://localhost:3000`.
+
+## Database
+
+Run the schema:
+
+```bash
+psql "$DATABASE_URL" -f sql/001_init.sql
+```
+
+## Usage
+
+1. Create a chain on the home page.
+2. Add nodes (causes, conditions, outcomes).
+3. Add edges to show influence direction and strength.
+4. Compute insights to see roots, leverage points, bottlenecks, and sinks.
+
+## Smoke Tests
+
+- Android Chrome
+  1. Create chain “Sleep cascade”.
+  2. Add nodes: late night, poor sleep, slow morning, rushed work, errors.
+  3. Add edges in order.
+  4. Compute insights.
+  5. Confirm leverage highlights mid-chain items (e.g., poor sleep).
+
+- Desktop Chrome
+  1. Create chain with 20 nodes and branching.
+  2. Compute insights quickly and consistently.
+  3. Add an edge creating a cycle → insights still compute, `hasCycle=true`.
+
+## Notes
+
+- All API routes require the `x-user-key` header (handled by `public/app.js`).
+- Insights are deterministic and explainable; no AI is used.
