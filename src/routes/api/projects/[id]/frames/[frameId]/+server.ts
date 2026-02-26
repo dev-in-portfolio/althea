@@ -12,13 +12,21 @@ export async function PATCH({ request, params, locals }) {
   const error = validateFrameInput(input);
   if (error) return json({ error }, { status: 400 });
 
-  const frame = await updateFrame(locals.userKey as string, params.id, params.frameId, input);
-  if (!frame) return json({ error: 'Not found' }, { status: 404 });
-  return json(frame);
+  try {
+    const frame = await updateFrame(locals.userKey as string, params.id, params.frameId, input);
+    if (!frame) return json({ error: 'Not found' }, { status: 404 });
+    return json(frame);
+  } catch (err) {
+    return json({ error: err instanceof Error ? err.message : 'Database unavailable.' }, { status: 503 });
+  }
 }
 
 export async function DELETE({ params, locals }) {
-  const ok = await deleteFrame(locals.userKey as string, params.id, params.frameId);
-  if (!ok) return json({ error: 'Not found' }, { status: 404 });
-  return json({ ok: true });
+  try {
+    const ok = await deleteFrame(locals.userKey as string, params.id, params.frameId);
+    if (!ok) return json({ error: 'Not found' }, { status: 404 });
+    return json({ ok: true });
+  } catch (err) {
+    return json({ error: err instanceof Error ? err.message : 'Database unavailable.' }, { status: 503 });
+  }
 }

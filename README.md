@@ -5,13 +5,22 @@ TimeSlice is a cinematic timeline-scrubber. Create projects composed of ordered 
 ## Requirements
 
 - Node.js 18+
-- Neon Postgres
+- Postgres (Neon recommended)
 
 ## Install
 
 ```bash
 npm install
 ```
+
+## Build Prereqs (SvelteKit)
+
+Required files/configs for this app to run:
+
+- `src/app.html` (SvelteKit app template)
+- `svelte.config.js` with `svelte-preprocess` enabled for `lang="ts"`
+- `tsconfig.json` with `verbatimModuleSyntax: true`
+- `@sveltejs/vite-plugin-svelte` in `devDependencies`
 
 ## Environment
 
@@ -29,6 +38,8 @@ Run `sql/001_init.sql` in Neon.
 ```bash
 npm run dev
 ```
+
+If `DATABASE_URL` is missing, API calls will return `503` and the UI will show a DB-unavailable message (no crash).
 
 Build + preview:
 

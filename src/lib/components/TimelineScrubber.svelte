@@ -14,6 +14,12 @@
     if (timeout) window.clearTimeout(timeout);
     timeout = window.setTimeout(() => onScrub(value), 30);
   }
+
+  function handleScrubInput(event: Event) {
+    const target = event.target as HTMLInputElement | null;
+    if (!target) return;
+    handleInput(Number(target.value));
+  }
 </script>
 
 <div class="card">
@@ -24,7 +30,7 @@
     max={maxIndex}
     bind:value={localValue}
     list="ticks"
-    on:input={(e) => handleInput(Number((e.target as HTMLInputElement).value))}
+    on:input={handleScrubInput}
   />
   <datalist id="ticks">
     {#each labels as label, idx}

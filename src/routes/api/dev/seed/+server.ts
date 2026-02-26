@@ -13,9 +13,13 @@ export async function POST({ locals }) {
     return json({ error: 'Seed only available in development.' }, { status: 403 });
   }
 
-  const project = await createProject(locals.userKey as string, 'Sample Timeline');
-  for (const frame of SAMPLE) {
-    await addFrame(locals.userKey as string, project.id, frame);
+  try {
+    const project = await createProject(locals.userKey as string, 'Sample Timeline');
+    for (const frame of SAMPLE) {
+      await addFrame(locals.userKey as string, project.id, frame);
+    }
+    return json({ ok: true, project });
+  } catch (err) {
+    return json({ error: err instanceof Error ? err.message : 'Database unavailable.' }, { status: 503 });
   }
-  return json({ ok: true, project });
 }

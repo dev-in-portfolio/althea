@@ -1,7 +1,15 @@
-import { getPool } from './db';
+import { getDbError, getPool } from './db';
+
+function requirePool() {
+  const pool = getPool();
+  if (!pool) {
+    throw new Error(getDbError() || 'Database is unavailable.');
+  }
+  return pool;
+}
 
 export async function createProject(userKey: string, title: string) {
-  const pool = getPool();
+  const pool = requirePool();
   const result = await pool.query(
     'insert into timeslice_projects (user_key, title) values ($1, $2) returning id, title',
     [userKey, title.trim()]
@@ -10,7 +18,7 @@ export async function createProject(userKey: string, title: string) {
 }
 
 export async function listProjects(userKey: string) {
-  const pool = getPool();
+  const pool = requirePool();
   const result = await pool.query(
     'select id, title, created_at from timeslice_projects where user_key = $1 order by created_at desc',
     [userKey]
@@ -23,7 +31,7 @@ export async function listProjects(userKey: string) {
 }
 
 export async function getProject(userKey: string, projectId: string) {
-  const pool = getPool();
+  const pool = requirePool();
   const projectResult = await pool.query(
     'select id, title from timeslice_projects where id = $1 and user_key = $2',
     [projectId, userKey]

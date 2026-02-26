@@ -12,9 +12,13 @@ export async function POST({ request, params, locals }) {
   const error = validateFrameInput(input);
   if (error) return json({ error }, { status: 400 });
 
-  const count = await countFrames(locals.userKey as string, params.id);
-  if (count >= 500) return json({ error: 'Max frames reached.' }, { status: 400 });
+  try {
+    const count = await countFrames(locals.userKey as string, params.id);
+    if (count >= 500) return json({ error: 'Max frames reached.' }, { status: 400 });
 
-  const frame = await addFrame(locals.userKey as string, params.id, input);
-  return json(frame);
+    const frame = await addFrame(locals.userKey as string, params.id, input);
+    return json(frame);
+  } catch (err) {
+    return json({ error: err instanceof Error ? err.message : 'Database unavailable.' }, { status: 503 });
+  }
 }

@@ -9,6 +9,24 @@
   export let onMix: (value: number) => void;
   export let onSyncA: () => void;
   export let onSyncB: () => void;
+
+  function handleMixInput(event: Event) {
+    const target = event.target as HTMLInputElement | null;
+    if (!target) return;
+    onMix(Number(target.value));
+  }
+
+  function handleAChange(event: Event) {
+    const target = event.target as HTMLSelectElement | null;
+    if (!target) return;
+    onChangeA(Number(target.value));
+  }
+
+  function handleBChange(event: Event) {
+    const target = event.target as HTMLSelectElement | null;
+    if (!target) return;
+    onChangeB(Number(target.value));
+  }
 </script>
 
 <div class="card">
@@ -29,12 +47,12 @@
           {/if}
         </div>
       {/if}
-      <input type="range" min="0" max="100" bind:value={mix} on:input={(e) => onMix(Number((e.target as HTMLInputElement).value))} />
+      <input type="range" min="0" max="100" bind:value={mix} on:input={handleMixInput} />
     </div>
   {/if}
   {#if overlay}
     <div class="overlay">
-      <input type="range" min="0" max="100" bind:value={mix} on:input={(e) => onMix(Number((e.target as HTMLInputElement).value))} />
+      <input type="range" min="0" max="100" bind:value={mix} on:input={handleMixInput} />
       <div class="overlay-frame">
         {#if frames[aIndex]?.imageUrl || frames[bIndex]?.imageUrl}
           {#if frames[aIndex]?.imageUrl}
@@ -52,7 +70,7 @@
   <div class="grid compare">
     <div>
       <label class="small">Frame A</label>
-      <select class="input" bind:value={aIndex} on:change={(e) => onChangeA(Number((e.target as HTMLSelectElement).value))}>
+      <select class="input" bind:value={aIndex} on:change={handleAChange}>
         {#each frames as frame, idx}
           <option value={idx}>{frame.title || `Frame ${idx + 1}`}</option>
         {/each}
@@ -69,7 +87,7 @@
     </div>
     <div>
       <label class="small">Frame B</label>
-      <select class="input" bind:value={bIndex} on:change={(e) => onChangeB(Number((e.target as HTMLSelectElement).value))}>
+      <select class="input" bind:value={bIndex} on:change={handleBChange}>
         {#each frames as frame, idx}
           <option value={idx}>{frame.title || `Frame ${idx + 1}`}</option>
         {/each}

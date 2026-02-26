@@ -1,7 +1,15 @@
-import { getPool } from './db';
+import { getDbError, getPool } from './db';
+
+function requirePool() {
+  const pool = getPool();
+  if (!pool) {
+    throw new Error(getDbError() || 'Database is unavailable.');
+  }
+  return pool;
+}
 
 export async function countFrames(userKey: string, projectId: string) {
-  const pool = getPool();
+  const pool = requirePool();
   const result = await pool.query(
     'select count(*)::int as count from timeslice_frames where project_id = $1 and user_key = $2',
     [projectId, userKey]
@@ -10,7 +18,7 @@ export async function countFrames(userKey: string, projectId: string) {
 }
 
 export async function addFrame(userKey: string, projectId: string, input: { title: string; body: string; imageUrl: string | null }) {
-  const pool = getPool();
+  const pool = requirePool();
   const client = await pool.connect();
   try {
     await client.query('begin');
@@ -40,7 +48,7 @@ export async function addFrame(userKey: string, projectId: string, input: { titl
 }
 
 export async function updateFrame(userKey: string, projectId: string, frameId: string, input: { title: string; body: string; imageUrl: string | null }) {
-  const pool = getPool();
+  const pool = requirePool();
   const result = await pool.query(
     'update timeslice_frames set title = $1, body = $2, image_url = $3 where id = $4 and project_id = $5 and user_key = $6 returning id, order_index',
     [input.title || '', input.body, input.imageUrl, frameId, projectId, userKey]
@@ -56,7 +64,7 @@ export async function updateFrame(userKey: string, projectId: string, frameId: s
 }
 
 export async function reorderFrames(userKey: string, projectId: string, order: string[]) {
-  const pool = getPool();
+  const pool = requirePool();
   const client = await pool.connect();
   try {
     await client.query('begin');
@@ -87,7 +95,7 @@ export async function reorderFrames(userKey: string, projectId: string, order: s
 }
 
 export async function deleteFrame(userKey: string, projectId: string, frameId: string) {
-  const pool = getPool();
+  const pool = requirePool();
   const client = await pool.connect();
   try {
     await client.query('begin');

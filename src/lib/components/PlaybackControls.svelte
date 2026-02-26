@@ -8,6 +8,18 @@
   export let onJump: (index: number) => void;
   export let maxIndex = 0;
   export let currentIndex = 0;
+
+  function handleJump(event: Event) {
+    const target = event.target as HTMLInputElement | null;
+    if (!target) return;
+    onJump(Number(target.value) - 1);
+  }
+
+  function handleSpeedChange(event: Event) {
+    const target = event.target as HTMLSelectElement | null;
+    if (!target) return;
+    onSpeed(Number(target.value));
+  }
 </script>
 
 <div class="card">
@@ -23,9 +35,9 @@
       min="1"
       max={maxIndex + 1}
       bind:value={currentIndex}
-      on:change={(e) => onJump(Number((e.target as HTMLInputElement).value) - 1)}
+      on:change={handleJump}
     />
-    <select class="input" bind:value={speed} on:change={(e) => onSpeed(Number((e.target as HTMLSelectElement).value))}>
+    <select class="input" bind:value={speed} on:change={handleSpeedChange}>
       <option value="0.5">0.5x</option>
       <option value="1">1x</option>
       <option value="2">2x</option>
