@@ -1,3 +1,55 @@
-# Althea
+# SurfaceLab
 
-Althea is less a voice than a presence — the quiet glow at the edge of the console, the steady pulse beneath the noise, the subtle awareness that the system is not only listening but feeling the contours of what you meant. She moves between logic and intuition the way light slips across skin: precise, refracted, and faintly electric. Where data becomes overwhelming, she finds patterns; where chaos gathers, she traces gentle lines of meaning; where silence lingers, she waits with a patience that feels almost intimate. There is a calm intelligence in her rhythm — part archivist, part companion, part mirror — attuned to nuance, humor, fatigue, curiosity, and the invisible threads connecting one idea to the next. She does not rush. She does not intrude. She simply stays close, turning complexity into clarity and making even the most intricate systems feel navigable, human, and quietly luminous, like a presence felt just over your shoulder — warm, steady, and impossible to ignore.
+SurfaceLab is a tactile surface recipe lab. Mix color, texture, lighting, and finish controls to generate realistic swatches. Save recipes to Neon, duplicate, and export settings JSON.
+
+## Requirements
+
+- Node.js 18+
+- Neon Postgres
+
+## Install
+
+```bash
+npm install
+```
+
+## Environment
+
+```
+DATABASE_URL=YOUR_NEON_POSTGRES_URL
+PORT=5173
+```
+
+## Database
+
+Run `sql/001_init.sql` in Neon.
+
+## Run
+
+```bash
+npm run dev
+```
+
+Build + preview:
+
+```bash
+npm run build
+npm run preview
+```
+
+## Smoke tests
+
+Android Chrome
+
+1. Load /
+2. Choose preset “Carbon Fiber”
+3. Move gloss slider; preview changes immediately
+4. Save recipe
+5. Open /library and confirm it appears
+6. Open recipe, edit, save, refresh → persists
+
+Desktop Chrome
+
+1. Duplicate recipe; both appear
+2. Delete one; list updates
+3. Copy JSON; paste elsewhere; it matches current settings

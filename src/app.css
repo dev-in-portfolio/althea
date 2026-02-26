@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;700&family=Gloock&display=swap');
+
+:root {
+  --bg: #0f1012;
+  --panel: #15171b;
+  --ink: #f6f3ec;
+  --muted: #b0aba3;
+  --accent: #ffb347;
+  --accent-2: #ff6b6b;
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Work Sans', sans-serif;
+  background: radial-gradient(circle at 20% 20%, #1d2027 0%, #0f1012 60%, #0b0c0e 100%);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-2);
+}
+
+main {
+  padding: 32px 6vw 80px;
+}
+
+h1, h2, h3 {
+  font-family: 'Gloock', serif;
+  margin: 0 0 12px 0;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 24px;
+}
+
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 18px;
+  background: var(--accent);
+  color: #1a1410;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn.secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.input, textarea, select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #101215;
+  color: var(--ink);
+  font-family: inherit;
+}
+
+.small {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.preview {
+  border-radius: 22px;
+  min-height: 280px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.recipe-card {
+  display: grid;
+  gap: 12px;
+}
