@@ -1,0 +1,461 @@
+BLUEPRINT: SurfaceLab (SvelteKit + Neon)
+
+Purpose
+
+SurfaceLab is a tactile “surface recipe” lab: you combine base color + texture overlay + lighting + finish controls to generate a realistic-looking material swatch. You can save recipes, browse a library, duplicate, and export settings. Rendering starts CSS-first (layered gradients + noise overlay) for stability; future WebGL is optional.
+
+
+---
+
+Product scope (MVP)
+
+Must ship in v1
+
+Live preview swatch that updates instantly as controls change
+
+Preset picker (built-in presets seeded in code)
+
+Save recipe to Neon (name + settings JSON)
+
+Recipe library list + open a recipe
+
+Duplicate recipe
+
+Delete recipe
+
+Copy “recipe JSON” to clipboard
+
+
+Explicit non-goals (v1)
+
+Uploading custom texture images
+
+True PBR/WebGL rendering
+
+Export as PNG (optional; can be v1.1)
+
+
+
+---
+
+Routes
+
+UI pages:
+
+/ — quick lab + preset picker + “Save”
+
+/library — list saved recipes
+
+/surface/[id] — open/edit a saved recipe
+
+
+API routes (server-only):
+
+GET /api/recipes — list recipes
+
+POST /api/recipes — create recipe
+
+GET /api/recipes/[id] — read recipe
+
+PATCH /api/recipes/[id] — update recipe
+
+POST /api/recipes/[id]/duplicate — duplicate recipe
+
+DELETE /api/recipes/[id] — delete recipe
+
+
+All API routes require x-user-key.
+
+
+---
+
+Data model (Neon Postgres)
+
+Table
+
+surface_recipes
+
+id uuid PK
+
+user_key text NOT NULL
+
+name text NOT NULL
+
+settings jsonb NOT NULL
+
+created_at timestamptz NOT NULL default now()
+
+updated_at timestamptz NOT NULL default now()
+
+
+Indexes / constraints
+
+index: surface_recipes(user_key, created_at desc)
+
+name length cap enforced app-side (1–80)
+
+
+
+---
+
+Settings schema (contract)
+
+Stored in settings JSONB. Schema is stable:
+
+{
+  "version": 1,
+  "base": { "color": "#1a1a1a" },
+  "texture": {
+    "pattern": "noise|linen|carbon|brushed|speckle",
+    "intensity": 0.35,
+    "scale": 1.0
+  },
+  "lighting": {
+    "angle": 35,
+    "strength": 0.55,
+    "ambient": 0.25
+  },
+  "finish": {
+    "gloss": 0.45,
+    "roughness": 0.40,
+    "metallic": 0.15
+  }
+}
+
+Rules:
+
+all numeric fields are 0..1 except angle (0..360) and scale (0.25..4)
+
+
+
+---
+
+SQL migration
+
+/sql/001_init.sql
+
+enable pgcrypto
+
+create table + indexes
+
+trigger for updated_at
+
+
+
+---
+
+SvelteKit structure (file tree)
+
+surfacelab/
+  package.json
+  .env.example
+  README.md
+  svelte.config.js
+  vite.config.ts
+
+  sql/
+    001_init.sql
+
+  src/
+    app.d.ts
+    hooks.server.ts
+
+    lib/
+      client/
+        userKey.ts
+        clipboard.ts
+      server/
+        db.ts
+        recipes.ts
+        validate.ts
+
+      components/
+        PresetPicker.svelte
+        SurfacePreview.svelte
+        ControlPanel.svelte
+        SliderRow.svelte
+        ColorPickerRow.svelte
+        RecipeHeader.svelte
+        RecipeCard.svelte
+
+      presets/
+        presets.ts
+
+      render/
+        cssRecipe.ts
+
+    routes/
+      +page.svelte
+
+      library/
+        +page.svelte
+        +page.server.ts
+
+      surface/
+        [id]/
+          +page.svelte
+          +page.server.ts
+
+      api/
+        recipes/
+          +server.ts
+          [id]/
+            +server.ts
+            duplicate/
+              +server.ts
+
+
+---
+
+Backend wiring (Neon)
+
+Server-only DB
+
+src/lib/server/db.ts
+
+uses pg server-side only
+
+reads DATABASE_URL from env
+
+parameterized queries, no ORM
+
+
+Identity
+
+src/hooks.server.ts
+
+for /api/* require x-user-key, store in event.locals.userKey
+
+
+
+---
+
+API contracts
+
+List recipes
+
+GET /api/recipes Response:
+
+{ "items":[ { "id":"uuid","name":"Brushed Steel","createdAt":"..." } ] }
+
+Create recipe
+
+POST /api/recipes Body:
+
+{ "name":"My Surface", "settings": { ...schema... } }
+
+Response:
+
+{ "id":"uuid" }
+
+Read recipe
+
+GET /api/recipes/[id] Response:
+
+{ "id":"uuid","name":"...","settings":{...}, "createdAt":"...", "updatedAt":"..." }
+
+Update recipe
+
+PATCH /api/recipes/[id] Body:
+
+{ "name":"...", "settings":{...} }
+
+Response:
+
+{ "ok": true }
+
+Duplicate
+
+POST /api/recipes/[id]/duplicate Response:
+
+{ "id":"new-uuid" }
+
+Delete
+
+DELETE /api/recipes/[id] Response:
+
+{ "ok": true }
+
+
+---
+
+Rendering approach (CSS-first, stable)
+
+src/lib/render/cssRecipe.ts converts settings → a set of CSS variables + layered backgrounds.
+
+Preview DOM structure
+
+SurfacePreview.svelte renders:
+
+a swatch div with:
+
+base gradient
+
+lighting overlay gradient rotated by angle
+
+texture overlay using CSS repeating-linear-gradient patterns + noise
+
+finish simulated via subtle highlights and contrast
+
+
+
+Texture patterns (no images)
+
+Implement patterns as CSS layers:
+
+noise: tiny repeating radial-gradient dots with opacity
+
+linen: repeating-linear-gradients crossed
+
+carbon: diagonal checker via repeating-linear-gradient
+
+brushed: horizontal fine lines + slight gradient
+
+speckle: low-frequency dots
+
+
+These are deterministic and fully local.
+
+
+---
+
+Presets (seeded)
+
+src/lib/presets/presets.ts exports an array:
+
+Brushed Steel
+
+Ceramic Glaze
+
+Carbon Fiber
+
+Matte Polymer
+
+Neon Acrylic
+
+
+Each preset is just a name + settings.
+
+
+---
+
+UI behavior (how it should feel)
+
+Home /
+
+left: ControlPanel
+
+right: SurfacePreview
+
+top: PresetPicker
+
+actions: Save / Copy JSON / Reset to preset
+
+
+Library /library
+
+list cards with preview thumbnail (CSS swatch)
+
+open
+
+duplicate
+
+delete
+
+
+Recipe /surface/[id]
+
+edit name
+
+modify controls (autosave optional; v1 = explicit “Save” button)
+
+copy JSON
+
+
+
+---
+
+Validation rules (must enforce)
+
+Name: 1–80 chars
+
+Settings must match schema:
+
+version=1
+
+colors are hex #RRGGBB
+
+numeric bounds enforced
+
+
+Max recipes per user_key (v1): 500
+
+
+
+---
+
+Termux runbook (README must include)
+
+Commands:
+
+npm install
+
+npm run dev
+
+npm run build
+
+npm run preview
+
+
+Neon:
+
+run sql/001_init.sql
+
+set DATABASE_URL
+
+
+
+---
+
+Smoke tests (must include)
+
+Android Chrome
+
+1. Load /
+
+
+2. Choose preset “Carbon Fiber”
+
+
+3. Move gloss slider; preview changes immediately
+
+
+4. Save recipe
+
+
+5. Open /library and confirm it appears
+
+
+6. Open recipe, edit, save, refresh → persists
+
+
+
+Desktop Chrome
+
+1. Duplicate recipe; both appear
+
+
+2. Delete one; list updates
+
+
+3. Copy JSON; paste elsewhere; it matches current settings
+
+
+
+
+---
+
+Done definition
+
+Done = live preview works, presets load, recipes save/list/open/update/duplicate/delete in Neon under anonymous x-user-key, and everything runs clean in Termux.
+
