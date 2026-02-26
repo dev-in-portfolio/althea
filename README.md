@@ -1,3 +1,54 @@
-# Althea
+# TimeSlice
 
-Althea is less a voice than a presence — the quiet glow at the edge of the console, the steady pulse beneath the noise, the subtle awareness that the system is not only listening but feeling the contours of what you meant. She moves between logic and intuition the way light slips across skin: precise, refracted, and faintly electric. Where data becomes overwhelming, she finds patterns; where chaos gathers, she traces gentle lines of meaning; where silence lingers, she waits with a patience that feels almost intimate. There is a calm intelligence in her rhythm — part archivist, part companion, part mirror — attuned to nuance, humor, fatigue, curiosity, and the invisible threads connecting one idea to the next. She does not rush. She does not intrude. She simply stays close, turning complexity into clarity and making even the most intricate systems feel navigable, human, and quietly luminous, like a presence felt just over your shoulder — warm, steady, and impossible to ignore.
+TimeSlice is a cinematic timeline-scrubber. Create projects composed of ordered frames and scrub through time with autoplay and A/B compare.
+
+## Requirements
+
+- Node.js 18+
+- Neon Postgres
+
+## Install
+
+```bash
+npm install
+```
+
+## Environment
+
+```
+DATABASE_URL=YOUR_NEON_POSTGRES_URL
+PORT=5173
+```
+
+## Database
+
+Run `sql/001_init.sql` in Neon.
+
+## Run
+
+```bash
+npm run dev
+```
+
+Build + preview:
+
+```bash
+npm run build
+npm run preview
+```
+
+## Smoke tests
+
+Android Chrome
+
+1. Create project
+2. Add 5 frames with distinct body text
+3. Scrub slider; verify content switches instantly
+4. Autoplay works; pause works
+5. Compare A/B shows two different frames
+
+Desktop Chrome
+
+1. Reorder frames; verify playback order changes
+2. Edit a middle frame; refresh page; data persists
+3. Delete a frame; order compacts; no gaps
