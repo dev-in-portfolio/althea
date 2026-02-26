@@ -8,6 +8,7 @@ class Settings:
     app_env: str
     port: int
     max_body_bytes: int = 256_000
+    max_items_hard: int = 500
 
 
 def load_settings() -> Settings:

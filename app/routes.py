@@ -15,7 +15,7 @@ from .models import JudgeRequest, RulePackCreate
 from .scorer import score_items
 from .security import get_user_key
 from .settings import Settings
-from .utils import parse_iso_date
+from .utils import parse_iso_date, today_utc
 
 
 def create_router(settings: Settings) -> APIRouter:
@@ -26,6 +26,9 @@ def create_router(settings: Settings) -> APIRouter:
         if not settings.database_url:
             raise HTTPException(status_code=500, detail="DATABASE_URL not configured")
 
+        if len(payload.items) > settings.max_items_hard:
+            raise HTTPException(status_code=422, detail="items exceed hard max")
+
         if payload.rules.now and parse_iso_date(payload.rules.now) is None:
             raise HTTPException(status_code=422, detail="rules.now must be ISO date YYYY-MM-DD")
 
@@ -33,8 +36,14 @@ def create_router(settings: Settings) -> APIRouter:
             ranked = score_items(payload.items, payload.rules)
         except ValueError as exc:
             raise HTTPException(status_code=422, detail=str(exc)) from exc
-        explanations = build_explanations(ranked, payload.options.maxExplainPairs)
-        result = {"ranked": ranked, "explanations": explanations}
+        resolved_now = payload.rules.now or today_utc().isoformat()
+        explanations = build_explanations(
+            ranked,
+            payload.options.maxExplainPairs,
+            payload.rules.caps,
+            resolved_now,
+        )
+        result = {"ranked": ranked, "explanations": explanations, "resolvedNow": resolved_now}
 
         run_id = insert_run(
             settings.database_url,
@@ -88,6 +97,11 @@ def create_router(settings: Settings) -> APIRouter:
         upsert_rulepack(settings.database_url, user_key, payload.name, payload.rules.model_dump())
         return {"ok": True}
 
+    @router.post("/rulepacks/validate")
+    async def validate_rulepack(payload: RulePackCreate, user_key: str = Depends(get_user_key)):
+        _ = user_key
+        return {"ok": True}
+
     @router.get("/rulepacks")
     async def get_rulepacks(user_key: str = Depends(get_user_key)):
         if not settings.database_url:
@@ -108,6 +122,15 @@ def create_router(settings: Settings) -> APIRouter:
         if not pack:
             raise HTTPException(status_code=404, detail="Rulepack not found")
         return pack
+
+    @router.put("/rulepacks/{name}")
+    async def update_rulepack(name: str, payload: RulePackCreate, user_key: str = Depends(get_user_key)):
+        if name != payload.name:
+            raise HTTPException(status_code=400, detail="Name mismatch")
+        if not settings.database_url:
+            raise HTTPException(status_code=500, detail="DATABASE_URL not configured")
+        upsert_rulepack(settings.database_url, user_key, payload.name, payload.rules.model_dump())
+        return {"ok": True}
 
     @router.delete("/rulepacks/{name}")
     async def remove_rulepack(name: str, user_key: str = Depends(get_user_key)):

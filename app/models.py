@@ -32,6 +32,15 @@ class Item(BaseModel):
             return value
         raise ValueError("due must be ISO date YYYY-MM-DD or null")
 
+    @field_validator("effort", "value")
+    @classmethod
+    def validate_score_ranges(cls, value):
+        if value is None:
+            return value
+        if 0 <= value <= 10:
+            return value
+        raise ValueError("effort/value must be between 0 and 10")
+
 
 class RuleWeights(BaseModel):
     tagBoost: float = 2.0
@@ -39,6 +48,13 @@ class RuleWeights(BaseModel):
     effortPenalty: float = 1.0
     valueBoost: float = 2.0
     keywordBoost: float = 1.5
+
+    @model_validator(mode="after")
+    def validate_weight_ranges(self):
+        for key, val in self.model_dump().items():
+            if not (-100.0 <= float(val) <= 100.0):
+                raise ValueError(f"{key} out of range")
+        return self
 
 
 class RulePack(BaseModel):
@@ -50,6 +66,7 @@ class RulePack(BaseModel):
     dueKey: str = "due"
     now: Optional[str] = None
     tieBreak: str = "stable"
+    caps: Dict[str, int] = Field(default_factory=lambda: {"tagMatches": 5, "keywordMatches": 5})
 
     @field_validator("preferTags", "avoidTags", "preferKeywords", "avoidKeywords")
     @classmethod
@@ -61,8 +78,8 @@ class RulePack(BaseModel):
     @field_validator("tieBreak")
     @classmethod
     def validate_tie_break(cls, value):
-        if value != "stable":
-            raise ValueError("tieBreak must be 'stable'")
+        if value not in {"stable", "label", "id"}:
+            raise ValueError("tieBreak must be 'stable', 'label', or 'id'")
         return value
 
     @field_validator("dueKey")
@@ -70,6 +87,17 @@ class RulePack(BaseModel):
     def validate_due_key(cls, value):
         if value != "due":
             raise ValueError("dueKey must be 'due'")
+        return value
+
+    @field_validator("caps")
+    @classmethod
+    def validate_caps(cls, value):
+        tag_matches = int(value.get("tagMatches", 5))
+        keyword_matches = int(value.get("keywordMatches", 5))
+        if not (1 <= tag_matches <= 20 and 1 <= keyword_matches <= 20):
+            raise ValueError("caps.tagMatches/keywordMatches must be 1-20")
+        value["tagMatches"] = tag_matches
+        value["keywordMatches"] = keyword_matches
         return value
 
 
@@ -87,6 +115,9 @@ class JudgeRequest(BaseModel):
     def validate_items(self):
         if len(self.items) > self.options.maxItems:
             raise ValueError("items exceed maxItems")
+        ids = [item.id for item in self.items]
+        if len(ids) != len(set(ids)):
+            raise ValueError("item ids must be unique")
         return self
 
 
@@ -94,6 +125,7 @@ class RankedItem(BaseModel):
     id: str
     label: str
     score: float
+    scoreComponents: Dict[str, float]
     breakdown: List[Dict[str, object]]
 
 

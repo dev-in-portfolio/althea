@@ -1,14 +1,47 @@
+import uuid
+
+import psycopg
 from dotenv import load_dotenv
-from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.exceptions import RequestValidationError
+from fastapi.responses import JSONResponse, Response
 
 from .routes import create_router
+from .security import RateLimiter, rate_limit_key
 from .settings import load_settings
 
 load_dotenv()
 settings = load_settings()
 
 app = FastAPI(title="QueJudge", version="0.1.0")
+rate_limiter = RateLimiter()
+
+
+@app.exception_handler(HTTPException)
+async def http_exception_handler(request: Request, exc: HTTPException):
+    request_id = getattr(request.state, "request_id", None)
+    return JSONResponse(
+        status_code=exc.status_code,
+        content={"error": "request_error", "detail": exc.detail, "requestId": request_id},
+    )
+
+
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request: Request, exc: RequestValidationError):
+    request_id = getattr(request.state, "request_id", None)
+    return JSONResponse(
+        status_code=422,
+        content={"error": "validation_error", "detail": exc.errors(), "requestId": request_id},
+    )
+
+
+@app.middleware("http")
+async def request_id_middleware(request: Request, call_next):
+    request_id = request.headers.get("x-request-id") or str(uuid.uuid4())
+    request.state.request_id = request_id
+    response = await call_next(request)
+    response.headers["x-request-id"] = request_id
+    return response
 
 
 @app.middleware("http")
@@ -30,9 +63,59 @@ async def request_size_guard(request: Request, call_next):
     return await call_next(request)
 
 
+@app.middleware("http")
+async def rate_limit_guard(request: Request, call_next):
+    if request.url.path in {"/health", "/health/db", "/docs", "/openapi.json", "/"}:
+        return await call_next(request)
+    key = rate_limit_key(request)
+    if not rate_limiter.allow(key):
+        return JSONResponse(
+            status_code=429,
+            content={"error": "rate_limited", "detail": "Too many requests"},
+        )
+    return await call_next(request)
+
+
+@app.get("/", include_in_schema=False)
+async def root():
+    html = """
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>QueJudge</title>
+  </head>
+  <body style="font-family:system-ui; padding:2rem; max-width:900px;">
+    <h1>QueJudge API</h1>
+    <p>API-only ranking engine. Use /docs for interactive usage.</p>
+    <ul>
+      <li><a href="/docs">/docs</a></li>
+      <li><a href="/openapi.json">/openapi.json</a></li>
+      <li><a href="/health">/health</a></li>
+      <li><a href="/health/db">/health/db</a></li>
+    </ul>
+  </body>
+</html>
+""".strip()
+    return Response(content=html, media_type="text/html")
+
+
 @app.get("/health")
 async def health():
     return {"ok": True}
+
+
+@app.get("/health/db")
+async def health_db():
+    if not settings.database_url:
+        return {"ok": False, "error": "DATABASE_URL not configured"}
+    try:
+        with psycopg.connect(settings.database_url) as conn:
+            with conn.cursor() as cur:
+                cur.execute("select 1")
+        return {"ok": True}
+    except Exception as exc:
+        return {"ok": False, "error": str(exc)}
 
 
 app.include_router(create_router(settings))

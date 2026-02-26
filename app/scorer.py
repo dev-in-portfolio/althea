@@ -34,25 +34,29 @@ def _due_boost(due: datetime.date, now: datetime.date, weight: float) -> Tuple[f
 def score_items(items: List[Item], rules: RulePack) -> List[Dict[str, object]]:
     now = parse_iso_date(rules.now) if rules.now else today_utc()
     weights = rules.weights
+    caps = rules.caps
 
     ranked = []
     for item in items:
         breakdown: List[Dict[str, object]] = []
+        components: Dict[str, float] = {}
         score = 0.0
 
         tags = item.tags or []
-        prefer_matches = _cap_matches([t for t in tags if t in rules.preferTags])
+        prefer_matches = _cap_matches([t for t in tags if t in rules.preferTags], caps.get("tagMatches", 5))
         if prefer_matches:
             delta = len(prefer_matches) * weights.tagBoost
             score += delta
+            components["preferTag"] = components.get("preferTag", 0.0) + delta
             breakdown.append(
                 {"rule": "preferTag", "delta": delta, "detail": f"matched {', '.join(prefer_matches)}"}
             )
 
-        avoid_matches = _cap_matches([t for t in tags if t in rules.avoidTags])
+        avoid_matches = _cap_matches([t for t in tags if t in rules.avoidTags], caps.get("tagMatches", 5))
         if avoid_matches:
             delta = len(avoid_matches) * weights.tagBoost
             score -= delta
+            components["avoidTag"] = components.get("avoidTag", 0.0) - delta
             breakdown.append(
                 {"rule": "avoidTag", "delta": -delta, "detail": f"matched {', '.join(avoid_matches)}"}
             )
@@ -64,11 +68,13 @@ def score_items(items: List[Item], rules: RulePack) -> List[Dict[str, object]]:
             delta, detail = _due_boost(due, now, weights.dueSoonBoost)
             if delta != 0:
                 score += delta
+                components["dueSoon"] = components.get("dueSoon", 0.0) + delta
                 breakdown.append({"rule": "dueSoon", "delta": delta, "detail": detail})
 
         if item.value is not None:
             delta = float(item.value) * weights.valueBoost
             score += delta
+            components["value"] = components.get("value", 0.0) + delta
             breakdown.append(
                 {"rule": "value", "delta": delta, "detail": f"value={item.value} * valueBoost({weights.valueBoost})"}
             )
@@ -76,23 +82,26 @@ def score_items(items: List[Item], rules: RulePack) -> List[Dict[str, object]]:
         if item.effort is not None:
             delta = float(item.effort) * weights.effortPenalty
             score -= delta
+            components["effort"] = components.get("effort", 0.0) - delta
             breakdown.append(
                 {"rule": "effort", "delta": -delta, "detail": f"effort={item.effort} * effortPenalty({weights.effortPenalty})"}
             )
 
         text = f"{item.label} {item.notes or ''}".strip()
-        prefer_keywords = _cap_matches(_match_keywords(text, rules.preferKeywords))
+        prefer_keywords = _cap_matches(_match_keywords(text, rules.preferKeywords), caps.get("keywordMatches", 5))
         if prefer_keywords:
             delta = len(prefer_keywords) * weights.keywordBoost
             score += delta
+            components["keyword"] = components.get("keyword", 0.0) + delta
             breakdown.append(
                 {"rule": "keyword", "delta": delta, "detail": f"matched {', '.join(prefer_keywords)}"}
             )
 
-        avoid_keywords = _cap_matches(_match_keywords(text, rules.avoidKeywords))
+        avoid_keywords = _cap_matches(_match_keywords(text, rules.avoidKeywords), caps.get("keywordMatches", 5))
         if avoid_keywords:
             delta = len(avoid_keywords) * weights.keywordBoost
             score -= delta
+            components["avoidKeyword"] = components.get("avoidKeyword", 0.0) - delta
             breakdown.append(
                 {"rule": "avoidKeyword", "delta": -delta, "detail": f"matched {', '.join(avoid_keywords)}"}
             )
@@ -102,15 +111,24 @@ def score_items(items: List[Item], rules: RulePack) -> List[Dict[str, object]]:
                 "id": item.id,
                 "label": item.label,
                 "score": round(score, 4),
+                "scoreComponents": components,
                 "breakdown": breakdown,
             }
         )
 
-    ranked.sort(
-        key=lambda entry: (
-            -entry["score"],
-            entry["label"].casefold(),
-            entry["id"].casefold(),
+    if rules.tieBreak == "id":
+        ranked.sort(
+            key=lambda entry: (
+                -entry["score"],
+                entry["id"].casefold(),
+            )
         )
-    )
+    else:
+        ranked.sort(
+            key=lambda entry: (
+                -entry["score"],
+                entry["label"].casefold(),
+                entry["id"].casefold(),
+            )
+        )
     return ranked

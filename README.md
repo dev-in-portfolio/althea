@@ -46,6 +46,12 @@ Health:
 curl -s http://localhost:8000/health
 ```
 
+DB health:
+
+```bash
+curl -s http://localhost:8000/health/db
+```
+
 Judge:
 
 ```bash
@@ -64,7 +70,8 @@ curl -s -X POST "http://localhost:8000/judge" \
       "preferKeywords":["deploy","error","fix"],
       "avoidKeywords":["someday"],
       "now":"2026-02-26",
-      "tieBreak":"stable"
+      "tieBreak":"stable",
+      "caps":{"tagMatches":5,"keywordMatches":5}
     }
   }'
 ```
@@ -81,11 +88,57 @@ Run details:
 curl -s -H "x-user-key: test-user-123" http://localhost:8000/runs/<id>
 ```
 
-Rulepacks:
+Rulepacks (create/update):
 
 ```bash
 curl -s -X POST http://localhost:8000/rulepacks \
   -H "content-type: application/json" \
   -H "x-user-key: test-user-123" \
   -d '{"name":"default","rules":{"weights":{"tagBoost":2.0,"dueSoonBoost":3.0,"effortPenalty":1.0,"valueBoost":2.0,"keywordBoost":1.5}}}'
+```
+
+```bash
+curl -s -X PUT http://localhost:8000/rulepacks/default \
+  -H "content-type: application/json" \
+  -H "x-user-key: test-user-123" \
+  -d '{"name":"default","rules":{"weights":{"tagBoost":1.0,"dueSoonBoost":2.0,"effortPenalty":1.0,"valueBoost":2.0,"keywordBoost":1.0}}}'
+```
+
+Rulepack validate:
+
+```bash
+curl -s -X POST http://localhost:8000/rulepacks/validate \
+  -H "content-type: application/json" \
+  -H "x-user-key: test-user-123" \
+  -d '{"name":"default","rules":{"weights":{"tagBoost":2.0}}}'
+```
+
+List rulepacks:
+
+```bash
+curl -s -H "x-user-key: test-user-123" http://localhost:8000/rulepacks
+```
+
+Get rulepack:
+
+```bash
+curl -s -H "x-user-key: test-user-123" http://localhost:8000/rulepacks/default
+```
+
+Delete rulepack:
+
+```bash
+curl -s -X DELETE -H "x-user-key: test-user-123" http://localhost:8000/rulepacks/default
+```
+
+## Tie-breaks
+
+Supported tieBreak values: `stable`, `label`, `id`.
+
+## CLI
+
+Score locally from a JSON request file:
+
+```bash
+python -m app.cli --input judge.json
 ```

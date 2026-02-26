@@ -19,7 +19,7 @@ def _format_reason(diff: Dict[str, float]) -> str:
     return " and ".join(parts)
 
 
-def build_explanations(ranked: List[Dict[str, object]], max_pairs: int) -> Dict[str, object]:
+def build_explanations(ranked: List[Dict[str, object]], max_pairs: int, caps: Dict[str, int], resolved_now: str) -> Dict[str, object]:
     pairwise = []
     for idx in range(len(ranked) - 1):
         if len(pairwise) >= max_pairs:
@@ -38,5 +38,7 @@ def build_explanations(ranked: List[Dict[str, object]], max_pairs: int) -> Dict[
         "meta": {
             "itemCount": len(ranked),
             "rulesVersion": 1,
+            "caps": caps,
+            "resolvedNow": resolved_now,
         },
     }
