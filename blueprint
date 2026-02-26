@@ -1,0 +1,165 @@
+BLUEPRINT: Pocket Pass (Firebase Auth + Neon DB)
+
+What it is
+
+A personal “membership pass” app: user signs in (Firebase Anonymous), gets a pass ID + QR, and can “check in” to locations. Great hybrid demo: token verification → relational logging.
+
+Stack (pinned + boring)
+
+App: Next.js (App Router) + TypeScript
+
+Auth: Firebase Auth (Anonymous)
+
+Server verification: Firebase Admin SDK (server-only)
+
+DB: Neon Postgres via pg (server-only)
+
+Node: 20.x
+
+
+Core flows
+
+1. Client signs in anonymously → gets idToken
+
+
+2. Client calls API with Authorization: Bearer <idToken>
+
+
+3. Server verifies token → gets uid
+
+
+4. Server reads/writes Neon rows keyed by uid
+
+
+
+Pages
+
+/ — show pass + QR + “Check In” form
+
+/history — list recent check-ins
+
+/admin/locations — add/edit locations (optional v1; can keep simple)
+
+
+API (Route Handlers)
+
+GET /api/me/pass → returns pass info for uid
+
+POST /api/checkin → create check-in (uid + location_code)
+
+GET /api/me/history?limit=50 → recent check-ins
+
+POST /api/locations → create location (optional)
+
+GET /api/locations → list locations
+
+
+Neon schema
+
+sql/001_init.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists users (
+  uid text primary key,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists passes (
+  id uuid primary key default gen_random_uuid(),
+  uid text not null references users(uid) on delete cascade,
+  display_name text not null default '',
+  created_at timestamptz not null default now(),
+  unique(uid)
+);
+
+create table if not exists locations (
+  id uuid primary key default gen_random_uuid(),
+  code text not null unique,
+  name text not null,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists checkins (
+  id uuid primary key default gen_random_uuid(),
+  uid text not null references users(uid) on delete cascade,
+  location_id uuid not null references locations(id) on delete restrict,
+  checked_in_at timestamptz not null default now()
+);
+
+create index if not exists idx_checkins_uid_time on checkins(uid, checked_in_at desc);
+create index if not exists idx_locations_code on locations(code);
+
+Repo file tree
+
+pocket-pass/
+  package.json
+  .env.example
+  README.md
+  sql/001_init.sql
+
+  src/
+    app/
+      page.tsx
+      history/page.tsx
+      api/
+        me/pass/route.ts
+        me/history/route.ts
+        checkin/route.ts
+        locations/route.ts
+
+    lib/
+      firebase/client.ts
+      firebase/admin.ts
+      server/auth.ts
+      server/db.ts
+      server/queries.ts
+
+Env
+
+.env.example
+
+DATABASE_URL=REDACTED_NEON_POSTGRES_URL
+
+# Firebase client (safe to be public in Next as NEXT_PUBLIC_*)
+NEXT_PUBLIC_FIREBASE_API_KEY=REDACTED
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=REDACTED
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=REDACTED
+
+# Firebase Admin (server-only)
+FIREBASE_ADMIN_PROJECT_ID=REDACTED
+FIREBASE_ADMIN_CLIENT_EMAIL=REDACTED
+FIREBASE_ADMIN_PRIVATE_KEY=REDACTED_MULTILINE
+
+Auth verification contract (server)
+
+Authorization: Bearer <Firebase ID token>
+
+verify via Admin SDK
+
+extract uid
+
+upsert users(uid) and passes(uid) lazily on first request
+
+
+Smoke test
+
+1. Load app → creates anonymous user
+
+
+2. GET /api/me/pass returns pass id
+
+
+3. Create a location row (manual SQL or endpoint)
+
+
+4. Submit check-in with location code → row created
+
+
+5. /history shows it
+
+
+
+Done definition
+
+Done = anonymous sign-in works, server verifies token, Neon stores pass + check-ins, history shows correct uid-scoped data.
