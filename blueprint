@@ -1,0 +1,522 @@
+BLUEPRINT: QueJudge (FastAPI + Neon)
+
+Purpose
+
+QueJudge is a deterministic rule-based ranking engine: you submit a list of items plus a rule pack, it returns a ranked order and explains every scoring decision. It’s not pairwise voting; it’s transparent scoring with stable tie-breakers. Stores runs per anonymous user_key (via x-user-key header). Optional: save/load named rule packs.
+
+
+---
+
+Repo deliverable
+
+Repo name: quejudge
+Runtime: Python 3.11+
+API: FastAPI
+DB: Neon Postgres
+DB driver: psycopg[binary] (sync, boring)
+UI: API-first (docs-based usage is fine)
+
+
+---
+
+File tree
+
+quejudge/
+  pyproject.toml
+  .env.example
+  README.md
+
+  sql/
+    001_init.sql
+
+  app/
+    __init__.py
+    main.py
+    settings.py
+    db.py
+    security.py
+    models.py
+    routes.py
+    scorer.py
+    explain.py
+    utils.py
+
+
+---
+
+Dependencies (pin exact)
+
+fastapi
+
+uvicorn[standard]
+
+psycopg[binary]
+
+pydantic
+
+python-dotenv (optional)
+
+
+No ML libs. No ORMs.
+
+
+---
+
+Environment variables
+
+.env.example
+
+DATABASE_URL=REDACTED_NEON_POSTGRES_URL
+APP_ENV=development
+PORT=8000
+
+
+---
+
+Database schema
+
+sql/001_init.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists rulepacks (
+  id uuid primary key default gen_random_uuid(),
+  user_key text not null,
+  name text not null,
+  rules jsonb not null,
+  created_at timestamptz not null default now(),
+  unique(user_key, name)
+);
+
+create table if not exists judge_runs (
+  id uuid primary key default gen_random_uuid(),
+  user_key text not null,
+  items jsonb not null,
+  rules jsonb not null,
+  result jsonb not null,
+  created_at timestamptz not null default now()
+);
+
+create index if not exists idx_rulepacks_user on rulepacks(user_key, name);
+create index if not exists idx_judge_runs_user_time on judge_runs(user_key, created_at desc);
+
+
+---
+
+Identity model (anonymous user key)
+
+Header required: x-user-key
+app/security.py validates:
+
+exists
+
+<= 200 chars
+
+dependency returns user_key
+
+
+
+---
+
+Input model (contract)
+
+POST /judge accepts “items” as objects. Minimal required fields:
+
+id (string)
+
+label (string)
+
+
+Optional fields supported:
+
+tags (list[str])
+
+due (ISO date string or null)
+
+effort (int 1–10)
+
+value (int 1–10)
+
+notes (string)
+
+
+Example body:
+
+{
+  "items": [
+    { "id":"a", "label":"Fix deploy", "tags":["ops","urgent"], "due":"2026-02-26", "effort":3, "value":9 },
+    { "id":"b", "label":"Refactor UI", "tags":["ux"], "effort":6, "value":6 }
+  ],
+  "rules": {
+    "weights": {
+      "tagBoost": 2.0,
+      "dueSoonBoost": 3.0,
+      "effortPenalty": 1.0,
+      "valueBoost": 2.0,
+      "keywordBoost": 1.5
+    },
+    "preferTags": ["urgent","ops"],
+    "avoidTags": ["nice-to-have"],
+    "preferKeywords": ["deploy","broken","error","fix"],
+    "avoidKeywords": ["maybe","someday"],
+    "dueKey": "due",
+    "now": "2026-02-26",
+    "tieBreak": "stable"
+  },
+  "options": {
+    "maxItems": 500,
+    "maxExplainPairs": 200
+  }
+}
+
+Notes:
+
+rules.now is optional. If omitted, server uses UTC “today” (but for determinism you can pass it).
+
+Tie-break “stable” means: if scores equal, sort by label then id.
+
+
+
+---
+
+Output model (contract)
+
+Response:
+
+{
+  "id": "uuid",
+  "ranked": [
+    {
+      "id": "a",
+      "label": "Fix deploy",
+      "score": 17.5,
+      "breakdown": [
+        { "rule":"preferTag", "delta": 4.0, "detail":"matched urgent,ops" },
+        { "rule":"dueSoon", "delta": 3.0, "detail":"due in 0 days" },
+        { "rule":"value", "delta": 18.0, "detail":"value=9 * valueBoost(2.0)" },
+        { "rule":"effort", "delta": -3.0, "detail":"effort=3 * effortPenalty(1.0)" },
+        { "rule":"keyword", "delta": 1.5, "detail":"matched 'deploy'" }
+      ]
+    }
+  ],
+  "explanations": {
+    "policy": "score-first, stable-tie",
+    "pairwise": [
+      { "above":"a", "below":"b", "why":"a had +3.0 dueSoon and +4.0 tagBoost" }
+    ],
+    "meta": {
+      "itemCount": 2,
+      "rulesVersion": 1
+    }
+  }
+}
+
+
+---
+
+API surface
+
+1) Health
+
+GET /health
+
+{ "ok": true }
+
+2) Judge
+
+POST /judge Headers: x-user-key
+
+Stores run and returns result payload (above).
+
+3) History
+
+GET /history?limit=50 Headers: x-user-key Returns judge_runs summaries:
+
+{
+  "items": [
+    { "id":"uuid", "createdAt":"...", "itemCount": 25 }
+  ]
+}
+
+4) Read run
+
+GET /runs/{id} Headers: x-user-key Returns stored run result.
+
+5) Delete run
+
+DELETE /runs/{id} Headers: x-user-key
+
+{ "ok": true }
+
+6) Rulepacks (optional but included)
+
+POST /rulepacks Body:
+
+{ "name":"default", "rules": { ... } }
+
+Response:
+
+{ "ok": true }
+
+GET /rulepacks GET /rulepacks/{name} DELETE /rulepacks/{name}
+
+All require x-user-key.
+
+
+---
+
+Scoring engine (deterministic)
+
+app/scorer.py
+
+Score components (all optional)
+
+1. Prefer tags
+
+
+
+For each item tag in preferTags: add tagBoost (weight)
+
+If multiple matches, add per match (cap at, e.g., 5 matches to prevent abuse)
+
+
+2. Avoid tags
+
+
+
+For each match in avoidTags: subtract tagBoost (same magnitude)
+
+
+3. Due soon
+
+
+
+If item has due date:
+
+compute daysUntilDue vs rules.now (date only)
+
+if due today or overdue: add dueSoonBoost
+
+else if within 1–3 days: add dueSoonBoost * 0.75
+
+within 4–7 days: add dueSoonBoost * 0.5
+
+else: 0
+
+
+
+4. Effort penalty
+
+
+
+subtract effort * effortPenalty
+
+
+5. Value boost
+
+
+
+add value * valueBoost
+
+
+6. Keyword boost
+
+
+
+if label/notes contains any preferKeywords: add keywordBoost per unique match (cap)
+
+
+7. Avoid keyword
+
+
+
+if contains any avoidKeywords: subtract keywordBoost per match (cap)
+
+
+Stable tie-break
+
+primary: score desc
+
+secondary: label asc (casefold)
+
+tertiary: id asc
+
+
+Breakdown must record each delta with a stable rule name.
+
+
+---
+
+Explanation engine (deterministic)
+
+app/explain.py
+
+Generates:
+
+per-item breakdown (already captured)
+
+limited pairwise reasoning:
+
+compare ranked neighbors (i vs i+1)
+
+produce “why” summary using top delta contributors difference
+
+cap pairwise explanations to maxExplainPairs
+
+
+
+Example “why”:
+
+compute diff of total deltas by rule category
+
+choose top 2 positive contributors explaining the ordering
+
+
+
+---
+
+Validation & limits (anti-abuse, boring)
+
+app/models.py + utils.py
+
+max items: default 500 (configurable)
+
+max label length: 200
+
+max notes length: 2000
+
+tags length: 30 per item
+
+keyword lists capped (e.g., 50)
+
+numeric ranges: effort/value 0–10
+
+dates must parse ISO (YYYY-MM-DD)
+
+
+Reject invalid payload with 422.
+
+
+---
+
+Database layer
+
+app/db.py
+
+psycopg.connect(DATABASE_URL) per request (simple)
+
+Store items, rules, result as jsonb
+
+
+History queries return lightweight summaries (id, created_at, itemCount).
+
+
+---
+
+FastAPI wiring
+
+app/main.py
+
+include router
+
+expose docs at /docs
+
+run with host 0.0.0.0
+
+
+app/routes.py
+
+dependency get_user_key()
+
+implement endpoints
+
+call scorer/explain
+
+store result and return
+
+
+
+---
+
+README.md must include (Termux exact)
+
+Install/run:
+
+pkg install python git openssl
+python -m venv .venv
+source .venv/bin/activate
+pip install -U pip
+pip install -e .
+cp .env.example .env
+# set DATABASE_URL
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+Neon SQL:
+
+run sql/001_init.sql
+
+
+Curl example:
+
+curl -s -X POST "http://localhost:8000/judge" \
+  -H "content-type: application/json" \
+  -H "x-user-key: test-user-123" \
+  -d '{
+    "items":[
+      {"id":"a","label":"Fix deploy","tags":["ops","urgent"],"due":"2026-02-26","effort":3,"value":9},
+      {"id":"b","label":"Refactor UI","tags":["ux"],"effort":6,"value":6}
+    ],
+    "rules":{
+      "weights":{"tagBoost":2.0,"dueSoonBoost":3.0,"effortPenalty":1.0,"valueBoost":2.0,"keywordBoost":1.5},
+      "preferTags":["urgent","ops"],
+      "avoidTags":[],
+      "preferKeywords":["deploy","error","fix"],
+      "avoidKeywords":["someday"],
+      "now":"2026-02-26",
+      "tieBreak":"stable"
+    }
+  }'
+
+
+---
+
+Smoke tests
+
+Android Chrome
+
+1. Open /docs
+
+
+2. POST /judge with 5 items → ranked list returned
+
+
+3. GET /history → run stored
+
+
+4. GET /runs/{id} → same result
+
+
+5. POST /rulepacks and GET it back
+
+
+
+Desktop Chrome
+
+1. 100 items test: response returns quickly and deterministic sorting
+
+
+2. Tie-break test: equal scores → label/id ordering stable
+
+
+3. Keyword cap prevents score explosion
+
+
+
+
+---
+
+Done definition
+
+Done = /docs works, judge results deterministic, full breakdown/explanations included, runs + rulepacks persist per user_key, Termux run instructions succeed.
+
+
