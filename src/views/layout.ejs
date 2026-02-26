@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%= title || 'Compression' %></title>
+    <link rel="stylesheet" href="/app.css" />
+  </head>
+  <body data-user-key="<%- userKey %>">
+    <header class="site-header">
+      <div class="logo">Compression</div>
+      <nav>
+        <a href="/">New Run</a>
+        <a href="/history">History</a>
+      </nav>
+    </header>
+    <main class="content">
+      <%- body %>
+    </main>
+    <script>
+      window.__USER_KEY__ = "<%- userKey %>";
+    </script>
+    <script src="/app.js"></script>
+  </body>
+</html>

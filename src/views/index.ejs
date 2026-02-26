@@ -1,0 +1,32 @@
+<section class="panel">
+  <h1>Paste text</h1>
+  <form id="compress-form" class="stack">
+    <label class="field">
+      <span>Text</span>
+      <textarea name="text" rows="10" placeholder="Paste text here..." required></textarea>
+    </label>
+
+    <div class="grid">
+      <label class="field">
+        <span>Level 1 (%)</span>
+        <input type="number" name="level" value="<%= defaultLevels[0] %>" min="1" max="99" />
+      </label>
+      <label class="field">
+        <span>Level 2 (%)</span>
+        <input type="number" name="level" value="<%= defaultLevels[1] %>" min="1" max="99" />
+      </label>
+      <label class="field">
+        <span>Level 3 (%)</span>
+        <input type="number" name="level" value="<%= defaultLevels[2] %>" min="1" max="99" />
+      </label>
+    </div>
+
+    <label class="field">
+      <span>Max sentences</span>
+      <input type="number" name="maxSentences" value="<%= maxSentences %>" min="5" max="200" />
+    </label>
+
+    <button type="submit">Compress</button>
+    <p class="note">Results are deterministic and saved to your history.</p>
+  </form>
+</section>

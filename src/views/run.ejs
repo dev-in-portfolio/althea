@@ -1,0 +1,33 @@
+<section class="panel">
+  <% if (!run) { %>
+    <h1>Run not found</h1>
+    <p>That run does not exist for your user key.</p>
+  <% } else { %>
+    <h1>Compression Result</h1>
+    <p class="muted"><%= new Date(run.created_at).toLocaleString() %></p>
+
+    <div class="stack">
+      <div class="card">
+        <h2>Core sentence</h2>
+        <p><%= run.result.core %></p>
+      </div>
+
+      <div class="card">
+        <h2>Layers</h2>
+        <div class="stack">
+          <% Object.keys(run.result.layers).forEach((level) => { %>
+            <div>
+              <h3><%= level %>%</h3>
+              <p><%= run.result.layers[level] %></p>
+            </div>
+          <% }); %>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Original</h2>
+        <p><%= run.original %></p>
+      </div>
+    </div>
+  <% } %>
+</section>

@@ -1,0 +1,21 @@
+<section class="panel">
+  <h1>History</h1>
+  <% if (!runs || runs.length === 0) { %>
+    <p>No runs yet. Create one on the home page.</p>
+  <% } else { %>
+    <ul class="history-list">
+      <% runs.forEach((run) => { %>
+        <li class="history-item">
+          <div>
+            <strong><%= new Date(run.created_at).toLocaleString() %></strong>
+            <div class="muted"><%= run.result.core %></div>
+          </div>
+          <div class="actions">
+            <a href="/run/<%= run.id %>">View</a>
+            <button type="button" data-delete-id="<%= run.id %>">Delete</button>
+          </div>
+        </li>
+      <% }); %>
+    </ul>
+  <% } %>
+</section>
