@@ -1,0 +1,508 @@
+BLUEPRINT: Momentum (SvelteKit + Neon)
+
+Purpose
+
+Momentum tracks focus energy and flow velocity, not tasks. You log focus sessions (start/stop), tag how it felt (flow ↔ drag), and visualize your rhythm over time with waves, streaks, and heatmaps. It’s about behavioral cadence, not productivity lists.
+
+
+---
+
+Product scope (MVP)
+
+Must ship in v1
+
+Start/stop focus session timer
+
+Tag session type (e.g., Build, Study, Ops) and feel (Flow / Neutral / Drag)
+
+Save sessions to Neon
+
+Momentum dashboard:
+
+daily energy wave
+
+7-day heatmap
+
+streak & velocity metrics
+
+
+History list with edit/delete
+
+Works offline with localStorage queue; sync when online
+
+
+Explicit non-goals (v1)
+
+Pomodoro automation
+
+Notifications
+
+Multi-device sync conflicts (single-device assumption)
+
+Auth (anonymous userKey only)
+
+
+
+---
+
+Routes
+
+UI pages:
+
+/ — live timer + quick stats
+
+/dashboard — waves, heatmap, streaks
+
+/history — session list (edit/delete)
+
+/session/[id] — edit session
+
+
+API routes (server-only):
+
+GET /api/sessions — list sessions
+
+POST /api/sessions — create session
+
+PATCH /api/sessions/[id] — update session
+
+DELETE /api/sessions/[id] — delete session
+
+GET /api/metrics — computed metrics (7/30-day)
+
+
+All API routes require x-user-key.
+
+
+---
+
+Data model (Neon Postgres)
+
+Table
+
+momentum_sessions
+
+id uuid PK
+
+user_key text NOT NULL
+
+started_at timestamptz NOT NULL
+
+ended_at timestamptz NOT NULL
+
+duration_seconds integer NOT NULL
+
+tag text NOT NULL            -- e.g., Build, Study
+
+feel smallint NOT NULL       -- -1 drag, 0 neutral, +1 flow
+
+created_at timestamptz NOT NULL default now()
+
+updated_at timestamptz NOT NULL default now()
+
+
+Indexes
+
+index: (user_key, started_at desc)
+
+partial index: (user_key, feel) for quick flow/drag tallies
+
+
+Constraints
+
+duration_seconds > 0 AND duration_seconds <= 86400
+
+feel IN (-1, 0, 1)
+
+tag length 1–40
+
+
+
+---
+
+SQL migration
+
+/sql/001_init.sql
+
+enable pgcrypto
+
+create table + indexes
+
+trigger for updated_at
+
+
+
+---
+
+SvelteKit structure (file tree)
+
+momentum/
+  package.json
+  .env.example
+  README.md
+  svelte.config.js
+  vite.config.ts
+
+  sql/
+    001_init.sql
+
+  src/
+    app.d.ts
+    hooks.server.ts
+
+    lib/
+      client/
+        userKey.ts
+        timer.ts
+        offlineQueue.ts
+      server/
+        db.ts
+        sessions.ts
+        metrics.ts
+        validate.ts
+
+      components/
+        TimerPanel.svelte
+        FeelToggle.svelte
+        TagPicker.svelte
+        WaveChart.svelte
+        Heatmap.svelte
+        StreakCard.svelte
+        SessionRow.svelte
+
+      charts/
+        wave.ts
+        heatmap.ts
+
+    routes/
+      +page.svelte
+      +page.server.ts
+
+      dashboard/
+        +page.svelte
+        +page.server.ts
+
+      history/
+        +page.svelte
+        +page.server.ts
+
+      session/
+        [id]/
+          +page.svelte
+          +page.server.ts
+
+      api/
+        sessions/
+          +server.ts
+          [id]/
+            +server.ts
+        metrics/
+          +server.ts
+
+
+---
+
+Backend wiring (Neon)
+
+Server-only DB
+
+src/lib/server/db.ts
+
+uses pg server-side only
+
+reads DATABASE_URL
+
+parameterized queries
+
+
+Identity
+
+src/hooks.server.ts
+
+require x-user-key for /api/*
+
+store in event.locals.userKey
+
+
+
+---
+
+API contracts
+
+List sessions
+
+GET /api/sessions?limit=100&before=<iso> Response:
+
+{ "items":[
+  {"id":"uuid","startedAt":"...","endedAt":"...","duration":1500,"tag":"Build","feel":1}
+]}
+
+Create session
+
+POST /api/sessions Body:
+
+{
+  "startedAt":"ISO",
+  "endedAt":"ISO",
+  "duration":1500,
+  "tag":"Build",
+  "feel":1
+}
+
+Response:
+
+{ "id":"uuid" }
+
+Update session
+
+PATCH /api/sessions/[id] Body:
+
+{ "tag":"Study", "feel":0 }
+
+Response:
+
+{ "ok": true }
+
+Delete session
+
+DELETE /api/sessions/[id] Response:
+
+{ "ok": true }
+
+Metrics
+
+GET /api/metrics Response:
+
+{
+  "streakDays": 4,
+  "weeklySeconds": 18200,
+  "flowRatio": 0.62,
+  "dailyTotals":[{"date":"2026-02-26","seconds":3600}],
+  "heatmap":[{"date":"2026-02-26","level":3}]
+}
+
+
+---
+
+Client timer & offline sync
+
+Timer
+
+src/lib/client/timer.ts
+
+start → record startedAt
+
+stop → compute duration
+
+allow manual correction (± minutes)
+
+
+Offline queue
+
+offlineQueue.ts
+
+if POST fails → queue in localStorage
+
+background retry when online
+
+idempotency via temporary client IDs
+
+
+
+---
+
+Metrics logic (server)
+
+src/lib/server/metrics.ts
+
+Compute:
+
+1. Momentum wave
+
+group sessions by hour/day
+
+sum durations
+
+normalize to visual amplitude
+
+
+2. Heatmap level (0–4)
+
+bucket daily seconds into quartiles of last 30 days
+
+
+3. Streaks
+
+consecutive days with ≥ 20 minutes
+
+
+4. Flow ratio
+
+flow sessions / total sessions (last 7 days)
+
+
+
+---
+
+Visualization approach (lightweight)
+
+Wave chart
+
+SVG path generated from daily totals.
+
+smooth curve
+
+gradient fill
+
+
+Heatmap
+
+CSS grid 7×5 weeks.
+
+level 0–4 → opacity scale
+
+
+Streak card
+
+Large number + “days in motion”.
+
+No charting libraries.
+
+
+---
+
+UI behavior
+
+Home /
+
+big Start/Stop button
+
+elapsed timer
+
+Feel toggle (Flow / Neutral / Drag)
+
+Tag picker
+
+mini stats (today minutes, current streak)
+
+
+Dashboard /dashboard
+
+momentum wave (7 days)
+
+heatmap (30 days)
+
+streak card
+
+flow ratio badge
+
+
+History /history
+
+reverse chronological list
+
+edit feel/tag
+
+delete session
+
+
+Edit /session/[id]
+
+adjust tag
+
+adjust feel
+
+adjust duration
+
+
+
+---
+
+Validation rules
+
+duration 1s–24h
+
+startedAt < endedAt
+
+feel ∈ {-1,0,1}
+
+tag length 1–40
+
+max sessions per user_key (v1): 10,000
+
+
+
+---
+
+Termux runbook (README must include)
+
+Commands:
+
+npm install
+
+npm run dev
+
+npm run build
+
+npm run preview
+
+
+Neon:
+
+run sql/001_init.sql
+
+set DATABASE_URL
+
+
+
+---
+
+Smoke tests
+
+Android Chrome
+
+1. Start session → stop after ~10 sec → save
+
+
+2. Reload → session appears
+
+
+3. Mark feel “Flow” → save
+
+
+4. Dashboard wave updates
+
+
+
+Offline test
+
+1. Disable network
+
+
+2. Log session
+
+
+3. Re-enable network
+
+
+4. Session syncs automatically
+
+
+
+Desktop Chrome
+
+1. Create sessions across 3 days (edit timestamps)
+
+
+2. Confirm streak & heatmap update
+
+
+
+
+---
+
+Done definition
+
+Done = timer works, sessions persist to Neon with offline queue, dashboard visualizes wave/heatmap/streaks correctly, and everything runs smoothly in Termux.
+
+
