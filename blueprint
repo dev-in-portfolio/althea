@@ -1,0 +1,146 @@
+BLUEPRINT: Receipt Vault (Firebase Auth + Neon DB + Firebase Storage)
+
+What it is
+
+Upload receipts (image/pdf), tag them, search/filter by tag/date/vendor. This showcases auth + file handling + relational tagging.
+
+Stack (pinned + boring)
+
+Next.js App Router + TS
+
+Firebase Auth (Anonymous)
+
+Firebase Storage (files)
+
+Neon Postgres (metadata + tags)
+
+Server verifies tokens (Admin SDK) and issues signed upload paths (simple approach: client uploads directly to Storage using Firebase SDK; Neon stores metadata)
+
+
+Pages
+
+/ — upload receipt + add metadata
+
+/vault — browse/search receipts
+
+/receipt/[id] — receipt detail + tags + delete
+
+
+Storage path convention
+
+receipts/{uid}/{receiptId}/{originalFilename} (Keep it stable. Don’t expose Neon IDs as filenames unless you want that coupling.)
+
+API
+
+POST /api/receipts → create metadata record, returns receiptId
+
+POST /api/receipts/[id]/finalize → after upload, set storage_path + status
+
+GET /api/receipts?tag=&q=&from=&to=&limit= → list/search
+
+GET /api/receipts/[id] → detail
+
+POST /api/receipts/[id]/tags → add tags
+
+DELETE /api/receipts/[id] → delete (also delete storage object if you choose server-side admin storage; otherwise client deletes)
+
+
+Neon schema
+
+sql/001_init.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists users (
+  uid text primary key,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists receipts (
+  id uuid primary key default gen_random_uuid(),
+  uid text not null references users(uid) on delete cascade,
+  title text not null default '',
+  vendor text not null default '',
+  amount_cents int null,
+  receipt_date date null,
+  storage_path text null,
+  mime_type text null,
+  status text not null default 'pending' check (status in ('pending','ready')),
+  created_at timestamptz not null default now()
+);
+
+create table if not exists tags (
+  id uuid primary key default gen_random_uuid(),
+  uid text not null references users(uid) on delete cascade,
+  name text not null,
+  created_at timestamptz not null default now(),
+  unique(uid, name)
+);
+
+create table if not exists receipt_tags (
+  receipt_id uuid not null references receipts(id) on delete cascade,
+  tag_id uuid not null references tags(id) on delete cascade,
+  primary key(receipt_id, tag_id)
+);
+
+create index if not exists idx_receipts_uid_time on receipts(uid, created_at desc);
+create index if not exists idx_receipts_uid_vendor on receipts(uid, vendor);
+create index if not exists idx_tags_uid on tags(uid, name);
+
+Repo tree (key parts)
+
+receipt-vault/
+  sql/001_init.sql
+  src/app/
+    page.tsx
+    vault/page.tsx
+    receipt/[id]/page.tsx
+    api/
+      receipts/route.ts
+      receipts/[id]/route.ts
+      receipts/[id]/finalize/route.ts
+      receipts/[id]/tags/route.ts
+  src/lib/
+    firebase/client.ts
+    firebase/admin.ts
+    server/auth.ts
+    server/db.ts
+    server/queries.ts
+
+Client upload sequence (simple + reliable)
+
+1. POST /api/receipts (auth) → returns receiptId
+
+
+2. Client uploads file to Firebase Storage at receipts/{uid}/{receiptId}/{filename}
+
+
+3. POST /api/receipts/{id}/finalize with { storagePath, mimeType }
+
+
+4. Vault lists ready receipts; pending ones can show “upload incomplete”
+
+
+
+Smoke test
+
+1. Upload image receipt
+
+
+2. Add vendor + date + amount
+
+
+3. Tag it “supplies”
+
+
+4. Search tag filter works
+
+
+5. Delete receipt removes from list (and optionally deletes file)
+
+
+
+Done definition
+
+Done = token verified, upload works, Neon stores searchable metadata + tags, and data is uid-isolated.
+
