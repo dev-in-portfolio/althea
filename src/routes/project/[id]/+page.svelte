@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import { onDestroy, onMount } from 'svelte';
   import { getUserKey } from '$lib/client/userKey';
   import FrameList from '$lib/components/FrameList.svelte';
   import FrameEditor from '$lib/components/FrameEditor.svelte';
@@ -18,9 +18,12 @@
   let compare = false;
   let aIndex = 0;
   let bIndex = 0;
+  let overlay = false;
+  let mix = 50;
   let editingFrameId: string | null = null;
   let error = '';
   let timer: number | null = null;
+  const seenImages = new Set<string>();
 
   const projectId = data.projectId;
 
@@ -82,6 +85,12 @@
     currentIndex = (currentIndex + 1) % frames.length;
   }
 
+  function jumpTo(index: number) {
+    if (!frames.length) return;
+    const next = Math.max(0, Math.min(frames.length - 1, index));
+    currentIndex = next;
+  }
+
   async function handleSave(frame: any) {
     await loadProject();
     editingFrameId = null;
@@ -102,6 +111,23 @@
     }
   }
 
+  async function handleDuplicate(frameId: string) {
+    const frame = frames.find((f) => f.id === frameId);
+    if (!frame) return;
+    const res = await fetch(`/api/projects/${projectId}/frames`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json', 'x-user-key': getUserKey() },
+      body: JSON.stringify({
+        title: `${frame.title || 'Frame'} (copy)`,
+        body: frame.body,
+        imageUrl: frame.imageUrl
+      })
+    });
+    if (res.ok) {
+      await loadProject();
+    }
+  }
+
   async function handleReorder(order: string[]) {
     const res = await fetch(`/api/projects/${projectId}/frames/reorder`, {
       method: 'POST',
@@ -116,7 +142,36 @@
   $: currentFrame = frames[currentIndex];
   $: editingFrame = frames.find((frame) => frame.id === editingFrameId) ?? null;
 
+  $: if (currentFrame?.imageUrl) {
+    seenImages.add(currentFrame.imageUrl);
+  }
+
   onMount(loadProject);
+
+  onMount(() => {
+    const handler = (event: KeyboardEvent) => {
+      const target = event.target as HTMLElement;
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName)) return;
+      if (event.code === 'Space') {
+        event.preventDefault();
+        togglePlayback();
+      }
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        goPrev();
+      }
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        goNext();
+      }
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  });
+
+  onDestroy(() => {
+    stopPlayback();
+  });
 </script>
 
 <main class="grid project-grid">
@@ -137,6 +192,7 @@
       onSelect={(idx) => (currentIndex = idx)}
       onEdit={(id) => (editingFrameId = id)}
       onDelete={handleDelete}
+      onDuplicate={handleDuplicate}
     />
 
     <FrameReorderControls
@@ -149,16 +205,20 @@
     <TimelineScrubber
       {currentIndex}
       maxIndex={Math.max(frames.length - 1, 0)}
+      labels={frames.map((frame, idx) => frame.title || `Frame ${idx + 1}`)}
       onScrub={(idx) => (currentIndex = idx)}
     />
 
     <PlaybackControls
       {playing}
       {speed}
+      {currentIndex}
+      maxIndex={Math.max(frames.length - 1, 0)}
       onToggle={togglePlayback}
       onSpeed={setSpeed}
       onPrev={goPrev}
       onNext={goNext}
+      onJump={jumpTo}
     />
 
     <div class="card">
@@ -167,13 +227,22 @@
         <button class="btn secondary" on:click={() => (compare = !compare)}>
           {compare ? 'Hide Compare' : 'Compare A/B'}
         </button>
+        {#if playing}
+          <span class="badge">Autoplay</span>
+        {/if}
       </div>
       {#if currentFrame}
         <div class="frame-view">
           <h3>{currentFrame.title || `Frame ${currentIndex + 1}`}</h3>
           <p>{currentFrame.body}</p>
           {#if currentFrame.imageUrl}
-            <img class="frame-image" src={currentFrame.imageUrl} alt="Frame" />
+            <img
+              class="frame-image"
+              src={currentFrame.imageUrl}
+              alt="Frame"
+              loading={seenImages.has(currentFrame.imageUrl) ? 'eager' : 'lazy'}
+              decoding="async"
+            />
           {/if}
         </div>
       {:else}
@@ -186,9 +255,22 @@
         {frames}
         {aIndex}
         {bIndex}
+        {overlay}
+        {mix}
         onChangeA={(idx) => (aIndex = idx)}
         onChangeB={(idx) => (bIndex = idx)}
+        onSyncA={() => (aIndex = currentIndex)}
+        onSyncB={() => (bIndex = currentIndex)}
+        onMix={(value) => (mix = value)}
       />
+      <div class="card">
+        <h3>Compare Mode</h3>
+        <div class="toolbar">
+          <button class="btn secondary" on:click={() => (overlay = !overlay)}>
+            {overlay ? 'Side-by-side' : 'Overlay'}
+          </button>
+        </div>
+      </div>
     {/if}
   </section>
 </main>

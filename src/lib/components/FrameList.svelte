@@ -4,6 +4,7 @@
   export let onSelect: (index: number) => void;
   export let onEdit: (frameId: string) => void;
   export let onDelete: (frameId: string) => void;
+  export let onDuplicate: (frameId: string) => void;
 </script>
 
 <div class="card">
@@ -20,6 +21,7 @@
           </button>
           <div class="actions">
             <button class="btn secondary" on:click={() => onEdit(frame.id)}>Edit</button>
+            <button class="btn secondary" on:click={() => onDuplicate(frame.id)}>Duplicate</button>
             <button class="btn secondary" on:click={() => onDelete(frame.id)}>Delete</button>
           </div>
         </li>

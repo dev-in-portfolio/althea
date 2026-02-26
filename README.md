@@ -37,6 +37,26 @@ npm run build
 npm run preview
 ```
 
+## API
+
+Health (DB):
+
+```bash
+curl -s http://localhost:5173/api/health
+```
+
+Dev seed (APP_ENV=development):
+
+```bash
+curl -s -X POST http://localhost:5173/api/dev/seed \
+  -H "x-user-key: test-user-123"
+```
+
+## Shortcuts
+
+- Space: play/pause
+- Arrow Left/Right: previous/next frame
+
 ## Smoke tests
 
 Android Chrome

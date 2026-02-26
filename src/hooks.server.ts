@@ -2,9 +2,10 @@ import type { Handle } from '@sveltejs/kit';
 
 export const handle: Handle = async ({ event, resolve }) => {
   const userKey = event.request.headers.get('x-user-key');
+  const exemptPaths = ['/api/health', '/api/health/db'];
 
   if (event.url.pathname.startsWith('/api')) {
-    if (!userKey || userKey.length > 200) {
+    if (!exemptPaths.includes(event.url.pathname) && (!userKey || userKey.length > 200)) {
       return new Response(JSON.stringify({ error: 'Missing or invalid x-user-key header.' }), {
         status: 400,
         headers: { 'content-type': 'application/json' }

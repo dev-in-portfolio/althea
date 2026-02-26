@@ -119,6 +119,15 @@ h1, h2, h3 {
   margin-top: 12px;
 }
 
+.overlay {
+  display: grid;
+  gap: 12px;
+}
+
+.overlay input[type='range'] {
+  width: 100%;
+}
+
 @media (min-width: 960px) {
   .project-grid {
     grid-template-columns: 360px 1fr;

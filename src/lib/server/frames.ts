@@ -61,7 +61,7 @@ export async function reorderFrames(userKey: string, projectId: string, order: s
   try {
     await client.query('begin');
     const current = await client.query(
-      'select id from timeslice_frames where project_id = $1 and user_key = $2 order by order_index asc',
+      'select id from timeslice_frames where project_id = $1 and user_key = $2 order by order_index asc for update',
       [projectId, userKey]
     );
     const existing = current.rows.map((row) => row.id);
@@ -91,6 +91,10 @@ export async function deleteFrame(userKey: string, projectId: string, frameId: s
   const client = await pool.connect();
   try {
     await client.query('begin');
+    await client.query(
+      'select id from timeslice_frames where project_id = $1 and user_key = $2 order by order_index asc for update',
+      [projectId, userKey]
+    );
     const del = await client.query(
       'delete from timeslice_frames where id = $1 and project_id = $2 and user_key = $3',
       [frameId, projectId, userKey]
