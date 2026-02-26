@@ -1,0 +1,508 @@
+BLUEPRINT: SchemnGate (FastAPI + Neon)
+
+Purpose
+
+SchemnGate is a JSON schema gatekeeper: you store schemas, then validate incoming payloads against them and return structured errors plus an optional normalized payload (safe coercions + defaults). It stores schemas and validation runs per anonymous user_key (via x-user-key header).
+
+
+---
+
+Repo deliverable
+
+Repo name: schemngate
+Runtime: Python 3.11+
+API: FastAPI
+DB: Neon Postgres
+DB driver: psycopg[binary] (sync, boring)
+Validation approach: deterministic rule validation (not “full JSON Schema spec” unless you explicitly want it)
+
+
+---
+
+File tree
+
+schemngate/
+  pyproject.toml
+  .env.example
+  README.md
+
+  sql/
+    001_init.sql
+
+  app/
+    __init__.py
+    main.py
+    settings.py
+    db.py
+    security.py
+    models.py
+    routes.py
+    schema_store.py
+    validator.py
+    normalizer.py
+    utils.py
+
+
+---
+
+Dependencies (pin exact)
+
+fastapi
+
+uvicorn[standard]
+
+psycopg[binary]
+
+pydantic
+
+python-dotenv (optional)
+
+
+No external JSON Schema libs in MVP (keeps it boring & controlled). If you later want full JSON Schema compatibility, that becomes an explicit dependency change.
+
+
+---
+
+Environment variables
+
+.env.example
+
+DATABASE_URL=REDACTED_NEON_POSTGRES_URL
+APP_ENV=development
+PORT=8000
+
+
+---
+
+Database schema
+
+sql/001_init.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists schemas (
+  id uuid primary key default gen_random_uuid(),
+  user_key text not null,
+  name text not null,
+  version int not null default 1,
+  schema jsonb not null,
+  created_at timestamptz not null default now(),
+  unique(user_key, name, version)
+);
+
+create table if not exists validation_runs (
+  id uuid primary key default gen_random_uuid(),
+  user_key text not null,
+  schema_name text not null,
+  schema_version int not null,
+  payload jsonb not null,
+  result jsonb not null,
+  created_at timestamptz not null default now()
+);
+
+create index if not exists idx_schemas_user_name on schemas(user_key, name);
+create index if not exists idx_validation_runs_user_time on validation_runs(user_key, created_at desc);
+create index if not exists idx_validation_runs_schema on validation_runs(user_key, schema_name, schema_version);
+
+
+---
+
+Identity model (anonymous user key)
+
+Header required: x-user-key
+app/security.py validates:
+
+exists
+
+<= 200 chars
+
+returns user_key via dependency injection
+
+
+
+---
+
+Schema format (MVP contract)
+
+This is NOT full JSON Schema. It’s your controlled subset for speed and determinism.
+
+Stored schema shape:
+
+{
+  "type": "object",
+  "required": ["id", "name"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "name": { "type": "string", "minLength": 1, "trim": true },
+    "age": { "type": "int", "min": 0, "max": 130, "default": 0 },
+    "tags": { "type": "array", "items": { "type": "string", "trim": true }, "default": [] },
+    "meta": { "type": "object", "default": {} }
+  },
+  "additionalProperties": false
+}
+
+Supported type values:
+
+object
+
+string
+
+int
+
+float
+
+bool
+
+array
+
+
+Supported constraints:
+
+string: minLength, maxLength, trim
+
+int/float: min, max
+
+array: items, minItems, maxItems
+
+object: required, properties, additionalProperties
+
+any: default
+
+
+Safe coercions (normalizer):
+
+string numeric → int/float (only if clean parse)
+
+"true"/"false" → bool
+
+trim strings if trim=true No destructive coercion.
+
+
+
+---
+
+API surface (contracts)
+
+1) Health
+
+GET /health
+
+{ "ok": true }
+
+2) Create schema version
+
+POST /schemas Headers: x-user-key
+
+Body:
+
+{
+  "name": "events_v1",
+  "schema": { "...": "..." }
+}
+
+Response:
+
+{ "id":"uuid", "name":"events_v1", "version": 1 }
+
+Rule:
+
+if schema name already exists, create version+1 (append version automatically)
+
+
+3) List schemas
+
+GET /schemas?name=events_v1 Headers: x-user-key
+
+Response:
+
+{
+  "items": [
+    { "id":"uuid", "name":"events_v1", "version": 1, "createdAt":"..." }
+  ]
+}
+
+4) Get schema by name/version
+
+GET /schemas/{name}?version=1 Headers: x-user-key
+
+Response:
+
+{ "name":"events_v1", "version":1, "schema": { ... } }
+
+If version omitted → return latest.
+
+5) Validate payload
+
+POST /validate/{name}?version=1 Headers: x-user-key
+
+Body: JSON payload (any JSON)
+
+Response:
+
+{
+  "ok": false,
+  "errors": [
+    { "path": "/name", "code": "required", "message": "Missing required field" },
+    { "path": "/age", "code": "min", "message": "Must be >= 0" }
+  ],
+  "normalized": null,
+  "schema": { "name":"events_v1", "version":1 }
+}
+
+6) Normalize payload
+
+POST /normalize/{name}?version=1 Headers: x-user-key
+
+Response:
+
+{
+  "ok": true,
+  "errors": [],
+  "normalized": { "...": "..." },
+  "schema": { "name":"events_v1", "version":1 }
+}
+
+Normalization:
+
+applies defaults
+
+trims strings where configured
+
+safe coercions
+
+removes unknown keys if additionalProperties=false (and logs them as warnings or errors; MVP: errors)
+
+
+7) History
+
+GET /history?limit=50 Headers: x-user-key Returns validation_runs summaries.
+
+
+---
+
+Validator design (deterministic)
+
+app/validator.py Implement:
+
+recursive validate(value, schema, path="/") -> errors[]
+
+enforce required keys
+
+enforce type
+
+enforce constraints
+
+enforce array item schemas
+
+enforce additionalProperties
+
+
+Errors format:
+
+path JSON-pointer style
+
+code stable enum: required, type, min, max, minLength, maxLength, minItems, maxItems, additionalProperties, parse
+
+message human readable
+
+
+Cap depth to prevent abuse (e.g., 40).
+
+
+---
+
+Normalizer design (deterministic)
+
+app/normalizer.py Implement:
+
+recursive normalization returning (normalizedValue, errors[])
+
+defaults:
+
+if missing key and schema has default, insert it
+
+
+trimming:
+
+strings trimmed if trim=true
+
+
+safe coercion:
+
+"123" → int if type=int
+
+"12.3" → float if type=float
+
+"true"/"false" → bool if type=bool
+
+
+unknown keys:
+
+if additionalProperties=false: error
+
+if true: keep as-is (MVP may just support false/true boolean)
+
+
+
+
+---
+
+Schema storage rules
+
+app/schema_store.py
+
+create_schema(name, schema_json):
+
+determine latest version for name+user_key
+
+insert version = latest+1 (or 1)
+
+
+get_schema(name, version=None):
+
+fetch requested or latest
+
+
+
+Validate schema itself on insert:
+
+must be object schema at root
+
+must have type
+
+if object: properties must be dict
+
+if array: must have items Reject invalid schema with 400 and error list.
+
+
+
+---
+
+Database layer
+
+app/db.py
+
+Use psycopg.connect(DATABASE_URL) context manager per request (boring)
+
+Parameterized queries only
+
+Store schema and payload as jsonb
+
+
+validation_runs.result should store:
+
+{
+  "ok": false,
+  "errors": [...],
+  "normalized": {... or null}
+}
+
+
+---
+
+FastAPI wiring
+
+app/main.py
+
+include router
+
+serve docs at /docs
+
+run on 0.0.0.0
+
+
+app/routes.py
+
+endpoints above
+
+dependency get_user_key()
+
+strict validation: request body size cap (e.g., 256kb)
+
+
+
+---
+
+README.md must include (Termux exact)
+
+Install/run:
+
+pkg install python git openssl
+python -m venv .venv
+source .venv/bin/activate
+pip install -U pip
+pip install -e .
+cp .env.example .env
+# set DATABASE_URL
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+Neon SQL:
+
+run sql/001_init.sql
+
+
+Curl examples:
+
+1. Create schema
+
+
+2. Validate payload
+
+
+3. Normalize payload
+
+
+4. List schemas
+
+
+
+Example validate:
+
+curl -s -X POST "http://localhost:8000/validate/events_v1" \
+  -H "content-type: application/json" \
+  -H "x-user-key: test-user-123" \
+  -d '{"id":"abc","name":"  Devin  ","age":"42","tags":["  a ","b"]}'
+
+
+---
+
+Smoke tests
+
+Android Chrome
+
+1. Open /docs
+
+
+2. POST /schemas with example schema
+
+
+3. POST /validate/{name} with missing required → errors returned with paths
+
+
+4. POST /normalize/{name} with string numbers + whitespace → normalized output correct
+
+
+5. GET /history shows runs
+
+
+
+Desktop Chrome
+
+1. Schema versioning works (second POST /schemas same name → version increments)
+
+
+2. additionalProperties false rejects unknown keys
+
+
+3. Deeply nested payload hits depth cap cleanly
+
+
+
+
+---
+
+Done definition
+
+Done = schemas can be created/versioned, validate/normalize behave deterministically, runs are stored and retrievable per user_key, and everything runs in Termux.
+
+
