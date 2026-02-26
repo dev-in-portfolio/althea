@@ -21,6 +21,12 @@
       finish: { ...settings.finish, ...(partial.finish || {}) }
     });
   }
+
+  function handlePatternChange(event: Event) {
+    const target = event.target as HTMLSelectElement | null;
+    if (!target) return;
+    update({ texture: { pattern: target.value } });
+  }
 </script>
 
 <div class="card">
@@ -37,7 +43,7 @@
 
     <div>
       <label class="small">Texture Pattern</label>
-      <select class="input" bind:value={settings.texture.pattern} on:change={(e) => update({ texture: { pattern: (e.target as HTMLSelectElement).value } })}>
+      <select class="input" bind:value={settings.texture.pattern} on:change={handlePatternChange}>
         {#each patterns as pattern}
           <option value={pattern}>{pattern}</option>
         {/each}

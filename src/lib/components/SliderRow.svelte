@@ -5,11 +5,17 @@
   export let max = 1;
   export let step = 0.01;
   export let onChange: (value: number) => void;
+
+  function handleInput(event: Event) {
+    const target = event.target as HTMLInputElement | null;
+    if (!target) return;
+    onChange(Number(target.value));
+  }
 </script>
 
 <div class="row">
   <label>{label}</label>
-  <input type="range" min={min} max={max} step={step} bind:value={value} on:input={(e) => onChange(Number((e.target as HTMLInputElement).value))} />
+  <input type="range" min={min} max={max} step={step} bind:value={value} on:input={handleInput} />
   <span class="small">{value.toFixed(2)}</span>
 </div>
 

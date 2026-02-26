@@ -1,8 +1,16 @@
-import { getPool } from './db';
+import { getDbError, getPool } from './db';
 import type { SurfaceSettings } from '$lib/presets/types';
 
-export async function listRecipes(userKey: string) {
+function requirePool() {
   const pool = getPool();
+  if (!pool) {
+    throw new Error(getDbError() || 'Database is unavailable.');
+  }
+  return pool;
+}
+
+export async function listRecipes(userKey: string) {
+  const pool = requirePool();
   const result = await pool.query(
     'select id, name, settings, created_at from surface_recipes where user_key = $1 order by created_at desc',
     [userKey]
@@ -16,7 +24,7 @@ export async function listRecipes(userKey: string) {
 }
 
 export async function createRecipe(userKey: string, name: string, settings: SurfaceSettings) {
-  const pool = getPool();
+  const pool = requirePool();
   const result = await pool.query(
     'insert into surface_recipes (user_key, name, settings) values ($1, $2, $3) returning id',
     [userKey, name.trim(), settings]
@@ -25,7 +33,7 @@ export async function createRecipe(userKey: string, name: string, settings: Surf
 }
 
 export async function getRecipe(userKey: string, id: string) {
-  const pool = getPool();
+  const pool = requirePool();
   const result = await pool.query(
     'select id, name, settings, created_at, updated_at from surface_recipes where id = $1 and user_key = $2',
     [id, userKey]
@@ -42,7 +50,7 @@ export async function getRecipe(userKey: string, id: string) {
 }
 
 export async function updateRecipe(userKey: string, id: string, name: string, settings: SurfaceSettings) {
-  const pool = getPool();
+  const pool = requirePool();
   const result = await pool.query(
     'update surface_recipes set name = $1, settings = $2 where id = $3 and user_key = $4',
     [name.trim(), settings, id, userKey]
@@ -51,7 +59,7 @@ export async function updateRecipe(userKey: string, id: string, name: string, se
 }
 
 export async function deleteRecipe(userKey: string, id: string) {
-  const pool = getPool();
+  const pool = requirePool();
   const result = await pool.query(
     'delete from surface_recipes where id = $1 and user_key = $2',
     [id, userKey]
@@ -60,7 +68,7 @@ export async function deleteRecipe(userKey: string, id: string) {
 }
 
 export async function duplicateRecipe(userKey: string, id: string) {
-  const pool = getPool();
+  const pool = requirePool();
   const result = await pool.query(
     'insert into surface_recipes (user_key, name, settings) select user_key, name || " Copy", settings from surface_recipes where id = $1 and user_key = $2 returning id',
     [id, userKey]
@@ -70,7 +78,7 @@ export async function duplicateRecipe(userKey: string, id: string) {
 }
 
 export async function countRecipes(userKey: string) {
-  const pool = getPool();
+  const pool = requirePool();
   const result = await pool.query(
     'select count(*)::int as count from surface_recipes where user_key = $1',
     [userKey]
