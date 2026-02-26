@@ -1,0 +1,443 @@
+BLUEPRINT: TimeSlice (SvelteKit + Neon)
+
+Purpose
+
+TimeSlice is a timeline-scrubber app: you create a project made of ordered frames (text + optional image URL), then scrub through time to see the state evolve. It’s built to feel cinematic: instant slider, autoplay, and A/B compare.
+
+
+---
+
+Product scope (MVP)
+
+Must ship in v1
+
+Create/list projects
+
+Add/edit/delete frames
+
+Reorder frames (simple up/down + “set position” — no drag/drop required)
+
+Timeline scrubber (slider)
+
+Autoplay (play/pause, speed)
+
+Compare two frames side-by-side (A/B)
+
+Neon persistence per anonymous user (user_key stored in localStorage)
+
+
+Explicit non-goals (v1)
+
+Uploading images (use URL field only)
+
+Video/GIF export
+
+Auth beyond anonymous user_key
+
+
+
+---
+
+Routes
+
+UI pages:
+
+/ — project list + “New Project”
+
+/project/new — create project
+
+/project/[id] — editor + playback + compare
+
+
+API routes (server-only):
+
+POST /api/projects — create project
+
+GET /api/projects — list projects
+
+GET /api/projects/[id] — get project + frames
+
+POST /api/projects/[id]/frames — add frame
+
+PATCH /api/projects/[id]/frames/[frameId] — edit frame
+
+POST /api/projects/[id]/frames/reorder — reorder frames
+
+DELETE /api/projects/[id]/frames/[frameId] — delete frame
+
+
+All API routes require x-user-key.
+
+
+---
+
+Data model (Neon Postgres)
+
+Tables
+
+timeslice_projects
+
+id uuid PK
+
+user_key text NOT NULL
+
+title text NOT NULL
+
+created_at timestamptz NOT NULL default now()
+
+
+timeslice_frames
+
+id uuid PK
+
+project_id uuid NOT NULL FK -> timeslice_projects(id) on delete cascade
+
+user_key text NOT NULL
+
+order_index int NOT NULL (0..N-1)
+
+title text NOT NULL default ''
+
+body text NOT NULL (non-empty)
+
+image_url text NULL
+
+created_at timestamptz NOT NULL default now()
+
+updated_at timestamptz NOT NULL default now()
+
+
+Constraints / indexes
+
+Unique order per project: unique(project_id, order_index)
+
+Fast list: index timeslice_projects(user_key, created_at desc)
+
+Fast frames: index timeslice_frames(project_id, order_index asc)
+
+
+
+---
+
+SQL migration
+
+/sql/001_init.sql
+
+enable pgcrypto
+
+create tables + indexes + constraints
+
+trigger to set updated_at on frame updates (boring trigger)
+
+
+
+---
+
+SvelteKit structure (file tree)
+
+timeslice/
+  package.json
+  .env.example
+  README.md
+  svelte.config.js
+  vite.config.ts
+
+  sql/
+    001_init.sql
+
+  src/
+    app.d.ts
+    hooks.server.ts
+
+    lib/
+      client/
+        userKey.ts
+      server/
+        db.ts
+        projects.ts
+        frames.ts
+        validate.ts
+
+      components/
+        ProjectList.svelte
+        ProjectCreate.svelte
+
+        FrameList.svelte
+        FrameEditor.svelte
+        FrameReorderControls.svelte
+
+        TimelineScrubber.svelte
+        PlaybackControls.svelte
+        CompareView.svelte
+
+    routes/
+      +page.svelte
+
+      project/
+        new/
+          +page.svelte
+        [id]/
+          +page.svelte
+          +page.server.ts
+
+      api/
+        projects/
+          +server.ts
+          [id]/
+            +server.ts
+            frames/
+              +server.ts
+              reorder/
+                +server.ts
+              [frameId]/
+                +server.ts
+
+
+---
+
+Backend wiring (Neon)
+
+Server-only DB
+
+src/lib/server/db.ts
+
+uses DATABASE_URL from env
+
+uses pg (Node) OR @neondatabase/serverless? Pick ONE. Recommendation: use pg (server-only) for simplicity and stability.
+
+
+Request identity
+
+src/hooks.server.ts
+
+read x-user-key
+
+attach to event.locals.userKey
+
+if missing for API routes → 400 (For page routes, allow missing; UI JS will include it for API calls.)
+
+
+
+---
+
+API contracts
+
+Create project
+
+POST /api/projects Body:
+
+{ "title": "My Project" }
+
+Response:
+
+{ "id":"uuid", "title":"My Project" }
+
+List projects
+
+GET /api/projects Response:
+
+{ "items":[ { "id":"uuid","title":"...","createdAt":"..." } ] }
+
+Get project + frames
+
+GET /api/projects/[id] Response:
+
+{
+  "project": { "id":"uuid","title":"..." },
+  "frames": [
+    { "id":"uuid","orderIndex":0,"title":"...","body":"...","imageUrl":null }
+  ]
+}
+
+Add frame
+
+POST /api/projects/[id]/frames Body:
+
+{ "title":"", "body":"non-empty", "imageUrl":"https://..." }
+
+Response: created frame object with orderIndex = last+1.
+
+Edit frame
+
+PATCH /api/projects/[id]/frames/[frameId] Body:
+
+{ "title":"...", "body":"...", "imageUrl":null }
+
+Reorder frames
+
+POST /api/projects/[id]/frames/reorder Body:
+
+{ "order": ["frameId1","frameId2","frameId3"] }
+
+Rules:
+
+must contain all existing frame IDs exactly once
+
+server rewrites order_index 0..N-1 in a transaction
+
+
+Delete frame
+
+DELETE /api/projects/[id]/frames/[frameId] Rules:
+
+delete frame
+
+then compact order_index to 0..N-2 (transaction)
+
+
+
+---
+
+UI behavior (how it should feel)
+
+Project page layout
+
+Left column: Frame list + add/edit/reorder
+Right column: Playback area
+
+Playback area includes:
+
+TimelineScrubber: range slider 0..N-1
+
+PlaybackControls: play/pause, speed (0.5x / 1x / 2x), jump prev/next
+
+Frame display: title + body + image (if URL)
+
+CompareView toggle:
+
+choose Frame A index and Frame B index
+
+side-by-side render
+
+
+
+No drag/drop requirement
+
+Reorder uses:
+
+up/down buttons
+
+or “Move to position” numeric input Both write into the order[] array client-side, then POST reorder.
+
+
+
+---
+
+Validation rules (must enforce)
+
+Project title: 1–80 chars
+
+Frame body: non-empty, max 20k chars
+
+Frame title: max 120 chars
+
+imageUrl: optional; if present must be http(s) URL and max 500 chars
+
+Max frames per project (v1): 500 (hard cap)
+
+
+
+---
+
+Termux runbook (README must include)
+
+Create app, install deps, run dev
+
+Set env vars for Neon
+
+Run SQL migration
+
+
+Commands:
+
+npm install
+
+npm run dev
+
+npm run build
+
+npm run preview
+
+
+
+---
+
+Smoke tests (must include)
+
+Android Chrome
+
+1. Create project
+
+
+2. Add 5 frames with distinct body text
+
+
+3. Scrub slider; verify content switches instantly
+
+
+4. Autoplay works; pause works
+
+
+5. Compare A/B shows two different frames
+
+
+
+Desktop Chrome
+
+1. Reorder frames; verify playback order changes
+
+
+2. Edit a middle frame; refresh page; data persists
+
+
+3. Delete a frame; order compacts; no gaps
+
+
+
+
+---
+
+Done definition
+
+Done = you can create a project, add/edit/reorder/delete frames, scrub/autoplay/compare, and everything persists in Neon using anonymous x-user-key.
+
+
+---
+
+Single next action
+
+Say “Message 2” and I’ll drop the SurfaceLab SvelteKit + Neon blueprint (solo, same completeness, no shared sections).x-user-key
+
+
+---
+
+Termux Dev
+
+npm create svelte@latest
+npm install
+npm run dev
+
+
+---
+
+Why these are strong builds
+
+TimeSlice
+
+✔ cinematic
+✔ storytelling tool
+✔ visually satisfying
+
+SurfaceLab
+
+✔ tactile & sensory
+✔ visually addictive
+✔ creative exploration
+
+Momentum
+
+✔ behavior insight
+✔ rhythm awareness
+✔ daily utility
+
+
