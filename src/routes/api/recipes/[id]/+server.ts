@@ -1,6 +1,6 @@
 import { json } from '@sveltejs/kit';
 import { deleteRecipe, getRecipe, updateRecipe } from '$lib/server/recipes';
-import { validateName, validateSettings } from '$lib/server/validate';
+import { validateName, validateSettings, validateSettingsSize } from '$lib/server/validate';
 
 export async function GET({ params, locals }) {
   const recipe = await getRecipe(locals.userKey as string, params.id);
@@ -16,6 +16,8 @@ export async function PATCH({ params, request, locals }) {
   if (nameError) return json({ error: nameError }, { status: 400 });
   const settingsError = validateSettings(settings);
   if (settingsError) return json({ error: settingsError }, { status: 400 });
+  const sizeError = validateSettingsSize(settings, 8000);
+  if (sizeError) return json({ error: sizeError }, { status: 400 });
   const ok = await updateRecipe(locals.userKey as string, params.id, name, settings);
   if (!ok) return json({ error: 'Not found' }, { status: 404 });
   return json({ ok: true });

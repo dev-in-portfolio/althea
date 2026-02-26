@@ -1,6 +1,8 @@
 <script lang="ts">
   import { presets } from '$lib/presets/presets';
   import type { SurfaceSettings } from '$lib/presets/types';
+  import { normalizeSettings } from '$lib/presets/normalize';
+  import { cssRecipe } from '$lib/render/cssRecipe';
   import { getUserKey } from '$lib/client/userKey';
   import { copyToClipboard } from '$lib/client/clipboard';
   import PresetPicker from '$lib/components/PresetPicker.svelte';
@@ -8,12 +10,12 @@
   import ControlPanel from '$lib/components/ControlPanel.svelte';
   import RecipeHeader from '$lib/components/RecipeHeader.svelte';
 
-  let settings: SurfaceSettings = structuredClone(presets[0].settings);
+  let settings: SurfaceSettings = normalizeSettings(structuredClone(presets[0].settings));
   let name = presets[0].name;
   let status = '';
 
   function applyPreset(preset: { name: string; settings: SurfaceSettings }) {
-    settings = structuredClone(preset.settings);
+    settings = normalizeSettings(structuredClone(preset.settings));
     name = preset.name;
   }
 
@@ -40,6 +42,26 @@
     status = ok ? 'Copied.' : 'Copy failed.';
   }
 
+  async function copyCss() {
+    const ok = await copyToClipboard(cssRecipe(settings).style);
+    status = ok ? 'CSS copied.' : 'Copy failed.';
+  }
+
+  function downloadJson() {
+    const blob = new Blob([JSON.stringify({ name, settings }, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${name || 'surface'}.json`;
+    link.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function randomize() {
+    const random = presets[Math.floor(Math.random() * presets.length)];
+    applyPreset(random);
+  }
+
   function reset() {
     applyPreset(presets[0]);
   }
@@ -61,8 +83,16 @@
     onName={(value) => (name = value)}
     onSave={saveRecipe}
     onCopy={copyJson}
+    onCopyCss={copyCss}
+    onDownload={downloadJson}
     onReset={reset}
   />
+
+  <div class="card">
+    <div class="toolbar">
+      <button class="btn secondary" on:click={randomize}>Randomize</button>
+    </div>
+  </div>
 
   <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
     <ControlPanel {settings} onChange={(next) => (settings = next)} />

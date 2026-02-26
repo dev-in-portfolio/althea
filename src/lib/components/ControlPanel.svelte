@@ -7,6 +7,9 @@
   export let onChange: (settings: SurfaceSettings) => void;
 
   const patterns = ['noise', 'linen', 'carbon', 'brushed', 'speckle'];
+  const hexRe = /^#[0-9a-fA-F]{6}$/;
+
+  $: colorError = hexRe.test(settings.base.color) ? '' : 'Invalid hex color.';
 
   function update(partial: Partial<SurfaceSettings>) {
     onChange({
@@ -23,6 +26,9 @@
 <div class="card">
   <h2>Surface Controls</h2>
   <div class="grid">
+    {#if colorError}
+      <p class="small">{colorError}</p>
+    {/if}
     <ColorPickerRow
       label="Base Color"
       value={settings.base.color}
@@ -43,6 +49,7 @@
 
     <SliderRow label="Light Angle" value={settings.lighting.angle} min={0} max={360} step={1} onChange={(value) => update({ lighting: { angle: value } })} />
     <SliderRow label="Light Strength" value={settings.lighting.strength} min={0} max={1} step={0.01} onChange={(value) => update({ lighting: { strength: value } })} />
+    <SliderRow label="Highlight Strength" value={settings.lighting.highlight} min={0} max={1} step={0.01} onChange={(value) => update({ lighting: { highlight: value } })} />
     <SliderRow label="Ambient" value={settings.lighting.ambient} min={0} max={1} step={0.01} onChange={(value) => update({ lighting: { ambient: value } })} />
 
     <SliderRow label="Gloss" value={settings.finish.gloss} min={0} max={1} step={0.01} onChange={(value) => update({ finish: { gloss: value } })} />

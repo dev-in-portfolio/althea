@@ -4,12 +4,13 @@ import type { SurfaceSettings } from '$lib/presets/types';
 export async function listRecipes(userKey: string) {
   const pool = getPool();
   const result = await pool.query(
-    'select id, name, created_at from surface_recipes where user_key = $1 order by created_at desc',
+    'select id, name, settings, created_at from surface_recipes where user_key = $1 order by created_at desc',
     [userKey]
   );
   return result.rows.map((row) => ({
     id: row.id,
     name: row.name,
+    settings: row.settings,
     createdAt: row.created_at
   }));
 }

@@ -23,11 +23,22 @@ export function validateSettings(settings: SurfaceSettings) {
   if (!inRange(settings.lighting.angle, 0, 360)) return 'Invalid lighting angle.';
   if (!inRange(settings.lighting.strength, 0, 1)) return 'Invalid lighting strength.';
   if (!inRange(settings.lighting.ambient, 0, 1)) return 'Invalid lighting ambient.';
+  if (!inRange(settings.lighting.highlight ?? settings.lighting.strength, 0, 1)) return 'Invalid highlight strength.';
 
   if (!inRange(settings.finish.gloss, 0, 1)) return 'Invalid finish gloss.';
   if (!inRange(settings.finish.roughness, 0, 1)) return 'Invalid finish roughness.';
   if (!inRange(settings.finish.metallic, 0, 1)) return 'Invalid finish metallic.';
 
+  return null;
+}
+
+export function validateSettingsSize(settings: SurfaceSettings, maxBytes: number) {
+  try {
+    const bytes = new TextEncoder().encode(JSON.stringify(settings)).length;
+    if (bytes > maxBytes) return 'Settings too large.';
+  } catch (error) {
+    return 'Settings serialization failed.';
+  }
   return null;
 }
 

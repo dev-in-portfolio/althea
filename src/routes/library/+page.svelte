@@ -2,8 +2,11 @@
   import { onMount } from 'svelte';
   import { getUserKey } from '$lib/client/userKey';
   import RecipeCard from '$lib/components/RecipeCard.svelte';
+  import { normalizeSettings } from '$lib/presets/normalize';
 
   let recipes: { id: string; name: string; settings: any }[] = [];
+  let query = '';
+  let sort = 'newest';
   let error = '';
 
   async function loadRecipes() {
@@ -16,7 +19,10 @@
       error = data.error || 'Failed to load recipes.';
       return;
     }
-    recipes = data.items;
+    recipes = data.items.map((item: any) => ({
+      ...item,
+      settings: normalizeSettings(item.settings)
+    }));
   }
 
   async function duplicateRecipe(id: string) {
@@ -39,6 +45,15 @@
     window.location.href = `/surface/${id}`;
   }
 
+  $: filtered = recipes
+    .filter((recipe) => recipe.name.toLowerCase().includes(query.toLowerCase()))
+    .sort((a, b) => {
+      if (sort === 'az') return a.name.localeCompare(b.name);
+      if (sort === 'za') return b.name.localeCompare(a.name);
+      if (sort === 'oldest') return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
+      return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+    });
+
   onMount(loadRecipes);
 </script>
 
@@ -49,10 +64,19 @@
     {#if error}
       <p class="small">{error}</p>
     {/if}
+    <div class="toolbar">
+      <input class="input" placeholder="Search" bind:value={query} />
+      <select class="input" bind:value={sort}>
+        <option value="newest">Newest</option>
+        <option value="oldest">Oldest</option>
+        <option value="az">A-Z</option>
+        <option value="za">Z-A</option>
+      </select>
+    </div>
   </div>
 
   <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
-    {#each recipes as recipe}
+    {#each filtered as recipe}
       <RecipeCard
         {recipe}
         onOpen={openRecipe}

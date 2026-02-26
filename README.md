@@ -37,6 +37,14 @@ npm run build
 npm run preview
 ```
 
+## API
+
+Health (DB):
+
+```bash
+curl -s http://localhost:5173/api/health
+```
+
 ## Smoke tests
 
 Android Chrome
@@ -53,3 +61,4 @@ Desktop Chrome
 1. Duplicate recipe; both appear
 2. Delete one; list updates
 3. Copy JSON; paste elsewhere; it matches current settings
+4. Copy CSS; paste elsewhere; it matches preview
