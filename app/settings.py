@@ -8,6 +8,7 @@ class Settings:
     app_env: str
     port: int
     max_body_bytes: int = 256_000
+    max_schema_bytes: int = 100_000
     max_depth: int = 40
 
 

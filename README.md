@@ -46,13 +46,19 @@ Health:
 curl -s http://localhost:8000/health
 ```
 
+DB health:
+
+```bash
+curl -s http://localhost:8000/health/db
+```
+
 Create schema:
 
 ```bash
 curl -s -X POST http://localhost:8000/schemas \
   -H "content-type: application/json" \
   -H "x-user-key: test-user-123" \
-  -d '{"name":"events_v1","schema":{"type":"object","required":["id","name"],"properties":{"id":{"type":"string","minLength":1},"name":{"type":"string","minLength":1,"trim":true},"age":{"type":"int","min":0,"max":130,"default":0},"tags":{"type":"array","items":{"type":"string","trim":true},"default":[]}},"additionalProperties":false}}'
+  -d '{"name":"events_v1","notes":"initial","schema":{"type":"object","required":["id","name"],"properties":{"id":{"type":"string","minLength":1},"name":{"type":"string","minLength":1,"trim":true},"age":{"type":"int","min":0,"max":130,"default":0},"tags":{"type":"array","items":{"type":"string","trim":true},"default":[]}},"additionalProperties":false}}'
 ```
 
 Validate payload:
@@ -64,17 +70,61 @@ curl -s -X POST "http://localhost:8000/validate/events_v1" \
   -d '{"id":"abc","name":"  Devin  ","age":"42","tags":["  a ","b"]}'
 ```
 
-Normalize payload:
+Normalize payload (with strict mode):
 
 ```bash
-curl -s -X POST "http://localhost:8000/normalize/events_v1" \
+curl -s -X POST "http://localhost:8000/normalize/events_v1?strict=true" \
   -H "content-type: application/json" \
   -H "x-user-key: test-user-123" \
-  -d '{"id":"abc","name":"  Devin  ","age":"42","tags":["  a ","b"]}'
+  -d '{"id":"abc","name":"  Devin  ","age":"42","tags":["  a ","b"],"extra":"nope"}'
 ```
 
 List schemas:
 
 ```bash
 curl -s -H "x-user-key: test-user-123" http://localhost:8000/schemas
+```
+
+Get latest schema:
+
+```bash
+curl -s -H "x-user-key: test-user-123" http://localhost:8000/schemas/events_v1/latest
+```
+
+Delete schema version:
+
+```bash
+curl -s -X DELETE -H "x-user-key: test-user-123" http://localhost:8000/schemas/events_v1?version=1
+```
+
+## Schema features (subset)
+
+Supported types: object, string, int, float, bool, array
+
+Supported constraints:
+
+- string: minLength, maxLength, trim, pattern
+- int/float: min, max
+- array: items, minItems, maxItems, uniqueItems
+- object: required, properties, additionalProperties, minProperties, maxProperties
+- any: default, enum, nullable
+
+## CLI
+
+Validate locally without DB:
+
+```bash
+python -m app.cli --schema schema.json --payload payload.json
+```
+
+Normalize locally:
+
+```bash
+python -m app.cli --schema schema.json --payload payload.json --normalize
+```
+
+Strict mode:
+
+```bash
+python -m app.cli --schema schema.json --payload payload.json --strict
 ```

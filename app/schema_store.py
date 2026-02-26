@@ -45,6 +45,24 @@ def validate_schema(schema: Dict[str, Any], path: str = "$") -> List[Dict[str, s
                     "message": "Required must be a list",
                 }
             )
+        additional = schema.get("additionalProperties", True)
+        if not isinstance(additional, bool):
+            errors.append(
+                {
+                    "path": f"{path}.additionalProperties",
+                    "code": "additionalProperties",
+                    "message": "additionalProperties must be boolean",
+                }
+            )
+        for key in ("minProperties", "maxProperties"):
+            if key in schema and not isinstance(schema.get(key), int):
+                errors.append(
+                    {
+                        "path": f"{path}.{key}",
+                        "code": key,
+                        "message": f"{key} must be integer",
+                    }
+                )
         if isinstance(properties, dict):
             for key, subschema in properties.items():
                 errors.extend(validate_schema(subschema, f"{path}.properties.{key}"))
@@ -61,5 +79,41 @@ def validate_schema(schema: Dict[str, Any], path: str = "$") -> List[Dict[str, s
             )
         else:
             errors.extend(validate_schema(items, f"{path}.items"))
+        if "uniqueItems" in schema and not isinstance(schema.get("uniqueItems"), bool):
+            errors.append(
+                {
+                    "path": f"{path}.uniqueItems",
+                    "code": "uniqueItems",
+                    "message": "uniqueItems must be boolean",
+                }
+            )
+
+    if schema_type == "string":
+        if "pattern" in schema and not isinstance(schema.get("pattern"), str):
+            errors.append(
+                {
+                    "path": f"{path}.pattern",
+                    "code": "pattern",
+                    "message": "pattern must be string",
+                }
+            )
+
+    if "enum" in schema and not isinstance(schema.get("enum"), list):
+        errors.append(
+            {
+                "path": f"{path}.enum",
+                "code": "enum",
+                "message": "enum must be list",
+            }
+        )
+
+    if "nullable" in schema and not isinstance(schema.get("nullable"), bool):
+        errors.append(
+            {
+                "path": f"{path}.nullable",
+                "code": "nullable",
+                "message": "nullable must be boolean",
+            }
+        )
 
     return errors

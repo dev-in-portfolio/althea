@@ -6,6 +6,7 @@ from typing import Any
 
 _INT_RE = re.compile(r"^-?\d+$")
 _FLOAT_RE = re.compile(r"^-?\d+(\.\d+)?$")
+_NAME_RE = re.compile(r"^[A-Za-z0-9_-]+$")
 
 
 def clone_default(value: Any) -> Any:
@@ -31,3 +32,7 @@ def parse_bool_string(value: str):
 
 def json_dumps(value: Any) -> str:
     return json.dumps(value, separators=(",", ":"), ensure_ascii=False)
+
+
+def is_valid_name(value: str) -> bool:
+    return bool(_NAME_RE.match(value))

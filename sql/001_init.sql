@@ -6,6 +6,7 @@ create table if not exists schemas (
   name text not null,
   version int not null default 1,
   schema jsonb not null,
+  notes text,
   created_at timestamptz not null default now(),
   unique(user_key, name, version)
 );
