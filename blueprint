@@ -1,0 +1,241 @@
+Rule Furnace — Fresh + Neon blueprint (rules engine + test harness UI)
+
+What it is
+
+Rule Furnace is a Fresh app where you define rules (conditions → outcomes), then test payloads against them in a built-in harness. This is a legit “engine” app: you’ll use it to prototype decision logic (eligibility, scoring, routing, alerts) and keep it versioned in Neon.
+
+
+---
+
+Shared backbone (required in every Neon-backed Fresh app)
+
+Rule: Fresh runs server-side on Deno; DB creds never reach the client.
+Flow: Fresh routes → Neon Postgres
+
+Neon connectivity
+
+@neondatabase/serverless from server routes.
+
+
+Identity (v1, no auth):
+
+Cookie device_key
+
+Server maps to user_id
+
+
+
+---
+
+Rules model (simple but powerful)
+
+A rule has:
+
+name
+
+priority (higher runs first)
+
+when (condition expression)
+
+then (outcome object)
+
+enabled flag
+
+
+A “test run”:
+
+input payload JSON
+
+evaluated rules list
+
+final outcome / matches
+
+
+
+---
+
+Data model (Neon Postgres)
+
+sql/001_rule_furnace.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists users (
+  id uuid primary key default gen_random_uuid(),
+  device_key text not null unique,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists rf_rules (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references users(id) on delete cascade,
+  name text not null,
+  priority int not null default 0,
+  is_enabled boolean not null default true,
+  when_expr text not null,     -- simple DSL
+  then_json jsonb not null,    -- outcome payload
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  unique(user_id, name)
+);
+
+create table if not exists rf_test_runs (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references users(id) on delete cascade,
+  input_json jsonb not null,
+  matched_rule_ids uuid[] not null default '{}',
+  output_json jsonb not null default '{}'::jsonb,
+  created_at timestamptz not null default now()
+);
+
+create index if not exists idx_rf_rules_user_priority on rf_rules(user_id, priority desc);
+create index if not exists idx_rf_runs_user_time on rf_test_runs(user_id, created_at desc);
+
+
+---
+
+DSL (boring, limited, safe)
+
+Keep it intentionally small (no eval): Supported operators:
+
+==, !=, >, <, >=, <=
+
+in for arrays
+
+contains for substring
+
+exists(field)
+
+
+Field addressing:
+
+dotted paths: user.age, plan.type, metrics.latency_ms
+
+
+Examples:
+
+user.age >= 65
+
+plan.type in ["HMO","PPO"]
+
+exists(metrics.latency_ms) and metrics.latency_ms > 500
+
+
+Implementation approach:
+
+Parse expression into tokens
+
+Evaluate against input JSON safely (no code execution)
+
+
+
+---
+
+Routes (Fresh)
+
+/ rules list (SSR)
+
+/rules/new create rule (SSR + small island form)
+
+/rules/:id edit rule
+
+/test harness page: paste JSON + run evaluation
+
+/runs history of test runs
+
+/api/rules CRUD
+
+/api/test runs evaluation and stores run record
+
+
+
+---
+
+UI/UX (MVP)
+
+Rules list
+
+table: name, priority, enabled, when, then (collapsed)
+
+toggle enabled
+
+edit button
+
+
+Editor
+
+form: name, priority, enabled
+
+textarea: when_expr
+
+JSON editor: then_json
+
+“Validate” button (syntax check)
+
+
+Test harness
+
+JSON input editor
+
+run button
+
+output panel:
+
+matched rules (in order)
+
+output_json (merged outcomes)
+
+
+save run automatically (one record per click)
+
+
+Outcome merge (MVP)
+
+apply rules in priority order
+
+output_json = shallow merge (later rules override same keys)
+
+
+
+---
+
+Safety rules
+
+Max rules per user: 10,000
+
+Max when_expr length: 2,000
+
+Max then_json size: 32KB
+
+Max input_json size: 64KB
+
+No code execution, no regex catastrophic backtracking
+
+
+
+---
+
+Smoke tests
+
+1. Create rule: metrics.latency_ms > 200 → { "status":"warn" }
+
+
+2. Create rule: metrics.latency_ms > 500 → { "status":"bad" } with higher priority
+
+
+3. Test input { "metrics": { "latency_ms": 700 } }
+
+
+4. Matched rules show both; output status is bad
+
+
+5. Runs history shows the test
+
+
+
+
+---
+
+Done definition
+
+Done = you can author safe rules, test JSON payloads, see matched rules and merged outputs, and persist everything in Neon via Fresh server routes.
