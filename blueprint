@@ -1,0 +1,307 @@
+Signal Kitchen — Flutter + Neon backend blueprint
+
+What it is
+
+Signal Kitchen is an operator-grade multi-timer board: run several timers at once, group them, use presets, and switch to a “line view” that shows what finishes next. It’s built for clarity under pressure and demonstrates Flutter animation, background handling, and reliable persistence.
+
+
+---
+
+Shared backbone (required in every Neon-backed Flutter app)
+
+Rule: Flutter never connects to Neon directly.
+Flow: Flutter → API server → Neon (Postgres)
+
+Identity (v1, no auth system):
+
+On first launch, Flutter generates and stores device_key (UUID).
+
+Every request includes header: X-Device-Key: <uuid>.
+
+API maps device_key → user_id in Postgres and uses user_id for all queries.
+
+
+Server invariants:
+
+DATABASE_URL in env (Neon)
+
+Parameterized SQL only
+
+Basic limits (rows per user, payload size)
+
+CORS enabled for mobile dev
+
+
+
+---
+
+Data model (Neon Postgres)
+
+sql/003_signal_kitchen.sql
+
+create extension if not exists pgcrypto;
+
+-- device identity map (shared if same DB)
+create table if not exists users (
+  id uuid primary key default gen_random_uuid(),
+  device_key text not null unique,
+  created_at timestamptz not null default now()
+);
+
+-- presets for common timers
+create table if not exists sk_presets (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references users(id) on delete cascade,
+  name text not null,
+  seconds int not null check (seconds > 0 and seconds <= 86400),
+  sound_profile text not null default 'default',
+  haptic_profile text not null default 'default',
+  created_at timestamptz not null default now(),
+  unique(user_id, name)
+);
+
+-- timer runs
+create table if not exists sk_timer_runs (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references users(id) on delete cascade,
+  preset_id uuid null references sk_presets(id) on delete set null,
+  label text not null default '',
+  started_at timestamptz not null default now(),
+  target_seconds int not null check (target_seconds > 0 and target_seconds <= 86400),
+  ended_at timestamptz null,
+  status text not null default 'running'
+    check (status in ('running','done','canceled')),
+  created_at timestamptz not null default now()
+);
+
+create index if not exists idx_sk_runs_user_time
+  on sk_timer_runs(user_id, started_at desc);
+
+create index if not exists idx_sk_runs_user_status
+  on sk_timer_runs(user_id, status);
+
+
+---
+
+Timer lifecycle rules
+
+A run starts with status='running', started_at=now().
+
+A run ends when:
+
+user stops → set ended_at and status='done'
+
+user cancels → set ended_at and status='canceled'
+
+
+Remaining time = target_seconds - (now - started_at) while running.
+
+
+Server validation
+
+target_seconds 1–86400
+
+Max concurrent running timers: e.g., 12 per user
+
+Preset names unique per user
+
+
+
+---
+
+API surface (REST, boring)
+
+Base URL: /api/sk
+All requests require X-Device-Key.
+
+Presets
+
+GET /presets
+
+POST /presets body: { name, seconds, soundProfile?, hapticProfile? }
+
+DELETE /presets/:id
+
+
+Timer runs
+
+POST /runs body: { presetId?, label?, targetSeconds }
+
+GET /runs?status=running|done&limit=50
+
+PATCH /runs/:id/stop body: { status: "done"|"canceled", endedAt?: string }
+
+
+Behavior caps
+
+Max presets per user: 200
+
+Max running timers: 12
+
+Label length: 0–80 chars
+
+
+
+---
+
+Server logic (must implement)
+
+ensure_user(device_key)
+Upsert and fetch users.id for request context.
+
+Start run
+
+1. verify running count < max
+
+
+2. insert run row
+
+
+3. return run id + started_at
+
+
+
+Stop run
+
+1. verify ownership and status='running'
+
+
+2. update ended_at + status
+
+
+
+
+---
+
+Flutter app structure
+
+Packages
+
+dio (HTTP)
+
+shared_preferences (device_key)
+
+flutter_local_notifications (alerts)
+
+optional: wakelock_plus (keep screen awake while active)
+
+
+Folders
+
+lib/
+  main.dart
+  core/
+    device_key.dart
+    api_client.dart
+  features/signal_kitchen/
+    models/
+      preset.dart
+      timer_run.dart
+    data/
+      sk_api.dart
+    ui/
+      timer_board_screen.dart
+      preset_manager_screen.dart
+      line_view_widget.dart
+      timer_card.dart
+      run_history_screen.dart
+
+
+---
+
+Screens + UX loop (MVP)
+
+1) Timer Board
+
+grid/list of running timers
+
+progress ring animation
+
+swipe to stop/cancel
+
+add timer button (preset or custom)
+
+
+2) Preset Manager
+
+create/edit/delete presets
+
+quick launch from presets
+
+
+3) Line View
+
+sorted list by time remaining
+
+highlights next to finish
+
+tap to focus timer
+
+
+4) History
+
+completed runs list
+
+filter by date
+
+
+
+---
+
+Notifications & background behavior
+
+MVP approach (reliable):
+
+schedule local notification at expected finish time
+
+when app resumes, reconcile server state vs current time
+
+
+Avoid complex background execution initially.
+
+
+---
+
+Smoke tests
+
+Android
+
+1. Create preset “Steak 6m”
+
+
+2. Start two timers
+
+
+3. Verify progress rings animate
+
+
+4. App background → notification fires on finish
+
+
+5. Stop one timer early → marked done
+
+
+6. Line view sorts correctly
+
+
+
+API
+
+1. Start 12 timers → 13th rejected
+
+
+2. Stop timer → status updated
+
+
+3. GET running returns correct set
+
+
+
+
+---
+
+Done definition
+
+Done = multiple timers run smoothly with accurate time math, presets persist, notifications fire, and Neon stores runs correctly under device ownership.
+
+
