@@ -1,0 +1,256 @@
+HallMap Studio — Streamlit + Neon blueprint (taxonomy builder + bulk import + integrity checks)
+
+What it is
+
+HallMap Studio is a Streamlit editor for building and validating a hierarchy taxonomy (Wings → Halls → Exhibits) with bulk import, dedupe detection, and integrity rules. It’s a real “content operations” tool: you maintain structure, run audits, and export clean JSON/CSV for downstream apps.
+
+(Not a “log tiny things.” This is a serious curator/editor tool.)
+
+
+---
+
+Shared backbone (required in every Neon-backed Streamlit app)
+
+Rule: Streamlit connects to Neon only from the server process.
+Flow: Streamlit server → Neon Postgres
+
+Identity (v1)
+
+Single-user/private tool
+
+Optional passcode gate APP_PASSCODE
+
+
+Server invariants
+
+DATABASE_URL in env or .streamlit/secrets.toml
+
+Parameterized SQL only
+
+All writes are explicit (no auto-save surprises)
+
+
+
+---
+
+Stack
+
+Python 3.11+
+
+Streamlit
+
+Postgres driver: psycopg (pinned)
+
+Pandas for bulk import/export
+
+
+
+---
+
+Data model (Neon Postgres)
+
+sql/001_hallmap.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists wings (
+  id uuid primary key default gen_random_uuid(),
+  name text not null unique,
+  slug text not null unique,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists halls (
+  id uuid primary key default gen_random_uuid(),
+  wing_id uuid not null references wings(id) on delete cascade,
+  name text not null,
+  slug text not null,
+  created_at timestamptz not null default now(),
+  unique(wing_id, slug),
+  unique(wing_id, name)
+);
+
+create table if not exists exhibits (
+  id uuid primary key default gen_random_uuid(),
+  hall_id uuid not null references halls(id) on delete cascade,
+  title text not null,
+  slug text not null,
+  summary text not null,
+  tags text[] not null default '{}',
+  body text not null,
+  images jsonb not null default '[]'::jsonb,
+  created_at timestamptz not null default now(),
+  unique(hall_id, slug)
+);
+
+create index if not exists idx_halls_wing on halls(wing_id);
+create index if not exists idx_exhibits_hall on exhibits(hall_id);
+create index if not exists idx_exhibits_tags_gin on exhibits using gin(tags);
+
+Note: This schema directly supports your requirement fields:
+
+summary (non-empty)
+
+tags[] required (enforce via app validation)
+
+body (non-empty)
+
+images[] stored as jsonb array
+
+
+
+---
+
+Features (MVP)
+
+1) Browse + edit hierarchy
+
+left: wing selector
+
+middle: halls list
+
+right: exhibits list + editor
+
+
+2) Bulk import
+
+Upload CSV or JSON:
+
+CSV columns:
+
+wing, hall, title, slug, summary, tags, body, images
+
+
+tags can be tag1|tag2|tag3
+
+images can be JSON array string
+
+
+Import modes:
+
+Upsert by (hall_id, slug)
+
+Strict: reject duplicates and stop
+
+
+3) Integrity checks dashboard
+
+Missing summary/body
+
+Empty tags
+
+Duplicate slugs within hall
+
+Orphan halls/exhibits
+
+Image URL validation (basic format check)
+
+
+4) Dedupe + merge tools
+
+Detect near-duplicate titles (simple normalized match)
+
+Provide “merge into this exhibit” action (moves content then deletes duplicate)
+
+
+5) Export
+
+Export selected wing/hall/exhibits as:
+
+JSON tree
+
+flat CSV
+
+
+
+
+---
+
+UI pages (Streamlit sections)
+
+Editor (hierarchy + forms)
+
+Import (upload + preview + commit)
+
+Audits (integrity + fixes)
+
+Export (choose scope + format)
+
+
+
+---
+
+Safety behavior
+
+All writes behind a “Commit” button
+
+Transactions for import batches
+
+Validation before insert/update:
+
+summary.strip() != ""
+
+body.strip() != ""
+
+len(tags) >= 1
+
+images must be JSON array
+
+
+
+
+---
+
+Repo structure
+
+hallmap-studio/
+  README.md
+  requirements.txt
+  app.py
+  db.py
+  importers.py
+  audits.py
+  exporters.py
+  models.py
+  sql/001_hallmap.sql
+  .streamlit/
+    secrets.toml.example
+
+
+---
+
+Env
+
+.streamlit/secrets.toml.example
+
+DATABASE_URL="REDACTED_NEON_URL"
+APP_PASSCODE="REDACTED_OPTIONAL"
+
+
+---
+
+Smoke tests
+
+1. Create wing + hall + exhibit via editor
+
+
+2. Import CSV with 10 exhibits → upsert works
+
+
+3. Audits show 0 missing summary/body/tags
+
+
+4. Export wing as JSON tree → non-empty and ordered
+
+
+5. Duplicate slug import in strict mode → rejected
+
+
+
+
+---
+
+Done definition
+
+Done = you can build/edit/import/audit/export Wings→Halls→Exhibits in Neon with enforced non-empty summary/body/tags and valid images arrays.
+
