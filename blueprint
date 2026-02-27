@@ -1,0 +1,143 @@
+Island Index — Fresh + Neon blueprint (content browser + saved filters)
+
+What it is
+
+Island Index is a Fresh app that serves a big content list (items) with search/filter/sort, and lets you save filter presets (“views”) to Neon. It’s built to show off Fresh’s islands model: server-rendered pages with small interactive islands where needed.
+
+
+---
+
+Shared backbone (required in every Neon-backed Fresh app)
+
+Rule: Fresh runs server-side on Deno. The browser never sees DB creds.
+Flow: Fresh (server routes) → Neon Postgres
+
+Neon connectivity options
+
+Option A (recommended for Fresh/Deno): use Neon’s HTTP driver @neondatabase/serverless (Deno-compatible)
+
+Option B: call an existing Node API that uses pg
+Pick ONE and implement fully.
+
+
+MVP pick: Option A (simpler: Fresh talks to Neon directly server-side).
+
+Identity (v1, no auth):
+
+Generate device_key UUID in a cookie (httpOnly=false is ok for MVP; or store server-side)
+
+Alternatively localStorage + header—cookie is simpler for SSR.
+
+
+
+---
+
+Data model (Neon Postgres)
+
+sql/001_island_index.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists users (
+  id uuid primary key default gen_random_uuid(),
+  device_key text not null unique,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists fresh_views (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references users(id) on delete cascade,
+  name text not null,
+  route text not null default '/',
+  state jsonb not null,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  unique(user_id, name)
+);
+
+create index if not exists idx_fresh_views_user_route on fresh_views(user_id, route);
+
+
+---
+
+Routes (Fresh)
+
+/ items browser (SSR)
+
+/views manage views (SSR + small islands)
+
+/api/views (server route) CRUD views
+
+/api/items (server route) list items with filtering (optional)
+
+
+
+---
+
+UI/UX (MVP)
+
+Browser
+
+SSR list of items (paginated)
+
+Island component for:
+
+search box
+
+filter chips
+
+sort
+
+save/apply view
+
+
+URL params reflect state
+
+
+Views
+
+list saved views
+
+apply/delete/rename
+
+
+
+---
+
+Performance approach
+
+Server pagination always
+
+Only hydrate islands that the user interacts with
+
+Keep index payload small (no full bodies)
+
+
+
+---
+
+Smoke tests
+
+1. Load / → list renders SSR
+
+
+2. Change filter in island → URL updates and list refreshes
+
+
+3. Save view “Default”
+
+
+4. Reload → apply view restores filters
+
+
+5. Views persisted in Neon
+
+
+
+
+---
+
+Done definition
+
+Done = Fresh SSR browser works, islands handle interactivity, and saved views persist to Neon server-side.
+
