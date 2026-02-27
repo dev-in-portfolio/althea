@@ -1,0 +1,261 @@
+Blueprint Library — Django + Neon blueprint (structured knowledge + cross-reference graph)
+
+What it is
+
+Blueprint Library is a structured knowledge system for storing long-form entries, linking them together, tagging them, and browsing relationships. It’s not a note app — it’s a knowledge graph you can navigate. Think operator manuals, build blueprints, process docs, or conceptual frameworks.
+
+This showcases Django strengths: relational modeling, search, graph relationships, and admin tooling.
+
+
+---
+
+Shared backbone (required in every Neon-backed Django app)
+
+Flow: Browser → Django app → Neon Postgres
+
+Identity
+
+Django authentication (email/password)
+
+All content scoped to user ownership
+
+
+Server invariants
+
+Django pinned version
+
+ORM only (no raw SQL unless needed)
+
+Env-based secrets only
+
+No unnecessary logging or telemetry
+
+
+
+---
+
+Stack
+
+Django
+
+Neon Postgres
+
+Markdown rendering (optional but recommended)
+
+Full-text search using Postgres
+
+
+
+---
+
+Core concepts
+
+This app stores Blueprint Entries that can:
+
+• link to other entries
+• belong to categories
+• be tagged
+• contain structured sections
+• be navigated as a graph
+
+
+---
+
+Data model
+
+BlueprintEntry
+
+user (FK)
+
+title
+
+slug
+
+summary
+
+body (markdown/text)
+
+created_at
+
+updated_at
+
+
+Category
+
+user
+
+name
+
+
+Tag
+
+user
+
+name
+
+
+EntryLink (graph edges)
+
+from_entry
+
+to_entry
+
+relationship_type (e.g., “depends_on”, “expands”, “example_of”)
+
+
+EntrySection (optional but powerful)
+
+entry
+
+heading
+
+content
+
+order
+
+
+
+---
+
+Postgres enhancements (Neon)
+
+GIN index for search
+
+trigram index for fuzzy title search (optional)
+
+
+Indexes:
+
+(user, slug) unique
+
+GIN on body + summary
+
+(from_entry, to_entry) index
+
+
+
+---
+
+Key pages (MVP)
+
+Dashboard
+
+recent entries
+
+recently linked items
+
+quick create
+
+
+Entry Detail
+
+rendered markdown
+
+related entries
+
+backlinks
+
+tags & categories
+
+
+Graph Navigation
+
+“related entries” sidebar
+
+backlink list
+
+relationship type display
+
+
+Search
+
+full text search
+
+filter by tag/category
+
+
+
+---
+
+Admin features (must include)
+
+bulk tag editing
+
+relationship creation tool
+
+entry merge tool (optional later)
+
+
+
+---
+
+Relationship examples
+
+This is where the app shines:
+
+“LineFlow depends_on Timer Engine”
+
+“QueueGauge expands Job Leasing”
+
+“Atlas Gallery example_of Asset Pipeline”
+
+
+
+---
+
+Performance considerations
+
+Prefetch related links
+
+Limit backlink display to 25
+
+Paginate search results
+
+
+
+---
+
+Smoke tests
+
+1. Create entry “Timer Engine”
+
+
+2. Create entry “LineFlow Board”
+
+
+3. Link LineFlow → Timer Engine (depends_on)
+
+
+4. Entry page shows related links
+
+
+5. Backlink shows on Timer Engine page
+
+
+6. Search returns entries
+
+
+
+
+---
+
+Why this is strong portfolio material
+
+knowledge graph modeling
+
+relational design beyond CRUD
+
+cross-reference navigation
+
+search & indexing
+
+scalable documentation system
+
+
+
+---
+
+Done definition
+
+Done = entries can be created, linked, searched, and navigated as a graph with ownership boundaries enforced and Neon providing fast relational queries.
+
