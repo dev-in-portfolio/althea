@@ -1,0 +1,291 @@
+RepoPilot — desktop Git cockpit (branch map + safe push/pull + “one command” buttons)
+
+What it is
+
+RepoPilot is a desktop app that points at one or more local repos and gives you a clean “pilot panel” for the stuff you keep needing in Termux:
+
+see all branches (local + remote)
+
+quick checkout
+
+status/diff summary
+
+commit + push with guardrails
+
+pull/rebase helpers
+
+copy-pasteable commands (so you can still live in terminal)
+
+
+This is not logging. This is a Git operator dashboard.
+
+
+---
+
+Why Tauri fits perfectly
+
+local filesystem access
+
+spawn git commands
+
+show results in a clean UI
+
+still respects your terminal workflow (it generates commands, doesn’t hide them)
+
+
+
+---
+
+Core capabilities (MVP)
+
+1) Repo discovery / selection
+
+Add repo by selecting folder path
+
+Store list of repos locally
+
+Validate “is this a git repo?”
+
+
+
+---
+
+2) Branch map (the “I just want to see all branches” feature)
+
+Show:
+
+Local branches
+
+Remote branches
+
+Current branch highlighted
+
+Last commit message + date per branch
+
+
+Actions:
+
+checkout branch
+
+create branch
+
+delete local branch (confirm)
+
+“track remote branch” helper
+
+
+
+---
+
+3) Status + diff summary
+
+git status --porcelain
+
+show staged vs unstaged counts
+
+list changed files
+
+quick diff preview (first N lines)
+
+
+Buttons:
+
+stage all
+
+unstage all
+
+discard changes (confirm + irreversible gate)
+
+
+
+---
+
+4) Commit + push (safe)
+
+commit message input
+
+preflight checks:
+
+on correct branch?
+
+staged changes exist?
+
+
+commit
+
+push
+
+show the exact commands executed
+
+
+
+---
+
+5) Command generator mode (Termux-friendly)
+
+Every button also displays:
+
+the raw git command(s) it ran
+
+a “copy” button
+
+
+So if you want “1 command and done,” RepoPilot can:
+
+generate it
+
+you run it in Termux
+
+or let RepoPilot run it
+
+
+
+---
+
+Architecture
+
+Frontend
+
+Svelte or Solid inside Tauri Pages:
+
+Repos
+
+Branches
+
+Status
+
+History (optional)
+
+
+Rust backend
+
+Filesystem access to repo paths
+
+Spawn git commands (git must exist on system)
+
+Capture stdout/stderr
+
+Return structured result to UI
+
+Persist settings (repos list) to local SQLite or a config file
+
+
+
+---
+
+Storage (local)
+
+Two options:
+
+Option A: simple JSON config (boring)
+
+~/.repopilot/config.json
+
+repo paths
+
+last opened repo
+
+UI preferences
+
+
+Option B: local SQLite (if you want history)
+
+repos table
+
+recent actions table
+
+saved command macros
+
+
+MVP recommendation: JSON config (fewer moving parts).
+
+
+---
+
+Safety / guardrails
+
+destructive actions require confirm:
+
+discard changes
+
+delete branch
+
+
+never auto-force-push
+
+never auto-clean untracked without explicit selection
+
+cap diff preview size
+
+
+
+---
+
+“One command” macros (killer feature)
+
+You define a macro like:
+
+Safe Save
+
+git add -A
+
+git commit -m "<msg>"
+
+git push
+
+
+Sync
+
+git fetch --all --prune
+
+git pull --rebase
+
+
+Branch Snapshot
+
+git branch -a
+
+git log --oneline --decorate -n 30
+
+
+
+Each macro shows:
+
+combined command block
+
+output preview
+
+
+
+---
+
+Smoke tests
+
+1. Add a repo folder
+
+
+2. Branch page shows local + remote branches
+
+
+3. Checkout branch works
+
+
+4. Modify file → Status page shows change
+
+
+5. Stage all → commit → push works
+
+
+6. Commands displayed match what ran
+
+
+
+
+---
+
+Done definition
+
+Done = RepoPilot can list all branches (local+remote), show status, and help you safely commit/push with copyable commands—entirely local in a Tauri desktop app.
+
+
+---
