@@ -1,0 +1,303 @@
+Angular Chronicle — Angular app blueprint (event timeline builder + temporal navigation) + Neon backend
+
+What it is
+
+Chronicle is a timeline authoring tool that lets you create layered timelines (projects, investigations, routes, build logs, case files) and explore them through time navigation, filters, and narrative sequencing. This is not a form system or grid — it is time-structured storytelling + event layering.
+
+Think: build history, deployment timeline, route day log, project milestones, research chronology.
+
+
+---
+
+Architecture
+
+Angular UI
+→ API layer
+→ Neon Postgres
+→ time-indexed queries
+→ timeline render engine
+
+Neon is server-only access.
+
+
+---
+
+Identity (v1 simple)
+
+generate device_key UUID in localStorage
+
+send X-Device-Key header
+
+server maps to user_id
+
+
+
+---
+
+Data model (Neon Postgres)
+
+sql/003_chronicle.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists users (
+  id uuid primary key default gen_random_uuid(),
+  device_key text not null unique,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists timelines (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references users(id) on delete cascade,
+  name text not null,
+  description text not null default '',
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+create table if not exists timeline_layers (
+  id uuid primary key default gen_random_uuid(),
+  timeline_id uuid not null references timelines(id) on delete cascade,
+  name text not null,
+  color text not null default '#888888',
+  sort_order int not null default 0
+);
+
+create table if not exists timeline_events (
+  id uuid primary key default gen_random_uuid(),
+  timeline_id uuid not null references timelines(id) on delete cascade,
+  layer_id uuid references timeline_layers(id) on delete set null,
+  title text not null,
+  description text not null default '',
+  start_time timestamptz not null,
+  end_time timestamptz,
+  tags text[] not null default '{}',
+  metadata jsonb not null default '{}'::jsonb,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+create index if not exists idx_events_time on timeline_events(start_time);
+create index if not exists idx_events_timeline on timeline_events(timeline_id);
+create index if not exists idx_events_tags on timeline_events using gin(tags);
+
+
+---
+
+Core concepts
+
+Timeline
+
+Container for events (e.g., “UBR Build Timeline”).
+
+Layers
+
+Visual separation:
+
+Deployments
+
+Bugs
+
+Design decisions
+
+Route days
+
+Research
+
+
+Events
+
+Each event:
+
+start_time
+
+optional end_time
+
+layer
+
+tags
+
+metadata (JSON)
+
+
+
+---
+
+API surface
+
+Base: /api/timelines
+
+Timelines
+
+GET /timelines
+
+POST /timelines
+
+GET /timelines/:id
+
+PATCH /timelines/:id
+
+DELETE /timelines/:id
+
+
+Layers
+
+POST /timelines/:id/layers
+
+PATCH /layers/:id
+
+DELETE /layers/:id
+
+
+Events
+
+GET /timelines/:id/events?from=&to=&tags=
+
+POST /timelines/:id/events
+
+PATCH /events/:id
+
+DELETE /events/:id
+
+
+
+---
+
+Angular app structure
+
+Pages:
+
+TimelinesPage
+
+TimelineViewPage
+
+EventEditorDialog
+
+
+Components:
+
+TimelineCanvasComponent
+
+LayerTogglePanel
+
+TimeZoomControls
+
+EventCard
+
+
+
+---
+
+Timeline UI behavior
+
+Zoom levels
+
+Hour
+
+Day
+
+Week
+
+Month
+
+Year
+
+
+Navigation
+
+scroll horizontally through time
+
+zoom slider
+
+jump to date
+
+
+Visual rendering
+
+layered bars for duration events
+
+pins for point events
+
+color coded layers
+
+
+
+---
+
+Filtering & discovery
+
+filter by tag
+
+toggle layers
+
+search title/description
+
+jump to “today” or chosen date
+
+
+
+---
+
+Example use cases
+
+✔ track build & deploy history
+✔ map route days & stops
+✔ document research progression
+✔ visualize project milestones
+✔ timeline of bugs → fixes → releases
+
+
+---
+
+Performance strategy
+
+query by time window
+
+virtual rendering for large datasets
+
+index timestamps
+
+lazy load older events
+
+
+
+---
+
+Guardrails
+
+max events per timeline: 50k (soft cap)
+
+require start_time
+
+sanitize tag arrays
+
+limit metadata size
+
+
+
+---
+
+Smoke tests
+
+1. Create timeline
+
+
+2. Add 3 layers
+
+
+3. Add events with durations
+
+
+4. Zoom and scroll works
+
+
+5. Tag filter isolates events
+
+
+
+
+---
+
+Done definition
+
+Done = Chronicle renders layered time-based events with zoomable navigation and Neon persistence.
