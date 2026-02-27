@@ -1,0 +1,191 @@
+Switchboard — Vue.js + Neon blueprint (saved views + filters + shareable links)
+
+What it is
+
+Switchboard is a Vue app that lets you build “views” (filter + sort + columns + grouping) over a dataset and save them as named presets. You can share a view via URL, clone it, and iterate. It’s not micro-logging — it’s a power UI pattern you’ll reuse across everything.
+
+
+---
+
+Shared backbone (required in every Neon-backed Vue app)
+
+Rule: Vue runs in the browser and must never talk to Neon directly.
+Flow: Vue → API server → Neon (Postgres)
+
+Identity (v1, no auth system):
+
+Vue generates device_key UUID in localStorage.
+
+Every API request includes header X-Device-Key.
+
+API maps device_key → user_id.
+
+
+Server invariants
+
+DATABASE_URL env-only
+
+Parameterized SQL only
+
+CORS configured
+
+Rate limits / caps
+
+
+
+---
+
+Data model (Neon Postgres)
+
+sql/001_switchboard.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists users (
+  id uuid primary key default gen_random_uuid(),
+  device_key text not null unique,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists switchboard_views (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references users(id) on delete cascade,
+  name text not null,
+  route text not null default '/',         -- where this view applies
+  state jsonb not null,                   -- filters/sort/columns
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  unique(user_id, name)
+);
+
+create index if not exists idx_views_user_route on switchboard_views(user_id, route);
+
+State JSON contract
+
+{
+  "q": "",
+  "filters": { "tag": ["x","y"], "status": ["open"] },
+  "sort": { "field": "updated_at", "dir": "desc" },
+  "columns": ["title","status","tag","updated_at"],
+  "pageSize": 50
+}
+
+
+---
+
+API surface
+
+Base: /api/switchboard
+
+GET /views?route=/exhibits
+
+POST /views { name, route, state }
+
+PATCH /views/:id { name?, state? }
+
+DELETE /views/:id
+
+
+Optional share mode:
+
+GET /share/:id → returns a read-only snapshot (no editing)
+
+
+Caps
+
+Max views per user: 500
+
+State JSON size max: 32KB
+
+
+
+---
+
+Vue app structure (Vite)
+
+src/
+  main.ts
+  router.ts
+  core/
+    deviceKey.ts
+    api.ts
+  features/views/
+    ViewPicker.vue
+    SaveViewModal.vue
+  pages/
+    DemoDataPage.vue
+
+
+---
+
+Core UX (MVP)
+
+1. DemoDataPage (you can swap dataset later)
+
+
+
+search box
+
+filter chips
+
+sort dropdown
+
+columns chooser
+
+table view with pagination
+
+
+2. View Picker
+
+
+
+dropdown list of saved views for this route
+
+apply view
+
+save current as new
+
+overwrite existing
+
+clone view
+
+
+3. URL state
+
+
+
+query params reflect current state (?q=...&tag=x,y&sort=...)
+
+applying a view updates URL
+
+loading URL restores state
+
+
+
+---
+
+Smoke tests
+
+1. Adjust filters/sort/columns
+
+
+2. Save view “My Default”
+
+
+3. Reload page → pick view → state restores
+
+
+4. Copy URL → open in new session → same state applies
+
+
+5. Delete view → disappears from list
+
+
+
+
+---
+
+Done definition
+
+Done = view state is URL-driven, saveable to Neon, and re-applies perfectly without Neon ever being touched from the browser.
+
