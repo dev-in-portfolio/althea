@@ -1,0 +1,311 @@
+ClipForge — desktop clipboard pipeline + smart transforms (operator-grade)
+
+What it is
+
+ClipForge is a desktop app that sits quietly in the background and lets you build clipboard workflows: take whatever you copied, run it through transforms (cleanup, format, wrap, template), and paste the improved version instantly.
+
+This is not “logging small things.”
+This is a productivity weapon—especially for your Codex prompts, patch blocks, manifests, SQL chunks, README sections, etc.
+
+
+---
+
+Why Tauri fits perfectly
+
+Global hotkeys
+
+Tray app
+
+Clipboard access
+
+Local-only privacy
+
+Fast, tiny footprint
+
+
+
+---
+
+Core capabilities (MVP)
+
+1) Clipboard history (short)
+
+Store last N clipboard entries (default 50)
+
+Search history
+
+Pin important entries
+
+
+Rule: no noisy telemetry; history stays local.
+
+
+---
+
+2) Transform pipelines
+
+A “pipeline” is a named sequence of transforms:
+
+Example pipelines:
+
+Codex Blocker
+
+wrap selection in fenced code block
+
+add FILE_START / FILE_END markers
+
+normalize line endings
+
+
+Patch Standardizer
+
+format into:
+
+TARGET FILE:
+
+FIND:
+
+REPLACE WITH:
+
+
+
+JSON Pretty + Safe
+
+pretty print JSON
+
+validate JSON
+
+
+Slug + Title Kit
+
+generate slug from title
+
+generate kebab/snake/camel variants
+
+
+
+
+---
+
+3) Quick apply via hotkeys
+
+Ctrl+Shift+1 applies Pipeline #1 to current clipboard
+
+Ctrl+Shift+2 applies Pipeline #2
+
+etc.
+
+
+Also:
+
+tray menu: pick pipeline and apply
+
+
+
+---
+
+4) Output preview
+
+Before overwriting clipboard:
+
+show “before / after”
+
+confirm Apply
+
+
+
+---
+
+Storage (local SQLite)
+
+Tables:
+
+clipboard_items
+
+id
+
+content (text)
+
+content_hash
+
+created_at
+
+pinned (bool)
+
+
+pipelines
+
+id
+
+name
+
+steps_json (array of step configs)
+
+hotkey (optional)
+
+
+pipeline_runs
+
+id
+
+pipeline_id
+
+input_hash
+
+output_hash
+
+created_at
+
+
+Privacy rule: all local only.
+
+
+---
+
+Transform step schema (stable)
+
+Each pipeline step is:
+
+{
+  "type": "wrap_code_fence",
+  "params": { "language": "text" }
+}
+
+Supported step types (MVP set):
+
+trim_edges
+
+normalize_newlines
+
+wrap_code_fence
+
+prepend_text
+
+append_text
+
+replace_regex (careful + capped)
+
+json_pretty (validate + pretty print)
+
+add_file_markers (FILE_START/FILE_END with filename input)
+
+patch_standard_block (TARGET/FIND/REPLACE)
+
+
+
+---
+
+App architecture
+
+Frontend (web UI inside Tauri)
+
+Svelte (clean + fast) or Solid
+
+3 pages:
+
+History
+
+Pipelines
+
+Settings
+
+
+
+Rust backend responsibilities
+
+Clipboard read/write
+
+Global hotkeys
+
+SQLite persistence
+
+Step runner engine (applies transforms)
+
+Tray integration
+
+
+
+---
+
+UI layout (MVP)
+
+History page
+
+list: recent clipboard items
+
+search bar
+
+click item → preview panel
+
+“Apply pipeline” dropdown
+
+
+Pipelines page
+
+list pipelines
+
+create pipeline (add steps)
+
+assign hotkey
+
+test pipeline (preview)
+
+
+Settings
+
+max history size
+
+confirm-before-overwrite toggle
+
+startup at boot toggle (optional)
+
+
+
+---
+
+Guardrails (so it doesn’t get annoying)
+
+Max clipboard item length (e.g., 200k chars)
+
+Ignore duplicate clipboard events by content_hash
+
+Rate limit clipboard polling (if using polling) or use event hooks if available
+
+Regex step has:
+
+max pattern length
+
+timeout/cap on replacements
+
+“preview required” if pattern is risky
+
+
+
+
+---
+
+Smoke tests
+
+1. Copy text
+
+
+2. App shows it in history
+
+
+3. Run “Patch Standardizer” → clipboard updated
+
+
+4. Paste → formatted correctly
+
+
+5. Restart app → pipelines persist
+
+
+
+
+---
+
+Done definition
+
+Done = ClipForge can capture clipboard history, run named transform pipelines with hotkeys, preview changes, and safely update clipboard—fully local.
+
