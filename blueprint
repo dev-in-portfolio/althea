@@ -1,0 +1,190 @@
+Angular GridSmith — Angular app blueprint (power data grid + schema-driven columns) + Neon backend
+
+What it is
+
+GridSmith is an Angular “data grid workbench” that can render any table-like dataset using a schema definition stored in Neon. You define a dataset schema (columns, types, formatting, filters), then GridSmith renders a fast, sortable, filterable grid with server pagination.
+
+This is not “saved views” (that’s presets). This is schema-driven UI generation.
+
+
+---
+
+Architecture
+
+Flow: Angular UI → API (Node/Nest/Express/Hono—pick one) → Neon
+Angular never talks to Neon.
+
+Identity (v1, no auth)
+
+generate device_key UUID in localStorage
+
+send X-Device-Key
+
+server maps to user_id
+
+(optional) APP_PASSCODE to protect the UI
+
+
+
+---
+
+Data model (Neon Postgres)
+
+sql/001_gridsmith.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists users (
+  id uuid primary key default gen_random_uuid(),
+  device_key text not null unique,
+  created_at timestamptz not null default now()
+);
+
+-- “Datasets” are named grids + a schema
+create table if not exists datasets (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references users(id) on delete cascade,
+  name text not null,
+  slug text not null,
+  schema jsonb not null,                 -- column definitions + filters + formatting
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  unique(user_id, slug)
+);
+
+-- Generic rows for the dataset (jsonb so you can use it for many things)
+create table if not exists dataset_rows (
+  id uuid primary key default gen_random_uuid(),
+  dataset_id uuid not null references datasets(id) on delete cascade,
+  row_key text not null,                 -- stable key (slug/id/address)
+  data jsonb not null,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  unique(dataset_id, row_key)
+);
+
+create index if not exists idx_rows_dataset on dataset_rows(dataset_id);
+create index if not exists idx_rows_dataset_time on dataset_rows(dataset_id, updated_at desc);
+
+Schema JSON contract (stable)
+
+{
+  "columns": [
+    { "key": "title", "label": "Title", "type": "text", "sortable": true, "filter": "contains" },
+    { "key": "status", "label": "Status", "type": "enum", "options": ["open","closed"], "filter": "in" },
+    { "key": "updated_at", "label": "Updated", "type": "date", "sortable": true, "filter": "range" }
+  ],
+  "defaultSort": { "key": "updated_at", "dir": "desc" },
+  "pageSize": 50
+}
+
+
+---
+
+API surface
+
+Base: /api/gridsmith
+
+Datasets
+
+GET /datasets
+
+POST /datasets { name, slug, schema }
+
+GET /datasets/:id
+
+PATCH /datasets/:id { name?, schema? }
+
+DELETE /datasets/:id
+
+
+Rows
+
+GET /datasets/:id/rows?page=&pageSize=&sortKey=&sortDir=&filters=<json>
+
+POST /datasets/:id/rows { rowKey, data } (upsert)
+
+DELETE /datasets/:id/rows/:rowKey
+
+
+Caps
+
+max columns per schema: 80
+
+max row JSON: 32KB
+
+max rows per dataset: 200k (soft cap)
+
+
+
+---
+
+Angular app structure (MVP)
+
+Modules/pages:
+
+DatasetsPage (list + create)
+
+DatasetDesignerPage (edit schema)
+
+GridPage (render grid)
+
+Components:
+
+SchemaEditorComponent (JSON editor + validation)
+
+DataGridComponent (table + filters)
+
+FilterPanelComponent
+
+
+
+
+---
+
+UI/UX (MVP)
+
+1. Create dataset with schema
+
+
+2. Upload rows via paste (JSON array) or add single row
+
+
+3. Grid page renders columns automatically
+
+
+4. Filter panel generated from schema types
+
+
+5. Server pagination + sort + filters
+
+
+
+
+---
+
+Smoke tests
+
+1. Create dataset “Exhibits”
+
+
+2. Add schema with 3 columns
+
+
+3. Insert 100 rows
+
+
+4. Sort by updated_at
+
+
+5. Filter status=in(open) returns correct rows
+
+
+
+
+---
+
+Done definition
+
+Done = Angular renders a schema-driven grid from Neon-backed schema + rows with server pagination and generated filters.
+
