@@ -1,0 +1,87 @@
+Hugo ReleaseGallery — static release notes + artifact manifests + “download vault”
+
+What it is
+
+A Hugo site that acts as a release vault: each release page shows changelog, links to artifacts, screenshots, and a generated manifest. Perfect for your “deploy zips,” “materials zips,” “backend zips,” etc.
+
+Not a portfolio. A release system.
+
+
+---
+
+Core features (Hugo)
+
+Content type: releases/
+
+Front matter:
+
+version
+
+date
+
+projects[]
+
+artifacts[] (name, type, path/url, sha256)
+
+notes
+
+
+Automatic pages:
+
+/releases list
+
+/releases/<version>
+
+/projects/<project> filtered release history
+
+
+Build-time manifest page:
+
+tables of artifacts
+
+checksums
+
+“how to verify” section
+
+
+
+
+---
+
+Artifact strategy (static)
+
+Store artifacts in a sibling bucket/CDN OR in repo if small
+
+Hugo pages reference them
+
+Manifest is the source of truth
+
+
+
+---
+
+Smoke tests
+
+1. Add release file with artifacts array
+
+
+2. Release list shows it
+
+
+3. Project filter shows correct releases
+
+
+4. Manifest table renders
+
+
+5. Checksums visible and copyable
+
+
+
+
+---
+
+Done definition
+
+Done = a static release vault that documents what shipped and where artifacts live, with verification metadata.
+
