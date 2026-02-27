@@ -1,0 +1,252 @@
+Operator Ledger — local-first activity + decisions tracker
+
+What it is
+
+Operator Ledger is a desktop command console + logbook for tracking decisions, actions, and outcomes across projects.
+
+Not “tiny logs.”
+This is operator thinking capture.
+
+Think:
+
+decisions made
+
+experiments run
+
+outcomes observed
+
+lessons learned
+
+
+You’ll actually use this.
+
+
+---
+
+Why Tauri fits perfectly
+
+runs locally
+
+instant launch
+
+data stays private
+
+filesystem access
+
+zero browser dependency
+
+tiny memory footprint
+
+
+
+---
+
+Core capabilities
+
+1️⃣ Decision capture
+
+Create entries:
+
+Title
+
+Project
+
+Decision made
+
+Why
+
+Expected outcome
+
+Confidence level
+
+Tags
+
+
+
+---
+
+2️⃣ Outcome logging
+
+Later attach:
+
+What happened
+
+Unexpected effects
+
+Lessons learned
+
+Would you repeat?
+
+
+
+---
+
+3️⃣ Timeline view
+
+Chronological feed:
+
+✔ decisions
+✔ outcomes
+✔ pivots
+
+Filter by project or tag.
+
+
+---
+
+4️⃣ Insight extraction
+
+Search:
+
+“show decisions with low confidence”
+
+“show experiments that failed”
+
+“show pivots”
+
+
+
+---
+
+Tech architecture
+
+Frontend
+
+Choose:
+
+SolidJS (fast, lightweight)
+
+or Svelte (simple)
+
+
+Backend (Rust via Tauri)
+
+Handles:
+
+file storage
+
+indexing
+
+search
+
+export
+
+
+
+---
+
+Storage (local SQLite)
+
+ledger_entries
+
+id
+title
+project
+decision
+reason
+expected_outcome
+confidence
+tags
+created_at
+
+ledger_outcomes
+
+id
+entry_id
+result
+lessons
+repeat
+recorded_at
+
+
+---
+
+File structure
+
+operator-ledger/
+  src-tauri/
+  src/
+    components/
+    routes/
+  database/
+
+
+---
+
+Rust responsibilities
+
+SQLite access
+
+search queries
+
+export to JSON
+
+backup/restore
+
+
+
+---
+
+UI layout
+
+Left sidebar
+
+Projects Tags Filters
+
+Main panel
+
+Timeline feed
+
+Entry view
+
+Decision → Outcome pairing
+
+
+---
+
+Power features (easy wins)
+
+✔ quick entry hotkey
+✔ export project history
+✔ tag auto-suggestions
+✔ offline-first reliability
+
+
+---
+
+Why this is portfolio gold
+
+Because it demonstrates:
+
+✔ desktop engineering
+✔ local-first design
+✔ SQLite integration
+✔ Rust + web bridge
+✔ real productivity utility
+✔ system thinking
+
+And it’s something only an operator would build.
+
+
+---
+
+Smoke test
+
+create decision
+
+attach outcome
+
+filter by tag
+
+export entries
+
+restart app → data persists
+
+
+
+---
+
+Done definition
+
+Done = you can capture decisions, attach outcomes, search insights, and persist everything locally with zero cloud dependency.
+
