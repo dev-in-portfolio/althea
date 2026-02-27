@@ -1,0 +1,204 @@
+Dash ClaimScope — Dash app blueprint (claims simulator + payout modeling) + Neon backend
+
+What it is
+
+ClaimScope is a Dash app for modeling payout scenarios across a benefit design: you define a “benefit schedule” (rules, caps, durations), then run claim scenarios and see payouts, gaps, and sensitivity to changes. This is simulation + modeling, not a dashboard clone and not config drift.
+
+(You can adapt this to insurance, indemnity, DVH, hospital confinement, or any “if X then pay Y” schedule.)
+
+
+---
+
+Architecture
+
+Dash UI
+→ callbacks
+→ Neon Postgres
+→ rules + scenarios
+→ simulation engine (Python)
+→ charts/tables update
+
+
+---
+
+Data model (Neon Postgres)
+
+sql/003_claimscope.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists benefit_models (
+  id uuid primary key default gen_random_uuid(),
+  name text not null,
+  notes text not null default '',
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+-- A model is made of benefit lines (rules)
+create table if not exists benefit_lines (
+  id uuid primary key default gen_random_uuid(),
+  model_id uuid not null references benefit_models(id) on delete cascade,
+  benefit_type text not null,                 -- e.g., "ER", "HOSP_DAY", "ICU_DAY", "SURGERY"
+  amount numeric(12,2) not null,              -- payout amount
+  unit text not null,                         -- "per_visit" | "per_day" | "per_event"
+  max_units int not null default 1,            -- cap (days/visits)
+  waiting_days int not null default 0,         -- waiting period
+  is_enabled boolean not null default true
+);
+
+create index if not exists idx_lines_model on benefit_lines(model_id);
+
+create table if not exists claim_scenarios (
+  id uuid primary key default gen_random_uuid(),
+  model_id uuid not null references benefit_models(id) on delete cascade,
+  name text not null,
+  inputs jsonb not null,                      -- scenario inputs
+  created_at timestamptz not null default now()
+);
+
+create index if not exists idx_scenarios_model on claim_scenarios(model_id);
+
+
+---
+
+Simulation engine (Python, server-side)
+
+Inputs could include:
+
+ER visits count
+
+hospital days
+
+ICU days
+
+surgery events
+
+outpatient visits
+
+ambulance, imaging, etc.
+
+
+Algorithm:
+
+1. load benefit lines for model
+
+
+2. for each line:
+
+determine eligible units from scenario
+
+apply waiting period
+
+apply max_units cap
+
+payout = eligible_units * amount (or amount per event)
+
+
+
+3. sum payouts
+
+
+4. produce breakdown table + totals
+
+
+
+Output:
+
+total payout
+
+payout by benefit_type
+
+unmet “gap” (if you input estimated bills)
+
+sensitivity curves (if you vary days/visits)
+
+
+
+---
+
+UI layout (MVP)
+
+Left: Model builder
+
+select model
+
+add/edit benefit lines
+
+enable/disable line
+
+notes
+
+
+Middle: Scenario builder
+
+scenario name
+
+numeric inputs (days/visits)
+
+optional: estimated bills per category
+
+
+Right: Results
+
+total payout card
+
+breakdown table
+
+bar chart payout by benefit type
+
+optional: “what-if slider” (vary hospital days 0–30)
+
+
+
+---
+
+Exports (MVP)
+
+export scenario + results as CSV
+
+export as PDF-style report (later) — not required for MVP
+
+
+
+---
+
+Guardrails
+
+caps on max_units (e.g., 365)
+
+caps on amount (avoid nonsense inputs)
+
+validate benefit_type whitelist (or allow custom but normalize)
+
+store scenarios explicitly (no constant logging)
+
+
+
+---
+
+Smoke tests
+
+1. Create model “Base Plan”
+
+
+2. Add lines: ER $200/visit max 2, Hosp $300/day max 10, ICU $600/day max 5
+
+
+3. Scenario: ER=1, Hosp=7, ICU=2
+
+
+4. Results total matches breakdown
+
+
+5. Change ICU days slider → chart updates
+
+
+
+
+---
+
+Done definition
+
+Done = ClaimScope can define benefit schedules, run scenarios, and output payout totals + breakdowns with Neon persistence.
+
