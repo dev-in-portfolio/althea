@@ -1,0 +1,340 @@
+Pocket Dossier — Flutter + Neon backend blueprint
+
+What it is
+
+Pocket Dossier is a fast, offline-feeling field log: rapid entries (title optional, body required), tags, search, and a clean timeline explorer. It’s built for speed: one-screen capture, then later sorting/browsing. It’s a portfolio-friendly proof of mobile UX + real persistence + indexing.
+
+
+---
+
+Shared backbone (required in every Neon-backed Flutter app)
+
+Rule: Flutter never connects to Neon directly.
+Flow: Flutter → API server → Neon (Postgres)
+
+Identity (v1, no auth system):
+
+On first launch, Flutter generates and stores device_key (UUID).
+
+Every request includes header: X-Device-Key: <uuid>.
+
+API maps device_key → user_id in Postgres and uses user_id for all queries.
+
+
+Server invariants:
+
+DATABASE_URL in env (Neon)
+
+Parameterized SQL only
+
+Basic limits (max rows per user, payload size)
+
+CORS enabled for mobile dev
+
+
+
+---
+
+Data model (Neon Postgres)
+
+sql/002_pocket_dossier.sql
+
+create extension if not exists pgcrypto;
+
+-- device identity map (shared across apps if using one DB)
+create table if not exists users (
+  id uuid primary key default gen_random_uuid(),
+  device_key text not null unique,
+  created_at timestamptz not null default now()
+);
+
+-- entries
+create table if not exists dossier_entries (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references users(id) on delete cascade,
+  title text not null default '',
+  body text not null,
+  occurred_at timestamptz not null default now(),
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+-- tags (per-user namespace)
+create table if not exists dossier_tags (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references users(id) on delete cascade,
+  name text not null,
+  created_at timestamptz not null default now(),
+  unique(user_id, name)
+);
+
+-- many-to-many
+create table if not exists dossier_entry_tags (
+  entry_id uuid not null references dossier_entries(id) on delete cascade,
+  tag_id uuid not null references dossier_tags(id) on delete cascade,
+  primary key(entry_id, tag_id)
+);
+
+create index if not exists idx_dossier_entries_user_time
+  on dossier_entries(user_id, occurred_at desc);
+
+create index if not exists idx_dossier_tags_user_name
+  on dossier_tags(user_id, name);
+
+create index if not exists idx_dossier_entry_tags_entry
+  on dossier_entry_tags(entry_id);
+
+-- updated_at trigger
+create or replace function touch_updated_at()
+returns trigger language plpgsql as $$
+begin
+  new.updated_at = now();
+  return new;
+end $$;
+
+drop trigger if exists trg_dossier_touch on dossier_entries;
+create trigger trg_dossier_touch
+before update on dossier_entries
+for each row execute function touch_updated_at();
+
+
+---
+
+Search approach (boring, works now)
+
+MVP search is “good enough” without Postgres full-text:
+
+q searches title ILIKE OR body ILIKE
+
+tag filter joins via dossier_entry_tags
+
+
+(If you later want real full-text, add tsvector + GIN index.)
+
+
+---
+
+API surface (REST, boring)
+
+Base URL: /api/dossier
+All requests require X-Device-Key.
+
+Entries
+
+GET /entries?limit=50&cursor=<iso>&q=<text>&tag=<tagName>&from=<iso>&to=<iso>
+
+cursor means “occurred_at < cursor” for pagination
+
+
+POST /entries body: { title?: string, body: string, occurredAt?: string }
+
+GET /entries/:id
+
+PATCH /entries/:id body: { title?: string, body?: string, occurredAt?: string }
+
+DELETE /entries/:id
+
+
+Tags
+
+GET /tags
+
+POST /tags body: { name: string } (upsert by (user_id, name); return id)
+
+
+Assign tags to entry (server upserts tag names)
+
+POST /entries/:id/tags body: { tags: string[] }
+
+server ensures tags exist for user
+
+replaces entry’s tags with provided set (simpler, stable)
+
+
+DELETE /entries/:id/tags/:tagId
+
+
+Behavior caps
+
+Max entries per user: 50,000
+
+Max tags per user: 2,000
+
+Max tags per entry: 25
+
+body must be non-empty, length <= 20,000 chars
+
+tag name: 1–32 chars, normalized (trim, collapse spaces, lower) server-side
+
+
+
+---
+
+Server logic (must implement)
+
+ensure_user(device_key)
+Same as TapForge: upsert into users, then read users.id.
+
+List entries query shape
+
+Always WHERE user_id = $uid
+
+Optional filters:
+
+occurred_at >= from
+
+occurred_at <= to
+
+occurred_at < cursor
+
+q → (title ILIKE %q% OR body ILIKE %q%)
+
+tag → join to tags by name
+
+
+
+Replace-tags operation
+
+1. verify entry belongs to user
+
+
+2. upsert tag rows for provided tag names
+
+
+3. delete existing dossier_entry_tags for entry
+
+
+4. insert new mappings (transaction)
+
+
+
+
+---
+
+Flutter app structure
+
+Packages (minimal)
+
+dio (HTTP)
+
+shared_preferences (device_key)
+
+Optional: drift or isar (local cache for instant timeline)
+
+
+Folders
+
+lib/
+  main.dart
+  core/
+    device_key.dart
+    api_client.dart
+  features/dossier/
+    models/
+      entry.dart
+      tag.dart
+    data/
+      dossier_api.dart
+    ui/
+      quick_add_screen.dart
+      timeline_screen.dart
+      entry_detail_screen.dart
+      tag_picker_sheet.dart
+      search_filter_bar.dart
+
+
+---
+
+Screens + UX loop (MVP)
+
+1. Quick Add
+
+
+
+body text area (required)
+
+title optional
+
+tag chips picker
+
+save (instant)
+
+
+2. Timeline
+
+
+
+infinite scroll (cursor-based)
+
+filter bar: q, tag, date range
+
+tap entry → detail
+
+
+3. Entry Detail
+
+
+
+edit title/body
+
+adjust occurred_at
+
+tags editor (replace set)
+
+delete
+
+
+4. Tag Picker Sheet
+
+
+
+search existing tags
+
+add new tag inline
+
+
+
+---
+
+Smoke tests
+
+Android
+
+1. Launch → device_key created
+
+
+2. Create entry with body + 2 tags
+
+
+3. Timeline shows it at top
+
+
+4. Filter by tag → entry still shown
+
+
+5. Search q finds by body substring
+
+
+6. Edit entry → updated_at changes, timeline reflects changes
+
+
+
+API
+
+1. Create two entries with different tags
+
+
+2. GET /entries?tag=... returns correct subset
+
+
+3. Replace tags on an entry; verify old mapping removed
+
+
+
+
+---
+
+Done definition
+
+Done = rapid entry creation, tagging, filtering/search, and cursor pagination all work; API enforces ownership via device_key → user_id; Neon persists correctly; client never touches DB creds.
+
