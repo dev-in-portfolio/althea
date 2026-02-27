@@ -1,0 +1,149 @@
+Atlas Gallery — Django + Neon blueprint (image collections with tags + filters)
+
+What it is
+
+Atlas Gallery is a private, high-polish gallery backend + web app: upload images, organize into collections, tag them, and browse with filters/search. This is not “logging small things”—it’s a real content library you’d actually use, and it’s a strong Django showcase: models, admin, uploads, permissions, and query performance.
+
+
+---
+
+Shared backbone (required in every Neon-backed Django app)
+
+Rule: Clients never connect to Neon directly.
+Flow: Browser/Client → Django app → Neon (Postgres)
+
+Identity (v1, simple & real)
+
+Use Django authentication (email+password) so permissions are clean and Django-native.
+
+Neon hosts Postgres; Django uses DATABASE_URL (or explicit DB env vars).
+
+Secrets only in env; .env.example uses REDACTED placeholders.
+
+
+Server invariants
+
+Django pinned (stable)
+
+Parameterized ORM queries only
+
+No secret commits
+
+Basic request size limits for uploads
+
+
+
+---
+
+Stack
+
+Django (pinned)
+
+Postgres (Neon)
+
+Storage: local disk in dev; configurable for prod (still works without S3)
+
+Optional (only if you want): Pillow for image metadata/thumbnails
+
+
+
+---
+
+Data model
+
+Core models
+
+Collection (owner, name)
+
+Asset (image file, collection, caption, created_at)
+
+Tag (owner, name)
+
+AssetTag (m2m)
+
+Optional: Favorite (user ↔ asset)
+
+
+Schema sketch
+
+Collection: user_id, name
+
+Asset: collection_id, file, caption, width/height optional
+
+Tag: user_id, name unique per user
+
+Favorites: (user_id, asset_id) unique
+
+
+
+---
+
+Key pages (MVP)
+
+/ dashboard: recent assets + collections
+
+/collections/ list/create
+
+/collections/<id>/ browse assets with filters
+
+/assets/<id>/ detail (tag edit, favorite)
+
+/search/ q + tag + collection filters
+
+
+
+---
+
+Must-have admin
+
+Django admin enabled for Assets/Collections/Tags
+
+Bulk tag assignment for selected assets (admin action)
+
+
+
+---
+
+Neon specifics
+
+Use Postgres indexes:
+
+Asset(collection, created_at)
+
+Tag(user, name)
+
+favorites unique constraint
+
+
+
+
+---
+
+Smoke tests
+
+1. Create user, login
+
+
+2. Create collection
+
+
+3. Upload 10 images
+
+
+4. Tag 3 images “blueprint”
+
+
+5. Filter by tag and collection
+
+
+6. Favorite an image; favorites page shows it
+
+
+
+
+---
+
+Done definition
+
+Done = authenticated gallery works end-to-end with collections/tags/filtering and stores metadata in Neon reliably.
+
