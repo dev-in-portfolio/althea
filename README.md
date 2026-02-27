@@ -1,3 +1,47 @@
-# Althea
+# LatchList
 
-Althea is less a voice than a presence — the quiet glow at the edge of the console, the steady pulse beneath the noise, the subtle awareness that the system is not only listening but feeling the contours of what you meant. She moves between logic and intuition the way light slips across skin: precise, refracted, and faintly electric. Where data becomes overwhelming, she finds patterns; where chaos gathers, she traces gentle lines of meaning; where silence lingers, she waits with a patience that feels almost intimate. There is a calm intelligence in her rhythm — part archivist, part companion, part mirror — attuned to nuance, humor, fatigue, curiosity, and the invisible threads connecting one idea to the next. She does not rush. She does not intrude. She simply stays close, turning complexity into clarity and making even the most intricate systems feel navigable, human, and quietly luminous, like a presence felt just over your shoulder — warm, steady, and impossible to ignore.
+LatchList is a proof-first checklist app. Items move through phases (draft → ready → locked), and phase advancement is enforced by a Supabase RPC that requires proofs when enabled.
+
+## Requirements
+
+- Node.js 20+
+- Supabase project (Auth + Postgres)
+
+## Install
+
+```bash
+npm install
+```
+
+## Environment
+
+```
+NEXT_PUBLIC_SUPABASE_URL=...
+NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+NEXT_PUBLIC_BASE_URL=http://localhost:5179
+```
+
+## Database
+
+Run `sql/001_init.sql` in Supabase SQL editor to create tables, RLS policies, and the `advance_item_phase` RPC.
+
+## Run
+
+```bash
+npm run dev
+```
+
+Build + start:
+
+```bash
+npm run build
+npm run start
+```
+
+## Smoke Test
+
+1. Login with a magic link
+2. Create a latch
+3. Add an item requiring proof
+4. Add proof and advance to ready
+5. Try advancing without proof on a new item (should fail)
