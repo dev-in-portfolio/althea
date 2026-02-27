@@ -1,0 +1,270 @@
+RouteForge Console — Streamlit + Neon blueprint (route dataset QA + scoring + export)
+
+What it is
+
+RouteForge Console is a Streamlit operator dashboard for cleaning, auditing, scoring, and exporting a stop list for routing workflows. It’s not a “log app”—it’s a QA + decision console: find duplicates, missing fields, suspicious addresses, and export a clean sheet for downstream routing tools.
+
+(If you’re building routing systems, this becomes a daily-use “control room.”)
+
+
+---
+
+Shared backbone (required in every Neon-backed Streamlit app)
+
+Rule: Streamlit connects to Neon only from the server process.
+Flow: Streamlit server → Neon Postgres
+
+Identity (v1)
+
+Single-user/private tool
+
+Optional passcode gate APP_PASSCODE
+
+
+Server invariants
+
+DATABASE_URL in env / secrets
+
+Parameterized SQL only
+
+Batch writes only when user clicks Commit
+
+
+
+---
+
+Stack
+
+Python 3.11+
+
+Streamlit
+
+Postgres driver: psycopg (pinned)
+
+Pandas for import/export
+
+Optional: python-Levenshtein (skip unless you explicitly want fuzzy matching)
+
+
+
+---
+
+Data model (Neon Postgres)
+
+sql/001_routeforge.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists datasets (
+  id uuid primary key default gen_random_uuid(),
+  name text not null,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists stops (
+  id uuid primary key default gen_random_uuid(),
+  dataset_id uuid not null references datasets(id) on delete cascade,
+  name text not null default '',
+  address text not null,
+  city text not null default '',
+  state text not null default '',
+  zip text not null default '',
+  lat double precision null,
+  lon double precision null,
+  notes text not null default '',
+  source text not null default '',  -- where it came from (file/import)
+  created_at timestamptz not null default now()
+);
+
+create index if not exists idx_stops_dataset on stops(dataset_id);
+create index if not exists idx_stops_address on stops(dataset_id, address);
+create index if not exists idx_stops_latlon on stops(dataset_id, lat, lon);
+
+
+---
+
+Features (MVP)
+
+1) Dataset manager
+
+Create dataset
+
+Import stops into selected dataset
+
+Dataset summary stats
+
+
+2) Import (CSV)
+
+Expected columns (minimum):
+
+address (required) Optional:
+
+name, city, state, zip, lat, lon, notes, source
+
+
+Import modes:
+
+Upsert by normalized address (optional)
+
+Strict insert (keeps duplicates)
+
+
+3) QA dashboard (the heart)
+
+Shows:
+
+Missing addresses (should be zero)
+
+Blank city/state/zip counts
+
+Missing lat/lon counts
+
+Duplicate addresses (exact normalized match)
+
+Potential duplicates (same zip + similar street number/name)
+
+“Weirdness flags”:
+
+PO Boxes
+
+intersections like “&”
+
+address too short
+
+non-US format
+
+lat/lon outside expected bounds (if state provided)
+
+
+
+4) Scoring + triage
+
+Compute a simple Stop Quality Score per stop:
+
++50 has address
+
++15 has city
+
++15 has state
+
++10 has zip
+
++10 has lat/lon
+
+-20 if flagged weirdness Score buckets:
+
+90–100 Ready
+
+70–89 Needs touch-up
+
+<70 Needs review
+
+
+5) Review queue
+
+A table view filtered to “Needs review”
+
+Inline edits for name/city/state/zip/notes
+
+Commit changes button
+
+
+6) Export
+
+Export cleaned CSV
+
+Export “Needs Review” CSV
+
+Export duplicates report
+
+
+
+---
+
+UI pages (Streamlit sections)
+
+Datasets
+
+Import
+
+QA Dashboard
+
+Review Queue
+
+Export
+
+
+
+---
+
+Safety behavior
+
+Normalize address for comparisons but never overwrite raw unless user commits. Normalization example:
+
+uppercase
+
+trim spaces
+
+replace multiple spaces with one
+
+optional: strip punctuation
+
+
+All DB writes behind a commit.
+
+
+---
+
+Repo structure
+
+routeforge-console/
+  README.md
+  requirements.txt
+  app.py
+  db.py
+  normalize.py
+  qa.py
+  scoring.py
+  exporters.py
+  sql/001_routeforge.sql
+  .streamlit/
+    secrets.toml.example
+
+
+---
+
+Env
+
+.streamlit/secrets.toml.example
+
+DATABASE_URL="REDACTED_NEON_URL"
+APP_PASSCODE="REDACTED_OPTIONAL"
+
+
+---
+
+Smoke tests
+
+1. Create dataset “Test”
+
+
+2. Import CSV with 50 rows including duplicates + missing fields
+
+
+3. QA dashboard flags duplicates and missing lat/lon
+
+
+4. Review queue edits a stop and commits
+
+
+5. Export cleaned CSV and duplicates report
+
+
+
+
+---
+
+Done definition
+
+Done = you can import a stop list, see duplicates and data problems instantly, fix what matters, and export clean outputs—backed by Neon with safe commit-only writes.
