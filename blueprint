@@ -1,0 +1,169 @@
+Hono Capsule Cache — Hono + Neon blueprint (KV-style cache with TTL + namespaces)
+
+What it is
+
+Hono Capsule Cache is a tiny cache service: set/get JSON blobs by key, with TTL, namespaces, and size limits. It’s a reusable backend primitive you can drop in front of expensive endpoints. Not “logging small things”—this is infrastructure.
+
+
+---
+
+Stack (boring + stable)
+
+Hono (Node runtime)
+
+Neon Postgres
+
+pg driver server-side
+
+Env config only
+
+
+
+---
+
+Core concepts
+
+Namespace isolates keys: namespace + key uniqueness
+
+TTL expiration handled on read (and optionally with periodic cleanup endpoint)
+
+Store JSON payload + content hash + metadata
+
+Strict size caps to prevent abuse
+
+
+
+---
+
+Data model (Neon Postgres)
+
+sql/001_capsule_cache.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists cache_entries (
+  id uuid primary key default gen_random_uuid(),
+  namespace text not null,
+  cache_key text not null,
+  payload jsonb not null,
+  payload_bytes int not null,
+  content_hash text not null,
+  expires_at timestamptz not null,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  unique(namespace, cache_key)
+);
+
+create index if not exists idx_cache_expires on cache_entries(expires_at);
+create index if not exists idx_cache_namespace on cache_entries(namespace);
+
+
+---
+
+API surface
+
+Base: /api/cache
+
+GET /:namespace/:key
+
+200 + payload if not expired
+
+404 if missing/expired
+
+Sets headers: X-Cache: HIT|MISS, X-Expires-At
+
+
+PUT /:namespace/:key body: JSON payload
+query: ttlSeconds=60 (default 300)
+
+upsert entry
+
+enforce caps
+
+
+DELETE /:namespace/:key
+
+POST /cleanup (optional admin)
+
+deletes expired rows (protected by ADMIN_TOKEN)
+
+
+
+Caps
+
+Max payload size: 64KB (configurable)
+
+Max ttl: 86400 seconds (1 day)
+
+Default ttl: 300 seconds
+
+
+
+---
+
+Behavior rules
+
+On GET: if expires_at <= now() delete row and return 404
+
+On PUT: compute payload_bytes and content_hash:
+
+content_hash = sha256(canonical_json)
+
+
+Upsert updates updated_at and expires_at
+
+
+
+---
+
+Hono structure
+
+src/
+  index.ts
+  db.ts
+  utils.ts         # sha256 + size calculation
+  cache.routes.ts
+  admin.routes.ts
+
+
+---
+
+Env
+
+.env.example
+
+DATABASE_URL=REDACTED_NEON_URL
+PORT=8788
+MAX_PAYLOAD_BYTES=65536
+DEFAULT_TTL_SECONDS=300
+MAX_TTL_SECONDS=86400
+ADMIN_TOKEN=REDACTED_OPTIONAL
+
+
+---
+
+Smoke tests
+
+1. PUT /api/cache/test/foo ttlSeconds=2
+
+
+2. GET immediately → HIT payload
+
+
+3. Wait 3 seconds → GET returns 404 (expired)
+
+
+4. PUT big payload > limit → 413
+
+
+5. cleanup removes expired rows
+
+
+
+
+---
+
+Done definition
+
+Done = a namespaced TTL cache works reliably with size caps and clean expiration behavior backed by Neon.
+
