@@ -25,8 +25,7 @@ prompts:
   - Does the paradox dissolve or relocate when reframed?
   - What is conserved, and what is sacrificed?
 sources:
-  - https://en.wikipedia.org/wiki/
-Zeno_of_Elea
+  - https://en.wikipedia.org/wiki/Zeno_of_Elea
 order: 494
 ---
 ## Overview

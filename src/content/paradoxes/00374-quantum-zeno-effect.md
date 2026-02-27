@@ -26,8 +26,7 @@ prompts:
   - Does the paradox dissolve or relocate when reframed?
   - What is conserved, and what is sacrificed?
 sources:
-  - https://en.wikipedia.org/wiki/Quantum_
-Zeno_effect
+  - https://en.wikipedia.org/wiki/Quantum_Zeno_effect
 order: 374
 ---
 ## Overview

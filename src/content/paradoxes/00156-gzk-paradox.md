@@ -25,8 +25,7 @@ prompts:
   - Does the paradox dissolve or relocate when reframed?
   - What is conserved, and what is sacrificed?
 sources:
-  - https://en.wikipedia.org/wiki/G
-ZK_paradox
+  - https://en.wikipedia.org/wiki/GZK_paradox
 order: 156
 ---
 ## Overview

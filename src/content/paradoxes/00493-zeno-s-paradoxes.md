@@ -25,9 +25,8 @@ prompts:
   - Does the paradox dissolve or relocate when reframed?
   - What is conserved, and what is sacrificed?
 sources:
-  - https://en.wikipedia.org/wiki/
+  - https://en.wikipedia.org/wiki/Zeno's_paradoxes
   - https://iep.utm.edu/zenos-paradoxes/
-Zeno's_paradoxes
 order: 493
 ---
 ## Overview
