@@ -1,0 +1,190 @@
+Eleventy Switchboard — 11ty static “link router” with rules + build-time validation
+
+What it is
+
+Eleventy Switchboard is a static site that acts like a smart router / directory: you maintain a single source file of “targets” (links, apps, docs, repos, endpoints), and Eleventy generates:
+
+a clean browsable directory
+
+tag/category pages
+
+a fast search index
+
+and—most importantly—a build-time validator that fails the build if anything is broken (missing fields, duplicate slugs, invalid URLs, orphan tags, etc.)
+
+
+This is not a blog. It’s a static control panel with correctness guarantees.
+
+
+---
+
+Stack (boring + stable)
+
+Eleventy (11ty) pinned
+
+Node 20 compatible
+
+No backend required
+
+Minimal dependencies (only what’s necessary for search index generation)
+
+
+
+---
+
+Inputs (single source of truth)
+
+src/data/targets.json (or .js returning an array)
+
+Each target:
+
+{
+  "slug": "micro-exhibits",
+  "title": "Micro-Exhibits: Digital Science Museum",
+  "kind": "app",
+  "url": "https://example.com",
+  "tags": ["museum","astro","neon"],
+  "summary": "Fast catalog with halls/exhibits and favorites."
+}
+
+Required fields
+
+slug (unique)
+
+title
+
+kind (enum: app|repo|doc|endpoint|tool|misc)
+
+summary (non-empty)
+
+tags[] (non-empty)
+
+url (must be valid absolute URL)
+
+
+
+---
+
+Generated pages
+
+/ Home (search + latest + quick filters)
+
+/all Full directory list
+
+/tags/:tag/
+
+/kinds/:kind/
+
+/t/:slug/ detail page per target
+
+
+
+---
+
+Build-time validation (the killer feature)
+
+During build:
+
+fail if duplicate slug
+
+fail if missing required field
+
+fail if invalid URL format
+
+fail if tags empty
+
+fail if summary empty
+
+emit a report.json listing:
+
+totals by kind/tag
+
+warnings (if any)
+
+
+
+Rule: if anything is “hard invalid,” the build exits non-zero.
+
+
+---
+
+Search
+
+Build-time output: /_index.json containing only:
+
+slug
+
+title
+
+summary
+
+tags
+
+kind
+
+url
+
+
+Client-side search (tiny JS):
+
+filter + highlight
+
+URL params persist search state
+
+
+
+---
+
+File structure (MVP)
+
+eleventy-switchboard/
+  src/
+    _data/
+      targets.json
+    _includes/
+      layouts/
+        base.njk
+        list.njk
+        detail.njk
+    pages/
+      index.njk
+      all.njk
+    targets/
+      target.njk          # collection template
+    tags/
+      tag.njk
+    kinds/
+      kind.njk
+  scripts/
+    validate-targets.mjs
+  .eleventy.js
+  package.json
+  README.md
+
+
+---
+
+Smoke tests
+
+1. Add 5 targets → build passes, pages generated
+
+
+2. Add duplicate slug → build fails with clear error
+
+
+3. Add invalid URL → build fails
+
+
+4. Search works and uses only the index JSON
+
+
+5. Tag pages list correct targets
+
+
+
+
+---
+
+Done definition
+
+Done = Eleventy generates a fast directory + search from one data file, and the build fails loudly if data integrity is broken.
