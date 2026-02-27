@@ -69,8 +69,8 @@
   {/if}
   <div class="grid compare">
     <div>
-      <label class="small">Frame A</label>
-      <select class="input" bind:value={aIndex} on:change={handleAChange}>
+      <label class="small" for="frame-a-select">Frame A</label>
+      <select id="frame-a-select" class="input" bind:value={aIndex} on:change={handleAChange}>
         {#each frames as frame, idx}
           <option value={idx}>{frame.title || `Frame ${idx + 1}`}</option>
         {/each}
@@ -86,8 +86,8 @@
       {/if}
     </div>
     <div>
-      <label class="small">Frame B</label>
-      <select class="input" bind:value={bIndex} on:change={handleBChange}>
+      <label class="small" for="frame-b-select">Frame B</label>
+      <select id="frame-b-select" class="input" bind:value={bIndex} on:change={handleBChange}>
         {#each frames as frame, idx}
           <option value={idx}>{frame.title || `Frame ${idx + 1}`}</option>
         {/each}

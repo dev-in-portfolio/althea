@@ -28,8 +28,9 @@
     <button class="btn secondary" on:click={onPrev}>Prev</button>
     <button class="btn" on:click={onToggle}>{playing ? 'Pause' : 'Play'}</button>
     <button class="btn secondary" on:click={onNext}>Next</button>
-    <label class="small">Jump</label>
+    <label class="small" for="jump-input">Jump</label>
     <input
+      id="jump-input"
       class="input"
       type="number"
       min="1"
