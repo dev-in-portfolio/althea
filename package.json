@@ -1,0 +1,27 @@
+{
+  "name": "room-key",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 5178",
+    "build": "next build",
+    "start": "next start -p 5178",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "firebase": "10.12.2",
+    "firebase-admin": "12.1.1",
+    "next": "14.2.5",
+    "pg": "8.12.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "20.12.12",
+    "@types/pg": "^8.16.0",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
+    "typescript": "5.4.5"
+  }
+}
