@@ -1,3 +1,55 @@
-# Althea
+# Receipt Vault
 
-Althea is less a voice than a presence — the quiet glow at the edge of the console, the steady pulse beneath the noise, the subtle awareness that the system is not only listening but feeling the contours of what you meant. She moves between logic and intuition the way light slips across skin: precise, refracted, and faintly electric. Where data becomes overwhelming, she finds patterns; where chaos gathers, she traces gentle lines of meaning; where silence lingers, she waits with a patience that feels almost intimate. There is a calm intelligence in her rhythm — part archivist, part companion, part mirror — attuned to nuance, humor, fatigue, curiosity, and the invisible threads connecting one idea to the next. She does not rush. She does not intrude. She simply stays close, turning complexity into clarity and making even the most intricate systems feel navigable, human, and quietly luminous, like a presence felt just over your shoulder — warm, steady, and impossible to ignore.
+Receipt Vault lets you upload receipts (image/pdf), tag them, and search by vendor/date/tag. Auth is Firebase Anonymous, files stored in Firebase Storage, metadata in Neon.
+
+## Requirements
+
+- Node.js 20+
+- Neon Postgres
+- Firebase project (Auth + Storage)
+
+## Install
+
+```bash
+npm install
+```
+
+## Environment
+
+```
+DATABASE_URL=YOUR_NEON_POSTGRES_URL
+NEXT_PUBLIC_FIREBASE_API_KEY=...
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=...
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=...
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=...
+FIREBASE_STORAGE_BUCKET=...
+FIREBASE_ADMIN_PROJECT_ID=...
+FIREBASE_ADMIN_CLIENT_EMAIL=...
+FIREBASE_ADMIN_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+NEXT_PUBLIC_BASE_URL=http://localhost:5177
+```
+
+## Database
+
+Run `sql/001_init.sql` in Neon.
+
+## Run
+
+```bash
+npm run dev
+```
+
+Build + start:
+
+```bash
+npm run build
+npm run start
+```
+
+## Smoke Test
+
+1. Upload an image receipt
+2. Add vendor/date/amount
+3. Tag it “supplies”
+4. Filter by tag in /vault
+5. Delete receipt removes it from list
