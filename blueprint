@@ -1,0 +1,208 @@
+Hono Intake — Hono + Neon blueprint (validated ingestion + dedupe + quarantine)
+
+What it is
+
+Hono Intake is a small ingestion service: clients POST records, the server validates them, dedupes by hash, and either accepts into the main table or quarantines them with error reasons. This is a serious backend primitive for importing datasets safely (not micro-logging).
+
+
+---
+
+Stack (boring + stable)
+
+Hono (Node runtime)
+
+Neon Postgres
+
+pg server-side
+
+Env config only
+
+
+
+---
+
+Core behaviors
+
+1. Validate payload shape
+
+
+2. Normalize fields (trim, lowercase where appropriate)
+
+
+3. Compute content_hash
+
+
+4. If duplicate → return 200 “duplicate” (idempotent)
+
+
+5. If invalid → store in quarantine with reasons
+
+
+6. If valid → store canonical record
+
+
+
+
+---
+
+Data model (Neon Postgres)
+
+sql/001_hono_intake.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists intake_records (
+  id uuid primary key default gen_random_uuid(),
+  kind text not null,                       -- e.g. "stop", "exhibit", "note"
+  external_id text not null default '',
+  content jsonb not null,                   -- canonical payload
+  content_hash text not null unique,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists intake_quarantine (
+  id uuid primary key default gen_random_uuid(),
+  kind text not null,
+  external_id text not null default '',
+  raw_content jsonb not null,
+  errors text[] not null,
+  content_hash text not null,
+  created_at timestamptz not null default now()
+);
+
+create index if not exists idx_intake_kind_time on intake_records(kind, created_at desc);
+create index if not exists idx_quarantine_kind_time on intake_quarantine(kind, created_at desc);
+
+
+---
+
+Validation contract (MVP)
+
+Accepts:
+
+{
+  "kind": "stop",
+  "externalId": "abc123",
+  "content": { ... }
+}
+
+Rules:
+
+kind non-empty, <= 32 chars
+
+content must be an object
+
+content max size 64KB
+
+Optional: per-kind required fields (simple map)
+
+
+Example per-kind requirements:
+
+stop: must include address non-empty
+
+exhibit: must include title, summary, tags[], body
+
+
+If requirements fail → quarantine.
+
+
+---
+
+API surface
+
+Base: /api/intake
+
+POST / body: { kind, externalId?, content } returns:
+
+{ status:"accepted", id, duplicate:false }
+
+{ status:"duplicate", id, duplicate:true } (if hash exists)
+
+{ status:"quarantined", errors:[...]} 
+
+
+GET /records?kind=&limit=50
+
+GET /quarantine?kind=&limit=50
+
+POST /quarantine/:id/retry (optional)
+
+re-validates, moves to records if now valid
+
+
+
+Caps
+
+Max request body: 128KB
+
+Max content: 64KB
+
+Max quarantine retention: manual cleanup (or scheduled)
+
+
+
+---
+
+Dedupe hashing rule
+
+Canonicalize JSON (stable key order) then sha256
+
+Store only hash + canonical content
+
+This makes ingestion idempotent across retries
+
+
+
+---
+
+Hono structure
+
+src/
+  index.ts
+  db.ts
+  validate.ts       # per-kind rules + errors array
+  canonical.ts      # stable stringify
+  intake.routes.ts
+  admin.routes.ts   # quarantine retry, optional cleanup
+
+
+---
+
+Env
+
+.env.example
+
+DATABASE_URL=REDACTED_NEON_URL
+PORT=8789
+MAX_BODY_BYTES=131072
+MAX_CONTENT_BYTES=65536
+ADMIN_TOKEN=REDACTED_OPTIONAL
+
+
+---
+
+Smoke tests
+
+1. POST valid stop with address → accepted
+
+
+2. POST same payload again → duplicate true
+
+
+3. POST exhibit missing tags/body → quarantined with errors
+
+
+4. GET quarantine shows it
+
+
+5. Fix payload, retry endpoint moves it to records
+
+
+
+
+---
+
+Done definition
+
+Done = ingestion is validated, deduped, and quarantine-backed so you can safely import large messy datasets without polluting the main tables.
