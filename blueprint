@@ -1,0 +1,178 @@
+Hono Gatekeeper — Hono + Neon blueprint (API gateway + key scopes + rate limits)
+
+What it is
+
+Hono Gatekeeper is a minimal, fast API gateway you run in front of your other services. It issues and validates API keys with scopes, applies rate limits, and forwards allowed requests to upstream endpoints. This is an operator-grade backend piece (not micro-logging).
+
+
+---
+
+Stack (boring + stable)
+
+Hono (Node runtime; deployable to Node server or edge later)
+
+Neon Postgres
+
+DB driver: pg server-side
+
+Config via env vars
+
+
+
+---
+
+Core idea
+
+Create API keys (random tokens) in Neon
+
+Each key has scopes (read, write, admin, custom strings)
+
+Middleware checks:
+
+Authorization: Bearer <token>
+
+scopes required per route
+
+simple rate limit per key (requests/minute)
+
+
+Proxy allowed requests to upstream services
+
+
+
+---
+
+Data model (Neon Postgres)
+
+sql/001_gatekeeper.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists api_keys (
+  id uuid primary key default gen_random_uuid(),
+  token_hash text not null unique,      -- store hash, not raw token
+  label text not null default '',
+  scopes text[] not null default '{}',
+  is_active boolean not null default true,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists rate_limits (
+  token_hash text not null,
+  window_start timestamptz not null,
+  count int not null default 0,
+  primary key(token_hash, window_start)
+);
+
+Hashing rule
+
+Store sha256(token) in token_hash
+
+Only show raw token once at creation
+
+
+
+---
+
+API surface (your gateway)
+
+Base: /api
+
+Admin (protected by MASTER_ADMIN_TOKEN env)
+
+POST /admin/keys { label, scopes[] } → returns raw token once
+
+PATCH /admin/keys/:id { scopes?, isActive? }
+
+GET /admin/keys list (no raw token)
+
+DELETE /admin/keys/:id
+
+
+Proxy routes
+
+GET /proxy/* forwards to UPSTREAM_READ_BASE
+
+POST /proxy/* forwards to UPSTREAM_WRITE_BASE
+
+Route-level required scopes
+
+
+
+---
+
+Rate limiting (boring)
+
+Fixed window (per minute)
+
+Keyed by token_hash + minute timestamp
+
+Cap default: 120 req/min (env configurable)
+
+
+
+---
+
+Hono structure
+
+src/
+  index.ts
+  db.ts
+  auth.ts
+  ratelimit.ts
+  proxy.ts
+  admin.ts
+
+Middleware chain:
+
+auth (bearer token → token_hash)
+
+scope check
+
+rate limit
+
+proxy handler
+
+
+
+---
+
+Env
+
+.env.example
+
+DATABASE_URL=REDACTED_NEON_URL
+MASTER_ADMIN_TOKEN=REDACTED_ADMIN
+UPSTREAM_READ_BASE=http://localhost:3001
+UPSTREAM_WRITE_BASE=http://localhost:3002
+RATE_LIMIT_PER_MIN=120
+PORT=8787
+
+
+---
+
+Smoke tests
+
+1. Create key with scopes ["read"]
+
+
+2. Call GET /proxy/health → forwarded OK
+
+
+3. Call POST /proxy/x → rejected (missing write scope)
+
+
+4. Hammer requests > limit → 429
+
+
+5. Disable key → rejected
+
+
+
+
+---
+
+Done definition
+
+Done = gateway issues scoped keys, enforces scopes + rate limits, and safely proxies to upstream services using Neon for key storage.
+
