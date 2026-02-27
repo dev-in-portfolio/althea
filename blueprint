@@ -1,0 +1,185 @@
+Remix QueueSplice — Remix app blueprint (job queue + claim/lease + retries) + Neon backend
+
+What it is
+
+QueueSplice is a real backend-heavy Remix app: a lightweight job queue manager with leasing/claiming, retries, and dead-letter handling. It’s not a “status tiles” clone and not a “saved views” clone—this is a different category: work distribution.
+
+
+---
+
+Core idea
+
+You create jobs (payloads)
+
+Workers (or you) claim jobs with a lease
+
+Jobs move through states: ready → running → done or failed → retry or dead
+
+UI lets you inspect, retry, and quarantine jobs
+
+
+
+---
+
+Architecture
+
+Flow: Remix UI → Remix action/loader → Neon Postgres
+No DB access in the browser. Server-only.
+
+Identity
+
+Optional simple admin passcode (APP_PASSCODE) for the UI
+
+No user accounts in MVP
+
+
+
+---
+
+Data model (Neon Postgres)
+
+sql/001_queuesplice.sql
+
+create extension if not exists pgcrypto;
+
+create type job_status as enum ('ready','running','done','failed','dead');
+
+create table if not exists jobs (
+  id uuid primary key default gen_random_uuid(),
+  kind text not null,
+  status job_status not null default 'ready',
+  payload jsonb not null,
+  priority int not null default 0,
+  attempts int not null default 0,
+  max_attempts int not null default 5,
+  available_at timestamptz not null default now(),
+  lease_owner text not null default '',
+  lease_until timestamptz null,
+  last_error text not null default '',
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+create index if not exists idx_jobs_ready on jobs(status, available_at, priority desc);
+create index if not exists idx_jobs_running on jobs(status, lease_until);
+create index if not exists idx_jobs_kind on jobs(kind, created_at desc);
+
+
+---
+
+Job leasing (boring + correct)
+
+Claim endpoint (server action or resource route):
+
+atomically select the next job:
+
+status='ready'
+
+available_at <= now()
+
+highest priority first
+
+
+update it to:
+
+status='running'
+
+lease_owner = <workerId>
+
+lease_until = now() + interval '60 seconds'
+
+attempts += 1
+
+
+
+If a job’s lease expires:
+
+a “reaper” action can return it to ready or mark failed
+
+
+
+---
+
+Remix routes/pages
+
+/ dashboard: counts by status, quick actions
+
+/jobs list with filters: kind/status/priority
+
+/jobs/:id detail + retry/kill
+
+/enqueue create job
+
+/workers (optional) show recent lease owners
+
+
+Resource routes (optional for worker usage):
+
+POST /r/claim claim next job
+
+POST /r/complete mark done
+
+POST /r/fail mark failed + schedule retry
+
+
+
+---
+
+UI/UX (MVP)
+
+Create job form (kind + JSON payload + priority)
+
+Jobs table with status badges
+
+Detail view shows payload prettified + attempts + errors
+
+Buttons:
+
+Retry now (sets status=ready, available_at=now())
+
+Send to dead-letter (sets status=dead)
+
+Extend lease (only if running)
+
+
+
+
+---
+
+Safety rules
+
+Payload size cap (e.g., 64KB)
+
+max_attempts cap (e.g., 20)
+
+retry backoff: available_at = now() + interval '2^attempts minutes' (capped)
+
+
+
+---
+
+Smoke tests
+
+1. Enqueue 3 jobs
+
+
+2. Claim job → status running + lease set
+
+
+3. Complete job → status done
+
+
+4. Fail job → status failed → available_at in future
+
+
+5. After max attempts → status dead
+
+
+
+
+---
+
+Done definition
+
+Done = QueueSplice can enqueue/claim/lease/retry/dead-letter jobs with a real Remix UI and Neon persistence.
+
