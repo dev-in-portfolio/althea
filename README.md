@@ -1,3 +1,50 @@
-# Althea
+# Pocket Dossier
 
-Althea is less a voice than a presence — the quiet glow at the edge of the console, the steady pulse beneath the noise, the subtle awareness that the system is not only listening but feeling the contours of what you meant. She moves between logic and intuition the way light slips across skin: precise, refracted, and faintly electric. Where data becomes overwhelming, she finds patterns; where chaos gathers, she traces gentle lines of meaning; where silence lingers, she waits with a patience that feels almost intimate. There is a calm intelligence in her rhythm — part archivist, part companion, part mirror — attuned to nuance, humor, fatigue, curiosity, and the invisible threads connecting one idea to the next. She does not rush. She does not intrude. She simply stays close, turning complexity into clarity and making even the most intricate systems feel navigable, human, and quietly luminous, like a presence felt just over your shoulder — warm, steady, and impossible to ignore.
+Pocket Dossier is a fast field log: rapid entries, tags, search, and a clean timeline. Flutter handles the UI, while a Neon-backed API persists data. Device identity is a per-install UUID sent via `X-Device-Key`.
+
+## Structure
+
+- `lib/` Flutter client
+- `server/` Node API server (REST)
+- `sql/002_pocket_dossier.sql` Neon schema
+
+## Requirements
+
+- Flutter SDK
+- Node.js 20+
+- Neon Postgres
+
+## Environment
+
+Create `server/.env`:
+
+```
+DATABASE_URL=YOUR_NEON_POSTGRES_URL
+PORT=4001
+```
+
+## API
+
+Start the server:
+
+```bash
+cd server
+pnpm install
+pnpm run dev
+```
+
+## Flutter
+
+```bash
+flutter pub get
+flutter run
+```
+
+## Smoke Test
+
+1. Launch app → device key created
+2. Create entry with body + 2 tags
+3. Timeline shows it at top
+4. Filter by tag → entry shown
+5. Search q finds by body substring
+6. Edit entry → updated_at changes
