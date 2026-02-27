@@ -2,6 +2,8 @@ node_modules/
 .env
 .env.local
 .env.*.local
+/.next/
+tsconfig.tsbuildinfo
 build/
 .dart_tool/
 .flutter-plugins
