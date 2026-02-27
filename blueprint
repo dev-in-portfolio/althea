@@ -1,0 +1,243 @@
+PalmLedger — React Native + Neon backend blueprint
+
+What it is
+
+PalmLedger is a “tiny ledger” app for capturing micro-events with numbers: cash spends, tips, mileage, inventory counts, time blocks — anything that benefits from structured logging. It’s not accounting software; it’s a fast capture tool with filters and rollups that feels like a pocket terminal.
+
+
+---
+
+Shared backbone (required in every Neon-backed React Native app)
+
+Rule: React Native never connects to Neon directly.
+Flow: React Native → API server → Neon (Postgres)
+
+Identity (v1, no auth system):
+
+On first launch, app generates and stores device_key (UUID).
+
+Every request includes header: X-Device-Key: <uuid>.
+
+API maps device_key → user_id in Postgres and uses user_id for all queries.
+
+
+Server invariants:
+
+DATABASE_URL in env (Neon)
+
+Parameterized SQL only
+
+Basic limits (rows per user, payload size)
+
+CORS enabled for mobile dev
+
+
+
+---
+
+Data model (Neon Postgres)
+
+sql/001_palmledger.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists users (
+  id uuid primary key default gen_random_uuid(),
+  device_key text not null unique,
+  created_at timestamptz not null default now()
+);
+
+-- user-defined categories (optional)
+create table if not exists ledger_categories (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references users(id) on delete cascade,
+  name text not null,
+  kind text not null default 'generic', -- 'spend','tip','mileage','count','time','generic'
+  created_at timestamptz not null default now(),
+  unique(user_id, name)
+);
+
+-- entries (the main log)
+create table if not exists ledger_entries (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references users(id) on delete cascade,
+  category_id uuid null references ledger_categories(id) on delete set null,
+  title text not null default '',
+  amount_num numeric(12,2) null,     -- money or generic numeric
+  amount_unit text not null default '', -- '$', 'mi', 'hrs', 'qty', etc.
+  occurred_at timestamptz not null default now(),
+  note text not null default '',
+  created_at timestamptz not null default now()
+);
+
+create index if not exists idx_ledger_entries_user_time
+  on ledger_entries(user_id, occurred_at desc);
+
+create index if not exists idx_ledger_categories_user
+  on ledger_categories(user_id, name);
+
+
+---
+
+API surface (REST, boring)
+
+Base URL: /api/ledger
+All requests require X-Device-Key.
+
+Categories
+
+GET /categories
+
+POST /categories body: { name, kind? }
+
+DELETE /categories/:id
+
+
+Entries
+
+GET /entries?from=&to=&q=&categoryId=&limit=50&cursor=
+
+POST /entries body: { title?, categoryId?, amountNum?, amountUnit?, occurredAt?, note? }
+
+PATCH /entries/:id body: same fields optional
+
+DELETE /entries/:id
+
+
+Rollups
+
+GET /rollups?range=7d|30d&groupBy=day|category
+
+returns totals and counts for simple dashboards
+
+
+
+Behavior caps
+
+Max entries per user: 200,000
+
+Max categories per user: 500
+
+Note length <= 5,000
+
+
+
+---
+
+React Native app structure
+
+Recommended stack
+
+React Native (Expo) for speed
+
+Networking: fetch or axios
+
+Local persistence: AsyncStorage for device_key; optional SQLite for offline cache
+
+
+Folders
+
+src/
+  core/
+    deviceKey.ts
+    api.ts
+  features/ledger/
+    models.ts
+    ledgerApi.ts
+    screens/
+      HomeScreen.tsx        # quick add + today summary
+      EntriesScreen.tsx     # list + filters
+      EntryEditScreen.tsx
+      CategoriesScreen.tsx
+      RollupsScreen.tsx
+    components/
+      QuickAddBar.tsx
+      EntryRow.tsx
+      FilterBar.tsx
+
+
+---
+
+Screens + UX loop (MVP)
+
+1. Home
+
+
+
+Quick add: amount + unit + category + title
+
+Today totals
+
+
+2. Entries
+
+
+
+infinite scroll
+
+filters: date range, category, query
+
+tap to edit
+
+
+3. Rollups
+
+
+
+7/30 day totals
+
+group by day or category
+
+
+4. Categories
+
+
+
+create/delete categories
+
+
+
+---
+
+Smoke tests
+
+Mobile
+
+1. First launch → device_key stored
+
+
+2. Create category “Tips”
+
+
+3. Add entry $45.00 in Tips
+
+
+4. Entries list shows it
+
+
+5. Rollups reflect total
+
+
+6. Filter by category works
+
+
+
+API
+
+1. Same device_key sees same data
+
+
+2. Different device_key sees empty set
+
+
+3. Cursor pagination returns stable ordering
+
+
+
+
+---
+
+Done definition
+
+Done = RN app can create/read/update/delete entries and categories, fetch rollups, and Neon stores everything scoped by device identity.
+
