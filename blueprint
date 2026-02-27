@@ -1,0 +1,199 @@
+Dash DriftMeter — Dash app blueprint (config drift + environment comparison) + Neon backend
+
+What it is
+
+DriftMeter is a Dash app that compares “expected vs actual” configuration across environments (local/dev/stage/prod) and flags drift: changed values, missing keys, extra keys, and risky deltas. This is not a generic dashboard—it’s diff + risk scoring for configs.
+
+
+---
+
+Architecture
+
+Dash UI
+→ callbacks
+→ Neon Postgres
+→ compute drift
+→ render diff tables + risk panels
+
+
+---
+
+Data model (Neon Postgres)
+
+sql/002_driftmeter.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists config_snapshots (
+  id uuid primary key default gen_random_uuid(),
+  env text not null,                 -- dev/stage/prod/local
+  label text not null,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists config_items (
+  snapshot_id uuid not null references config_snapshots(id) on delete cascade,
+  key text not null,
+  value text not null,
+  value_hash text not null,
+  primary key(snapshot_id, key)
+);
+
+create index if not exists idx_cfg_env_time on config_snapshots(env, created_at desc);
+create index if not exists idx_cfg_key on config_items(key);
+
+Hashing rule
+
+value_hash = sha256(value)
+
+lets you compare without leaking secrets if you decide to store masked values later
+
+
+
+---
+
+Inputs (how data gets in)
+
+Option A (MVP)
+
+Manual paste/upload:
+
+JSON object
+
+.env text
+
+YAML (optional later)
+
+
+Option B (operator)
+
+A CLI posts snapshots to an endpoint (not required for MVP).
+
+
+---
+
+Diff logic
+
+Compare two snapshots A vs B:
+
+Missing: key in A not in B
+
+Extra: key in B not in A
+
+Changed: key in both but value_hash differs
+
+Same: identical
+
+
+
+---
+
+Risk scoring (boring but useful)
+
+Each key gets a risk weight by pattern:
+
+contains TOKEN|KEY|SECRET|PASSWORD → high
+
+contains URL|HOST|PORT → medium
+
+otherwise low
+
+
+Overall risk score:
+
+(#high_changed * 5) + (#med_changed * 2) + (#low_changed * 1)
+
+
+---
+
+UI layout
+
+Controls
+
+env A dropdown
+
+snapshot A dropdown
+
+env B dropdown
+
+snapshot B dropdown
+
+“compare” button
+
+
+Panels
+
+1. Summary cards:
+
+
+
+changed / missing / extra
+
+risk score
+
+
+2. Diff table:
+
+
+
+key | status | valueA | valueB | risk
+
+
+3. Filters:
+
+
+
+show only changed
+
+show only high-risk
+
+
+4. Export:
+
+
+
+download diff as CSV
+
+download as Markdown runbook
+
+
+
+---
+
+Performance strategy
+
+store items keyed by snapshot_id + key
+
+diff in SQL joins
+
+paginate diff table
+
+
+
+---
+
+Smoke tests
+
+1. Create snapshot dev and prod
+
+
+2. Compare → changed/missing/extra correct
+
+
+3. High-risk keys flagged
+
+
+4. Export CSV works
+
+
+5. Filters update table
+
+
+
+
+---
+
+Done definition
+
+Done = DriftMeter compares env snapshots, classifies drift, and produces a risk-scored diff with exports.
+
