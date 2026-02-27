@@ -1,0 +1,274 @@
+TapForge — Flutter + Neon backend blueprint
+
+What it is
+
+TapForge is a tactile preset lab: build and save “control presets” (sliders/knobs/toggles + haptic profile + animation curve), preview them live, duplicate/export, and iterate endlessly. It’s a Flutter-native “feel engine” that doubles as a portfolio proof of UI polish + real persistence.
+
+
+---
+
+Shared backbone (required in every Neon-backed Flutter app)
+
+Rule: Flutter never connects to Neon directly.
+Flow: Flutter → API server → Neon (Postgres)
+
+Identity (v1, no auth system):
+
+On first launch, Flutter generates and stores device_key (UUID).
+
+Every request includes header: X-Device-Key: <uuid>.
+
+API maps device_key → user_id in Postgres and uses user_id for all queries.
+
+
+Server invariants:
+
+DATABASE_URL in env (Neon)
+
+Parameterized SQL only
+
+Basic limits (max presets per user, payload size)
+
+CORS enabled for mobile dev
+
+
+
+---
+
+Data model (Neon Postgres)
+
+sql/001_tapforge.sql
+
+create extension if not exists pgcrypto;
+
+-- device identity map
+create table if not exists users (
+  id uuid primary key default gen_random_uuid(),
+  device_key text not null unique,
+  created_at timestamptz not null default now()
+);
+
+-- presets
+create table if not exists tapforge_presets (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references users(id) on delete cascade,
+  name text not null,
+  settings jsonb not null, -- schema below
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+create index if not exists idx_tapforge_presets_user_time
+  on tapforge_presets(user_id, created_at desc);
+
+-- updated_at trigger
+create or replace function touch_updated_at()
+returns trigger language plpgsql as $$
+begin
+  new.updated_at = now();
+  return new;
+end $$;
+
+drop trigger if exists trg_tapforge_touch on tapforge_presets;
+create trigger trg_tapforge_touch
+before update on tapforge_presets
+for each row execute function touch_updated_at();
+
+
+---
+
+Preset schema contract (settings JSONB)
+
+Store as a single object in tapforge_presets.settings:
+
+{
+  "version": 1,
+  "controls": [
+    { "id": "speed", "type": "slider", "label": "Speed", "min": 0, "max": 100, "step": 1, "value": 42 },
+    { "id": "snap", "type": "toggle", "label": "Snap", "value": true },
+    { "id": "mode", "type": "segmented", "label": "Mode", "options": ["A","B","C"], "value": "B" }
+  ],
+  "haptics": { "onChange": "light|medium|heavy|none", "onCommit": "medium|heavy|none" },
+  "animation": { "curve": "easeOut|linear|easeInOut|elasticOut", "ms": 180 }
+}
+
+Validation rules (server-enforced):
+
+name 1–80 chars
+
+controls.length 1–32
+
+each control.id unique and 1–32 chars
+
+numeric bounds sane (min < max, step > 0, value in range)
+
+payload size cap (e.g., 64KB)
+
+
+
+---
+
+API surface (REST, boring)
+
+Base URL: /api/tapforge
+
+All requests require X-Device-Key.
+
+Endpoints
+
+GET /presets → list presets (id, name, created_at, updated_at)
+
+POST /presets → create preset { name, settings }
+
+GET /presets/:id → full preset
+
+PATCH /presets/:id → update { name?, settings? }
+
+POST /presets/:id/duplicate → clones preset, returns new id
+
+DELETE /presets/:id → delete
+
+
+Behavior caps
+
+Max presets per user: 500
+
+Reject updates if settings.version != 1
+
+
+
+---
+
+Server logic (must implement)
+
+ensure_user(device_key)
+
+1. insert into users(device_key) values ($1) on conflict do nothing
+
+
+2. select id from users where device_key=$1
+
+
+3. return user_id
+
+
+
+All preset queries filter by user_id.
+
+
+---
+
+Flutter app structure
+
+Packages (minimal)
+
+dio (HTTP)
+
+shared_preferences (store device_key)
+
+Optional later: isar for offline caching
+
+
+Folders
+
+lib/
+  main.dart
+  core/
+    device_key.dart
+    api_client.dart
+  features/presets/
+    models/preset.dart
+    data/preset_api.dart
+    ui/preset_list_screen.dart
+    ui/preset_editor_screen.dart
+    ui/preset_preview_widget.dart
+    ui/export_sheet.dart
+
+
+---
+
+Screens + UX loop (MVP)
+
+1. Preset List
+
+
+
+list cards (name + last updated)
+
+actions: New / Duplicate / Delete / Export
+
+
+2. Preset Editor
+
+
+
+add control (slider/toggle/segmented)
+
+edit labels/ranges
+
+reorder controls (up/down buttons)
+
+save button (explicit, not autosave)
+
+
+3. Live Preview
+
+
+
+renders the controls exactly as configured
+
+haptics on change/commit
+
+animation curve applied to control interactions (simple duration/curve)
+
+
+4. Export
+
+
+
+“Copy JSON” (settings only)
+
+“Copy Share Payload” (name + settings)
+
+
+
+---
+
+Smoke tests
+
+Android (real device)
+
+1. Launch → device_key created
+
+
+2. Create preset with 3 controls → save
+
+
+3. Reopen app → preset still there
+
+
+4. Duplicate preset → both exist
+
+
+5. Export JSON → paste and verify non-empty
+
+
+
+Desktop (API)
+
+1. Call POST /presets with same device_key twice → creates two presets under same user
+
+
+2. Call GET /presets → only returns that user’s presets
+
+
+3. Try invalid settings (controls empty) → 400
+
+
+
+
+---
+
+Done definition
+
+Done = Flutter can create/edit/duplicate/export presets; API enforces schema + ownership via device_key → user_id; Neon persists correctly; no direct DB access from client.
