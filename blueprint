@@ -1,0 +1,241 @@
+Exhibit Forge — Django + Neon blueprint (curated exhibit builder + publishable collections)
+
+What it is
+
+Exhibit Forge is a web app for building curated “exhibits” made of ordered cards (text, image, embed, quote), bundling them into collections, and publishing them as shareable, read-only public pages. This is not micro-logging — it’s a content product builder: editorial flow, ordering, publishing states, and public/private access.
+
+
+---
+
+Shared backbone (required in every Neon-backed Django app)
+
+Flow: Browser → Django app → Neon Postgres
+
+Identity
+
+Django auth for creators
+
+Public pages are read-only and do not require login
+
+
+Server invariants
+
+Django pinned version
+
+ORM-first design
+
+Env-based secrets only
+
+No extra logging/telemetry
+
+
+
+---
+
+Stack
+
+Django
+
+Neon Postgres
+
+Media uploads: local dev storage; configurable for production
+
+Optional: Pillow for image handling (only if you want thumbnails)
+
+
+
+---
+
+Core objects
+
+Exhibit: a curated narrative page
+
+Card: a building block inside an exhibit (ordered)
+
+Collection: a group of exhibits
+
+Publish token: stable share slug for public viewing
+
+
+
+---
+
+Data model
+
+Exhibit
+
+user (FK)
+
+title
+
+slug (unique per user)
+
+summary
+
+status: draft | published
+
+published_slug (global unique, used for public URL)
+
+created_at, updated_at, published_at
+
+
+ExhibitCard
+
+exhibit (FK)
+
+type: text | image | embed | quote
+
+order (int)
+
+title (optional)
+
+body (text)
+
+image (file path optional)
+
+embed_url (optional)
+
+
+Collection
+
+user (FK)
+
+name
+
+description
+
+
+CollectionItem
+
+collection (FK)
+
+exhibit (FK)
+
+order (int)
+
+
+
+---
+
+Constraints + indexes (Neon)
+
+Unique: (user_id, slug)
+
+Unique: published_slug
+
+Index: exhibit_id, order
+
+Index: (user_id, status, updated_at desc)
+
+
+
+---
+
+Key flows (MVP)
+
+Creator (authenticated)
+
+/ dashboard: drafts + published
+
+/exhibits/new
+
+/exhibits/<id>/edit
+
+add cards
+
+reorder cards (up/down buttons; drag later)
+
+preview mode
+
+
+/collections/
+
+group exhibits into collections
+
+order exhibits
+
+
+
+Public (no login)
+
+/p/<published_slug>/ public exhibit page
+
+/c/<collection_slug>/ public collection listing (optional v1)
+
+
+
+---
+
+Publishing rules (boring + strict)
+
+Only exhibit owner can publish
+
+Publish generates published_slug once and keeps it stable unless explicitly regenerated
+
+Draft edits do not automatically change public version unless “Republish” action is used (choose one):
+
+Option A (simplest): public always reflects latest saved state once published
+
+Option B (stronger product): public reflects last published snapshot; republish required
+Pick Option A for MVP unless you want snapshot complexity.
+
+
+
+
+---
+
+Admin features (must include)
+
+Admin list filters: status, user
+
+Inline card editing
+
+Bulk publish/unpublish for admin (superusers only)
+
+
+
+---
+
+Smoke tests
+
+1. Create user, login
+
+
+2. Create exhibit “Crystal Hall”
+
+
+3. Add 5 cards (text/image/embed)
+
+
+4. Reorder cards and verify order persists
+
+
+5. Publish exhibit → public URL works without login
+
+
+6. Create a collection and add exhibit to it
+
+
+
+
+---
+
+Why it’s portfolio-strong
+
+editorial content modeling
+
+ordered components
+
+publish states + public/private routing
+
+media handling
+
+clean Django architecture
+
+
+
+---
+
+Done definition
+
+Done = creators can build ordered exhibits, publish them, and share a public read-only URL backed by Neon with correct access boundaries.
