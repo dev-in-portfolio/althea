@@ -1,0 +1,210 @@
+SchemaPulse — Gradio + Neon blueprint (schema + migrations viewer with “runbook” outputs)
+
+What it is
+
+SchemaPulse is a Gradio tool that connects to Neon and gives you a clean, human-readable view of your schema, indexes, constraints, and migration scripts — then generates runbooks like “what to run first, what depends on what.” It’s a DB operator UI, not a note logger.
+
+
+---
+
+Shared backbone (required in every Neon-backed Gradio app)
+
+Rule: Gradio connects to Neon only from the server process.
+Flow: Gradio server → Neon Postgres
+
+Identity (v1)
+
+Passcode gate via APP_PASSCODE
+
+No user accounts required
+
+
+Server invariants
+
+DATABASE_URL env-only
+
+Parameterized SQL only
+
+No logging of small things (only store user-submitted migration text if explicitly saved)
+
+
+
+---
+
+Stack
+
+Python 3.11+
+
+Gradio
+
+Postgres driver: psycopg pinned
+
+Optional: sqlparse for pretty formatting (skip unless you ask)
+
+
+
+---
+
+Data model (Neon)
+
+This app can be read-only and require no tables.
+If you want to save migration scripts in Neon, add:
+
+sql/001_schemapulse.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists migration_sets (
+  id uuid primary key default gen_random_uuid(),
+  name text not null unique,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists migrations (
+  id uuid primary key default gen_random_uuid(),
+  set_id uuid not null references migration_sets(id) on delete cascade,
+  filename text not null,
+  sql_text text not null,
+  created_at timestamptz not null default now(),
+  unique(set_id, filename)
+);
+
+(If you truly want zero persistence, skip these tables.)
+
+
+---
+
+Features (MVP)
+
+1) Schema snapshot viewer (read-only)
+
+Buttons:
+
+“Load schemas/tables”
+
+“Load columns”
+
+“Load indexes”
+
+“Load constraints”
+
+“Load foreign keys”
+
+
+Outputs:
+
+Table list with row counts (estimated)
+
+Per-table detail panel:
+
+columns + types + nullable + default
+
+indexes + uniqueness
+
+FKs (in/out)
+
+
+
+2) Migration set panel (optional persistence)
+
+paste migration SQL
+
+name it 001_init.sql style
+
+save into a migration set
+
+view list in order
+
+export combined “run all” script
+
+
+3) Dependency runbook generator
+
+Given the schema, the app generates:
+
+Creation order: tables with no FKs first
+
+FK dependency map: A → B means A references B
+
+Drop order: reverse
+
+
+4) “Neon readiness checks”
+
+confirm extensions used (pgcrypto)
+
+confirm indexes exist for FK columns
+
+highlight missing indexes
+
+
+
+---
+
+UI layout (Gradio)
+
+Left column: buttons + selectors
+
+Middle: schema tables list / search
+
+Right: table detail + indexes + constraints
+
+Bottom: “Runbook” text output + download as .md
+
+
+
+---
+
+Core queries (system catalogs)
+
+information_schema.columns
+
+pg_catalog.pg_constraint
+
+pg_catalog.pg_indexes
+
+pg_catalog.pg_class / pg_namespace
+
+pg_stat_user_tables
+
+
+All SELECT-only.
+
+
+---
+
+Safety rules
+
+Default mode read-only
+
+If “save migrations” enabled, still do not execute SQL against DB from the UI unless you explicitly add a “RUN” mode (not in MVP)
+
+
+
+---
+
+Smoke tests
+
+1. Launch with valid DATABASE_URL
+
+
+2. Load tables list
+
+
+3. Click table → see columns + indexes + FKs
+
+
+4. Runbook shows dependency order
+
+
+5. Export runbook markdown
+
+
+
+
+---
+
+Done definition
+
+Done = SchemaPulse can inspect Neon schema reliably and generate a dependency-aware runbook without performing destructive actions or logging unnecessary data.
+
