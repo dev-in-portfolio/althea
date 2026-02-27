@@ -11,6 +11,7 @@
     "test": "pnpm run check"
   },
   "dependencies": {
+    "dotenv": "16.6.1",
     "pg": "8.11.5"
   },
   "devDependencies": {
