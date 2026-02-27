@@ -1,0 +1,178 @@
+Nuxt ViewVault — Nuxt 3 app blueprint (saved views/presets) + Neon backend
+
+What it is
+
+Nuxt ViewVault is a Nuxt 3 app that lets you build filter/sort/column “views” over a dataset, save them to Neon, and share them via URL. It’s a reusable pattern you’ll use everywhere: browser-first UX with real persistence.
+
+
+---
+
+Shared backbone (required in every Neon-backed Nuxt app)
+
+Rule: Nuxt runs client + server. Neon access must be server-only (Nuxt server routes).
+Flow: Nuxt UI → /api/* (Nitro server) → Neon Postgres
+
+Identity (v1, no auth):
+
+Generate device_key UUID in localStorage.
+
+Include it as header X-Device-Key to /api/*.
+
+Server maps device_key → user_id.
+
+
+Server invariants
+
+DATABASE_URL only in server env
+
+Parameterized SQL only
+
+Never import pg into client bundle
+
+
+
+---
+
+Stack (boring + stable)
+
+Nuxt 3
+
+Nitro server routes (server/api/*)
+
+Neon Postgres
+
+pg pinned server-side
+
+
+
+---
+
+Data model (Neon Postgres)
+
+sql/001_viewvault.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists users (
+  id uuid primary key default gen_random_uuid(),
+  device_key text not null unique,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists nuxt_views (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references users(id) on delete cascade,
+  name text not null,
+  route text not null default '/',
+  state jsonb not null,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  unique(user_id, name)
+);
+
+create index if not exists idx_nuxt_views_user_route on nuxt_views(user_id, route);
+
+State JSON contract
+
+{
+  "q": "",
+  "filters": { "tag": ["x","y"], "status": ["open"] },
+  "sort": { "field": "updated_at", "dir": "desc" },
+  "columns": ["title","status","tag","updated_at"],
+  "pageSize": 50
+}
+
+
+---
+
+Server API (Nitro)
+
+GET /api/views?route=/demo
+
+POST /api/views { name, route, state }
+
+PATCH /api/views/:id { name?, state? }
+
+DELETE /api/views/:id
+
+
+Caps
+
+max views/user: 500
+
+state size: 32KB
+
+
+
+---
+
+Nuxt pages (MVP)
+
+/ landing
+
+/demo dataset browser (filters/sort/columns/pagination)
+
+/views manage views (optional)
+
+
+URL state
+
+query params reflect state (?q=&tag=a,b&sort=...)
+
+applying a view updates URL and UI
+
+
+
+---
+
+UI components (MVP)
+
+ViewPicker.vue (load/apply views)
+
+SaveViewModal.vue
+
+FilterBar.vue
+
+DataTable.vue (paginated)
+
+
+
+---
+
+Performance approach
+
+paginate lists (server or local)
+
+minimal client watchers
+
+don’t ship full dataset bodies into the browser
+
+
+
+---
+
+Smoke tests
+
+1. Change filters → URL updates
+
+
+2. Save view “Default”
+
+
+3. Reload → apply view restores state
+
+
+4. Delete view works
+
+
+5. No DB code in client bundle
+
+
+
+
+---
+
+Done definition
+
+Done = saved views persist in Neon through Nuxt server routes; UI state is URL-first and reliable.
+
