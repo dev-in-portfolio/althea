@@ -36,12 +36,24 @@ export default function LatchItemPage() {
   const [proofLabel, setProofLabel] = useState('');
   const [proofNote, setProofNote] = useState('');
   const [proofUrl, setProofUrl] = useState('');
+  const [proofFilter, setProofFilter] = useState<'all' | 'note' | 'link'>('all');
   const [status, setStatus] = useState('');
+
+  const activity = useMemo(() => {
+    return [...proofs]
+      .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
+      .slice(0, 5);
+  }, [proofs]);
 
   const canAdvance = useMemo(() => {
     if (!item) return false;
     return !item.proof_required || proofs.length > 0;
   }, [item, proofs]);
+
+  const visibleProofs = useMemo(() => {
+    if (proofFilter === 'all') return proofs;
+    return proofs.filter((proof) => proof.kind === proofFilter);
+  }, [proofs, proofFilter]);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
@@ -84,6 +96,10 @@ export default function LatchItemPage() {
   }, [itemId]);
 
   async function saveItem() {
+    if (!title.trim()) {
+      setStatus('Title required.');
+      return;
+    }
     const { data, error } = await supabase
       .from('latch_items')
       .update({ title: title.trim(), body: body.trim() })
@@ -105,6 +121,10 @@ export default function LatchItemPage() {
     }
     if (proofKind === 'link' && !proofUrl.trim()) {
       setStatus('URL required.');
+      return;
+    }
+    if (proofKind === 'link' && !/^https?:\/\//i.test(proofUrl.trim())) {
+      setStatus('URL must start with http:// or https://');
       return;
     }
     const { data: userData } = await supabase.auth.getUser();
@@ -190,6 +210,25 @@ export default function LatchItemPage() {
         </div>
       </div>
 
+      <div className="card alt">
+        <h3>Recent proof activity</h3>
+        {activity.length === 0 ? (
+          <p className="muted">No proofs yet.</p>
+        ) : (
+          <div className="grid" style={{ marginTop: 12 }}>
+            {activity.map((proof) => (
+              <div key={proof.id} className="card">
+                <div className="toolbar" style={{ justifyContent: 'space-between' }}>
+                  <strong>{proof.label || proof.kind}</strong>
+                  <span className="badge">{proof.kind}</span>
+                </div>
+                <p className="muted">Added {new Date(proof.created_at).toLocaleString()}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
       <div className="card">
         <h3>Add proof</h3>
         <div className="grid">
@@ -209,11 +248,19 @@ export default function LatchItemPage() {
 
       <div className="card alt">
         <h3>Proofs</h3>
-        {proofs.length === 0 ? (
+        <div className="toolbar" style={{ marginTop: 12 }}>
+          <span className="muted">Filter:</span>
+          <select className="input" value={proofFilter} onChange={(e) => setProofFilter(e.target.value as 'all' | 'note' | 'link')}>
+            <option value="all">All</option>
+            <option value="note">Notes</option>
+            <option value="link">Links</option>
+          </select>
+        </div>
+        {visibleProofs.length === 0 ? (
           <p className="muted">No proofs yet.</p>
         ) : (
           <div className="grid" style={{ marginTop: 12 }}>
-            {proofs.map((proof) => (
+            {visibleProofs.map((proof) => (
               <div key={proof.id} className="card">
                 <div className="toolbar" style={{ justifyContent: 'space-between' }}>
                   <strong>{proof.label || proof.kind}</strong>
