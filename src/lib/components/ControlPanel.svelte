@@ -42,8 +42,8 @@
     />
 
     <div>
-      <label class="small">Texture Pattern</label>
-      <select class="input" bind:value={settings.texture.pattern} on:change={handlePatternChange}>
+      <label class="small" for="texture-pattern">Texture Pattern</label>
+      <select id="texture-pattern" class="input" bind:value={settings.texture.pattern} on:change={handlePatternChange}>
         {#each patterns as pattern}
           <option value={pattern}>{pattern}</option>
         {/each}

@@ -2,6 +2,7 @@
   export let label: string;
   export let value = '#000000';
   export let onChange: (value: string) => void;
+  const inputId = `color-${Math.random().toString(36).slice(2, 8)}`;
 
   function handleInput(event: Event) {
     const target = event.target as HTMLInputElement | null;
@@ -11,9 +12,9 @@
 </script>
 
 <div class="row">
-  <label>{label}</label>
-  <input type="color" bind:value={value} on:input={handleInput} />
-  <input class="input" bind:value={value} on:input={handleInput} />
+  <label for={inputId}>{label}</label>
+  <input id={inputId} type="color" bind:value={value} on:input={handleInput} />
+  <input class="input" bind:value={value} on:input={handleInput} aria-labelledby={inputId} />
 </div>
 
 <style>

@@ -5,6 +5,7 @@
   export let max = 1;
   export let step = 0.01;
   export let onChange: (value: number) => void;
+  const inputId = `slider-${Math.random().toString(36).slice(2, 8)}`;
 
   function handleInput(event: Event) {
     const target = event.target as HTMLInputElement | null;
@@ -14,8 +15,8 @@
 </script>
 
 <div class="row">
-  <label>{label}</label>
-  <input type="range" min={min} max={max} step={step} bind:value={value} on:input={handleInput} />
+  <label for={inputId}>{label}</label>
+  <input id={inputId} type="range" min={min} max={max} step={step} bind:value={value} on:input={handleInput} />
   <span class="small">{value.toFixed(2)}</span>
 </div>
 
