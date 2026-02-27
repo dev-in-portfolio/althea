@@ -1,0 +1,15 @@
+{% extends "gallery/base.html" %}
+{% block content %}
+  <h1>Favorites</h1>
+  <div class="grid">
+    {% for fav in favorites %}
+      <div class="card">
+        <img src="{{ fav.asset.file.url }}" alt="" style="width:100%; border-radius: 12px;" />
+        <p>{{ fav.asset.caption }}</p>
+        <a href="/assets/{{ fav.asset.id }}/">View</a>
+      </div>
+    {% empty %}
+      <p>No favorites yet.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

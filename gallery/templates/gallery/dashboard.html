@@ -1,0 +1,28 @@
+{% extends "gallery/base.html" %}
+{% block content %}
+  <h1>Dashboard</h1>
+  <h3>Recent Collections</h3>
+  <div class="grid">
+    {% for collection in collections %}
+      <div class="card">
+        <strong>{{ collection.name }}</strong>
+        <p>{{ collection.asset_count }} assets</p>
+        <a href="/collections/{{ collection.id }}/">Open</a>
+      </div>
+    {% empty %}
+      <p>No collections yet.</p>
+    {% endfor %}
+  </div>
+  <h3 style="margin-top: 24px;">Recent Assets</h3>
+  <div class="grid">
+    {% for asset in assets %}
+      <div class="card">
+        <img src="{{ asset.file.url }}" alt="" style="width:100%; border-radius: 12px;" />
+        <p>{{ asset.caption }}</p>
+        <a href="/assets/{{ asset.id }}/">View</a>
+      </div>
+    {% empty %}
+      <p>No assets yet.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

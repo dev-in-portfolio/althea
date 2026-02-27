@@ -1,0 +1,10 @@
+.DS_Store
+.env
+.venv
+__pycache__
+*.pyc
+db.sqlite3
+media
+staticfiles
+node_modules
+dist

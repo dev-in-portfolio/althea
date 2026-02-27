@@ -1,0 +1,22 @@
+{% extends "gallery/base.html" %}
+{% block content %}
+  <h1>Asset</h1>
+  <div class="card">
+    <img src="{{ asset.file.url }}" alt="" style="width:100%; border-radius: 12px;" />
+    <p>{{ asset.caption }}</p>
+    <p>Collection: {{ asset.collection.name }}</p>
+    <div>
+      {% if favorite %}
+        <form method="post">
+          {% csrf_token %}
+          <button class="btn" name="unfavorite">Remove Favorite</button>
+        </form>
+      {% else %}
+        <form method="post">
+          {% csrf_token %}
+          <button class="btn" name="favorite">Add Favorite</button>
+        </form>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
