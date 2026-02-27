@@ -54,7 +54,12 @@ export async function GET(request: Request) {
     [userKey, windowDays]
   );
 
-  const events: EventRecord[] = rows.map((row) => ({
+  const events: EventRecord[] = rows.map((row: {
+    id: string;
+    happened_at: string;
+    tags: string[] | null;
+    context: Record<string, string> | null;
+  }) => ({
     id: row.id,
     happenedAt: row.happened_at,
     tags: row.tags || [],
