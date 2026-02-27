@@ -1,0 +1,350 @@
+CueDeck — React Native + Neon backend blueprint (Flashcards + spaced repetition)
+
+What it is
+
+CueDeck is a clean flashcard app that actually feels good to use: create decks, add cards, then do quick review sessions. The hook is the “next card queue” driven by simple spaced repetition so it’s not just a dumb stack—you always have something meaningful to review.
+
+
+---
+
+Shared backbone (required in every Neon-backed React Native app)
+
+Rule: React Native never connects to Neon directly.
+Flow: React Native → API server → Neon (Postgres)
+
+Identity (v1, no auth system):
+
+On first launch, app generates and stores device_key (UUID).
+
+Every request includes header: X-Device-Key: <uuid>.
+
+API maps device_key → user_id in Postgres and uses user_id for all queries.
+
+
+Server invariants:
+
+DATABASE_URL in env (Neon)
+
+Parameterized SQL only
+
+Basic limits (rows per user, payload size)
+
+CORS enabled for mobile dev
+
+
+
+---
+
+Data model (Neon Postgres)
+
+sql/001_cuedeck.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists users (
+  id uuid primary key default gen_random_uuid(),
+  device_key text not null unique,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists decks (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references users(id) on delete cascade,
+  name text not null,
+  description text not null default '',
+  created_at timestamptz not null default now(),
+  unique(user_id, name)
+);
+
+create table if not exists cards (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references users(id) on delete cascade,
+  deck_id uuid not null references decks(id) on delete cascade,
+  front text not null,
+  back text not null,
+  tags text[] not null default '{}',
+  -- spaced repetition fields (simple, boring)
+  ease numeric(4,2) not null default 2.50,          -- clamp 1.30..3.00
+  interval_days int not null default 0,             -- next interval
+  due_at timestamptz not null default now(),        -- when to show next
+  last_reviewed_at timestamptz null,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+create index if not exists idx_cards_user_deck_due
+  on cards(user_id, deck_id, due_at asc);
+
+create index if not exists idx_cards_user_due
+  on cards(user_id, due_at asc);
+
+create index if not exists idx_cards_tags_gin
+  on cards using gin(tags);
+
+create table if not exists reviews (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references users(id) on delete cascade,
+  card_id uuid not null references cards(id) on delete cascade,
+  deck_id uuid not null references decks(id) on delete cascade,
+  rating text not null check (rating in ('again','hard','good','easy')),
+  reviewed_at timestamptz not null default now(),
+  prev_due_at timestamptz null,
+  next_due_at timestamptz not null
+);
+
+create index if not exists idx_reviews_user_time
+  on reviews(user_id, reviewed_at desc);
+
+-- updated_at trigger
+create or replace function touch_updated_at()
+returns trigger language plpgsql as $$
+begin new.updated_at = now(); return new; end $$;
+
+drop trigger if exists trg_cards_touch on cards;
+create trigger trg_cards_touch
+before update on cards
+for each row execute function touch_updated_at();
+
+
+---
+
+Spaced repetition rule (server-owned, deterministic)
+
+You want the server to compute scheduling so clients can’t drift.
+
+Inputs: rating in {again, hard, good, easy}
+State: ease, interval_days, due_at
+Outputs: new ease, new interval_days, new due_at
+
+Simple rules (boring, stable)
+
+again:
+
+interval_days = 0
+
+due_at = now() + 5 minutes
+
+ease = max(1.30, ease - 0.20)
+
+
+hard:
+
+interval_days = max(1, floor(interval_days * 1.20))
+
+due_at = now() + interval_days days
+
+ease = max(1.30, ease - 0.05)
+
+
+good:
+
+if interval_days == 0 → 1 day
+
+else interval_days = max(1, floor(interval_days * ease))
+
+due_at = now() + interval_days days
+
+ease unchanged
+
+
+easy:
+
+if interval_days == 0 → 3 days
+
+else interval_days = max(1, floor(interval_days * ease * 1.30))
+
+due_at = now() + interval_days days
+
+ease = min(3.00, ease + 0.05)
+
+
+
+
+---
+
+API surface (REST, boring)
+
+Base URL: /api/cuedeck
+All requests require X-Device-Key.
+
+Decks
+
+GET /decks
+
+POST /decks body: { name, description? }
+
+DELETE /decks/:id
+
+
+Cards
+
+GET /cards?deckId=&q=&tag=&dueOnly=true|false&limit=50&cursor=<due_at_iso>
+
+POST /cards body: { deckId, front, back, tags?: string[] }
+
+PATCH /cards/:id body: { front?, back?, tags? }
+
+DELETE /cards/:id
+
+
+Review queue + submit review
+
+GET /queue?deckId=&limit=25
+Returns cards ordered by due_at asc, only where due_at <= now() (or include near-due if you want)
+
+POST /review body: { cardId, rating }
+Server:
+
+1. verifies card ownership
+
+
+2. computes next schedule
+
+
+3. updates card fields
+
+
+4. inserts reviews row
+
+
+5. returns updated card + next_due_at
+
+
+
+
+Behavior caps
+
+Max decks per user: 500
+
+Max cards per deck: 50,000
+
+front/back non-empty, <= 10,000 chars each
+
+Tags: max 20 per card, each tag <= 24 chars
+
+
+
+---
+
+React Native app structure
+
+Recommended stack
+
+React Native (Expo)
+
+Storage: AsyncStorage (device_key), optional SQLite for offline cache later
+
+UI: swipeable cards (gesture handler), minimal animation
+
+
+Folders
+
+src/
+  core/
+    deviceKey.ts
+    api.ts
+  features/cuedeck/
+    models.ts
+    cuedeckApi.ts
+    screens/
+      DecksScreen.tsx
+      DeckDetailScreen.tsx
+      CardEditorScreen.tsx
+      ReviewScreen.tsx
+      HistoryScreen.tsx
+    components/
+      DeckRow.tsx
+      CardSwipe.tsx
+      TagChips.tsx
+      ReviewButtons.tsx
+
+
+---
+
+Screens + UX loop (MVP)
+
+1. Decks
+
+
+
+list decks + due count badge (server can return counts)
+
+create deck
+
+
+2. Deck Detail
+
+
+
+list cards (search + tag filter)
+
+add/edit card
+
+
+3. Review
+
+
+
+shows queue card-by-card
+
+swipe reveals back
+
+rating buttons: Again / Hard / Good / Easy
+
+instant next card
+
+
+4. History
+
+
+
+shows recent reviews (time + rating)
+
+helps validate the system is “doing something real”
+
+
+
+---
+
+Smoke tests
+
+Mobile
+
+1. First launch → device_key stored
+
+
+2. Create deck “Ops Terms”
+
+
+3. Create 5 cards
+
+
+4. Go to Review → queue returns those cards due now
+
+
+5. Rate one “easy” → it disappears from due queue
+
+
+6. Re-open Review → queue smaller and ordered correctly
+
+
+
+API
+
+1. POST /review updates card due_at in future
+
+
+2. GET /queue excludes non-due cards
+
+
+3. Different device_key sees zero of your decks/cards
+
+
+
+
+---
+
+Done definition
+
+Done = decks/cards CRUD works, review queue works, server schedules due dates deterministically, and Neon persists everything scoped by device identity.
+
