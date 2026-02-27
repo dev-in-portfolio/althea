@@ -1,0 +1,169 @@
+Qwik Atlas — Qwik app blueprint (collection browser + saved views) + Neon backend
+
+What it is
+
+Qwik Atlas is a fast collection browser: a big list/grid of items with filters/search/sort, plus “Saved Views” (presets) stored in Neon. It’s built to show off Qwik’s resumability and minimal JS while still having real persistence.
+
+
+---
+
+Shared backbone (required in every Neon-backed Qwik app)
+
+Rule: Qwik runs in the browser; it must never talk to Neon directly.
+Flow: Qwik → API server → Neon (Postgres)
+
+Identity (v1, no auth):
+
+Qwik generates device_key UUID in localStorage.
+
+Every request includes X-Device-Key.
+
+API resolves device_key → user_id.
+
+
+Server invariants
+
+DATABASE_URL env-only
+
+Parameterized SQL only
+
+CORS configured
+
+Caps on state size and row counts
+
+
+
+---
+
+Stack (boring + stable)
+
+Qwik (Qwik City)
+
+API: your existing Node server (Fastify/Express/Nest—pick one; keep consistent)
+
+DB: Neon Postgres with pg server-side
+
+
+
+---
+
+Data model (Neon Postgres)
+
+sql/001_qwik_atlas.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists users (
+  id uuid primary key default gen_random_uuid(),
+  device_key text not null unique,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists qwik_views (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references users(id) on delete cascade,
+  name text not null,
+  route text not null default '/',
+  state jsonb not null, -- q, filters, sort, layout
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  unique(user_id, name)
+);
+
+create index if not exists idx_qwik_views_user_route on qwik_views(user_id, route);
+
+
+---
+
+API surface
+
+Base: /api/qwik-atlas
+
+GET /views?route=/
+
+POST /views { name, route, state }
+
+PATCH /views/:id { name?, state? }
+
+DELETE /views/:id
+
+
+Optional data endpoint (if you want server-backed data):
+
+GET /items?q=&tag=&sort=&page=
+
+
+(But MVP can ship dataset as static JSON and only persist views.)
+
+
+---
+
+Qwik app pages (routes)
+
+/ Browser
+
+/views Manage saved views (optional separate page)
+
+
+
+---
+
+UI/UX (MVP)
+
+Browser page
+
+Search input (updates URL params)
+
+Filter chips (tags, status)
+
+Sort dropdown
+
+Layout toggle (list/grid)
+
+“Save View” button → name modal
+
+“View Picker” dropdown → applies saved state and updates URL
+
+
+Key rule: state is URL-first, saved views are Neon-backed.
+
+
+---
+
+Performance approach (boring)
+
+Use URL params as single source of truth
+
+Only load minimal client code via Qwik signals
+
+Paginate list; do not virtualize unless needed
+
+
+
+---
+
+Smoke tests
+
+1. Load app → list shows
+
+
+2. Set filter + sort → URL updates
+
+
+3. Save view “My Default”
+
+
+4. Reload → apply view → state restores
+
+
+5. Delete view → disappears
+
+
+
+
+---
+
+Done definition
+
+Done = Qwik app is URL-state driven, saved views persist to Neon via API, and no DB creds reach the client.
+
