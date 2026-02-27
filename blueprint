@@ -1,0 +1,214 @@
+Qwik SignalTile — Qwik app blueprint (status tiles + rules + polling) + Neon backend
+
+What it is
+
+Qwik SignalTile is a fast “control board” app: define signals (latency, build health, project state, queue depth), attach threshold rules, and the board highlights OK/WARN/BAD with minimal client JavaScript. It’s a resumable dashboard that feels instant even on mobile.
+
+
+---
+
+Shared backbone (required in every Neon-backed Qwik app)
+
+Rule: Qwik must never connect to Neon directly.
+Flow: Qwik → API server → Neon (Postgres)
+
+Identity (v1, no auth):
+
+Qwik generates device_key UUID in localStorage.
+
+Sends X-Device-Key.
+
+API resolves to user_id.
+
+
+Server invariants
+
+DATABASE_URL env-only
+
+Parameterized SQL only
+
+CORS configured
+
+No noisy logging
+
+
+
+---
+
+Data model (Neon Postgres)
+
+sql/001_qwik_signaltile.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists users (
+  id uuid primary key default gen_random_uuid(),
+  device_key text not null unique,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists qst_signals (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references users(id) on delete cascade,
+  name text not null,
+  kind text not null default 'generic',
+  status text not null default 'ok' check (status in ('ok','warn','bad')),
+  note text not null default '',
+  value_num numeric(14,4) null,
+  value_unit text not null default '',
+  updated_at timestamptz not null default now(),
+  created_at timestamptz not null default now(),
+  unique(user_id, name)
+);
+
+create table if not exists qst_rules (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references users(id) on delete cascade,
+  signal_id uuid not null references qst_signals(id) on delete cascade,
+  warn_if_gt numeric(14,4) null,
+  warn_if_lt numeric(14,4) null,
+  bad_if_gt numeric(14,4) null,
+  bad_if_lt numeric(14,4) null,
+  created_at timestamptz not null default now(),
+  unique(user_id, signal_id)
+);
+
+create index if not exists idx_qst_signals_user_status on qst_signals(user_id, status);
+create index if not exists idx_qst_signals_user_updated on qst_signals(user_id, updated_at desc);
+
+
+---
+
+Rule evaluation (server-owned)
+
+On PATCH /signals/:id when value_num changes:
+
+compute status:
+
+BAD if any bad threshold breached
+
+WARN if any warn threshold breached
+
+else OK If no value or no rule, allow manual status.
+
+
+
+
+---
+
+API surface
+
+Base: /api/qst
+
+Signals
+
+GET /board → returns signals sorted by severity then updated_at
+
+POST /signals { name, kind?, note?, valueNum?, valueUnit? }
+
+PATCH /signals/:id { note?, valueNum?, valueUnit?, status? }
+
+DELETE /signals/:id
+
+
+Rules
+
+GET /signals/:id/rule
+
+POST /signals/:id/rule { warnIfGt?, warnIfLt?, badIfGt?, badIfLt? } (upsert)
+
+DELETE /signals/:id/rule
+
+
+Caps
+
+Max signals per user: 5,000
+
+Note length <= 2,000
+
+
+
+---
+
+Qwik City routes
+
+/ Board
+
+/signal/:id Signal detail + rule editor
+
+/manage bulk create (paste list) + cleanup tools
+
+
+
+---
+
+UI/UX (MVP)
+
+Board
+
+tile grid
+
+filter by status/kind
+
+sort toggle: severity vs recently updated
+
+quick edit note inline
+
+polling toggle (on/off) + refresh now
+
+
+Signal detail
+
+edit name/kind/unit
+
+set thresholds (rule editor)
+
+manual override status if needed
+
+
+Manage
+
+paste list of signal names → creates in batch
+
+bulk delete by filter (confirm)
+
+
+
+---
+
+Polling (boring)
+
+fetch /board every 15 seconds
+
+pause toggle
+
+“last refreshed” timestamp
+
+
+
+---
+
+Smoke tests
+
+1. Create “API latency ms”
+
+
+2. Set rule warn>200 bad>500
+
+
+3. Update value 250 → WARN tile
+
+
+4. Update value 700 → BAD tile shows at top
+
+
+5. Reload page → state persists from Neon
+
+
+
+
+---
+
+Done definition
+
+Done = Qwik dashboard renders fast, polls safely, persists signals/rules to Neon via API, and never leaks DB credentials to the client.
