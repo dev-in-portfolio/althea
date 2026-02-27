@@ -1,0 +1,237 @@
+Signal Board — Vue.js + Neon blueprint (live status tiles + rules + alert thresholds)
+
+What it is
+
+Signal Board is a Vue dashboard of tiles (systems, projects, endpoints, jobs—whatever you define) with status, notes, and rule-driven alert thresholds. It’s not “logging small things.” It’s a control panel: you define signals, set rules, and the board highlights what needs attention.
+
+
+---
+
+Shared backbone (required in every Neon-backed Vue app)
+
+Rule: Vue must never connect to Neon directly.
+Flow: Vue → API server → Neon (Postgres)
+
+Identity (v1, no auth):
+
+Vue generates device_key UUID in localStorage
+
+sends X-Device-Key
+
+API maps to user_id
+
+
+Server invariants
+
+DATABASE_URL env-only
+
+Parameterized SQL only
+
+CORS configured
+
+No noisy telemetry logging
+
+
+
+---
+
+Data model (Neon Postgres)
+
+sql/001_signalboard.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists users (
+  id uuid primary key default gen_random_uuid(),
+  device_key text not null unique,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists signals (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references users(id) on delete cascade,
+  name text not null,
+  kind text not null default 'generic',          -- api|job|project|system|generic
+  status text not null default 'ok' check (status in ('ok','warn','bad')),
+  note text not null default '',
+  value_num numeric(14,4) null,                 -- optional numeric value
+  value_unit text not null default '',
+  updated_at timestamptz not null default now(),
+  created_at timestamptz not null default now(),
+  unique(user_id, name)
+);
+
+create table if not exists signal_rules (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references users(id) on delete cascade,
+  signal_id uuid not null references signals(id) on delete cascade,
+  warn_if_gt numeric(14,4) null,
+  warn_if_lt numeric(14,4) null,
+  bad_if_gt numeric(14,4) null,
+  bad_if_lt numeric(14,4) null,
+  created_at timestamptz not null default now(),
+  unique(user_id, signal_id)
+);
+
+create index if not exists idx_signals_user_status on signals(user_id, status);
+create index if not exists idx_signals_user_updated on signals(user_id, updated_at desc);
+
+
+---
+
+Rule evaluation (server-owned)
+
+When updating a signal with value_num, server computes status:
+
+if bad_if_gt and value > bad_if_gt → status bad
+
+if bad_if_lt and value < bad_if_lt → status bad
+
+else if warn thresholds triggered → status warn
+
+else status ok
+
+
+If no value/rules: status can be manually set by user.
+
+
+---
+
+API surface
+
+Base: /api/signalboard
+
+Signals
+
+GET /signals
+
+POST /signals { name, kind?, note?, valueNum?, valueUnit? }
+
+PATCH /signals/:id { note?, valueNum?, valueUnit?, status? }
+
+DELETE /signals/:id
+
+
+Rules
+
+GET /signals/:id/rule
+
+POST /signals/:id/rule { warnIfGt?, warnIfLt?, badIfGt?, badIfLt? } (upsert)
+
+DELETE /signals/:id/rule
+
+
+Board
+
+GET /board → returns signals sorted by:
+
+1. status severity (bad, warn, ok)
+
+
+2. updated_at desc
+
+
+
+
+Caps
+
+Max signals per user: 5,000
+
+Note length: 2,000
+
+Name length: 80
+
+
+
+---
+
+Vue app structure (Vite)
+
+src/
+  main.ts
+  router.ts
+  core/
+    deviceKey.ts
+    api.ts
+  pages/
+    Board.vue
+    SignalDetail.vue
+    ManageSignals.vue
+  components/
+    SignalTile.vue
+    StatusLegend.vue
+    FilterBar.vue
+    RuleEditor.vue
+    InlineNoteEditor.vue
+
+
+---
+
+Core UX (MVP)
+
+Board
+
+tile grid (responsive)
+
+filters: status, kind
+
+sort toggle: severity vs recently updated
+
+quick update: edit note, set value
+
+
+Signal Detail
+
+edit name/kind
+
+view last updated
+
+set thresholds (rule editor)
+
+
+Manage Signals
+
+bulk create (paste list)
+
+bulk delete by filter
+
+
+
+---
+
+Live refresh (boring)
+
+poll /board every 10–30 seconds
+
+manual refresh button
+
+pause polling toggle
+
+
+
+---
+
+Smoke tests
+
+1. Create signal “API latency” with unit “ms”
+
+
+2. Set rule warn_if_gt=200, bad_if_gt=500
+
+
+3. Update value_num=250 → status becomes warn
+
+
+4. Update value_num=700 → status becomes bad
+
+
+5. Board sorts bad tiles to top
+
+
+
+
+---
+
+Done definition
+
+Done = you can define signals and rules, update values, and the board reliably highlights what’s in warn/bad with data persisted in Neon via API.
