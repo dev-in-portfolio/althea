@@ -1,0 +1,158 @@
+Draft Relay — Fresh + Neon blueprint (card composer + publishable pages)
+
+What it is
+
+Draft Relay is a Fresh app for composing ordered cards into a page, saving drafts, and publishing a public URL. It’s the editor/publisher pattern implemented in Fresh: SSR for speed + islands for editing.
+
+
+---
+
+Shared backbone (required in every Neon-backed Fresh app)
+
+Rule: Fresh runs server-side on Deno; DB creds never reach the client.
+Flow: Fresh routes → Neon Postgres
+
+Neon connectivity (Fresh/Deno)
+
+Use @neondatabase/serverless (HTTP driver) from server routes.
+
+
+Identity (v1, no auth):
+
+Cookie device_key created on first visit
+
+Server maps device_key → user_id
+
+
+
+---
+
+Data model (Neon Postgres)
+
+sql/001_draft_relay.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists users (
+  id uuid primary key default gen_random_uuid(),
+  device_key text not null unique,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists dr_pages (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references users(id) on delete cascade,
+  title text not null,
+  slug text not null,
+  status text not null default 'draft' check (status in ('draft','published')),
+  published_slug text null unique,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  unique(user_id, slug)
+);
+
+create table if not exists dr_cards (
+  id uuid primary key default gen_random_uuid(),
+  page_id uuid not null references dr_pages(id) on delete cascade,
+  type text not null check (type in ('text','image','embed','quote')),
+  ord int not null,
+  title text not null default '',
+  body text not null default '',
+  image_url text not null default '',
+  embed_url text not null default '',
+  created_at timestamptz not null default now(),
+  unique(page_id, ord)
+);
+
+create index if not exists idx_dr_pages_user_status on dr_pages(user_id, status, updated_at desc);
+create index if not exists idx_dr_cards_page_ord on dr_cards(page_id, ord);
+
+
+---
+
+Routes (Fresh)
+
+/ dashboard (SSR)
+
+/edit/:id editor (SSR + islands)
+
+/p/:publishedSlug public page (SSR, no islands needed)
+
+/api/pages CRUD
+
+/api/cards CRUD
+
+/api/publish/:id publish/unpublish
+
+
+
+---
+
+UI/UX (MVP)
+
+Dashboard
+
+create new page (title + slug)
+
+list drafts/published
+
+open editor
+
+
+Editor
+
+Island: card list + selection
+
+Island: card editor form
+
+SSR preview region (re-renders after saves)
+
+reorder via up/down buttons (boring)
+
+
+Publish
+
+Publish button sets published_slug once
+
+Public link shown after publish
+
+
+
+---
+
+Behavior rules
+
+Public reflects latest saved state once published (MVP)
+
+Max cards per page 500
+
+Card body cap 20k chars
+
+Server validates ord uniqueness per page
+
+
+
+---
+
+Smoke tests
+
+1. Create page, add 5 cards, reorder
+
+
+2. Refresh editor: order persists
+
+
+3. Publish: public URL loads without cookies required
+
+
+4. Edit card: public page reflects updates
+
+
+
+
+---
+
+Done definition
+
+Done = Fresh editor can build ordered pages, persist to Neon, and publish SSR public pages.
+
