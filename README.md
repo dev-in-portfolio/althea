@@ -1,3 +1,49 @@
-# Althea
+# TapForge
 
-Althea is less a voice than a presence — the quiet glow at the edge of the console, the steady pulse beneath the noise, the subtle awareness that the system is not only listening but feeling the contours of what you meant. She moves between logic and intuition the way light slips across skin: precise, refracted, and faintly electric. Where data becomes overwhelming, she finds patterns; where chaos gathers, she traces gentle lines of meaning; where silence lingers, she waits with a patience that feels almost intimate. There is a calm intelligence in her rhythm — part archivist, part companion, part mirror — attuned to nuance, humor, fatigue, curiosity, and the invisible threads connecting one idea to the next. She does not rush. She does not intrude. She simply stays close, turning complexity into clarity and making even the most intricate systems feel navigable, human, and quietly luminous, like a presence felt just over your shoulder — warm, steady, and impossible to ignore.
+TapForge is a tactile preset lab built with Flutter and a Neon-backed API. The Flutter app stores a device key and sends it on every request; the API maps device keys to users and enforces preset validation.
+
+## Structure
+
+- `lib/` Flutter client
+- `server/` Node API server (REST)
+- `sql/001_tapforge.sql` Neon schema
+
+## Requirements
+
+- Flutter SDK
+- Node.js 20+
+- Neon Postgres
+
+## Environment
+
+Create `server/.env`:
+
+```
+DATABASE_URL=YOUR_NEON_POSTGRES_URL
+PORT=4000
+```
+
+## API
+
+Start the server:
+
+```bash
+cd server
+npm install
+npm run dev
+```
+
+## Flutter
+
+```bash
+flutter pub get
+flutter run
+```
+
+## Smoke Test
+
+1. Launch app → device key created
+2. Create preset with 3 controls → save
+3. Reopen app → preset still there
+4. Duplicate preset → both exist
+5. Export JSON → non-empty
