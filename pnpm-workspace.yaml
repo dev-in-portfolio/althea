@@ -1,2 +1,7 @@
 packages:
   - .
+
+onlyBuiltDependencies:
+  - '@firebase/util'
+  - farmhash
+  - protobufjs
