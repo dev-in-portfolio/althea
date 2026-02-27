@@ -1,0 +1,305 @@
+Snapshot Vault — NestJS + Neon blueprint (versioned snapshots + diff metadata)
+
+What it is
+
+Snapshot Vault is a backend for storing versioned snapshots of text or JSON documents with lightweight diff metadata. It’s designed to demonstrate immutable history, version lineage, and efficient retrieval of “latest vs previous” without storing giant diffs. Think: config versions, prompt revisions, system states, or knowledge snapshots.
+
+
+---
+
+Shared backbone (required in every Neon-backed NestJS app)
+
+Rule: Clients never connect to Neon directly.
+Flow: Client → NestJS API → Neon (Postgres)
+
+Identity (v1):
+
+Client generates device_key (UUID).
+
+Header: X-Device-Key.
+
+API resolves to user_id.
+
+
+Server invariants
+
+Node 20
+
+Env-only secrets
+
+Parameterized queries only
+
+Ownership enforced at query level
+
+
+
+---
+
+Stack (pinned & stable)
+
+NestJS (TypeScript)
+
+Neon Postgres
+
+pg driver
+
+class-validator DTO validation
+
+@nestjs/config
+
+
+
+---
+
+Design philosophy
+
+Snapshots are immutable
+
+New version = new row
+
+“Latest” determined by version number
+
+Diff metadata stored for quick change awareness
+
+Body stored compressed-ready (text/json)
+
+
+
+---
+
+Data model (Neon Postgres)
+
+sql/001_snapshotvault.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists users (
+  id uuid primary key default gen_random_uuid(),
+  device_key text unique not null,
+  created_at timestamptz default now()
+);
+
+create table if not exists documents (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references users(id) on delete cascade,
+  title text not null,
+  created_at timestamptz default now()
+);
+
+create table if not exists snapshots (
+  id uuid primary key default gen_random_uuid(),
+  document_id uuid not null references documents(id) on delete cascade,
+  version integer not null,
+  body text not null,
+  summary text not null default '',
+  diff_added integer not null default 0,
+  diff_removed integer not null default 0,
+  created_at timestamptz default now(),
+  unique(document_id, version)
+);
+
+create index if not exists idx_docs_user
+  on documents(user_id);
+
+create index if not exists idx_snapshots_doc_version
+  on snapshots(document_id, version desc);
+
+
+---
+
+Versioning rules
+
+When creating a new snapshot:
+
+1. Fetch latest version
+
+
+2. Increment version
+
+
+3. Store new row
+
+
+4. Optionally compute diff stats (client or server)
+
+
+5. Never update existing snapshots
+
+
+
+
+---
+
+API surface
+
+Base: /api
+
+Documents
+
+POST /documents { title }
+
+GET /documents
+
+GET /documents/:id
+
+DELETE /documents/:id
+
+
+Snapshots
+
+POST /documents/:id/snapshots
+
+{
+  "body": "...",
+  "summary": "optional change note",
+  "diffAdded": 12,
+  "diffRemoved": 3
+}
+
+GET /documents/:id/snapshots
+
+GET /snapshots/:id
+
+GET /documents/:id/latest
+
+GET /documents/:id/compare?v1=&v2=
+
+
+
+---
+
+Compare endpoint behavior
+
+Returns:
+
+{
+  "versionA": 3,
+  "versionB": 5,
+  "added": 42,
+  "removed": 10,
+  "summaryA": "...",
+  "summaryB": "..."
+}
+
+(Body diff rendering left to client.)
+
+
+---
+
+NestJS module layout
+
+src/
+  db/
+    db.service.ts
+
+  authlite/
+    device-key.guard.ts
+    user.service.ts
+
+  documents/
+    documents.controller.ts
+    documents.service.ts
+    dto/create-document.dto.ts
+
+  snapshots/
+    snapshots.controller.ts
+    snapshots.service.ts
+    dto/create-snapshot.dto.ts
+
+
+---
+
+Service logic highlights
+
+Create snapshot
+
+verify document ownership
+
+fetch latest version
+
+insert version +1
+
+
+Get latest
+
+select * from snapshots
+where document_id=$1
+order by version desc
+limit 1;
+
+Compare
+
+fetch two versions
+
+return metadata + summaries
+
+
+
+---
+
+Request limits
+
+Max documents per user: 10,000
+
+Max snapshots per document: 50,000
+
+Max body size: 2 MB
+
+Summary max length: 1,000 chars
+
+
+
+---
+
+Env
+
+.env.example
+
+DATABASE_URL=REDACTED
+PORT=3000
+
+
+---
+
+Smoke tests
+
+1. Create document
+
+
+2. Create snapshot v1
+
+
+3. Create snapshot v2
+
+
+4. GET latest returns v2
+
+
+5. Compare v1 & v2 returns diff metadata
+
+
+6. Another device_key sees nothing
+
+
+
+
+---
+
+Why this is strong portfolio material
+
+immutable history modeling
+
+versioning & lineage
+
+diff metadata design
+
+scalable snapshot strategy
+
+
+
+---
+
+Done definition
+
+Done = documents can be versioned immutably, latest retrieval works, version comparisons return metadata, and ownership boundaries are enforced.
+
