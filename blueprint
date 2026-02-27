@@ -1,0 +1,240 @@
+LineFlow — React Native + Neon backend blueprint
+
+What it is
+
+LineFlow is a multi-timer command board designed for real-world sequencing: cooking lines, workout intervals, maintenance steps, or any timed workflow where order matters. It emphasizes visual sequencing, rapid interaction, and persistence across sessions.
+
+
+---
+
+Shared backbone (required in every Neon-backed React Native app)
+
+Rule: React Native never connects directly to Neon.
+Flow: React Native → API server → Neon Postgres
+
+Identity (v1):
+
+App generates device_key (UUID) on first launch.
+
+Sent in header: X-Device-Key.
+
+API maps to user_id.
+
+
+Server invariants
+
+Neon connection via DATABASE_URL
+
+Parameterized SQL only
+
+Request size & row limits
+
+CORS enabled
+
+
+
+---
+
+Data model (Neon Postgres)
+
+sql/001_lineflow.sql
+
+create extension if not exists pgcrypto;
+
+create table if not exists users (
+  id uuid primary key default gen_random_uuid(),
+  device_key text unique not null,
+  created_at timestamptz default now()
+);
+
+-- timer presets
+create table if not exists timer_presets (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid references users(id) on delete cascade,
+  name text not null,
+  duration_seconds integer not null,
+  color text not null default '#ffffff',
+  created_at timestamptz default now()
+);
+
+-- active timers & history
+create table if not exists timer_sessions (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid references users(id) on delete cascade,
+  preset_id uuid null references timer_presets(id) on delete set null,
+  label text not null default '',
+  duration_seconds integer not null,
+  started_at timestamptz,
+  completed_at timestamptz,
+  status text not null default 'pending', -- pending | running | done | cancelled
+  position integer not null default 0,
+  created_at timestamptz default now()
+);
+
+create index if not exists idx_timer_sessions_user
+  on timer_sessions(user_id, created_at desc);
+
+
+---
+
+API surface
+
+Base: /api/timers
+
+Presets
+
+GET /presets
+
+POST /presets { name, durationSeconds, color? }
+
+DELETE /presets/:id
+
+
+Sessions
+
+GET /sessions
+
+POST /sessions { presetId?, label?, durationSeconds }
+
+PATCH /sessions/:id { status?, position?, startedAt?, completedAt? }
+
+DELETE /sessions/:id
+
+
+Behavior caps
+
+Max active timers: 50
+
+Max presets: 200
+
+
+
+---
+
+React Native app structure
+
+Stack
+
+React Native (Expo)
+
+Animated API / Reanimated for smooth timer progress
+
+AsyncStorage (device_key + last layout state)
+
+
+Folders
+
+src/
+  core/
+    deviceKey.ts
+    api.ts
+  features/timers/
+    timerApi.ts
+    screens/
+      BoardScreen.tsx
+      PresetsScreen.tsx
+      HistoryScreen.tsx
+    components/
+      TimerCard.tsx
+      PresetChip.tsx
+      AddTimerBar.tsx
+
+
+---
+
+Core UX loop
+
+1) Board (primary screen)
+
+Drag to reorder timers
+
+Start / pause / cancel
+
+Visual countdown ring
+
+Color coding per preset
+
+Group timers visually by sequence
+
+
+2) Presets
+
+Save common durations (e.g., 6 min sear, 10 min rest)
+
+Tap to add to board
+
+
+3) History
+
+Completed sessions
+
+Useful for habit timing & process refinement
+
+
+
+---
+
+Timer engine design
+
+JS timer ticks every second
+
+Store start timestamp → compute remaining time (prevents drift)
+
+Persist state so app reload resumes timers
+
+
+
+---
+
+Notifications (optional v2)
+
+Local notifications when timer completes
+
+Vibration patterns
+
+
+
+---
+
+Smoke tests
+
+Mobile
+
+1. Create preset “Rest 5m”
+
+
+2. Add timer from preset
+
+
+3. Start timer → countdown accurate
+
+
+4. Close app → reopen → timer state persists
+
+
+5. Reorder timers → persists
+
+
+6. Complete timer → moves to history
+
+
+
+API
+
+1. Sessions stored per device_key
+
+
+2. Presets retrievable
+
+
+3. Status updates reflected
+
+
+
+
+---
+
+Done definition
+
+Done = multi-timer board runs accurately, persists sessions, and Neon stores presets and history.
+
