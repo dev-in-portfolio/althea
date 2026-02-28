@@ -1,18 +1,23 @@
-# Dash FlowLens
+# dash-flowlens
 
-Pipeline flow analytics with Sankey, dwell heatmap, and drop-off rates.
+This is a standalone application part of the Althea Portfolio.
 
-## Features
-- Flow visualization (Sankey)
-- Bottleneck detection (dwell heatmap)
-- Throughput by stage
-- Drop-off rate table
+## Tech Stack
+- **Framework**: Python (FastAPI/Flask)
+- **Deployment**: Netlify
 
-## Setup
-1. Create `.env` with `DATABASE_URL`
-2. Apply SQL in `sql/001_flowlens.sql`
-3. Install deps
-   - `python3 -m venv .venv && source .venv/bin/activate`
-   - `pip install -r requirements.txt`
-4. Run
-   - `python app.py`
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout dash-flowlens
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `pip install -r requirements.txt`
+- **Publish Directory**: `public`
