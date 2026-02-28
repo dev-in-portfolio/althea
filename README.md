@@ -1,10 +1,23 @@
-# Althea
+# patchsmith
 
-PatchSmith is a Gradio operator console for creating precise FIND/REPLACE patches against stored files. It enforces exact matching, supports multi-match selection, and includes an approval flow with export blocks.
+This is a standalone application part of the Althea Portfolio.
 
-Quick start:
+## Tech Stack
+- **Framework**: Python (FastAPI/Flask)
+- **Deployment**: Netlify
 
-1. Create a `.env` file from `.env.example` and set `DATABASE_URL` + `APP_PASSCODE`.
-2. Apply `sql/001_patchsmith.sql` to your Neon database.
-3. Install deps: `pip install -r requirements.txt`
-4. Run: `python app.py`
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout patchsmith
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `pip install -r requirements.txt`
+- **Publish Directory**: `public`
