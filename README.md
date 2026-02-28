@@ -1,47 +1,23 @@
-# Angle
+# angle
 
-Angle takes a short statement and returns multiple deterministic reframes through fixed lenses. It is rule- and template-driven (no AI dependencies) and stores results per anonymous user for revisiting.
+This is a standalone application part of the Althea Portfolio.
 
-## Setup
+## Tech Stack
+- **Framework**: Node.js / JavaScript
+- **Deployment**: Netlify
 
-### Install
-```bash
-npm ci
-```
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout angle
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   npm install && npm run build
+   ```
 
-### Dev
-```bash
-npm run dev
-```
-
-### Start
-```bash
-npm run start
-```
-
-### Environment
-Create `.env.local`:
-```bash
-DATABASE_URL=REDACTED_NEON_POSTGRES_URL
-PORT=3000
-NODE_ENV=development
-```
-
-### Database
-Run the migration in `sql/001_init.sql` against your Neon database.
-
-## Usage
-1. Open `/`
-2. Paste a statement
-3. Generate angles
-4. Visit `/history`
-5. Open a run via `/run/:id`
-
-## Smoke Tests
-- Generate reframes from "Project failed."
-- Verify at least 5 outputs, each containing a keyword
-- Copy button works
-- History shows the run
-- Delete run removes it from history
-- Same input generates the same reframes
-- Re-run on /run/:id with lens switch
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `npm install && npm run build`
+- **Publish Directory**: `dist`
