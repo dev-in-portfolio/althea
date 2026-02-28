@@ -1,10 +1,23 @@
-# Althea
+# hugo-release-gallery
 
-ReleaseGallery — Hugo release vault with artifact manifests and checksums.
+This is a standalone application part of the Althea Portfolio.
 
-## Run locally
+## Tech Stack
+- **Framework**: Hugo (Static Site Generator)
+- **Deployment**: Netlify
 
-1. Install Hugo (extended)
-2. `hugo server -D`
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout hugo-release-gallery
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   hugo
+   ```
 
-Release content lives in `content/releases/`.
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `hugo`
+- **Publish Directory**: `public`
