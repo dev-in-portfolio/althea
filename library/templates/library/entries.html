@@ -1,0 +1,20 @@
+{% extends "library/base.html" %}
+{% block content %}
+  <h1>Entries</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn" type="submit">Create</button>
+  </form>
+  <div class="grid" style="margin-top: 16px;">
+    {% for entry in entries %}
+      <div class="card">
+        <strong>{{ entry.title }}</strong>
+        <p>{{ entry.summary|default:"" }}</p>
+        <a href="/entries/{{ entry.slug }}/">Open</a>
+      </div>
+    {% empty %}
+      <p>No entries yet.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

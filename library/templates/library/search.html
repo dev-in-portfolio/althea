@@ -1,0 +1,20 @@
+{% extends "library/base.html" %}
+{% block content %}
+  <h1>Search</h1>
+  <form method="get">
+    <input name="q" placeholder="Search..." value="{{ q }}" />
+    <input name="tag" placeholder="Tag" value="{{ tag }}" />
+    <button class="btn" type="submit">Search</button>
+  </form>
+  <div class="grid" style="margin-top: 16px;">
+    {% for entry in entries %}
+      <div class="card">
+        <strong>{{ entry.title }}</strong>
+        <p>{{ entry.summary|default:"" }}</p>
+        <a href="/entries/{{ entry.slug }}/">Open</a>
+      </div>
+    {% empty %}
+      <p>No results.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

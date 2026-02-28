@@ -1,0 +1,27 @@
+{% extends "library/base.html" %}
+{% block content %}
+  <h1>Dashboard</h1>
+  <h3>Recent Entries</h3>
+  <div class="grid">
+    {% for entry in entries %}
+      <div class="card">
+        <strong>{{ entry.title }}</strong>
+        <p>{{ entry.summary|default:"" }}</p>
+        <a href="/entries/{{ entry.slug }}/">Open</a>
+      </div>
+    {% empty %}
+      <p>No entries yet.</p>
+    {% endfor %}
+  </div>
+  <h3 style="margin-top: 24px;">Recent Links</h3>
+  <div class="grid">
+    {% for link in links %}
+      <div class="card">
+        <strong>{{ link.from_entry.title }}</strong>
+        <p>{{ link.relationship_type }} → {{ link.to_entry.title }}</p>
+      </div>
+    {% empty %}
+      <p>No links yet.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

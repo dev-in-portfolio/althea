@@ -1,0 +1,58 @@
+{% extends "library/base.html" %}
+{% block content %}
+  <h1>{{ entry.title }}</h1>
+  <p>{{ entry.summary }}</p>
+  <div class="card" style="margin-bottom: 16px;">
+    {{ body_html|safe }}
+  </div>
+
+  <h3>Sections</h3>
+  <div class="grid">
+    {% for section in sections %}
+      <div class="card">
+        <strong>{{ section.heading }}</strong>
+        <p>{{ section.content }}</p>
+      </div>
+    {% empty %}
+      <p>No sections yet.</p>
+    {% endfor %}
+  </div>
+
+  <h3 style="margin-top: 24px;">Add Section</h3>
+  <form method="post">
+    {% csrf_token %}
+    {{ section_form.as_p }}
+    <button class="btn" name="add_section">Add Section</button>
+  </form>
+
+  <h3 style="margin-top: 24px;">Outgoing Links</h3>
+  <div class="grid">
+    {% for link in outgoing %}
+      <div class="card">
+        <strong>{{ link.relationship_type }}</strong>
+        <p>{{ link.to_entry.title }}</p>
+      </div>
+    {% empty %}
+      <p>No outgoing links.</p>
+    {% endfor %}
+  </div>
+
+  <h3 style="margin-top: 24px;">Backlinks</h3>
+  <div class="grid">
+    {% for link in incoming %}
+      <div class="card">
+        <strong>{{ link.from_entry.title }}</strong>
+        <p>{{ link.relationship_type }}</p>
+      </div>
+    {% empty %}
+      <p>No backlinks.</p>
+    {% endfor %}
+  </div>
+
+  <h3 style="margin-top: 24px;">Add Link</h3>
+  <form method="post">
+    {% csrf_token %}
+    {{ link_form.as_p }}
+    <button class="btn" name="add_link">Add Link</button>
+  </form>
+{% endblock %}
