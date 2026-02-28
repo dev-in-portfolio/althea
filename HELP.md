@@ -1,18 +1,14 @@
-# Dash FlowLens
+# Help — Dash-flowlens
 
-Pipeline flow analytics with Sankey, dwell heatmap, and drop-off rates.
+## Overview
+This is a Python-based Dash application for visualizing data flow and throughput within the Althea ecosystem.
 
 ## Features
-- Flow visualization (Sankey)
-- Bottleneck detection (dwell heatmap)
-- Throughput by stage
-- Drop-off rate table
+- **Interactive Visualizations**: Real-time graphing and data representation.
+- **Data Filtering**: Drill down into specific operational metrics.
+- **Responsive Design**: Built for both desktop and mobile monitoring.
 
-## Setup
-1. Create `.env` with `DATABASE_URL`
-2. Apply SQL in `sql/001_flowlens.sql`
-3. Install deps
-   - `python3 -m venv .venv && source .venv/bin/activate`
-   - `pip install -r requirements.txt`
-4. Run
-   - `python app.py`
+## How to Use
+1. Load the dashboard URL.
+2. Use the interactive controls to filter the data stream.
+3. Hover over graphs for detailed metric breakdowns.
