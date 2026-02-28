@@ -1,0 +1,57 @@
+<article class="detail">
+  <h2>{{ spec.title }}</h2>
+  <p>{{ spec.overview }}</p>
+  <div class="meta">
+    <span>Status: {{ spec.status }}</span>
+    <span>Owner: {{ spec.owner }}</span>
+  </div>
+  <div class="tags">
+    {% for tag in spec.tags %}<span>{{ tag }}</span>{% endfor %}
+  </div>
+
+  {% if spec.entities %}
+  <h3>Entities</h3>
+  <table class="table">
+    <thead><tr><th>Name</th><th>Fields</th></tr></thead>
+    <tbody>
+      {% for entity in spec.entities %}
+      <tr>
+        <td>{{ entity.name }}</td>
+        <td>
+          {% for field in entity.fields %}
+            <div><strong>{{ field.name }}</strong> ({{ field.type }})</div>
+          {% endfor %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+
+  {% if spec.routes %}
+  <h3>Routes</h3>
+  <table class="table">
+    <thead><tr><th>Method</th><th>Path</th><th>Request</th><th>Response</th></tr></thead>
+    <tbody>
+      {% for route in spec.routes %}
+      <tr>
+        <td>{{ route.method }}</td>
+        <td>{{ route.path }}</td>
+        <td>{{ route.request | dump | safe }}</td>
+        <td>{{ route.response | dump | safe }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+
+  <h3>Constraints</h3>
+  <ul>
+    {% for item in spec.constraints %}<li>{{ item }}</li>{% endfor %}
+  </ul>
+
+  <h3>Acceptance</h3>
+  <ul>
+    {% for item in spec.acceptance %}<li>{{ item }}</li>{% endfor %}
+  </ul>
+</article>

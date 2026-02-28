@@ -1,0 +1,17 @@
+---
+layout: layouts/base.njk
+title: "SpecForge"
+---
+<div class="search-box">
+  <input id="search-input" type="text" placeholder="Search specs" />
+  <select id="status-filter">
+    <option value="">All status</option>
+    {% for status in collections.statusList %}
+      <option value="{{ status }}">{{ status }}</option>
+    {% endfor %}
+  </select>
+</div>
+<div id="search-results"></div>
+
+{% set items = specs | slice(0, 6) %}
+{% include "layouts/list.njk" %}
