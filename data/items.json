@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "signal-console",
+    "title": "Signal Console",
+    "summary": "Realtime monitoring console for distributed teams.",
+    "tags": ["monitoring", "ops"],
+    "category": "platform",
+    "images": ["/images/signal-console.png"]
+  },
+  {
+    "slug": "vaultkey",
+    "title": "VaultKey",
+    "summary": "Secure key registry with rotation playbooks.",
+    "tags": ["security", "keys"],
+    "category": "security",
+    "images": ["/images/vaultkey.png"]
+  },
+  {
+    "slug": "routeforge",
+    "title": "RouteForge",
+    "summary": "Route planner and logistics intelligence.",
+    "tags": ["routing", "logistics"],
+    "category": "operations",
+    "images": ["/images/routeforge.png"]
+  }
+]

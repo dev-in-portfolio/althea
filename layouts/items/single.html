@@ -1,0 +1,14 @@
+{{ define "main" }}
+{{ $slug := .Params.slug }}
+{{ $item := index (where .Site.Data.items "slug" $slug) 0 }}
+<section class="section">
+  <article class="detail">
+    <h2>{{ $item.title }}</h2>
+    <p>{{ $item.summary }}</p>
+    <div class="tags">
+      {{ range $item.tags }}<span>{{ . }}</span>{{ end }}
+      <span class="pill">{{ $item.category }}</span>
+    </div>
+  </article>
+</section>
+{{ end }}

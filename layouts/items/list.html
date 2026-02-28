@@ -1,0 +1,25 @@
+{{ define "main" }}
+<section class="section">
+  <div class="search-box">
+    <input id="search-input" type="text" placeholder="Search catalog" />
+    <select id="category-filter">
+      <option value="">All categories</option>
+      {{ range $name, $_ := .Site.Taxonomies.categories }}
+        <option value="{{ $name }}">{{ $name }}</option>
+      {{ end }}
+    </select>
+  </div>
+  <div class="cards" id="catalog-results">
+    {{ range .Site.Data.items }}
+    <article class="card">
+      <h3><a href="/items/{{ .slug }}/">{{ .title }}</a></h3>
+      <p>{{ .summary }}</p>
+      <div class="tags">
+        {{ range .tags }}<span>{{ . }}</span>{{ end }}
+      </div>
+      <span class="pill">{{ .category }}</span>
+    </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
