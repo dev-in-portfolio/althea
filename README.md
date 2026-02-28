@@ -1,27 +1,23 @@
-# Hono Intake
+# hono-intake
 
-Validated ingestion service with dedupe hashing and quarantine workflows backed by Neon Postgres.
+This is a standalone application part of the Althea Portfolio.
 
-## Features
-- Strict validation + per-kind requirements
-- Stable hashing for idempotent ingestion
-- Quarantine storage with retry
-- Size caps on payloads
+## Tech Stack
+- **Framework**: Node.js / JavaScript
+- **Deployment**: Netlify
 
-## Setup
-1. Install dependencies
-   - `pnpm install`
-2. Create `.env` from `.env.example`
-3. Apply SQL in `sql/001_hono_intake.sql`
-4. Run locally
-   - `pnpm run dev`
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout hono-intake
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   npm install && npm run build
+   ```
 
-## API
-Base: `/api/intake`
-
-- `POST /` → accepted, duplicate, or quarantined
-- `GET /records?kind=&limit=50`
-- `GET /quarantine?kind=&limit=50`
-
-Admin:
-- `POST /api/admin/quarantine/:id/retry` (requires `ADMIN_TOKEN`)
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `npm install && npm run build`
+- **Publish Directory**: `dist`
