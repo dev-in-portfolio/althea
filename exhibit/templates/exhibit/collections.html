@@ -1,0 +1,20 @@
+{% extends "exhibit/base.html" %}
+{% block content %}
+  <h1>Collections</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn" type="submit">Create Collection</button>
+  </form>
+  <div class="grid" style="margin-top: 16px;">
+    {% for collection in collections %}
+      <div class="card">
+        <strong>{{ collection.name }}</strong>
+        <p>{{ collection.description }}</p>
+        <a href="/collections/{{ collection.id }}/">Open</a>
+      </div>
+    {% empty %}
+      <p>No collections yet.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

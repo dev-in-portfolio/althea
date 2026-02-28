@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ exhibit.title }}</title>
+    <style>
+      body {
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        margin: 0;
+        padding: 24px;
+        background: #0f172a;
+        color: #f8fafc;
+      }
+      .card {
+        background: #1e293b;
+        padding: 16px;
+        border-radius: 12px;
+        margin-bottom: 16px;
+      }
+      img {
+        width: 100%;
+        border-radius: 8px;
+      }
+      a { color: #38bdf8; }
+    </style>
+  </head>
+  <body>
+    <h1>{{ exhibit.title }}</h1>
+    <p>{{ exhibit.summary }}</p>
+    {% for card in exhibit.cards.all %}
+      <div class="card">
+        <h3>{{ card.title }}</h3>
+        <p>{{ card.body }}</p>
+        {% if card.image %}
+          <img src="{{ card.image.url }}" alt="" />
+        {% endif %}
+        {% if card.embed_url %}
+          <a href="{{ card.embed_url }}">{{ card.embed_url }}</a>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </body>
+</html>

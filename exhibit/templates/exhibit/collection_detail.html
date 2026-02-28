@@ -1,0 +1,24 @@
+{% extends "exhibit/base.html" %}
+{% block content %}
+  <h1>{{ collection.name }}</h1>
+  <p>{{ collection.description }}</p>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn" type="submit">Add Exhibit</button>
+  </form>
+  <div class="grid" style="margin-top: 16px;">
+    {% for item in items %}
+      <div class="card">
+        <strong>{{ item.exhibit.title }}</strong>
+        <p>{{ item.exhibit.summary }}</p>
+        <a href="/exhibits/{{ item.exhibit.id }}/edit/">Edit</a>
+        {% if item.exhibit.published_slug %}
+          <a href="/p/{{ item.exhibit.published_slug }}/">Public</a>
+        {% endif %}
+      </div>
+    {% empty %}
+      <p>No exhibits in this collection yet.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

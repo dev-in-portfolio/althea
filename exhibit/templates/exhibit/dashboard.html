@@ -1,0 +1,29 @@
+{% extends "exhibit/base.html" %}
+{% block content %}
+  <h1>Dashboard</h1>
+  <h3>Drafts</h3>
+  <div class="grid">
+    {% for exhibit in drafts %}
+      <div class="card">
+        <strong>{{ exhibit.title }}</strong>
+        <p>{{ exhibit.summary }}</p>
+        <a href="/exhibits/{{ exhibit.id }}/edit/">Edit</a>
+      </div>
+    {% empty %}
+      <p>No drafts yet.</p>
+    {% endfor %}
+  </div>
+  <h3 style="margin-top: 24px;">Published</h3>
+  <div class="grid">
+    {% for exhibit in published %}
+      <div class="card">
+        <strong>{{ exhibit.title }}</strong>
+        <p>{{ exhibit.summary }}</p>
+        <a href="/exhibits/{{ exhibit.id }}/edit/">Edit</a>
+        <a href="/p/{{ exhibit.published_slug }}/">Public</a>
+      </div>
+    {% empty %}
+      <p>No published exhibits yet.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

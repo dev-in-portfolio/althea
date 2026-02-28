@@ -1,0 +1,40 @@
+{% extends "exhibit/base.html" %}
+{% block content %}
+  <h1>Edit Exhibit: {{ exhibit.title }}</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn" name="save_exhibit">Save Exhibit</button>
+  </form>
+
+  <h3 style="margin-top: 24px;">Cards</h3>
+  <div class="grid">
+    {% for card in cards %}
+      <div class="card">
+        <strong>{{ card.type }}</strong>
+        <p>{{ card.title }}</p>
+        <p>{{ card.body }}</p>
+        {% if card.image %}
+          <img src="{{ card.image.url }}" alt="" style="width:100%; border-radius: 8px;" />
+        {% endif %}
+        {% if card.embed_url %}
+          <a href="{{ card.embed_url }}">{{ card.embed_url }}</a>
+        {% endif %}
+        <form method="post" style="margin-top: 8px;">
+          {% csrf_token %}
+          <button class="btn" name="move_up" value="{{ card.id }}">Up</button>
+          <button class="btn" name="move_down" value="{{ card.id }}">Down</button>
+        </form>
+      </div>
+    {% empty %}
+      <p>No cards yet.</p>
+    {% endfor %}
+  </div>
+
+  <h3 style="margin-top: 24px;">Add Card</h3>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ card_form.as_p }}
+    <button class="btn" name="add_card">Add Card</button>
+  </form>
+{% endblock %}
