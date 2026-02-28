@@ -1,0 +1,105 @@
+:root {
+  --bg: #0a0f1f;
+  --panel: #161c2e;
+  --card: #101626;
+  --accent: #ff9f68;
+  --accent-2: #6dd6ff;
+  --text: #f5f7fb;
+  --muted: #9aa4b2;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  background: radial-gradient(circle at top, #1d2745 0%, #0a0f1f 55%);
+  color: var(--text);
+}
+
+.header {
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.header h1 { margin: 0; font-size: 40px; }
+.header p { color: var(--muted); max-width: 520px; }
+
+.shell { max-width: 1280px; margin: 0 auto; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  padding: 24px 32px 48px;
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 24px 40px rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: var(--card);
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+textarea { min-height: 120px; font-family: "JetBrains Mono", monospace; }
+
+button {
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  border: none;
+  color: #0a0f1f;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.status { color: var(--accent); font-size: 13px; }
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.table th, .table td {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 8px;
+  text-align: left;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  background: rgba(255, 159, 104, 0.18);
+}
+
+@media (max-width: 768px) {
+  .header h1 { font-size: 32px; }
+}
