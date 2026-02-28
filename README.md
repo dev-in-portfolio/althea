@@ -1,17 +1,23 @@
-# Nuxt CardPress
+# nuxt-cardpress
 
-Nuxt 3 editor for composing card-based pages and publishing public URLs.
+This is a standalone application part of the Althea Portfolio.
 
-## Features
-- Draft dashboard + editor
-- Ordered card list with preview
-- Publish to `/p/:publishedSlug`
-- Neon-backed persistence
+## Tech Stack
+- **Framework**: Node.js / JavaScript
+- **Deployment**: Netlify
 
-## Setup
-1. Install dependencies
-   - `pnpm install`
-2. Create `.env` from `.env.example`
-3. Apply SQL in `sql/002_cardpress.sql`
-4. Run locally
-   - `pnpm run dev`
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout nuxt-cardpress
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   npm install && npm run build
+   ```
+
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `npm install && npm run build`
+- **Publish Directory**: `dist`
