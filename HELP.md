@@ -1,20 +1,14 @@
-# Draft Relay (Fresh + Neon)
+# Help — Draft Relay
 
-Card-based draft editor and publisher built with Fresh. Compose pages, reorder cards, and publish a public URL.
+## Overview
+Draft Relay is a collaborative drafting platform built on Deno and the Fresh framework for creating and publishing pages.
 
 ## Features
-- Draft dashboard + card editor
-- SSR public pages
-- Publish/unpublish flow
-- Neon-backed persistence
+- **Interactive Editor**: Real-time editing with island-based reactivity.
+- **Slug Management**: Custom URL slugs for published pages.
+- **Database Integration**: Secure storage for drafts and published cards.
 
-## Setup
-1. Create `.env` from `.env.example`
-2. Apply SQL in `sql/001_draft_relay.sql`
-3. Run locally
-   - `deno task dev`
-
-## Routes
-- `/` dashboard
-- `/edit/:id` editor
-- `/p/:publishedSlug` public view
+## How to Use
+1. Create a new draft in the Editor.
+2. Save your progress to the internal database.
+3. Publish the page to generate a live, shareable URL.
