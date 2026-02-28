@@ -1,49 +1,14 @@
-# Radar of One
+# Help — Radar of One
 
-Radar of One is a personal pattern-discovery engine. Log small events with tags and optional context, then review a lightweight timeline and a text-first Signals page that surfaces emerging patterns without turning into a heavy journaling system.
+## Overview
+Radar of One is a Next.js application for detecting operational signals and visualizing them on a chronological timeline.
 
 ## Features
-- Fast event logging with tags and optional context
-- Timeline with tag filters and pagination
-- Signals page with explainable pattern detection
-- Context correlations (place/energy/mode) in signals
-- Inline event editing in the timeline
-- Import JSON events in Settings
-- Local anonymous identity stored in `localStorage`
-- Neon Postgres backend for storage and signals caching
+- **Signal Detection**: Automated engine for identifying incoming operational signals.
+- **Timeline View**: Visualize signals in sequence to identify patterns.
+- **Tagging System**: Organize detected signals with custom tags and metadata.
 
-## Routes
-- `/` Log events
-- `/timeline` Timeline and tag filters
-- `/signals` Pattern summaries
-- `/settings` User key + export/import
-
-## API
-- `POST /api/events`
-- `GET /api/events?userKey=&cursor=&limit=&tags=`
-- `DELETE /api/events/:id?userKey=`
-- `GET /api/signals?userKey=&window=30d`
-
-## Setup
-
-### Termux
-```bash
-pkg install nodejs
-npm install
-npm run dev
-```
-
-### Environment
-Create `.env.local`:
-```bash
-DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/DATABASE
-```
-
-### Database
-Run the migrations in `sql/001_init.sql` and `sql/002_signals_cache_events_updated.sql` against your Neon database.
-
-## Notes
-- Tags are normalized to lowercase kebab-case.
-- Signals are cached per user for up to 1 hour.
-- The Signals engine is deterministic and explainable.
-- If the backend is not configured, the UI will show a banner prompt.
+## How to Use
+1. Monitor the Radar screen for newly detected signals.
+2. Switch to the Timeline view to see how signals correlate over time.
+3. Tag important signals to include them in your daily operational report.
