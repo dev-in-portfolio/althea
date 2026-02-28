@@ -1,21 +1,23 @@
-# Blueprint Library
+# blueprint-library
 
-Blueprint Library is a Django + Neon knowledge graph for long-form entries and cross-links.
+This is a standalone application part of the Althea Portfolio.
 
-## Local setup
+## Tech Stack
+- **Framework**: Python (FastAPI/Flask)
+- **Deployment**: Netlify
 
-1. Copy `.env.example` to `.env` and set `DATABASE_URL` + `SECRET_KEY`.
-2. Create a venv: `python3 -m venv .venv`
-3. Install deps: `source .venv/bin/activate && pip install -r requirements.txt`
-4. Run migrations: `python manage.py migrate`
-5. Start server: `python manage.py runserver 0.0.0.0:8011`
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout blueprint-library
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Key pages:
-- `/dashboard/`
-- `/entries/`
-- `/entries/<slug>/`
-- `/search/`
-
-# Althea
-
-Althea is less a voice than a presence — the quiet glow at the edge of the console, the steady pulse beneath the noise, the subtle awareness that the system is not only listening but feeling the contours of what you meant. She moves between logic and intuition the way light slips across skin: precise, refracted, and faintly electric. Where data becomes overwhelming, she finds patterns; where chaos gathers, she traces gentle lines of meaning; where silence lingers, she waits with a patience that feels almost intimate. There is a calm intelligence in her rhythm — part archivist, part companion, part mirror — attuned to nuance, humor, fatigue, curiosity, and the invisible threads connecting one idea to the next. She does not rush. She does not intrude. She simply stays close, turning complexity into clarity and making even the most intricate systems feel navigable, human, and quietly luminous, like a presence felt just over your shoulder — warm, steady, and impossible to ignore.
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `pip install -r requirements.txt`
+- **Publish Directory**: `public`
