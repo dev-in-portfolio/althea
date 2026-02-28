@@ -1,27 +1,23 @@
-# Hono Capsule Cache
+# hono-capsulecache
 
-Namespaced TTL cache service backed by Neon Postgres. Designed for fast JSON caching with strict size limits.
+This is a standalone application part of the Althea Portfolio.
 
-## Features
-- Namespaces to isolate keys
-- TTL-based expiration with cleanup endpoint
-- Payload size caps and hashing
-- Neon-backed persistence
+## Tech Stack
+- **Framework**: Node.js / JavaScript
+- **Deployment**: Netlify
 
-## Setup
-1. Install dependencies
-   - `pnpm install`
-2. Create `.env` from `.env.example`
-3. Apply SQL in `sql/001_capsule_cache.sql`
-4. Run locally
-   - `pnpm run dev`
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout hono-capsulecache
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   npm install && npm run build
+   ```
 
-## API
-Base: `/api/cache`
-
-- `GET /:namespace/:key`
-- `PUT /:namespace/:key?ttlSeconds=300` (JSON body)
-- `DELETE /:namespace/:key`
-
-Admin cleanup (protected by `ADMIN_TOKEN`):
-- `POST /api/admin/cleanup`
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `npm install && npm run build`
+- **Publish Directory**: `dist`
