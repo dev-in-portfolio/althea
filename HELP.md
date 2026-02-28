@@ -1,17 +1,14 @@
-# Nuxt CardPress
+# Help — Nuxt CardPress
 
-Nuxt 3 editor for composing card-based pages and publishing public URLs.
+## Overview
+Nuxt CardPress is a modern implementation of the card generation engine built on Nuxt 3.
 
 ## Features
-- Draft dashboard + editor
-- Ordered card list with preview
-- Publish to `/p/:publishedSlug`
-- Neon-backed persistence
+- **Vue 3 Reactivity**: Highly responsive card design interface.
+- **Server Utilities**: Backend database integration for card persistence.
+- **Composables**: Shared logic for device key and session management.
 
-## Setup
-1. Install dependencies
-   - `pnpm install`
-2. Create `.env` from `.env.example`
-3. Apply SQL in `sql/002_cardpress.sql`
-4. Run locally
-   - `pnpm run dev`
+## How to Use
+1. Design your card layout using the visual editor.
+2. Sync your designs to the server for persistent storage.
+3. Generate print-ready cards based on your saved templates.
