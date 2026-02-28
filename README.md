@@ -1,11 +1,23 @@
-# Althea
+# eleventy-switchboard
 
-Switchboard — Eleventy-powered link router with build-time validation.
+This is a standalone application part of the Althea Portfolio.
 
-## Run locally
+## Tech Stack
+- **Framework**: Node.js / JavaScript
+- **Deployment**: Netlify
 
-1. `npm install`
-2. `npm run build`
-3. `npm run dev`
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout eleventy-switchboard
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   npm install && npm run build
+   ```
 
-Targets live in `src/_data/targets.json`. Validation emits `_site/report.json`.
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `npm install && npm run build`
+- **Publish Directory**: `dist`
