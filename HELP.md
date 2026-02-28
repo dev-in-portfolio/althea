@@ -1,9 +1,14 @@
-# Help — angular-formfoundry
+# Help — Angular FormFoundry
 
 ## Overview
-This app provides specialized functionality within the Althea ecosystem.
+FormFoundry is a dynamic form generator used to create standardized intake forms for Althea projects.
+
+## Features
+- **Template Selection**: Choose from predefined form structures.
+- **Validation Rules**: Set required fields and data formats.
+- **JSON Export**: Export form configurations for other Althea tools.
 
 ## How to Use
-1. Open the application URL.
-2. Follow the on-screen prompts and UI elements.
-3. Refer to the specific feature set documented in the app's UI.
+1. Select a form template.
+2. Customize fields and validation logic.
+3. Preview and test the form before deployment.
