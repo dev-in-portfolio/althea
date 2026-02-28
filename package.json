@@ -1,0 +1,15 @@
+{
+  "name": "nuxt-view-vault",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "preview": "nuxt preview"
+  },
+  "dependencies": {
+    "nuxt": "^3.11.2",
+    "pg": "^8.12.0"
+  }
+}
