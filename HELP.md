@@ -1,23 +1,14 @@
-# Operator Ledger
+# Help — Operator Ledger
 
-Local-first decision and outcomes tracker built with Tauri (Rust + SQLite) and Svelte.
+## Overview
+Operator Ledger is a Svelte-based application designed to log and track every action within the Althea operator environment.
 
 ## Features
-- Capture decisions with rationale and confidence
-- Attach outcomes and lessons learned
-- Timeline feed with filters
-- Quick insights (low confidence, failed experiments, pivots)
-- Export ledger to JSON
+- **Action Logging**: Detailed record-keeping of operator activities.
+- **Tauri Ready**: Built for cross-platform desktop and web performance.
+- **Fast Search**: Instant retrieval of historical ledger entries.
 
-## Dev Setup
-1. Install Node dependencies
-   - `pnpm install`
-2. Install Rust + Tauri prerequisites
-3. Run UI
-   - `pnpm run dev`
-4. Run Tauri app (after installing tauri-cli)
-   - `pnpm tauri dev`
-
-## Notes
-- SQLite database is stored in the Tauri app data directory.
-- `export_json` writes `ledger_export.json` alongside the DB.
+## How to Use
+1. Add a new ledger entry for every operational task performed.
+2. Use the search bar to review past actions or audits.
+3. Export ledger logs for end-of-day reporting and verification.
