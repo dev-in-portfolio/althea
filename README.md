@@ -1,144 +1,23 @@
-# QueJudge
+# quejudge
 
-QueJudge is a deterministic rule-based ranking engine. Provide items and a rule pack, get a ranked list with transparent scoring and explanations. Runs are stored in Neon Postgres per anonymous `x-user-key`.
+This is a standalone application part of the Althea Portfolio.
 
-## Requirements
+## Tech Stack
+- **Framework**: Python (FastAPI/Flask)
+- **Deployment**: Netlify
 
-- Python 3.11+
-- Neon Postgres
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout quejudge
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-## Install (Termux)
-
-```bash
-pkg install python git openssl
-python -m venv .venv
-source .venv/bin/activate
-pip install -U pip
-pip install -e .
-cp .env.example .env
-# edit .env to set DATABASE_URL
-uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
-```
-
-## Environment
-
-```
-DATABASE_URL=YOUR_NEON_POSTGRES_URL
-APP_ENV=development
-PORT=8000
-```
-
-## Database
-
-Run `sql/001_init.sql` in Neon.
-
-## Run
-
-```bash
-uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
-```
-
-## API
-
-Health:
-
-```bash
-curl -s http://localhost:8000/health
-```
-
-DB health:
-
-```bash
-curl -s http://localhost:8000/health/db
-```
-
-Judge:
-
-```bash
-curl -s -X POST "http://localhost:8000/judge" \
-  -H "content-type: application/json" \
-  -H "x-user-key: test-user-123" \
-  -d '{
-    "items":[
-      {"id":"a","label":"Fix deploy","tags":["ops","urgent"],"due":"2026-02-26","effort":3,"value":9},
-      {"id":"b","label":"Refactor UI","tags":["ux"],"effort":6,"value":6}
-    ],
-    "rules":{
-      "weights":{"tagBoost":2.0,"dueSoonBoost":3.0,"effortPenalty":1.0,"valueBoost":2.0,"keywordBoost":1.5},
-      "preferTags":["urgent","ops"],
-      "avoidTags":[],
-      "preferKeywords":["deploy","error","fix"],
-      "avoidKeywords":["someday"],
-      "now":"2026-02-26",
-      "tieBreak":"stable",
-      "caps":{"tagMatches":5,"keywordMatches":5}
-    }
-  }'
-```
-
-History:
-
-```bash
-curl -s -H "x-user-key: test-user-123" http://localhost:8000/history
-```
-
-Run details:
-
-```bash
-curl -s -H "x-user-key: test-user-123" http://localhost:8000/runs/<id>
-```
-
-Rulepacks (create/update):
-
-```bash
-curl -s -X POST http://localhost:8000/rulepacks \
-  -H "content-type: application/json" \
-  -H "x-user-key: test-user-123" \
-  -d '{"name":"default","rules":{"weights":{"tagBoost":2.0,"dueSoonBoost":3.0,"effortPenalty":1.0,"valueBoost":2.0,"keywordBoost":1.5}}}'
-```
-
-```bash
-curl -s -X PUT http://localhost:8000/rulepacks/default \
-  -H "content-type: application/json" \
-  -H "x-user-key: test-user-123" \
-  -d '{"name":"default","rules":{"weights":{"tagBoost":1.0,"dueSoonBoost":2.0,"effortPenalty":1.0,"valueBoost":2.0,"keywordBoost":1.0}}}'
-```
-
-Rulepack validate:
-
-```bash
-curl -s -X POST http://localhost:8000/rulepacks/validate \
-  -H "content-type: application/json" \
-  -H "x-user-key: test-user-123" \
-  -d '{"name":"default","rules":{"weights":{"tagBoost":2.0}}}'
-```
-
-List rulepacks:
-
-```bash
-curl -s -H "x-user-key: test-user-123" http://localhost:8000/rulepacks
-```
-
-Get rulepack:
-
-```bash
-curl -s -H "x-user-key: test-user-123" http://localhost:8000/rulepacks/default
-```
-
-Delete rulepack:
-
-```bash
-curl -s -X DELETE -H "x-user-key: test-user-123" http://localhost:8000/rulepacks/default
-```
-
-## Tie-breaks
-
-Supported tieBreak values: `stable`, `label`, `id`.
-
-## CLI
-
-Score locally from a JSON request file:
-
-```bash
-python -m app.cli --input judge.json
-```
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `pip install -r requirements.txt`
+- **Publish Directory**: `public`
