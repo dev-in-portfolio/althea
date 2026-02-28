@@ -1,21 +1,14 @@
-# Qwik SignalTile
+# Help — Qwik SignalTiill
 
-Live signal board with rule-aware status evaluation, device-scoped telemetry, and fast filtering. Built with Qwik + Qwik City and a lightweight Express/Neon API.
+## Overview
+SignalTiill is a specialized signal monitor for tracking the health and values of operational data streams.
 
 ## Features
-- Signal intake with channel, note, and value capture
-- Threshold rules (warn/bad) per signal
-- Status auto-computation based on thresholds
-- Device-scoped workspace (no login required)
-- Board polling and fast filters
+- **Real-Time Status**: Monitor signals with 'ok', 'warn', and 'bad' status badges.
+- **Value Tracking**: Displays both numeric values and unit-based metrics.
+- **Responsive Interface**: Built with Qwik for fast performance across all devices.
 
-## Local Setup
-1. Install dependencies
-   - `pnpm install`
-2. Create `.env` using `.env.example`
-3. Apply SQL in `sql/001_qwik_signaltile.sql` to your Neon database
-4. Run the API and client
-   - `pnpm run server`
-   - `pnpm run dev`
-
-API expects `DATABASE_URL` set in the environment.
+## How to Use
+1. Open the signal dashboard to see the live status of all monitored nodes.
+2. Identify signals with 'warn' or 'bad' statuses for immediate investigation.
+3. Check the 'Updated At' timestamps to ensure data freshness.
