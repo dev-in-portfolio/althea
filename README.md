@@ -1,60 +1,23 @@
-# Micro-Exhibits: Digital Science Museum
+# digital-science-museum
 
-Astro + Neon + Netlify Functions project for wings/halls/exhibits.
+This is a standalone application part of the Althea Portfolio.
 
-## Requirements
-- Node 20 (Termux)
-- PostgreSQL (Neon) connection string
+## Tech Stack
+- **Framework**: Node.js / JavaScript
+- **Deployment**: Netlify
 
-## Termux setup
-```bash
-pkg update
-pkg install nodejs-lts git
-```
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout digital-science-museum
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   npm install && npm run build
+   ```
 
-## Install
-```bash
-npm install
-```
-
-## Data pipeline
-Place your canonical dataset into:
-- `data/wings.json`
-- `data/halls.json`
-- `data/exhibits.json`
-
-Then build and validate:
-```bash
-npm run data:build
-npm run data:validate
-```
-
-## Dev
-```bash
-npm run dev -- --host 0.0.0.0 --port 4321
-```
-
-## Build
-```bash
-npm run build
-npm run preview
-```
-
-## Neon env vars
-Create `.env` locally:
-```
-DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/DBNAME
-PUBLIC_USE_BACKEND=true
-```
-
-For Netlify, add the same env vars in the site settings.
-
-## Run SQL migration
-Use any Postgres client against Neon:
-```sql
-\i sql/001_init.sql
-```
-
-## Notes
-- `npm run data:build` generates `src/generated/museum.ts` and search indices.
-- If images are missing in the dataset, `images` remains an empty array and the UI shows a graceful placeholder.
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `npm install && npm run build`
+- **Publish Directory**: `dist`
