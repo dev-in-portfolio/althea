@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dockyard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>Dockyard</h1>
+        <p>Launch your local repos with presets, commands, and live logs.</p>
+      </div>
+      <div class="status-bar" id="status-bar"></div>
+    </header>
+
+    <main>
+      <section class="panel" id="repo-panel"></section>
+      <section class="panel" id="detail-panel"></section>
+      <section class="panel" id="log-panel"></section>
+    </main>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>
