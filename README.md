@@ -1,11 +1,23 @@
-# Althea
+# angular-formfoundry
 
-FormFoundry — schema-driven form builder with public publishing and response inbox.
+This is a standalone application part of the Althea Portfolio.
 
-## Run locally
+## Tech Stack
+- **Framework**: Node.js / JavaScript
+- **Deployment**: Netlify
 
-1. `npm install`
-2. `export DATABASE_URL=postgresql://...`
-3. `npm run dev`
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout angular-formfoundry
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   npm install && npm run build
+   ```
 
-App runs at `http://127.0.0.1:3020`.
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `npm install && npm run build`
+- **Publish Directory**: `dist`
