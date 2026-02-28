@@ -1,10 +1,23 @@
-# Althea
+# schemapulse
 
-SchemaPulse is a Gradio operator console for inspecting Neon schemas, indexes, constraints, and migrations, with automated runbook generation and readiness checks.
+This is a standalone application part of the Althea Portfolio.
 
-Quick start:
+## Tech Stack
+- **Framework**: Python (FastAPI/Flask)
+- **Deployment**: Netlify
 
-1. Create a `.env` from `.env.example` and set `DATABASE_URL` + `APP_PASSCODE`.
-2. Apply `sql/001_schemapulse.sql` if you want migration persistence.
-3. Install deps: `pip install -r requirements.txt`
-4. Run: `python app.py`
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout schemapulse
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `pip install -r requirements.txt`
+- **Publish Directory**: `public`
