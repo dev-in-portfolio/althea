@@ -1,9 +1,14 @@
-# Help — atlas-gallery
+# Help — Atlas Gallery
 
 ## Overview
-This app provides specialized functionality within the Althea ecosystem.
+Atlas Gallery is a Django-powered catalog for managing and viewing operational media and assets.
+
+## Features
+- **Asset Management**: Upload and categorize images/documents.
+- **Gallery View**: Interactive browsing of asset collections.
+- **Admin Interface**: Robust backend management for content curators.
 
 ## How to Use
-1. Open the application URL.
-2. Follow the on-screen prompts and UI elements.
-3. Refer to the specific feature set documented in the app's UI.
+1. Log in via the Django admin or use the public gallery view.
+2. Filter assets by project or category.
+3. Click any asset to view detailed metadata and history.
