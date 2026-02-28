@@ -1,0 +1,32 @@
+{{ define "main" }}
+<section class="section">
+  <article class="detail">
+    <h2>Release {{ .Params.version }}</h2>
+    <p>{{ .Params.notes }}</p>
+    <div class="tags">
+      {{ range .Params.projects }}<span>{{ . }}</span>{{ end }}
+    </div>
+    <small>Date: {{ .Params.date }}</small>
+
+    <h3>Artifacts</h3>
+    <table class="table">
+      <thead>
+        <tr><th>Name</th><th>Type</th><th>Path</th><th>SHA256</th></tr>
+      </thead>
+      <tbody>
+        {{ range .Params.artifacts }}
+        <tr>
+          <td>{{ .name }}</td>
+          <td>{{ .type }}</td>
+          <td><a href="{{ .path }}">Download</a></td>
+          <td><code>{{ .sha256 }}</code></td>
+        </tr>
+        {{ end }}
+      </tbody>
+    </table>
+
+    <h3>How to verify</h3>
+    <pre><code>shasum -a 256 &lt;artifact.zip&gt;</code></pre>
+  </article>
+</section>
+{{ end }}

@@ -1,0 +1,14 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "ReleaseGallery"
+
+[params]
+  description = "Release vault with artifact manifests and checksums."
+
+[taxonomies]
+  project = "projects"
+
+[outputs]
+  home = ["HTML"]
+  section = ["HTML"]
+  taxonomy = ["HTML"]
