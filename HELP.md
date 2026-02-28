@@ -1,17 +1,14 @@
-# Remix QueueSplice
+# Help — Remix QueueSplice
 
-Job queue manager with leasing, retries, and dead-letter handling built in Remix + Neon.
+## Overview
+QueueSplice is a Remix-powered dashboard for enqueuing and monitoring operational jobs and their statuses.
 
 ## Features
-- Enqueue jobs with JSON payloads
-- Lease/claim workflow with retries
-- Dead-letter handling and job detail view
-- Simple dashboard with status counts
+- **Queue Dashboard**: Real-time counts of ready, running, done, and failed jobs.
+- **Easy Enqueueing**: Simple form-based interface for submitting new jobs.
+- **Passcode Protection**: Optional gate for securing sensitive queue operations.
 
-## Setup
-1. Install dependencies
-   - `pnpm install`
-2. Create `.env` from `.env.example`
-3. Apply SQL in `sql/001_queuesplice.sql`
-4. Run locally
-   - `pnpm run dev`
+## How to Use
+1. Monitor the dashboard for an overview of current queue health.
+2. Use the Enqueue form to submit new tasks to the processing pipeline.
+3. Click into individual jobs to view failure logs or success metrics.
