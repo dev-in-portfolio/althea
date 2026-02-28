@@ -1,0 +1,6 @@
+---
+layout: layouts/base.njk
+title: "All Patches"
+---
+{% set items = collections.patches | reverse %}
+{% include "layouts/list.njk" %}

@@ -1,0 +1,17 @@
+---
+layout: layouts/base.njk
+title: "PatchBook"
+---
+<div class="search-box">
+  <input id="search-input" type="text" placeholder="Search patches" />
+  <select id="risk-filter">
+    <option value="">All risk levels</option>
+    {% for risk in collections.riskList %}
+      <option value="{{ risk }}">{{ risk }}</option>
+    {% endfor %}
+  </select>
+</div>
+<div id="search-results"></div>
+
+{% set items = collections.patches | reverse | slice(0, 6) %}
+{% include "layouts/list.njk" %}
