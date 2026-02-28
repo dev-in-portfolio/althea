@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "jsx": "react-jsx",
+    "jsxImportSource": "@builder.io/qwik",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "types": ["vite/client"]
+  },
+  "include": ["src"]
+}
