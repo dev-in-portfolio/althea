@@ -1,13 +1,23 @@
-# Althea
+# switchboard
 
-Switchboard is a Vue + Neon app for saving dataset views (filters, sorting, columns) and sharing them via URL.
+This is a standalone application part of the Althea Portfolio.
 
-Quick start:
+## Tech Stack
+- **Framework**: Node.js / JavaScript
+- **Deployment**: Netlify
 
-1. Apply `sql/001_switchboard.sql` to your Neon database.
-2. Create a `.env` from `.env.example` and set `DATABASE_URL`.
-3. Install deps: `npm install`
-4. Run API server: `npm run server`
-5. Run client: `npm run dev`
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout switchboard
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   npm install && npm run build
+   ```
 
-The client proxies `/api` to the API server on `http://localhost:3010`.
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `npm install && npm run build`
+- **Publish Directory**: `dist`
