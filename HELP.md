@@ -1,9 +1,14 @@
-# Help — queuegauge
+# Help — QueueGauge
 
 ## Overview
-This app provides specialized functionality within the Althea ecosystem.
+QueueGauge is a NestJS-powered API for monitoring job queues, managing background tasks, and visualizing operational throughput.
+
+## Features
+- **NestJS Architecture**: Scalable, modular backend with built-in validation pipes.
+- **Job Management**: Dedicated controllers for enqueuing and tracking job status.
+- **AuthLite Integration**: Lightweight device-key guarding for secure API access.
 
 ## How to Use
-1. Open the application URL.
-2. Follow the on-screen prompts and UI elements.
-3. Refer to the specific feature set documented in the app's UI.
+1. Use the Jobs API to submit new operational tasks to the queue.
+2. Monitor the Dashboard endpoint for real-time queue depth and success rates.
+3. Configure AuthLite keys in your environment to authorize client requests.
