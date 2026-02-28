@@ -1,47 +1,23 @@
-# SolveSpace
+# solvespace
 
-SolveSpace is a constraint solver that turns "musts" and time limits into a small set of viable options. This MVP packs tasks into a fixed time window and explains why each option was chosen.
+This is a standalone application part of the Althea Portfolio.
 
-## Features
-- Define available minutes + task list
-- Mark tasks as must or optional
-- Generate 3–10 options using deterministic rules
-- See remaining minutes and explanation per option
+## Tech Stack
+- **Framework**: Node.js / JavaScript
+- **Deployment**: Netlify
 
-## Routes
-- `/` Problem history
-- `/new` New problem
-- `/problems/[id]` Problem detail + generate options
-- `/problems/[id]/solutions` Solutions list
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout solvespace
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   npm install && npm run build
+   ```
 
-## API
-- `POST /api/problems`
-- `GET /api/problems?userKey=`
-- `GET /api/problems/:id?userKey=`
-- `POST /api/problems/:id/solve`
-- `GET /api/problems/:id/solutions?userKey=`
-- `DELETE /api/problems/:id?userKey=`
-
-## Setup
-
-### Termux
-```bash
-pkg install nodejs
-npm install
-npm run dev
-```
-
-### Environment
-Create `.env.local`:
-```bash
-DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/DATABASE
-```
-
-### Database
-Run the migration in `sql/001_init.sql` against your Neon database.
-
-## Notes
-- Must tasks must fit within available minutes or the solver returns a conflict message.
-- Options are generated via multiple deterministic sort rules and deduplicated.
-- Ranking prefers highest utilization (closest to full time).
-- Problems can be edited after creation.
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `npm install && npm run build`
+- **Publish Directory**: `dist`
