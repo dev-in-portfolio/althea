@@ -1,10 +1,14 @@
-# Althea
+# Help — Electron MapStencil
 
-MapStencil — offline map scratchpad with pins, routes, and project exports.
+## Overview
+MapStencil is a layout and mapping utility for creating standardized stencils for Althea project visualizations.
 
-## Run locally
+## Features
+- **Stencil Creation**: Design reusable layout templates.
+- **Mapping Tools**: Align operational elements to a grid.
+- **Visual Editor**: Real-time preview of stencil designs.
 
-1. `npm install`
-2. `npm run dev`
-
-Project files use the `.mapstencil.json` format.
+## How to Use
+1. Select a base map or grid.
+2. Apply stencils to define functional areas.
+3. Export the mapping configuration for dashboard integration.
