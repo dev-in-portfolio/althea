@@ -1,0 +1,15 @@
+{{ define "main" }}
+<article class="article">
+  <h2>{{ .Title }}</h2>
+  <div class="meta">
+    <span>Severity: {{ .Params.severity }}</span>
+    <span>Last verified: {{ .Params.last_verified }}</span>
+  </div>
+  <div class="tags">
+    {{ range .Params.systems }}<span>{{ . }}</span>{{ end }}
+    {{ range .Params.symptoms }}<span>{{ . }}</span>{{ end }}
+    {{ range .Params.fixes }}<span>{{ . }}</span>{{ end }}
+  </div>
+  <div class="content">{{ .Content }}</div>
+</article>
+{{ end }}
