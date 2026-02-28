@@ -1,0 +1,8 @@
+[build]
+  command = "deno task build"
+  publish = "_fresh"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
