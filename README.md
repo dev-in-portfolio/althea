@@ -1,22 +1,23 @@
-# Rule Furnace (Fresh + Neon)
+# rule-furnace
 
-Rules engine builder and test harness built with Fresh and Neon. Author rules, run payloads, and review outcomes.
+This is a standalone application part of the Althea Portfolio.
 
-## Features
-- Rule editor with priority + enable toggles
-- Safe DSL evaluation (no code execution)
-- Test harness with run history
-- Neon-backed persistence
+## Tech Stack
+- **Framework**: Deno / Fresh
+- **Deployment**: Netlify
 
-## Setup
-1. Create `.env` from `.env.example`
-2. Apply SQL in `sql/001_rule_furnace.sql`
-3. Run locally
-   - `deno task dev`
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout rule-furnace
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   deno task build
+   ```
 
-## Routes
-- `/` rules list
-- `/rules/new` create
-- `/rules/:id` edit
-- `/test` test harness
-- `/runs` run history
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `deno task build`
+- **Publish Directory**: `_fresh`
