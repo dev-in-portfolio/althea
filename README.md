@@ -1,31 +1,23 @@
-# Hono Gatekeeper
+# hono-gatekeeper
 
-Minimal API gateway for issuing scoped keys, enforcing rate limits, and proxying requests to upstream services.
+This is a standalone application part of the Althea Portfolio.
 
-## Features
-- Scoped API keys stored in Neon (hash-only)
-- Fixed-window rate limiting per token
-- Admin endpoints protected by a master token
-- Read/write proxy routing with scope checks
+## Tech Stack
+- **Framework**: Node.js / JavaScript
+- **Deployment**: Netlify
 
-## Setup
-1. Install dependencies
-   - `pnpm install`
-2. Create `.env` from `.env.example`
-3. Apply SQL in `sql/001_gatekeeper.sql`
-4. Run locally
-   - `pnpm run dev`
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout hono-gatekeeper
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   npm install && npm run build
+   ```
 
-## Admin API
-Use `Authorization: Bearer <MASTER_ADMIN_TOKEN>` for admin endpoints.
-
-- `POST /api/admin/keys` → `{ label, scopes[] }`
-- `PATCH /api/admin/keys/:id` → `{ scopes?, isActive? }`
-- `GET /api/admin/keys`
-- `DELETE /api/admin/keys/:id`
-
-## Proxy API
-Use `Authorization: Bearer <issued_token>`
-
-- `GET /api/proxy/*` (requires `read` scope)
-- `POST /api/proxy/*` (requires `write` scope)
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `npm install && npm run build`
+- **Publish Directory**: `dist`
