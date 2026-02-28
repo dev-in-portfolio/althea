@@ -1,0 +1,13 @@
+{
+  "name": "switchboard",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/validate-targets.mjs && eleventy",
+    "dev": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "2.0.1"
+  }
+}

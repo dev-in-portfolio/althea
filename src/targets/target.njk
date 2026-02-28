@@ -1,0 +1,9 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: targets
+  size: 1
+  alias: item
+permalink: "t/{{ item.slug }}/index.html"
+---
+{% include "layouts/detail.njk" %}

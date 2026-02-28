@@ -1,0 +1,16 @@
+---
+permalink: "_index.json"
+---
+[
+  {%- for item in targets -%}
+  {{ "," if not loop.first }}
+  {
+    "slug": "{{ item.slug }}",
+    "title": "{{ item.title }}",
+    "summary": "{{ item.summary }}",
+    "tags": {{ item.tags | dump | safe }},
+    "kind": "{{ item.kind }}",
+    "url": "{{ item.url }}"
+  }
+  {%- endfor -%}
+]

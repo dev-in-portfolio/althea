@@ -1,0 +1,11 @@
+---
+layout: layouts/base.njk
+title: "Command Center"
+---
+<div class="search-box">
+  <input id="search-input" type="text" placeholder="Search targets" />
+</div>
+<div id="search-results"></div>
+
+{% set items = targets | slice(0, 6) %}
+{% include "layouts/list.njk" %}

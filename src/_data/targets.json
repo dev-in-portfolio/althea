@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "micro-exhibits",
+    "title": "Micro-Exhibits: Digital Science Museum",
+    "kind": "app",
+    "url": "https://example.com/micro-exhibits",
+    "tags": ["museum", "astro", "neon"],
+    "summary": "Fast catalog with halls/exhibits and favorites."
+  },
+  {
+    "slug": "fieldmanual",
+    "title": "FieldManual Ops",
+    "kind": "doc",
+    "url": "https://example.com/fieldmanual",
+    "tags": ["ops", "runbook"],
+    "summary": "Searchable playbooks for incident response."
+  },
+  {
+    "slug": "routeforge",
+    "title": "RouteForge Planner",
+    "kind": "tool",
+    "url": "https://example.com/routeforge",
+    "tags": ["routing", "logistics"],
+    "summary": "Route planning with real-time constraints."
+  }
+]

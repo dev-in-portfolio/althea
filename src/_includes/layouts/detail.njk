@@ -1,0 +1,11 @@
+<section class="detail">
+  <h2>{{ item.title }}</h2>
+  <p>{{ item.summary }}</p>
+  <div class="meta">
+    <span>Kind: {{ item.kind }}</span>
+    <a href="{{ item.url }}">Open target</a>
+  </div>
+  <div class="tags">
+    {% for tag in item.tags %}<span>{{ tag }}</span>{% endfor %}
+  </div>
+</section>
