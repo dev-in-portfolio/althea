@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Outfit', system-ui, sans-serif;
+  color: #0f172a;
+  background-color: #f7f7fb;
+  --panel: #ffffff;
+  --border: rgba(15, 23, 42, 0.08);
+  --accent: #5b6cff;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #eef2ff 0%, #f7f7fb 60%, #ffffff 100%);
+}
+
+.hero {
+  padding: 2.5rem;
+  background: linear-gradient(120deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+  color: #f8fafc;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+.sub {
+  color: rgba(248, 250, 252, 0.7);
+}
+
+main {
+  padding: 2rem 2.5rem 3rem;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.button.secondary {
+  background: #fff;
+  border: 1px solid var(--border);
+  color: #0f172a;
+}
+
+.controls,
+.views {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+input,
+select {
+  padding: 0.5rem 0.6rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.muted {
+  color: #6b7280;
+}
+
+@media (max-width: 1200px) {
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
