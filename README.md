@@ -1,11 +1,23 @@
-# Althea
+# signal-board
 
-Signal Board is a Vue + Neon dashboard for live status tiles with rule-driven alerts.
+This is a standalone application part of the Althea Portfolio.
 
-Quick start:
+## Tech Stack
+- **Framework**: Node.js / JavaScript
+- **Deployment**: Netlify
 
-1. Apply `sql/001_signalboard.sql` to your Neon database.
-2. Create a `.env` from `.env.example` and set `DATABASE_URL`.
-3. Install deps: `npm install`
-4. Run API server: `npm run server`
-5. Run client: `npm run dev`
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout signal-board
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   npm install && npm run build
+   ```
+
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `npm install && npm run build`
+- **Publish Directory**: `dist`
