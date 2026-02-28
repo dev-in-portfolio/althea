@@ -1,21 +1,23 @@
-# Qwik SignalTile
+# qwik-signaltiill
 
-Live signal board with rule-aware status evaluation, device-scoped telemetry, and fast filtering. Built with Qwik + Qwik City and a lightweight Express/Neon API.
+This is a standalone application part of the Althea Portfolio.
 
-## Features
-- Signal intake with channel, note, and value capture
-- Threshold rules (warn/bad) per signal
-- Status auto-computation based on thresholds
-- Device-scoped workspace (no login required)
-- Board polling and fast filters
+## Tech Stack
+- **Framework**: Node.js / JavaScript
+- **Deployment**: Netlify
 
-## Local Setup
-1. Install dependencies
-   - `pnpm install`
-2. Create `.env` using `.env.example`
-3. Apply SQL in `sql/001_qwik_signaltile.sql` to your Neon database
-4. Run the API and client
-   - `pnpm run server`
-   - `pnpm run dev`
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout qwik-signaltiill
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   npm install && npm run build
+   ```
 
-API expects `DATABASE_URL` set in the environment.
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `npm install && npm run build`
+- **Publish Directory**: `dist`
