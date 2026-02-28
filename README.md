@@ -1,10 +1,23 @@
-# Althea
+# electron-mapstencil
 
-MapStencil — offline map scratchpad with pins, routes, and project exports.
+This is a standalone application part of the Althea Portfolio.
 
-## Run locally
+## Tech Stack
+- **Framework**: Node.js / JavaScript
+- **Deployment**: Netlify
 
-1. `npm install`
-2. `npm run dev`
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout electron-mapstencil
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   npm install && npm run build
+   ```
 
-Project files use the `.mapstencil.json` format.
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `npm install && npm run build`
+- **Publish Directory**: `dist`
