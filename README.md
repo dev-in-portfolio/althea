@@ -1,10 +1,23 @@
-# Althea
+# hugo-atlasshelf
 
-AtlasShelf — Hugo catalog generator with data-driven pages and client-side filters.
+This is a standalone application part of the Althea Portfolio.
 
-## Run locally
+## Tech Stack
+- **Framework**: Hugo (Static Site Generator)
+- **Deployment**: Netlify
 
-1. Install Hugo (extended)
-2. `hugo server -D`
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout hugo-atlasshelf
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   hugo
+   ```
 
-Catalog data lives in `data/items.json`.
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `hugo`
+- **Publish Directory**: `public`
