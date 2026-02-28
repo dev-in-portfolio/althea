@@ -1,16 +1,23 @@
-# Remix VaultKey
+# remix-vault-key
 
-Sealed notes app with client-side encryption and server-side storage of ciphertext only.
+This is a standalone application part of the Althea Portfolio.
 
-## Features
-- PBKDF2 + AES-GCM encryption in the browser
-- Server stores only salt/iv/ciphertext
-- Unlock per-session to decrypt
+## Tech Stack
+- **Framework**: Node.js / JavaScript
+- **Deployment**: Netlify
 
-## Setup
-1. Install dependencies
-   - `pnpm install`
-2. Create `.env` from `.env.example`
-3. Apply SQL in `sql/002_vaultkey.sql`
-4. Run locally
-   - `pnpm run dev`
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout remix-vault-key
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   npm install && npm run build
+   ```
+
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `npm install && npm run build`
+- **Publish Directory**: `dist`
