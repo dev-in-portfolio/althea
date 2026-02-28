@@ -1,0 +1,146 @@
+:root {
+  --bg: #0b0e16;
+  --panel: #141a28;
+  --card: #101827;
+  --accent: #f7b267;
+  --accent-2: #8dd0ff;
+  --text: #f4f5f7;
+  --muted: #9da7b3;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", "Avenir", system-ui, sans-serif;
+  background: radial-gradient(circle at top left, #1b2440 0%, #0b0e16 60%);
+  color: var(--text);
+}
+
+.shell {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 44px;
+}
+
+.header p {
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.header-tags span {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(247, 178, 103, 0.15);
+  color: var(--accent);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.field-stack {
+  display: grid;
+  gap: 10px;
+  margin: 12px 0 18px;
+}
+
+.field-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--muted);
+}
+
+input, textarea {
+  width: 100%;
+}
+
+.textarea {
+  min-height: 80px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--card);
+  color: var(--text);
+  padding: 8px;
+}
+
+button {
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  border: none;
+  color: #0b0e16;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.status {
+  color: var(--accent);
+  font-size: 13px;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.summary-card {
+  background: var(--card);
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.table th, .table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .header { align-items: flex-start; }
+  .header h1 { font-size: 36px; }
+}
