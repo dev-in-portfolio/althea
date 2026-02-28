@@ -1,22 +1,23 @@
-# Island Index (Fresh + Neon)
+# island-index
 
-Fresh SSR content browser with islands for live filters and Neon-backed saved views.
+This is a standalone application part of the Althea Portfolio.
 
-## Features
-- Server-rendered item browser with pagination
-- Islands for filter/search/sort controls
-- Saved views persisted to Neon
-- Device-key cookie for lightweight identity
+## Tech Stack
+- **Framework**: Deno / Fresh
+- **Deployment**: Netlify
 
-## Setup
-1. Install Deno (if needed)
-2. Create `.env` from `.env.example`
-3. Apply SQL in `sql/001_island_index.sql`
-4. Run locally
-   - `deno task dev`
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout island-index
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   deno task build
+   ```
 
-## Routes
-- `/` Browser
-- `/views` Saved views
-- `/api/views` CRUD
-- `/api/items` Demo data feed
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `deno task build`
+- **Publish Directory**: `_fresh`
