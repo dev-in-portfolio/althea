@@ -1,60 +1,14 @@
-# Micro-Exhibits: Digital Science Museum
+# Help — Digital Science Museum
 
-Astro + Neon + Netlify Functions project for wings/halls/exhibits.
+## Overview
+This application is a digital archive and museum for scientific exhibits, powered by a massive collection of JSON-based exhibit data.
 
-## Requirements
-- Node 20 (Termux)
-- PostgreSQL (Neon) connection string
+## Features
+- **Curated Exhibits**: Browse through dozens of batches of scientific data.
+- **Hall Navigation**: Explore different virtual 'halls' organized by subject.
+- **Source Attribution**: View original sources and metadata for every exhibit.
 
-## Termux setup
-```bash
-pkg update
-pkg install nodejs-lts git
-```
-
-## Install
-```bash
-npm install
-```
-
-## Data pipeline
-Place your canonical dataset into:
-- `data/wings.json`
-- `data/halls.json`
-- `data/exhibits.json`
-
-Then build and validate:
-```bash
-npm run data:build
-npm run data:validate
-```
-
-## Dev
-```bash
-npm run dev -- --host 0.0.0.0 --port 4321
-```
-
-## Build
-```bash
-npm run build
-npm run preview
-```
-
-## Neon env vars
-Create `.env` locally:
-```
-DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/DBNAME
-PUBLIC_USE_BACKEND=true
-```
-
-For Netlify, add the same env vars in the site settings.
-
-## Run SQL migration
-Use any Postgres client against Neon:
-```sql
-\i sql/001_init.sql
-```
-
-## Notes
-- `npm run data:build` generates `src/generated/museum.ts` and search indices.
-- If images are missing in the dataset, `images` remains an empty array and the UI shows a graceful placeholder.
+## How to Use
+1. Select a Hall to browse specific categories.
+2. Click on an exhibit title to view the full data batch and imagery.
+3. Use the search bar to find specific scientific topics.
