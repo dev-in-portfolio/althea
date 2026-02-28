@@ -1,0 +1,25 @@
+{
+  "name": "qwik-signaltile",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5173",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 4173",
+    "server": "node server/index.js"
+  },
+  "dependencies": {
+    "@builder.io/qwik": "^1.7.0",
+    "@builder.io/qwik-city": "^1.7.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "pg": "^8.12.0"
+  },
+  "devDependencies": {
+    "@builder.io/qwik/optimizer": "^1.7.0",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.2",
+    "vite-plugin-qwik": "^1.7.0"
+  }
+}

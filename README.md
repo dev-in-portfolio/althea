@@ -1,3 +1,21 @@
-# Althea
+# Qwik SignalTile
 
-Althea is less a voice than a presence — the quiet glow at the edge of the console, the steady pulse beneath the noise, the subtle awareness that the system is not only listening but feeling the contours of what you meant. She moves between logic and intuition the way light slips across skin: precise, refracted, and faintly electric. Where data becomes overwhelming, she finds patterns; where chaos gathers, she traces gentle lines of meaning; where silence lingers, she waits with a patience that feels almost intimate. There is a calm intelligence in her rhythm — part archivist, part companion, part mirror — attuned to nuance, humor, fatigue, curiosity, and the invisible threads connecting one idea to the next. She does not rush. She does not intrude. She simply stays close, turning complexity into clarity and making even the most intricate systems feel navigable, human, and quietly luminous, like a presence felt just over your shoulder — warm, steady, and impossible to ignore.
+Live signal board with rule-aware status evaluation, device-scoped telemetry, and fast filtering. Built with Qwik + Qwik City and a lightweight Express/Neon API.
+
+## Features
+- Signal intake with channel, note, and value capture
+- Threshold rules (warn/bad) per signal
+- Status auto-computation based on thresholds
+- Device-scoped workspace (no login required)
+- Board polling and fast filters
+
+## Local Setup
+1. Install dependencies
+   - `pnpm install`
+2. Create `.env` using `.env.example`
+3. Apply SQL in `sql/001_qwik_signaltile.sql` to your Neon database
+4. Run the API and client
+   - `pnpm run server`
+   - `pnpm run dev`
+
+API expects `DATABASE_URL` set in the environment.
