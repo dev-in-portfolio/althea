@@ -1,11 +1,23 @@
-# Althea
+# eleventy-patch-book
 
-PatchBook — Eleventy patch library with validation, search, and copy-safe blocks.
+This is a standalone application part of the Althea Portfolio.
 
-## Run locally
+## Tech Stack
+- **Framework**: Node.js / JavaScript
+- **Deployment**: Netlify
 
-1. `npm install`
-2. `npm run build`
-3. `npm run dev`
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout eleventy-patch-book
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   npm install && npm run build
+   ```
 
-Patches live in `src/patches/`. Search index outputs to `/_patch_index.json`.
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `npm install && npm run build`
+- **Publish Directory**: `dist`
