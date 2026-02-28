@@ -1,20 +1,23 @@
-# Draft Relay (Fresh + Neon)
+# draft-relay
 
-Card-based draft editor and publisher built with Fresh. Compose pages, reorder cards, and publish a public URL.
+This is a standalone application part of the Althea Portfolio.
 
-## Features
-- Draft dashboard + card editor
-- SSR public pages
-- Publish/unpublish flow
-- Neon-backed persistence
+## Tech Stack
+- **Framework**: Deno / Fresh
+- **Deployment**: Netlify
 
-## Setup
-1. Create `.env` from `.env.example`
-2. Apply SQL in `sql/001_draft_relay.sql`
-3. Run locally
-   - `deno task dev`
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout draft-relay
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   deno task build
+   ```
 
-## Routes
-- `/` dashboard
-- `/edit/:id` editor
-- `/p/:publishedSlug` public view
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `deno task build`
+- **Publish Directory**: `_fresh`
