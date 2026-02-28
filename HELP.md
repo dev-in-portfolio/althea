@@ -1,27 +1,14 @@
-# Hono Intake
+# Help — Hono Intake
 
-Validated ingestion service with dedupe hashing and quarantine workflows backed by Neon Postgres.
+## Overview
+InTake is a data validation and canonicalization service for standardized data ingestion.
 
 ## Features
-- Strict validation + per-kind requirements
-- Stable hashing for idempotent ingestion
-- Quarantine storage with retry
-- Size caps on payloads
+- **Canonicalization**: Normalize incoming data to standard formats.
+- **Validation Engine**: Robust checks for data integrity and completeness.
+- **Intake API**: Dedicated routes for high-volume data ingestion.
 
-## Setup
-1. Install dependencies
-   - `pnpm install`
-2. Create `.env` from `.env.example`
-3. Apply SQL in `sql/001_hono_intake.sql`
-4. Run locally
-   - `pnpm run dev`
-
-## API
-Base: `/api/intake`
-
-- `POST /` → accepted, duplicate, or quarantined
-- `GET /records?kind=&limit=50`
-- `GET /quarantine?kind=&limit=50`
-
-Admin:
-- `POST /api/admin/quarantine/:id/retry` (requires `ADMIN_TOKEN`)
+## How to Use
+1. Submit raw data batches to the intake endpoint.
+2. Review validation errors or canonicalization logs.
+3. Integration apps can consume the cleaned data via downstream APIs.
