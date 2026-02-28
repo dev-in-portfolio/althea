@@ -1,22 +1,14 @@
-# Island Index (Fresh + Neon)
+# Help — Island Index
 
-Fresh SSR content browser with islands for live filters and Neon-backed saved views.
+## Overview
+Island Index is a Deno-powered faceted item directory built on the Fresh framework.
 
 ## Features
-- Server-rendered item browser with pagination
-- Islands for filter/search/sort controls
-- Saved views persisted to Neon
-- Device-key cookie for lightweight identity
+- **Faceted Filtering**: Interactive UI components (islands) for dynamic filtering.
+- **Edge Rendering**: High-speed page delivery via Deno/Fresh.
+- **API Endpoints**: Integrated routes for item retrieval and view tracking.
 
-## Setup
-1. Install Deno (if needed)
-2. Create `.env` from `.env.example`
-3. Apply SQL in `sql/001_island_index.sql`
-4. Run locally
-   - `deno task dev`
-
-## Routes
-- `/` Browser
-- `/views` Saved views
-- `/api/views` CRUD
-- `/api/items` Demo data feed
+## How to Use
+1. Use the filter sidebar to narrow down the item list.
+2. Click any item to view its metadata and statistics.
+3. View tracking data is automatically updated via the Edge API.
