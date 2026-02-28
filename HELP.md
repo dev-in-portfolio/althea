@@ -1,23 +1,14 @@
-# ClipForge
+# Help — Clip-Forge
 
-Local-first clipboard pipeline app built with Tauri (Rust + SQLite) and Svelte.
+## Overview
+Clip-Forge is a Svelte-based application for quick media clipping and metadata attachment.
 
 ## Features
-- Clipboard history with pinning
-- Transform pipelines (wrap code blocks, JSON pretty, patch standardizer)
-- Hotkey-ready pipeline records
-- Preview before overwrite and apply to clipboard
-- Local-only persistence
+- **Svelte UI**: Reactive and lightweight user interface.
+- **Media Clipping**: Extract specific segments from larger media files.
+- **Metadata Tagging**: Attach operational tags to clips for easy retrieval.
 
-## Dev Setup
-1. Install Node dependencies
-   - `pnpm install`
-2. Install Rust + Tauri prerequisites
-3. Run UI
-   - `pnpm run dev`
-4. Run Tauri app
-   - `pnpm tauri dev`
-
-## Notes
-- Clipboard capture uses the Tauri clipboard API.
-- Global hotkeys and tray wiring are prepared for extension.
+## How to Use
+1. Load a media file into the workspace.
+2. Define start and end points for the clip.
+3. Add metadata tags and save to the Althea asset store.
