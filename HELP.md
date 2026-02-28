@@ -1,9 +1,14 @@
-# Help — patchsmith
+# Help — PatchSmith
 
 ## Overview
-This app provides specialized functionality within the Althea ecosystem.
+PatchSmith is a Python utility for creating and managing patches with integrated audio processing capabilities.
+
+## Features
+- **Audio-Op Integration**: Specialized audio processing for operational signals.
+- **Patch Modeling**: Define and track complex logic patches.
+- **Netlify Ready**: Configured for Python-based edge/functions deployment.
 
 ## How to Use
-1. Open the application URL.
-2. Follow the on-screen prompts and UI elements.
-3. Refer to the specific feature set documented in the app's UI.
+1. Define your patch logic in the Python editor.
+2. Test audio-op integrations for signal processing.
+3. Save and deploy patches to the active Althea environment.
