@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chronicle</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="header">
+        <div>
+          <h1>Chronicle</h1>
+          <p>
+            Build layered timelines, annotate events, and navigate history with zoomable
+            time controls.
+          </p>
+        </div>
+        <div class="badge">Temporal navigation</div>
+      </header>
+
+      <section class="grid">
+        <div class="panel" id="timeline-panel"></div>
+        <div class="panel" id="layer-panel"></div>
+        <div class="panel" id="event-panel"></div>
+      </section>
+
+      <section class="panel" style="margin: 0 32px 32px;" id="canvas-panel"></section>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
