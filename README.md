@@ -1,11 +1,23 @@
-# Althea
+# angular-gridsmith
 
-GridSmith — Angular-style schema-driven grid workbench backed by Neon Postgres.
+This is a standalone application part of the Althea Portfolio.
 
-## Run locally
+## Tech Stack
+- **Framework**: Node.js / JavaScript
+- **Deployment**: Netlify
 
-1. `npm install`
-2. `export DATABASE_URL=postgresql://...`
-3. `npm run dev`
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout angular-gridsmith
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   npm install && npm run build
+   ```
 
-App runs at `http://127.0.0.1:3019`.
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `npm install && npm run build`
+- **Publish Directory**: `dist`
