@@ -1,47 +1,14 @@
-# TagTrellis
+# Help — TagTrellis
 
-TagTrellis lets you build a private tag graph and attach “things” (notes or links) to tags. It uses Supabase Auth + Postgres + RLS for privacy, plus a 2-hop neighborhood RPC.
+## Overview
+TagTrellis is a Next.js application for hierarchical tagging and categorization of complex operational assets.
 
-## Requirements
+## Features
+- **Trellis Hierarchy**: Create nested, multi-level tag structures for deep categorization.
+- **Searchable Tags**: Fast, client-side search across the entire tagging hierarchy.
+- **Asset Mapping**: Link tags to specific documents, signals, and projects.
 
-- Node.js 20+
-- Supabase project (Auth + Postgres)
-
-## Install
-
-```bash
-npm install
-```
-
-## Environment
-
-```
-NEXT_PUBLIC_SUPABASE_URL=...
-NEXT_PUBLIC_SUPABASE_ANON_KEY=...
-NEXT_PUBLIC_BASE_URL=http://localhost:5180
-```
-
-## Database
-
-Run `sql/001_init.sql` in Supabase SQL editor to create tables, RLS policies, and the `tag_neighborhood` RPC.
-
-## Run
-
-```bash
-npm run dev
-```
-
-Build + start:
-
-```bash
-npm run build
-npm run start
-```
-
-## Smoke Test
-
-1. Login with a magic link
-2. Create tags
-3. Add an edge between tags
-4. Create a thing and tag it
-5. Open a tag and see its neighborhood + tagged things
+## How to Use
+1. Define your tag hierarchy in the Trellis editor.
+2. Assign tags to assets to create a structured categorization map.
+3. Use the tag browser to navigate and filter assets by their hierarchical tags.
