@@ -1,31 +1,14 @@
-# Hono Gatekeeper
+# Help — Hono Gatekeeper
 
-Minimal API gateway for issuing scoped keys, enforcing rate limits, and proxying requests to upstream services.
+## Overview
+Gatekeeper is an authentication and rate-limiting proxy service for securing Althea APIs.
 
 ## Features
-- Scoped API keys stored in Neon (hash-only)
-- Fixed-window rate limiting per token
-- Admin endpoints protected by a master token
-- Read/write proxy routing with scope checks
+- **Proxy Logic**: Transparently proxy requests to backend services.
+- **Rate Limiting**: Protect your infrastructure from excessive traffic.
+- **Authentication**: Built-in logic for user key validation.
 
-## Setup
-1. Install dependencies
-   - `pnpm install`
-2. Create `.env` from `.env.example`
-3. Apply SQL in `sql/001_gatekeeper.sql`
-4. Run locally
-   - `pnpm run dev`
-
-## Admin API
-Use `Authorization: Bearer <MASTER_ADMIN_TOKEN>` for admin endpoints.
-
-- `POST /api/admin/keys` → `{ label, scopes[] }`
-- `PATCH /api/admin/keys/:id` → `{ scopes?, isActive? }`
-- `GET /api/admin/keys`
-- `DELETE /api/admin/keys/:id`
-
-## Proxy API
-Use `Authorization: Bearer <issued_token>`
-
-- `GET /api/proxy/*` (requires `read` scope)
-- `POST /api/proxy/*` (requires `write` scope)
+## How to Use
+1. Route your API traffic through the Gatekeeper endpoint.
+2. Configure rate limits via the admin configuration.
+3. Ensure all incoming requests include a valid auth key.
