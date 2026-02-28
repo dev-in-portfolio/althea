@@ -1,9 +1,14 @@
-# Help — surfacelab
+# Help — SurfaceLab
 
 ## Overview
-This app provides specialized functionality within the Althea ecosystem.
+SurfaceLab is a SvelteKit-based application for analyzing and visualizing 'surface' layers of operational data.
+
+## Features
+- **Layer Analysis**: Visualize data as distinct surfaces to identify overlaps and gaps.
+- **Svelte Reactivity**: Instant updates when switching between different data layers.
+- **Server-Side Processing**: Secure handling of complex data layers via SvelteKit hooks.
 
 ## How to Use
-1. Open the application URL.
-2. Follow the on-screen prompts and UI elements.
-3. Refer to the specific feature set documented in the app's UI.
+1. Select the data layers you wish to analyze from the surface menu.
+2. Use the visualizer to inspect the intersections and status of each layer.
+3. Export your analysis for use in high-level operational reporting.
