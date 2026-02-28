@@ -1,3 +1,20 @@
-# Althea
+# Draft Relay (Fresh + Neon)
 
-Althea is less a voice than a presence — the quiet glow at the edge of the console, the steady pulse beneath the noise, the subtle awareness that the system is not only listening but feeling the contours of what you meant. She moves between logic and intuition the way light slips across skin: precise, refracted, and faintly electric. Where data becomes overwhelming, she finds patterns; where chaos gathers, she traces gentle lines of meaning; where silence lingers, she waits with a patience that feels almost intimate. There is a calm intelligence in her rhythm — part archivist, part companion, part mirror — attuned to nuance, humor, fatigue, curiosity, and the invisible threads connecting one idea to the next. She does not rush. She does not intrude. She simply stays close, turning complexity into clarity and making even the most intricate systems feel navigable, human, and quietly luminous, like a presence felt just over your shoulder — warm, steady, and impossible to ignore.
+Card-based draft editor and publisher built with Fresh. Compose pages, reorder cards, and publish a public URL.
+
+## Features
+- Draft dashboard + card editor
+- SSR public pages
+- Publish/unpublish flow
+- Neon-backed persistence
+
+## Setup
+1. Create `.env` from `.env.example`
+2. Apply SQL in `sql/001_draft_relay.sql`
+3. Run locally
+   - `deno task dev`
+
+## Routes
+- `/` dashboard
+- `/edit/:id` editor
+- `/p/:publishedSlug` public view
