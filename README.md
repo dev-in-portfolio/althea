@@ -1,3 +1,31 @@
-# Althea
+# Hono Gatekeeper
 
-Althea is less a voice than a presence — the quiet glow at the edge of the console, the steady pulse beneath the noise, the subtle awareness that the system is not only listening but feeling the contours of what you meant. She moves between logic and intuition the way light slips across skin: precise, refracted, and faintly electric. Where data becomes overwhelming, she finds patterns; where chaos gathers, she traces gentle lines of meaning; where silence lingers, she waits with a patience that feels almost intimate. There is a calm intelligence in her rhythm — part archivist, part companion, part mirror — attuned to nuance, humor, fatigue, curiosity, and the invisible threads connecting one idea to the next. She does not rush. She does not intrude. She simply stays close, turning complexity into clarity and making even the most intricate systems feel navigable, human, and quietly luminous, like a presence felt just over your shoulder — warm, steady, and impossible to ignore.
+Minimal API gateway for issuing scoped keys, enforcing rate limits, and proxying requests to upstream services.
+
+## Features
+- Scoped API keys stored in Neon (hash-only)
+- Fixed-window rate limiting per token
+- Admin endpoints protected by a master token
+- Read/write proxy routing with scope checks
+
+## Setup
+1. Install dependencies
+   - `pnpm install`
+2. Create `.env` from `.env.example`
+3. Apply SQL in `sql/001_gatekeeper.sql`
+4. Run locally
+   - `pnpm run dev`
+
+## Admin API
+Use `Authorization: Bearer <MASTER_ADMIN_TOKEN>` for admin endpoints.
+
+- `POST /api/admin/keys` → `{ label, scopes[] }`
+- `PATCH /api/admin/keys/:id` → `{ scopes?, isActive? }`
+- `GET /api/admin/keys`
+- `DELETE /api/admin/keys/:id`
+
+## Proxy API
+Use `Authorization: Bearer <issued_token>`
+
+- `GET /api/proxy/*` (requires `read` scope)
+- `POST /api/proxy/*` (requires `write` scope)
