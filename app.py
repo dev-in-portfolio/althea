@@ -384,6 +384,18 @@ def export_approved(token: str, project_id: str):
         return f"{exc}"
 
 
+def diagnostics(token: str):
+    try:
+        _require_auth(token)
+        checks = []
+        checks.append("PASS: Auth token valid")
+        checks.append("INFO: DATABASE_URL set" if os.getenv("DATABASE_URL") else "WARN: DATABASE_URL missing")
+        checks.append("INFO: APP_PASSCODE set" if APP_PASSCODE else "WARN: APP_PASSCODE missing")
+        return "\n".join(checks)
+    except Exception as exc:
+        return f"ERROR: {exc}"
+
+
 def app() -> gr.Blocks:
     with gr.Blocks(title="PatchSmith") as demo:
         gr.Markdown("# PatchSmith\nStructured patch builder with strict matching and approvals.")
@@ -502,14 +514,56 @@ def app() -> gr.Blocks:
                     outputs=approved_block,
                 )
 
+            with gr.Tab("Diagnostics"):
+                gr.Markdown(
+                    "If the UI is stuck, this panel captures client-side errors without devtools.\n"
+                    "Use the button below after unlocking to run server checks."
+                )
+                client_errors = gr.Textbox(
+                    label="Client Errors",
+                    lines=8,
+                    interactive=False,
+                    elem_id="client-errors",
+                )
+                server_checks = gr.Textbox(
+                    label="Server Checks",
+                    lines=6,
+                    interactive=False,
+                )
+                run_checks = gr.Button("Run Server Checks")
+                run_checks.click(diagnostics, inputs=auth_state, outputs=server_checks)
+                gr.HTML(
+                    """
+                    <script>
+                    (function () {
+                      const getBox = () => document.querySelector('#client-errors textarea');
+                      const log = (msg) => {
+                        const el = getBox();
+                        if (!el) return;
+                        const stamp = new Date().toISOString();
+                        el.value += `[${stamp}] ${msg}\\n`;
+                        el.scrollTop = el.scrollHeight;
+                      };
+                      window.addEventListener('error', (e) => {
+                        log(`error: ${e.message} at ${e.filename}:${e.lineno}:${e.colno}`);
+                      });
+                      window.addEventListener('unhandledrejection', (e) => {
+                        log(`promise: ${e.reason}`);
+                      });
+                    })();
+                    </script>
+                    """
+                )
+
         project_select.change(refresh_files, inputs=[auth_state, project_select], outputs=patch_file)
 
+    demo.enable_queue = False
     return demo
 
 
 def main() -> None:
     demo = app()
-    demo.launch(server_name="0.0.0.0", server_port=8502, show_api=False)
+    demo.launch(server_name="0.0.0.0", server_port=8502, show_api=False, show_error=True)
 
 
 if __name__ == "__main__":
