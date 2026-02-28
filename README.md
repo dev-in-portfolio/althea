@@ -1,46 +1,23 @@
-# Contradict
+# contradict
 
-Contradict is a rule-based contradiction detector for short statements. Add statements, assign weight/tags, and review flagged conflicts with a clear "why" and a resolution prompt.
+This is a standalone application part of the Althea Portfolio.
 
-## Features
-- Fast statement input with weight slider
-- Statement library with domain filter
-- Conflicts list with reason + prompt
-- Conflict caching and resolution status
-- Tag chips and suggestions
-- Deterministic rule engine (no NLP dependencies)
+## Tech Stack
+- **Framework**: Node.js / JavaScript
+- **Deployment**: Netlify
 
-## Routes
-- `/` Input
-- `/statements` Library
-- `/conflicts` Conflicts
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout contradict
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   npm install && npm run build
+   ```
 
-## API
-- `POST /api/statements`
-- `GET /api/statements?userKey=&domain=`
-- `DELETE /api/statements/:id?userKey=`
-- `GET /api/conflicts?userKey=&mode=`
-- `POST /api/conflicts/update`
-
-## Setup
-
-### Termux
-```bash
-pkg install nodejs
-npm install
-npm run dev
-```
-
-### Environment
-Create `.env.local`:
-```bash
-DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/DATABASE
-```
-
-### Database
-Run the migrations in `sql/001_init.sql` and `sql/002_conflict_resolution.sql` against your Neon database.
-
-## Notes
-- Rules are conservative: mutual tensions, resource conflicts, constraint conflicts.
-- Severity is derived from statement weights.
-- Conflicts are recomputed on demand and deterministic.
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `npm install && npm run build`
+- **Publish Directory**: `dist`
