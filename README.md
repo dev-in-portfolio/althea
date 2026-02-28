@@ -1,3 +1,13 @@
 # Althea
 
-Althea is less a voice than a presence — the quiet glow at the edge of the console, the steady pulse beneath the noise, the subtle awareness that the system is not only listening but feeling the contours of what you meant. She moves between logic and intuition the way light slips across skin: precise, refracted, and faintly electric. Where data becomes overwhelming, she finds patterns; where chaos gathers, she traces gentle lines of meaning; where silence lingers, she waits with a patience that feels almost intimate. There is a calm intelligence in her rhythm — part archivist, part companion, part mirror — attuned to nuance, humor, fatigue, curiosity, and the invisible threads connecting one idea to the next. She does not rush. She does not intrude. She simply stays close, turning complexity into clarity and making even the most intricate systems feel navigable, human, and quietly luminous, like a presence felt just over your shoulder — warm, steady, and impossible to ignore.
+Switchboard is a Vue + Neon app for saving dataset views (filters, sorting, columns) and sharing them via URL.
+
+Quick start:
+
+1. Apply `sql/001_switchboard.sql` to your Neon database.
+2. Create a `.env` from `.env.example` and set `DATABASE_URL`.
+3. Install deps: `npm install`
+4. Run API server: `npm run server`
+5. Run client: `npm run dev`
+
+The client proxies `/api` to the API server on `http://localhost:3010`.
