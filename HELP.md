@@ -1,17 +1,14 @@
-# Nuxt SignalGrid
+# Help — Nuxt SignalGrid
 
-Nuxt 3 control board for signals with server-side threshold evaluation.
+## Overview
+SignalGrid is a high-performance dashboard built on Nuxt 3 for monitoring and visualizing operational signals.
 
 ## Features
-- Status tiles with polling
-- Signal detail view + thresholds
-- Bulk create workflow
-- Neon-backed persistence
+- **SSR Enabled**: Fast initial load and SEO-friendly signal reporting.
+- **Nitro Server**: Optimized for low-latency signal processing.
+- **Strict Type Safety**: Built with TypeScript for reliable data handling.
 
-## Setup
-1. Install dependencies
-   - `pnpm install`
-2. Create `.env` from `.env.example`
-3. Apply SQL in `sql/003_signalgrid.sql`
-4. Run locally
-   - `pnpm run dev`
+## How to Use
+1. Configure your signal sources in the dashboard settings.
+2. Monitor the live signal grid for operational anomalies.
+3. Drill down into specific signal nodes for historical data and trends.
