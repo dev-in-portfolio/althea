@@ -1,23 +1,23 @@
-# Operator Ledger
+# operator-ledger
 
-Local-first decision and outcomes tracker built with Tauri (Rust + SQLite) and Svelte.
+This is a standalone application part of the Althea Portfolio.
 
-## Features
-- Capture decisions with rationale and confidence
-- Attach outcomes and lessons learned
-- Timeline feed with filters
-- Quick insights (low confidence, failed experiments, pivots)
-- Export ledger to JSON
+## Tech Stack
+- **Framework**: Node.js / JavaScript
+- **Deployment**: Netlify
 
-## Dev Setup
-1. Install Node dependencies
-   - `pnpm install`
-2. Install Rust + Tauri prerequisites
-3. Run UI
-   - `pnpm run dev`
-4. Run Tauri app (after installing tauri-cli)
-   - `pnpm tauri dev`
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout operator-ledger
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   npm install && npm run build
+   ```
 
-## Notes
-- SQLite database is stored in the Tauri app data directory.
-- `export_json` writes `ledger_export.json` alongside the DB.
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `npm install && npm run build`
+- **Publish Directory**: `dist`
