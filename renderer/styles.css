@@ -1,0 +1,91 @@
+:root {
+  --bg: #0a0f1f;
+  --panel: #141b2b;
+  --card: #0f1424;
+  --accent: #ffb86c;
+  --accent-2: #50fa7b;
+  --text: #f8f8f2;
+  --muted: #9aa4b2;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  background: radial-gradient(circle at top, #1b2440 0%, #0a0f1f 55%);
+  color: var(--text);
+}
+
+header {
+  padding: 24px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+main {
+  display: grid;
+  grid-template-columns: 280px 1fr 320px;
+  gap: 16px;
+  padding: 24px 32px;
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.canvas-panel {
+  overflow: auto;
+  position: relative;
+}
+
+#map-canvas {
+  background: #0b0d14;
+  border-radius: 12px;
+}
+
+label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: var(--card);
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+button {
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  border: none;
+  color: #0a0f1f;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+.tool-btn.active {
+  border: 1px solid var(--accent);
+}
+
+@media (max-width: 1100px) {
+  main { grid-template-columns: 1fr; }
+}

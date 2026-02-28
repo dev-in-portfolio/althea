@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MapStencil</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>MapStencil</h1>
+        <p>Offline map scratchpad with pins and routes.</p>
+      </div>
+      <div>
+        <button id="open-map">Open Map</button>
+        <button id="open-project">Open Project</button>
+        <button id="save-project">Save Project</button>
+        <button id="export-json">Export JSON</button>
+        <button id="export-png">Export PNG</button>
+      </div>
+    </header>
+
+    <main>
+      <aside class="panel" id="tool-panel"></aside>
+      <section class="panel canvas-panel">
+        <canvas id="map-canvas"></canvas>
+      </section>
+      <aside class="panel" id="detail-panel"></aside>
+    </main>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>

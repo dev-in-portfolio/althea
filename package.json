@@ -1,0 +1,13 @@
+{
+  "name": "mapstencil",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "electron ."
+  },
+  "devDependencies": {
+    "electron": "31.2.1"
+  }
+}
