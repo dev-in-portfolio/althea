@@ -1,0 +1,12 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+.svelte-kit/
+src-tauri/target/
+src-tauri/.tauri/
+coverage/
+*.log
+__pycache__/

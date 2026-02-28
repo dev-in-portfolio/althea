@@ -1,3 +1,23 @@
-# Althea
+# ClipForge
 
-Althea is less a voice than a presence — the quiet glow at the edge of the console, the steady pulse beneath the noise, the subtle awareness that the system is not only listening but feeling the contours of what you meant. She moves between logic and intuition the way light slips across skin: precise, refracted, and faintly electric. Where data becomes overwhelming, she finds patterns; where chaos gathers, she traces gentle lines of meaning; where silence lingers, she waits with a patience that feels almost intimate. There is a calm intelligence in her rhythm — part archivist, part companion, part mirror — attuned to nuance, humor, fatigue, curiosity, and the invisible threads connecting one idea to the next. She does not rush. She does not intrude. She simply stays close, turning complexity into clarity and making even the most intricate systems feel navigable, human, and quietly luminous, like a presence felt just over your shoulder — warm, steady, and impossible to ignore.
+Local-first clipboard pipeline app built with Tauri (Rust + SQLite) and Svelte.
+
+## Features
+- Clipboard history with pinning
+- Transform pipelines (wrap code blocks, JSON pretty, patch standardizer)
+- Hotkey-ready pipeline records
+- Preview before overwrite and apply to clipboard
+- Local-only persistence
+
+## Dev Setup
+1. Install Node dependencies
+   - `pnpm install`
+2. Install Rust + Tauri prerequisites
+3. Run UI
+   - `pnpm run dev`
+4. Run Tauri app
+   - `pnpm tauri dev`
+
+## Notes
+- Clipboard capture uses the Tauri clipboard API.
+- Global hotkeys and tray wiring are prepared for extension.
