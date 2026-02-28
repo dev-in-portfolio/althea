@@ -1,16 +1,14 @@
-# Nuxt ViewVault
+# Help — Nuxt ViewVault
 
-Nuxt 3 app for building, saving, and applying filter views backed by Neon.
+## Overview
+ViewVault is a Nuxt 3-powered secure viewer for sensitive operational data and media archives.
 
 ## Features
-- Dataset browser with filters, sort, pagination
-- Saved views persisted via Nitro server routes
-- URL-first state for shareable views
+- **Vaulted Viewing**: Secure, read-only access to curated datasets.
+- **Demo Mode**: Built-in demo data for testing and training.
+- **Responsive UI**: Optimized for multi-device data exploration.
 
-## Setup
-1. Install dependencies
-   - `pnpm install`
-2. Create `.env` from `.env.example`
-3. Apply SQL in `sql/001_viewvault.sql`
-4. Run locally
-   - `pnpm run dev`
+## How to Use
+1. Authenticate to unlock the vault.
+2. Select a dataset or media batch to view.
+3. Use the interactive tools to filter and inspect specific data points.
