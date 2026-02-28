@@ -1,17 +1,14 @@
-# Remix DiffAtlas
+# Help — Remix DiffAtlas
 
-Dataset diffing and change classification built with Remix + Neon.
+## Overview
+DiffAtlas is a Remix-based application for managing and executing complex data comparison (diff) jobs.
 
 ## Features
-- Create diff jobs and snapshots
-- Parse JSON array, NDJSON, or CSV
-- Compare snapshots and classify added/removed/modified
-- Persist diff results
+- **Job Management**: Create, track, and review data comparison jobs.
+- **Server-Side Diffing**: High-performance diffing logic executed on the server.
+- **Relational Backend**: Powered by PostgreSQL for persistent job history.
 
-## Setup
-1. Install dependencies
-   - `pnpm install`
-2. Create `.env` from `.env.example`
-3. Apply SQL in `sql/003_diffatlas.sql`
-4. Run locally
-   - `pnpm run dev`
+## How to Use
+1. Create a new Diff Job by specifying the dataset name and key field.
+2. Execute the job and monitor progress in the job detail view.
+3. Compare results to identify discrepancies between data sources.
