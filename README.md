@@ -1,16 +1,23 @@
-# Nuxt ViewVault
+# nuxt-view-vault
 
-Nuxt 3 app for building, saving, and applying filter views backed by Neon.
+This is a standalone application part of the Althea Portfolio.
 
-## Features
-- Dataset browser with filters, sort, pagination
-- Saved views persisted via Nitro server routes
-- URL-first state for shareable views
+## Tech Stack
+- **Framework**: Node.js / JavaScript
+- **Deployment**: Netlify
 
-## Setup
-1. Install dependencies
-   - `pnpm install`
-2. Create `.env` from `.env.example`
-3. Apply SQL in `sql/001_viewvault.sql`
-4. Run locally
-   - `pnpm run dev`
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout nuxt-view-vault
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   npm install && npm run build
+   ```
+
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `npm install && npm run build`
+- **Publish Directory**: `dist`
