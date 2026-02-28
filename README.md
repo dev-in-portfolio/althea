@@ -1,49 +1,23 @@
-# Radar of One
+# radar-of-one
 
-Radar of One is a personal pattern-discovery engine. Log small events with tags and optional context, then review a lightweight timeline and a text-first Signals page that surfaces emerging patterns without turning into a heavy journaling system.
+This is a standalone application part of the Althea Portfolio.
 
-## Features
-- Fast event logging with tags and optional context
-- Timeline with tag filters and pagination
-- Signals page with explainable pattern detection
-- Context correlations (place/energy/mode) in signals
-- Inline event editing in the timeline
-- Import JSON events in Settings
-- Local anonymous identity stored in `localStorage`
-- Neon Postgres backend for storage and signals caching
+## Tech Stack
+- **Framework**: Node.js / JavaScript
+- **Deployment**: Netlify
 
-## Routes
-- `/` Log events
-- `/timeline` Timeline and tag filters
-- `/signals` Pattern summaries
-- `/settings` User key + export/import
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout radar-of-one
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   npm install && npm run build
+   ```
 
-## API
-- `POST /api/events`
-- `GET /api/events?userKey=&cursor=&limit=&tags=`
-- `DELETE /api/events/:id?userKey=`
-- `GET /api/signals?userKey=&window=30d`
-
-## Setup
-
-### Termux
-```bash
-pkg install nodejs
-npm install
-npm run dev
-```
-
-### Environment
-Create `.env.local`:
-```bash
-DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/DATABASE
-```
-
-### Database
-Run the migrations in `sql/001_init.sql` and `sql/002_signals_cache_events_updated.sql` against your Neon database.
-
-## Notes
-- Tags are normalized to lowercase kebab-case.
-- Signals are cached per user for up to 1 hour.
-- The Signals engine is deterministic and explainable.
-- If the backend is not configured, the UI will show a banner prompt.
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `npm install && npm run build`
+- **Publish Directory**: `dist`
