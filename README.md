@@ -1,10 +1,23 @@
-# Althea
+# recalgrid
 
-RecallGrid is a Gradio knowledge library for saving chunks and retrieving them with full-text search, fuzzy title matching, and tag filters.
+This is a standalone application part of the Althea Portfolio.
 
-Quick start:
+## Tech Stack
+- **Framework**: Python (FastAPI/Flask)
+- **Deployment**: Netlify
 
-1. Create a `.env` from `.env.example` and set `DATABASE_URL` + `APP_PASSCODE`.
-2. Apply `sql/001_recallgrid.sql` to enable FTS + trigram search.
-3. Install deps: `pip install -r requirements.txt`
-4. Run: `python app.py`
+## Local Development
+1. Clone the repository and checkout this branch:
+   ```bash
+   git checkout recalgrid
+   ```
+2. Configure environment variables in `.env`.
+3. Install and Build:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Deployment
+This branch is configured for Netlify Git Deploy.
+- **Build Command**: `pip install -r requirements.txt`
+- **Publish Directory**: `public`
