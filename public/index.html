@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GridSmith</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="header">
+        <div>
+          <h1>GridSmith</h1>
+          <p>
+            Schema-driven grid workbench. Define a dataset schema, load rows, and explore
+            live filters with server-side pagination.
+          </p>
+        </div>
+        <div class="tags">
+          <span>Schema Grid</span>
+          <span>Server Pagination</span>
+          <span>Neon Backed</span>
+        </div>
+      </header>
+
+      <section class="grid">
+        <div class="panel">
+          <h2>Datasets</h2>
+          <label>Active dataset</label>
+          <select id="dataset-select"></select>
+          <div class="status" id="dataset-status"></div>
+
+          <label>New dataset name</label>
+          <input id="dataset-name" placeholder="Exhibits" />
+          <label>Slug (optional)</label>
+          <input id="dataset-slug" placeholder="exhibits" />
+          <label>Schema JSON</label>
+          <textarea id="schema-input"></textarea>
+          <button id="create-dataset">Create Dataset</button>
+        </div>
+
+        <div class="panel">
+          <h2>Rows</h2>
+          <label>Row key field</label>
+          <input id="row-key" placeholder="id" />
+          <label>Paste rows (JSON array or object)</label>
+          <textarea id="rows-input"></textarea>
+          <button id="ingest-rows">Upsert Rows</button>
+          <div class="status" id="row-status"></div>
+        </div>
+
+        <div class="panel">
+          <h2>Filters</h2>
+          <div id="filters"></div>
+          <div class="pagination">
+            <button id="prev-page">Prev</button>
+            <span id="page-info"></span>
+            <button id="next-page">Next</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" style="margin: 0 32px 32px;">
+        <h2>Grid</h2>
+        <div id="grid-container"></div>
+      </section>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

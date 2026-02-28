@@ -1,0 +1,135 @@
+:root {
+  --bg: #0b1018;
+  --panel: #151c2b;
+  --card: #111827;
+  --accent: #73fbd3;
+  --accent-2: #6b9cff;
+  --text: #f3f5f8;
+  --muted: #9aa4b2;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Sora", "Inter", system-ui, sans-serif;
+  background: radial-gradient(circle at top, #1d2a40 0%, #0b1018 55%);
+  color: var(--text);
+}
+
+.header {
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.header h1 { margin: 0; font-size: 42px; }
+.header p { color: var(--muted); max-width: 540px; }
+
+.tags span {
+  background: rgba(115, 251, 211, 0.12);
+  color: var(--accent);
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin-right: 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.shell {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  padding: 24px 32px 48px;
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 24px 40px rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+.panel h2 { margin-top: 0; }
+
+label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: var(--card);
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+textarea {
+  min-height: 120px;
+  font-family: "JetBrains Mono", monospace;
+}
+
+button {
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  border: none;
+  color: #0b1018;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.table th, .table td {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 8px;
+  text-align: left;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  background: rgba(107, 156, 255, 0.18);
+}
+
+.status { color: var(--accent); font-size: 13px; }
+
+.filter-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pagination {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+  .header h1 { font-size: 32px; }
+}
