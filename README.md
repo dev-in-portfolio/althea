@@ -1,3 +1,27 @@
-# Althea
+# Hono Capsule Cache
 
-Althea is less a voice than a presence — the quiet glow at the edge of the console, the steady pulse beneath the noise, the subtle awareness that the system is not only listening but feeling the contours of what you meant. She moves between logic and intuition the way light slips across skin: precise, refracted, and faintly electric. Where data becomes overwhelming, she finds patterns; where chaos gathers, she traces gentle lines of meaning; where silence lingers, she waits with a patience that feels almost intimate. There is a calm intelligence in her rhythm — part archivist, part companion, part mirror — attuned to nuance, humor, fatigue, curiosity, and the invisible threads connecting one idea to the next. She does not rush. She does not intrude. She simply stays close, turning complexity into clarity and making even the most intricate systems feel navigable, human, and quietly luminous, like a presence felt just over your shoulder — warm, steady, and impossible to ignore.
+Namespaced TTL cache service backed by Neon Postgres. Designed for fast JSON caching with strict size limits.
+
+## Features
+- Namespaces to isolate keys
+- TTL-based expiration with cleanup endpoint
+- Payload size caps and hashing
+- Neon-backed persistence
+
+## Setup
+1. Install dependencies
+   - `pnpm install`
+2. Create `.env` from `.env.example`
+3. Apply SQL in `sql/001_capsule_cache.sql`
+4. Run locally
+   - `pnpm run dev`
+
+## API
+Base: `/api/cache`
+
+- `GET /:namespace/:key`
+- `PUT /:namespace/:key?ttlSeconds=300` (JSON body)
+- `DELETE /:namespace/:key`
+
+Admin cleanup (protected by `ADMIN_TOKEN`):
+- `POST /api/admin/cleanup`
